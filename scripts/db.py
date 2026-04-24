@@ -223,6 +223,68 @@ CREATE TABLE IF NOT EXISTS pipelines (
     completed_at TEXT
 );
 
+CREATE TABLE IF NOT EXISTS amazon_listings (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    asin TEXT NOT NULL,
+    marketplace TEXT DEFAULT 'US',
+    title TEXT,
+    subtitle TEXT,
+    author TEXT,
+    imprint TEXT,
+    publisher TEXT,
+    publish_date TEXT,
+    price_usd REAL,
+    page_count INTEGER,
+    trim_size TEXT,
+    bsr_overall INTEGER,
+    bsr_categories TEXT,           -- JSON: {"Sudoku": 11, "Combinatorics": 1}
+    rating_avg REAL,
+    reviews_count INTEGER,
+    description TEXT,
+    keywords_inferred TEXT,        -- JSON array
+    bisac_categories TEXT,         -- JSON array
+    cover_url TEXT,
+    product_url TEXT,
+    notes TEXT,
+    raw_json_path TEXT,            -- path to data/scrapes/raw/... file
+    scrape_source TEXT,            -- 'apify:junglee/amazon-crawler' | 'supadata' | 'manual'
+    scraped_at TEXT DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE IF NOT EXISTS niche_competitors (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    niche_id INTEGER NOT NULL REFERENCES niches(id),
+    listing_id INTEGER NOT NULL REFERENCES amazon_listings(id),
+    rank_in_niche INTEGER,
+    is_benchmark INTEGER DEFAULT 0,   -- 1 = THE reference book the niche was derived from
+    notes TEXT,
+    created_at TEXT DEFAULT CURRENT_TIMESTAMP,
+    UNIQUE(niche_id, listing_id)
+);
+
+CREATE TABLE IF NOT EXISTS research_queries (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    query TEXT NOT NULL,
+    query_type TEXT,               -- 'keyword' | 'asin' | 'category' | 'bestsellers_list'
+    source TEXT,                   -- 'apify:junglee/amazon-search' | 'supadata' | 'websearch'
+    niche_id INTEGER REFERENCES niches(id),
+    result_count INTEGER,
+    raw_result_path TEXT,
+    summary TEXT,
+    executed_at TEXT DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE IF NOT EXISTS insights (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    category TEXT,                 -- 'pricing' | 'category_gaming' | 'cover_pattern' | 'title_seo' | 'layout' | 'series_play' | 'trim_size' | 'review_velocity'
+    pattern TEXT NOT NULL,
+    evidence TEXT,                 -- JSON: {"asins": [...], "metric": "..."}
+    confidence TEXT CHECK(confidence IN ('HIGH','MEDIUM','LOW')),
+    applies_to_book_type TEXT,     -- 'sudoku' | 'coloring' | 'activity' | 'low_content' | 'all'
+    created_at TEXT DEFAULT CURRENT_TIMESTAMP,
+    updated_at TEXT DEFAULT CURRENT_TIMESTAMP
+);
+
 CREATE INDEX IF NOT EXISTS idx_books_status ON books(status);
 CREATE INDEX IF NOT EXISTS idx_books_niche ON books(niche_id);
 CREATE INDEX IF NOT EXISTS idx_royalties_date ON royalties(date);
@@ -230,6 +292,11 @@ CREATE INDEX IF NOT EXISTS idx_royalties_book ON royalties(book_id);
 CREATE INDEX IF NOT EXISTS idx_ad_perf_date ON ad_performance(date);
 CREATE INDEX IF NOT EXISTS idx_actions_status ON actions(status);
 CREATE INDEX IF NOT EXISTS idx_pipelines_status ON pipelines(status);
+CREATE INDEX IF NOT EXISTS idx_amazon_listings_asin ON amazon_listings(asin, scraped_at DESC);
+CREATE INDEX IF NOT EXISTS idx_amazon_listings_bsr ON amazon_listings(bsr_overall);
+CREATE INDEX IF NOT EXISTS idx_niche_competitors_niche ON niche_competitors(niche_id);
+CREATE INDEX IF NOT EXISTS idx_research_queries_query ON research_queries(query, executed_at DESC);
+CREATE INDEX IF NOT EXISTS idx_insights_category ON insights(category, applies_to_book_type);
 """
 
 
@@ -249,8 +316,11 @@ JSON_FIELDS = {
 
 def get_conn() -> sqlite3.Connection:
     DB_PATH.parent.mkdir(parents=True, exist_ok=True)
-    conn = sqlite3.connect(DB_PATH)
+    conn = sqlite3.connect(DB_PATH, timeout=30.0, isolation_level=None)
     conn.row_factory = sqlite3.Row
+    conn.execute("PRAGMA journal_mode = WAL")
+    conn.execute("PRAGMA busy_timeout = 30000")
+    conn.execute("PRAGMA synchronous = NORMAL")
     conn.execute("PRAGMA foreign_keys = ON")
     return conn
 
@@ -444,6 +514,65 @@ def bulk_create(table: str, payloads: list[dict]) -> list[int]:
     return [create(table, p) for p in payloads]
 
 
+def append_step(pipeline_id: int, step: str, status: str, note: str = "") -> None:
+    """Append an event to pipelines.step_log (JSON array). Atomic across processes
+    via BEGIN IMMEDIATE — safe to call concurrently from parallel sub-agents."""
+    conn = get_conn()
+    event = {
+        "step": step,
+        "status": status,
+        "ts": datetime.now(timezone.utc).isoformat(timespec="seconds").replace("+00:00", "Z"),
+        "note": note,
+    }
+    for _ in range(5):
+        try:
+            conn.execute("BEGIN IMMEDIATE")
+            cur = conn.execute("SELECT step_log, current_step FROM pipelines WHERE id = ?", (pipeline_id,))
+            row = cur.fetchone()
+            if row is None:
+                conn.execute("ROLLBACK")
+                raise SystemExit(f"pipeline id={pipeline_id} not found")
+            existing = row["step_log"]
+            log = json.loads(existing) if existing else []
+            log.append(event)
+            conn.execute(
+                "UPDATE pipelines SET step_log = ?, current_step = ?, updated_at = ? WHERE id = ?",
+                (json.dumps(log), (row["current_step"] or 1) + 1, datetime.now(timezone.utc).isoformat(), pipeline_id),
+            )
+            conn.execute("COMMIT")
+            return
+        except sqlite3.OperationalError as e:
+            if "database is locked" in str(e) or "database is busy" in str(e):
+                continue
+            raise
+
+
+def list_filtered(table: str, status: str | None, rating: str | None, book_id: int | None,
+                  since: str | None, order_by: str | None, limit: int) -> list[dict]:
+    conn = get_conn()
+    clauses, params = [], []
+    if status:
+        clauses.append("status = ?"); params.append(status)
+    if rating:
+        clauses.append("rating = ?"); params.append(rating)
+    if book_id:
+        clauses.append("book_id = ?"); params.append(book_id)
+    if since:
+        clauses.append("created_at >= ?"); params.append(since)
+    sql = f"SELECT * FROM {table}"
+    if clauses:
+        sql += " WHERE " + " AND ".join(clauses)
+    if order_by:
+        col, _, direction = order_by.partition(":")
+        direction = direction.upper() if direction else "DESC"
+        if direction not in ("ASC", "DESC"):
+            direction = "DESC"
+        sql += f" ORDER BY {col} {direction}"
+    sql += " LIMIT ?"; params.append(limit)
+    rows = conn.execute(sql, params).fetchall()
+    return [_row_to_dict(r, table) for r in rows]
+
+
 def cli() -> None:
     parser = argparse.ArgumentParser(prog="kdp-db")
     sub = parser.add_subparsers(dest="cmd", required=True)
@@ -473,10 +602,19 @@ def cli() -> None:
         list_p.add_argument("--status")
         list_p.add_argument("--rating")
         list_p.add_argument("--book_id", type=int)
+        list_p.add_argument("--since", help="ISO timestamp — only rows with created_at >= since")
+        list_p.add_argument("--order-by", help="column[:ASC|DESC], e.g. expected_impact_usd:DESC")
         list_p.add_argument("--limit", type=int, default=100)
         upd = tsub.add_parser("update")
         upd.add_argument("id", type=int)
         upd.add_argument("payload")
+
+        if table == "pipelines":
+            app = tsub.add_parser("append-log")
+            app.add_argument("--id", type=int, required=True)
+            app.add_argument("--step", required=True)
+            app.add_argument("--status", required=True, choices=["OK", "FAIL", "SKIP", "INFO"])
+            app.add_argument("--note", default="")
 
     roy = sub.add_parser("royalties")
     rsub = roy.add_subparsers(dest="op", required=True)
@@ -516,18 +654,22 @@ def cli() -> None:
             sys.exit(2)
         print(json.dumps(row, indent=2, default=str))
     elif args.op == "list":
-        filters = {}
-        if args.status:
-            filters["status"] = args.status
-        if args.rating:
-            filters["rating"] = args.rating
-        if args.book_id:
-            filters["book_id"] = args.book_id
-        rows = list_rows(table, filters, args.limit)
+        rows = list_filtered(
+            table,
+            status=args.status,
+            rating=args.rating,
+            book_id=args.book_id,
+            since=args.since,
+            order_by=args.order_by,
+            limit=args.limit,
+        )
         print(json.dumps(rows, indent=2, default=str))
     elif args.op == "update":
         update(table, args.id, json.loads(args.payload))
         print(json.dumps({"ok": True, "table": table, "id": args.id}, indent=2))
+    elif args.op == "append-log":
+        append_step(args.id, args.step, args.status, args.note)
+        print(json.dumps({"ok": True, "table": table, "id": args.id, "step": args.step, "status": args.status}, indent=2))
 
 
 if __name__ == "__main__":

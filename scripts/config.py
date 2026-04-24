@@ -2,6 +2,8 @@
 Configuration for KDP Coloring Book Generator.
 All measurements based on Amazon KDP paperback specifications.
 """
+from __future__ import annotations
+
 import json
 import os
 from pathlib import Path

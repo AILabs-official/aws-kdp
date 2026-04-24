@@ -71,7 +71,20 @@ def calculate_cover_dimensions(total_pages: int, trim_w: float = TRIM_WIDTH, tri
 
 
 def count_pages(theme: str) -> int:
-    """Count total pages from generated images."""
+    """Count total pages. Prefers the assembled interior.pdf (authoritative)
+    and falls back to the coloring-book image-count heuristic."""
+    interior_pdf = config.get_interior_pdf_path(theme)
+    if os.path.exists(interior_pdf):
+        try:
+            from pypdf import PdfReader
+            return len(PdfReader(interior_pdf).pages)
+        except Exception:
+            try:
+                from PyPDF2 import PdfReader  # legacy fallback
+                return len(PdfReader(interior_pdf).pages)
+            except Exception:
+                pass  # fall through to heuristic
+
     image_dir = config.get_images_dir(theme)
     if not os.path.exists(image_dir):
         return config.COLORING_PAGES_PER_BOOK * 2 + 3  # Estimate
@@ -238,8 +251,15 @@ def colorize_page(image_path: str, renderer: str = DEFAULT_RENDERER) -> Image.Im
 
 
 def get_sample_pages(theme: str, count: int = 6) -> list[str]:
-    """Select evenly spaced sample pages from the theme."""
+    """Select evenly spaced sample pages from the theme.
+
+    Returns [] when the theme has no images/ directory (e.g. sudoku/puzzle
+    books rendered straight to PDF), which signals `build_cover()` to skip
+    the back-cover sample-pages grid.
+    """
     image_dir = config.get_images_dir(theme)
+    if not os.path.exists(image_dir):
+        return []
     pages = sorted([
         os.path.join(image_dir, f)
         for f in os.listdir(image_dir)
@@ -293,6 +313,267 @@ def draw_text_with_outline(
                 draw.text((x + dx, y + dy), text, font=font, fill=outline_color)
     # Draw main text
     draw.text(position, text, font=font, fill=fill)
+
+
+def _hex_to_rgb(hex_color: str) -> tuple[int, int, int]:
+    s = hex_color.lstrip("#")
+    return (int(s[0:2], 16), int(s[2:4], 16), int(s[4:6], 16))
+
+
+def _draw_sudoku_grid_pil(
+    cover: Image.Image,
+    x: int,
+    y: int,
+    size_px: int,
+    clues: list[list[int]],
+    thick_px: int = 4,
+    thin_px: int = 1,
+    bg: tuple = (255, 255, 255),
+    line: tuple = (20, 20, 20),
+    ink: tuple = (20, 20, 20),
+) -> None:
+    """Draw a 9x9 sudoku grid onto `cover` at (x, y) with width=size_px."""
+    cell = size_px / 9
+    d = ImageDraw.Draw(cover)
+    d.rectangle([x, y, x + size_px, y + size_px], fill=bg)
+    for i in range(10):
+        w = thick_px if i % 3 == 0 else thin_px
+        # horizontal
+        d.line([(x, y + round(i * cell)), (x + size_px, y + round(i * cell))], fill=line, width=w)
+        # vertical
+        d.line([(x + round(i * cell), y), (x + round(i * cell), y + size_px)], fill=line, width=w)
+    font_size = max(10, int(cell * 0.55))
+    font = get_font(font_size, bold=True)
+    for r in range(9):
+        for c in range(9):
+            n = clues[r][c]
+            if not n:
+                continue
+            cx = x + round(c * cell + cell / 2)
+            cy = y + round(r * cell + cell / 2)
+            bbox = d.textbbox((0, 0), str(n), font=font)
+            tw = bbox[2] - bbox[0]
+            th = bbox[3] - bbox[1]
+            d.text((cx - tw // 2 - bbox[0], cy - th // 2 - bbox[1]), str(n), fill=ink, font=font)
+
+
+def _render_sudoku_back_and_spine(
+    cover: Image.Image,
+    dims: dict,
+    plan: dict,
+    author: str,
+    puzzles_path: str,
+) -> None:
+    """Paint the back cover + spine for a sudoku book.
+
+    Matches the front's commercial navy + gold palette, renders three real
+    sample grids (easy / medium / hard) pulled from sudoku_puzzles.json, shows
+    feature bullets + description, and reserves the KDP barcode slot.
+    """
+    palette = plan.get("cover_palette", {}) or {}
+    navy = _hex_to_rgb(palette.get("dominant", "#1B3A5C"))
+    gold = _hex_to_rgb(palette.get("accent_primary", "#D4A857"))
+    cream = _hex_to_rgb(palette.get("accent_secondary", "#F7F1E3"))
+    red = (200, 40, 50)
+    white = (255, 255, 255)
+    navy_lighter = tuple(min(255, c + 14) for c in navy)
+
+    d = ImageDraw.Draw(cover)
+    H = dims["full_height_px"]
+    bleed = dims["bleed_px"]
+    back_x0, back_x1 = 0, dims["spine_start_x"]
+    spine_x0, spine_x1 = dims["spine_start_x"], dims["front_start_x"]
+
+    # --- Navy background for back + spine (full bleed) ---
+    d.rectangle([back_x0, 0, spine_x1, H], fill=navy)
+
+    # --- Subtle sudoku-grid watermark across back ---
+    wm_cell = int(0.42 * config.DPI)
+    for gx in range(bleed - wm_cell, back_x1 + wm_cell, wm_cell):
+        d.line([(gx, 0), (gx, H)], fill=navy_lighter, width=1)
+    for gy in range(bleed - wm_cell, H + wm_cell, wm_cell):
+        d.line([(back_x0, gy), (back_x1, gy)], fill=navy_lighter, width=1)
+
+    safe = dims["safe_px"]
+    content_left = bleed + safe
+    content_right = back_x1 - safe
+    content_w = content_right - content_left
+
+    # --- Top: gold "3 LEVELS" pill + red "GIFT EDITION" pill ---
+    top_y = bleed + int(0.35 * config.DPI)
+    pill_h = int(0.55 * config.DPI)
+
+    red_font = get_font(int(0.22 * config.DPI), bold=True)
+    red_text = "GIFT EDITION"
+    bb = d.textbbox((0, 0), red_text, font=red_font)
+    red_w = (bb[2] - bb[0]) + int(0.7 * config.DPI)
+    d.rounded_rectangle(
+        [content_left, top_y, content_left + red_w, top_y + pill_h],
+        radius=pill_h // 2, fill=red,
+    )
+    d.text(
+        (content_left + (red_w - (bb[2] - bb[0])) // 2 - bb[0],
+         top_y + (pill_h - (bb[3] - bb[1])) // 2 - bb[1]),
+        red_text, fill=white, font=red_font,
+    )
+
+    gold_font = get_font(int(0.22 * config.DPI), bold=True)
+    gold_text = "240 PUZZLES"
+    bb = d.textbbox((0, 0), gold_text, font=gold_font)
+    gold_w = (bb[2] - bb[0]) + int(0.7 * config.DPI)
+    d.rounded_rectangle(
+        [content_right - gold_w, top_y, content_right, top_y + pill_h],
+        radius=pill_h // 2, fill=gold,
+    )
+    d.text(
+        (content_right - gold_w + (gold_w - (bb[2] - bb[0])) // 2 - bb[0],
+         top_y + (pill_h - (bb[3] - bb[1])) // 2 - bb[1]),
+        gold_text, fill=navy, font=gold_font,
+    )
+
+    # --- Headline (white) + subheadline (gold) ---
+    headline = plan.get("back_headline") or "THE PERFECT RETIREMENT GIFT"
+    subheadline = plan.get("back_subheadline") or "240 hand-verified large-print puzzles,"
+    sub2 = "one thoughtful page at a time."
+
+    headline_font = get_font(int(0.42 * config.DPI), bold=True)
+    sub_font = get_font(int(0.26 * config.DPI), bold=False)
+
+    hl_y = top_y + pill_h + int(0.45 * config.DPI)
+    bb = d.textbbox((0, 0), headline, font=headline_font)
+    # Shrink-to-fit
+    while bb[2] - bb[0] > content_w and headline_font.size > 40:
+        headline_font = get_font(headline_font.size - 4, bold=True)
+        bb = d.textbbox((0, 0), headline, font=headline_font)
+    d.text(
+        (content_left + (content_w - (bb[2] - bb[0])) // 2 - bb[0], hl_y),
+        headline, fill=white, font=headline_font,
+    )
+
+    sub_y = hl_y + (bb[3] - bb[1]) + int(0.15 * config.DPI)
+    bb2 = d.textbbox((0, 0), subheadline, font=sub_font)
+    d.text(
+        (content_left + (content_w - (bb2[2] - bb2[0])) // 2 - bb2[0], sub_y),
+        subheadline, fill=gold, font=sub_font,
+    )
+    sub_y2 = sub_y + (bb2[3] - bb2[1]) + int(0.06 * config.DPI)
+    bb3 = d.textbbox((0, 0), sub2, font=sub_font)
+    d.text(
+        (content_left + (content_w - (bb3[2] - bb3[0])) // 2 - bb3[0], sub_y2),
+        sub2, fill=gold, font=sub_font,
+    )
+
+    # --- Cream description panel ---
+    panel_y0 = sub_y2 + (bb3[3] - bb3[1]) + int(0.45 * config.DPI)
+    panel_h = int(2.4 * config.DPI)
+    d.rounded_rectangle(
+        [content_left, panel_y0, content_right, panel_y0 + panel_h],
+        radius=int(0.12 * config.DPI), fill=cream,
+    )
+
+    # Feature bullets inside cream panel
+    bullets = [
+        "240 hand-verified puzzles  (60 easy · 120 medium · 60 hard)",
+        "Large print · one puzzle per page · easy on the eyes",
+        "Every grid has exactly one solution",
+        "Complete answer key included at the back",
+        "A calm, giftable edition for retirement and beyond",
+    ]
+    bullet_font = get_font(int(0.21 * config.DPI), bold=False)
+    by = panel_y0 + int(0.35 * config.DPI)
+    line_gap = int(0.44 * config.DPI)
+    for b in bullets:
+        # gold check-dot
+        dot_r = int(0.08 * config.DPI)
+        d.ellipse(
+            [content_left + int(0.35 * config.DPI) - dot_r,
+             by + int(0.12 * config.DPI) - dot_r,
+             content_left + int(0.35 * config.DPI) + dot_r,
+             by + int(0.12 * config.DPI) + dot_r],
+            fill=gold,
+        )
+        d.text((content_left + int(0.6 * config.DPI), by), b,
+               fill=navy, font=bullet_font)
+        by += line_gap
+
+    # --- Sample grids row (3 mini grids: easy / medium / hard) ---
+    sample_labels = [("EASY", "easy"), ("MEDIUM", "medium"), ("HARD", "hard")]
+    samples_by_diff: dict = {}
+    try:
+        with open(puzzles_path) as f:
+            puzzles = json.load(f)
+        for label, diff in sample_labels:
+            for p in puzzles:
+                if p.get("difficulty") == diff and p.get("puzzle"):
+                    samples_by_diff[diff] = p["puzzle"]
+                    break
+    except Exception as e:
+        print(f"  Warning: could not load sudoku puzzles for back cover: {e}")
+
+    grid_top = panel_y0 + panel_h + int(0.45 * config.DPI)
+    grid_size = int(1.55 * config.DPI)
+    label_h = int(0.35 * config.DPI)
+    slot_w = content_w // 3
+    label_font = get_font(int(0.20 * config.DPI), bold=True)
+
+    for i, (label, diff) in enumerate(sample_labels):
+        slot_x0 = content_left + i * slot_w
+        gx = slot_x0 + (slot_w - grid_size) // 2
+        gy = grid_top + label_h
+
+        # difficulty label in gold above the grid
+        bb = d.textbbox((0, 0), label, font=label_font)
+        d.text(
+            (slot_x0 + (slot_w - (bb[2] - bb[0])) // 2 - bb[0], grid_top),
+            label, fill=gold, font=label_font,
+        )
+
+        clues = samples_by_diff.get(diff)
+        if clues:
+            _draw_sudoku_grid_pil(cover, gx, gy, grid_size, clues,
+                                  thick_px=4, thin_px=1)
+
+    # --- Author credit bottom center ---
+    author_line = author.upper() if author else ""
+    if author_line:
+        author_font = get_font(int(0.22 * config.DPI), bold=True)
+        # Letter-spacing fake: insert spaces between chars
+        spaced = "  ".join(author_line)
+        bb = d.textbbox((0, 0), spaced, font=author_font)
+        ay = H - bleed - safe - int(0.3 * config.DPI) - (bb[3] - bb[1])
+        d.text(
+            (content_left + (content_w - (bb[2] - bb[0])) // 2 - bb[0], ay),
+            spaced, fill=gold, font=author_font,
+        )
+
+    # --- Spine: navy stays, add gold spine title if page count allows ---
+    d.rectangle([spine_x0, 0, spine_x1, H], fill=navy)
+    if dims.get("can_have_spine_text") and dims["spine_w_px"] >= int(0.125 * config.DPI):
+        spine_title = plan.get("spine_title") or plan.get("title", "").upper()
+        if spine_title:
+            # Render title on transparent layer, then rotate and paste on spine.
+            spine_len = H - 2 * bleed - 2 * int(SPINE_TEXT_CLEARANCE * config.DPI)
+            # Font size ~60% of spine width
+            spine_font = get_font(max(14, int(dims["spine_w_px"] * 0.45)), bold=True)
+            bb = Image.new("L", (1, 1))
+            dbb = ImageDraw.Draw(bb)
+            tbb = dbb.textbbox((0, 0), spine_title, font=spine_font)
+            tw, th = tbb[2] - tbb[0], tbb[3] - tbb[1]
+            # Shrink to fit spine_len
+            while tw > spine_len and spine_font.size > 10:
+                spine_font = get_font(spine_font.size - 2, bold=True)
+                tbb = dbb.textbbox((0, 0), spine_title, font=spine_font)
+                tw, th = tbb[2] - tbb[0], tbb[3] - tbb[1]
+
+            layer = Image.new("RGBA", (tw + 8, th + 8), (0, 0, 0, 0))
+            ldraw = ImageDraw.Draw(layer)
+            ldraw.text((4 - tbb[0], 4 - tbb[1]), spine_title, fill=gold + (255,), font=spine_font)
+            # Rotate 90° counterclockwise (reads bottom-to-top on standing spine)
+            rotated = layer.rotate(90, expand=True)
+            # Paste centered in spine horizontally, vertically centered
+            rx = spine_x0 + (dims["spine_w_px"] - rotated.size[0]) // 2
+            ry = (H - rotated.size[1]) // 2
+            cover.paste(rotated, (rx, ry), rotated)
 
 
 def build_cover(
@@ -430,7 +711,7 @@ def build_cover(
             fill=color,
         )
 
-    # --- Back cover: light gradient/solid ---
+    # --- Back cover: light gradient/solid (coloring-book default) ---
     back_colors = {
         "cute_animals": (255, 245, 248),
         "dinosaurs": (245, 255, 245),
@@ -521,10 +802,25 @@ def build_cover(
 
     # --- Sample pages grid (3 colored + 3 line art) ---
     sample_paths = get_sample_pages(theme, 6)
+
+    # Decide whether to colorize: only coloring books have "line art" pages worth
+    # colorizing for the back cover. Sudoku / puzzle / journal samples are already
+    # their final visual form — colorizing them would produce garbage and waste
+    # renderer credits.
+    plan_path_bt = config.get_plan_path(theme)
+    book_type = "coloring"
+    if os.path.exists(plan_path_bt):
+        try:
+            with open(plan_path_bt) as _f:
+                _p = json.load(_f)
+                book_type = (_p.get("book_type") or _p.get("style") or _p.get("content_method") or "coloring").lower()
+        except Exception:
+            pass
+    should_colorize = book_type in {"coloring"}
+
     if sample_paths:
-        print("Generating sample page previews for back cover...")
-        # Colorize first 3, keep last 3 as line art
-        colored_count = min(3, len(sample_paths))
+        print(f"Generating sample page previews for back cover (book_type={book_type}, colorize={should_colorize})...")
+        colored_count = min(3, len(sample_paths)) if should_colorize else 0
         sample_images = []
 
         import time
@@ -598,6 +894,30 @@ def build_cover(
         draw = ImageDraw.Draw(cover)
 
         print(f"  Placed {len(sample_images)} sample pages on back cover.")
+
+    # --- Book-type-aware back cover overlay (runs AFTER generic back to overwrite) ---
+    plan_for_back: dict = {}
+    plan_path_back = config.get_plan_path(theme)
+    if os.path.exists(plan_path_back):
+        try:
+            with open(plan_path_back) as _f:
+                plan_for_back = json.load(_f)
+        except Exception:
+            plan_for_back = {}
+    back_book_type = (
+        plan_for_back.get("book_type")
+        or plan_for_back.get("style")
+        or plan_for_back.get("content_method")
+        or "coloring"
+    ).lower()
+
+    puzzles_path = os.path.join(config.get_book_dir(theme), "sudoku_puzzles.json")
+    is_sudoku_book = back_book_type == "sudoku" or os.path.exists(puzzles_path)
+
+    if is_sudoku_book:
+        print("Rendering sudoku-specific back cover + spine...")
+        _render_sudoku_back_and_spine(cover, dims, plan_for_back, author, puzzles_path)
+        draw = ImageDraw.Draw(cover)
 
     # Barcode placeholder (KDP adds barcode here)
     barcode_w = int(2 * config.DPI)

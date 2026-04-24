@@ -8,3 +8,8 @@ output/**/*.png
 /cc_scape/jadesummer_research
 /.firecrawl
 /jade_summer_idea
+
+# Secrets — never commit
+.env
+.env.*
+!.env.example

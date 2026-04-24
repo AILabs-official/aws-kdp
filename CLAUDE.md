@@ -75,13 +75,41 @@ Briefs to turn into plans live in [ideas/](ideas/) as markdown with YAML frontma
 
 [scripts/pdf_qc.py](scripts/pdf_qc.py) is the pre-flight validator. Checks trim size, bleed (cover), even page count, and minimum line weight against KDP manual-review rules. Exits non-zero on any CRITICAL violation — wire it into any batch flow that ends in "ready to upload."
 
-### Agent/skill layer
+### Agent/skill layer — KDP Company Structure
 
-The slash command `/kdp-create-book` (see [.claude/commands/kdp-create-book.md](.claude/commands/kdp-create-book.md)) spawns the `kdp-book-creator` agent, which orchestrates sub-agents: `kdp-plan-writer` → `kdp-image-worker` (generate → review via `kdp-image-reviewer` skill → auto-regen loop) → `kdp-assembly-worker` (build_pdf + generate_cover + pdf_qc). Two batch-level agents — `kdp-batch-planner` (ideas → plans) and `kdp-batch-assembler` (plans → books) — are the right entry points when the user says "plan all ideas" / "batch build". Skills under [.claude/skills/](.claude/skills/) are invoked by name and include `kdp-prompt-writer`, `kdp-image-generator`, `kdp-image-reviewer`, `kdp-book-builder`, `kdp-cover-creator`, `kdp-cover-checker`, `kdp-book-detail` (listing SEO), plus upstream research/analytics skills (`niche-hunter`, `performance-analyst`, `ads-manager`, `quality-reviewer`).
+The agent tier is modeled as a publishing company with **1 CEO + 7 department heads**, each head wrapping 1-4 skills with batch parallelism and DB persistence. Agent files live in [.claude/agents/](.claude/agents/); skills (reusable domain logic, no DB writes) live in [.claude/skills/](.claude/skills/).
+
+| # | Agent | Phòng ban | Parallel cap | Skill(s) wrapped |
+|---|---|---|---|---|
+| 01 | `niche-hunter` | Nghiên cứu Thị trường | 4 (WebSearch quota) | `niche-hunter` |
+| 02 | `manuscript-generator` | Biên tập Nội dung | 6 (image API + PDF CPU) | `kdp-prompt-writer` + `kdp-image-generator` + `kdp-image-reviewer` + `kdp-book-builder` |
+| 03 | `cover-designer` | Mỹ thuật | 6 (image API) | `kdp-cover-creator` + `kdp-cover-checker` |
+| 04 | `listing-copywriter` | Content Marketing | 10 (Claude-only) | `kdp-book-detail` |
+| 05 | `quality-reviewer` | QC | 8 (PDF parse CPU) | `quality-reviewer` + `pdf_qc.py` |
+| 06 | `ads-manager` | Quảng cáo | 5 (Amazon Ads API) | `ads-manager` |
+| 07 | `performance-analyst` | Phân tích Dữ liệu | 1 (single-pass) | `performance-analyst` |
+| 08 | `master-orchestrator` | CEO | — | delegates 01–07 |
+
+**Pipeline flow (LAUNCH):** CEO spawns `manuscript-generator` ∥ `listing-copywriter` in parallel (both read plan.json, write disjoint fields) → `cover-designer` (sequential, needs interior page_count for spine math) → `quality-reviewer` (GO/NO-GO) → [user uploads to KDP] → `ads-manager`. CEO persists every step to `pipelines.step_log` via `python3 scripts/db.py pipelines append-log --id N --step X --status OK|FAIL --note "..."`.
+
+**Slash commands** ([.claude/commands/](.claude/commands/)):
+- `/create-book` — launch pipeline for 1 book end-to-end
+- `/daily-brief` — morning anomaly/bleed report
+- `/weekly-cycle` — analyst → dispatch top-N actions
+- `/ceo` — full access to all 7 pipelines (launch, daily, weekly, optimize, scale, kill, seasonal)
 
 ### Database (multi-agent state)
 
-[scripts/db.py](scripts/db.py) is a SQLite CLI at `data/kdp.db` used as the shared state store for the eight-agent system (niches, books, manuscripts, covers, listings, qa_reports, ad_campaigns, royalties, actions, pipelines). Agents that need to persist across conversations should go through this CLI (`python scripts/db.py <resource> <verb> ...`) rather than ad-hoc JSON files.
+[scripts/db.py](scripts/db.py) is a SQLite CLI at `data/kdp.db` used as the shared state store for all 8 agents (tables: `niches`, `books`, `manuscripts`, `covers`, `listings`, `qa_reports`, `ad_campaigns`, `royalties`, `ad_performance`, `actions`, `pipelines`). **WAL mode is enabled** (`journal_mode=WAL`, `busy_timeout=30s`) so multiple batch agents can write concurrently without "database is locked".
+
+**CLI conventions (agents must follow exactly):**
+- `create` / `update` — take a JSON payload string: `python3 scripts/db.py books create '{"theme_key":"x","status":"DRAFT"}'`
+- `list` — supports `--status`, `--rating`, `--book_id`, `--since ISO`, `--order-by col:ASC|DESC`, `--limit N`
+- `get` — integer id or `--field value`: `python3 scripts/db.py books get 14` / `get --asin B0XXX`
+- `pipelines append-log` — flag-based: `--id N --step X --status OK|FAIL|SKIP|INFO --note "..."`
+- `priority` in `actions` is an **integer** (3=HIGH, 2=MEDIUM, 1=LOW), not a string.
+
+Never use ad-hoc JSON files for state that spans conversations — always go through the CLI.
 
 ## KDP rules to honour
 
