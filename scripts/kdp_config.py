@@ -1,9 +1,37 @@
 """Global KDP constants — single place to tweak.
 
 Cover math, page math, and royalty constants used across agents.
+
+NOTE (Phase 1 refactor, 2026-04-27): Niche scoring constants — WEIGHTS,
+THRESHOLDS, OPPORTUNITY tiers, BSR_TIERS, SEASONS, LIMITS, hard-elim params —
+are now loaded from data/criteria/niche_criteria_v*.json via niche_criteria.py.
+The values below are kept as fallback only; if the JSON is missing they still
+work. Edit the JSON to change criteria, NOT this file.
 """
 
 from __future__ import annotations
+
+try:
+    from niche_criteria import (
+        WEIGHTS as _CRIT_WEIGHTS,
+        THRESHOLDS as _CRIT_THRESHOLDS,
+        OPPORTUNITY_TIERS as _CRIT_OPP_TIERS,
+        BSR_TIERS_TUPLES as _CRIT_BSR_TIERS,
+        SEASONS as _CRIT_SEASONS,
+        LIMITS as _CRIT_LIMITS,
+        VERSION as CRITERIA_VERSION,
+        SOURCE_PATH as CRITERIA_SOURCE,
+        hard_elim_param as _hard_elim_param,
+    )
+    _CRITERIA_LOADED = True
+except Exception:  # pragma: no cover — defensive: never break kdp_config consumers
+    _CRITERIA_LOADED = False
+    CRITERIA_VERSION = "fallback-hardcoded"
+    CRITERIA_SOURCE = ""
+    _CRIT_WEIGHTS = _CRIT_THRESHOLDS = _CRIT_OPP_TIERS = None
+    _CRIT_BSR_TIERS = _CRIT_SEASONS = _CRIT_LIMITS = None
+    def _hard_elim_param(rule_id, key, default=None):  # type: ignore
+        return default
 
 # ────────────────────────────────────────────────────────
 # Cover math (KDP paperback, white paper, US marketplace)
@@ -60,11 +88,29 @@ def full_cover_dims(page_size: str, page_count: int, paper: str = "white") -> di
 # ────────────────────────────────────────────────────────
 
 PRINTING_FIXED_USD = 0.85
-PRINTING_PER_PAGE_BW = 0.012    # black-and-white interior
-PRINTING_PER_PAGE_COLOR = 0.07  # color interior (premium)
+PRINTING_PER_PAGE_BW = 0.012             # black-and-white interior
+PRINTING_PER_PAGE_COLOR_PREMIUM = 0.07   # premium color interior
+PRINTING_PER_PAGE_COLOR_STANDARD = 0.0255  # standard color (US, since 2025-06-10)
+PRINTING_PER_PAGE_COLOR = PRINTING_PER_PAGE_COLOR_PREMIUM  # legacy alias
 
-ROYALTY_RATE_PAPERBACK = 0.60
-KENP_RATE_USD = 0.0045           # approximate US KDP Select KENP read rate
+# KDP paperback royalty (US marketplace).
+# Tiered structure since 2025-06-10:
+#   list_price ≥ $9.99 → 60%
+#   list_price <  $9.99 → 50%
+# Below the threshold there is also a regional cutoff at $9.98 inclusive.
+ROYALTY_RATE_PAPERBACK_HIGH = 0.60
+ROYALTY_RATE_PAPERBACK_LOW = 0.50
+ROYALTY_TIER_THRESHOLD_USD = 9.99
+ROYALTY_RATE_PAPERBACK = ROYALTY_RATE_PAPERBACK_HIGH  # legacy alias — assumes high-tier
+
+KENP_RATE_USD = 0.0045  # approximate US KDP Select KENP read rate
+
+
+def paperback_royalty_rate(list_price: float) -> float:
+    """KDP paperback royalty rate (US marketplace, post-2025-06-10)."""
+    if list_price >= ROYALTY_TIER_THRESHOLD_USD:
+        return ROYALTY_RATE_PAPERBACK_HIGH
+    return ROYALTY_RATE_PAPERBACK_LOW
 
 
 def printing_cost_usd(page_count: int, color: bool = False) -> float:
@@ -73,7 +119,8 @@ def printing_cost_usd(page_count: int, color: bool = False) -> float:
 
 
 def royalty_per_sale_usd(list_price: float, page_count: int, color: bool = False) -> float:
-    return round((list_price - printing_cost_usd(page_count, color)) * ROYALTY_RATE_PAPERBACK, 3)
+    rate = paperback_royalty_rate(list_price)
+    return round((list_price - printing_cost_usd(page_count, color)) * rate, 3)
 
 
 def break_even_acos_pct(list_price: float, page_count: int, color: bool = False) -> float:
@@ -103,7 +150,8 @@ def max_cpc_usd(
 # MID value for point estimates, the RANGE for confidence intervals.
 # ────────────────────────────────────────────────────────
 
-BSR_TIERS = [
+# Override with criteria-loaded values when available, fallback to hardcoded.
+BSR_TIERS = _CRIT_BSR_TIERS if _CRITERIA_LOADED and _CRIT_BSR_TIERS else [
     # (min_bsr, max_bsr, low_sales, mid_sales, high_sales)
     (1,        10,        2000,  3500,  5000),
     (11,       100,       300,   900,   2000),
@@ -158,23 +206,24 @@ def estimate_monthly_royalty(
 def opportunity_score(
     avg_monthly_sales_top10: float, avg_review_count_top10: float
 ) -> dict:
-    """Industry-standard Opportunity Score.
+    """Industry-standard Opportunity Score (thresholds from criteria JSON).
 
     Opportunity = monthly_sales / reviews.
     High score = lots of sales but few reviews = break-in easy (new market).
     Low score = many reviews = saturated, hard for new books to rank.
     """
+    tiers = _CRIT_OPP_TIERS or {"BLUE_OCEAN": 5.0, "MODERATE": 2.0, "COMPETITIVE": 0.5}
     if avg_review_count_top10 <= 0:
         # Division by zero — treat as infinite opportunity (brand new niche)
         opp = 999
         tier = "BLUE_OCEAN"
     else:
         opp = round(avg_monthly_sales_top10 / avg_review_count_top10, 3)
-        if opp >= 5:
+        if opp >= tiers["BLUE_OCEAN"]:
             tier = "BLUE_OCEAN"
-        elif opp >= 2:
+        elif opp >= tiers["MODERATE"]:
             tier = "MODERATE"
-        elif opp >= 0.5:
+        elif opp >= tiers["COMPETITIVE"]:
             tier = "COMPETITIVE"
         else:
             tier = "SATURATED"
@@ -230,7 +279,11 @@ HARD_ELIMINATION_RULES = {
 
 
 def apply_hard_elimination(niche_data: dict) -> list[str]:
-    """Return list of violated rules. Empty list = niche passes hard filter."""
+    """Return list of violated rules. Empty list = niche passes hard filter.
+
+    Thresholds loaded from data/criteria/niche_criteria_v*.json via niche_criteria.py.
+    Edit the JSON to tune (don't hardcode here).
+    """
     violations = []
     top3 = niche_data.get("top3_bsr", [])
     top10_reviews = niche_data.get("top10_reviews", [])
@@ -238,18 +291,24 @@ def apply_hard_elimination(niche_data: dict) -> list[str]:
     top10_pages = niche_data.get("top10_pages", [])
     top10_publishers = niche_data.get("top10_publishers", [])
 
-    # dead_market: the 3 BEST-RANKED (lowest BSR) books in top-10 all > 300k means
-    # NOBODY in the niche actually sells. Compare by BSR value, not by search position,
-    # because Amazon ranks search by relevance — the strongest seller is often deeper.
+    dead_thr     = _hard_elim_param("dead_market", "top3_bsr_min_threshold", 300_000)
+    sat_thr      = _hard_elim_param("over_saturated", "top10_reviews_min_threshold", 500)
+    rb_price     = _hard_elim_param("race_to_bottom", "max_price", 6.99)
+    rb_pages     = _hard_elim_param("race_to_bottom", "max_pages", 50)
+    pub_max      = _hard_elim_param("single_publisher_lock", "max_same_publisher", 6)
+    indie_list   = _hard_elim_param("single_publisher_lock", "indie_aliases",
+                                    ["independently published", "?", "", "unknown"])
+    season_min   = _hard_elim_param("seasonal_missed_window", "min_days_to_peak", 75)
+
     if top3 and len(top3) >= 3:
         best3 = sorted(top3)[:3]
-        if all(b > 300_000 for b in best3):
+        if all(b > dead_thr for b in best3):
             violations.append("dead_market")
 
     if (
         top10_reviews
         and len(top10_reviews) >= 10
-        and all(r > 500 for r in top10_reviews[:10])
+        and all(r > sat_thr for r in top10_reviews[:10])
     ):
         violations.append("over_saturated")
 
@@ -258,27 +317,31 @@ def apply_hard_elimination(niche_data: dict) -> list[str]:
         and top10_pages
         and len(top10_prices) >= 10
         and len(top10_pages) >= 10
-        and all(p <= 6.99 for p in top10_prices[:10])
-        and all(pg <= 50 for pg in top10_pages[:10])
+        and all(p <= rb_price for p in top10_prices[:10])
+        and all(pg <= rb_pages for pg in top10_pages[:10])
     ):
         violations.append("race_to_bottom")
 
     if top10_publishers and len(top10_publishers) >= 10:
         from collections import Counter
-        # "Independently published" is Amazon's catch-all for indie / KDP self-pub —
-        # it is NOT a single publisher, so exclude from the lock check.
-        _INDIE_ALIASES = {"independently published", "?", "", "unknown"}
+        _INDIE_ALIASES = {str(a).strip().lower() for a in indie_list}
         filtered = [p for p in top10_publishers[:10] if str(p).strip().lower() not in _INDIE_ALIASES]
         if filtered:
             c = Counter(filtered)
-            if max(c.values()) >= 6:
+            if max(c.values()) >= pub_max:
                 violations.append("single_publisher_lock")
 
-    if niche_data.get("is_seasonal") and niche_data.get("days_to_peak", 999) < 75:
+    if niche_data.get("is_seasonal") and niche_data.get("days_to_peak", 999) < season_min:
         violations.append("seasonal_missed_window")
 
     if niche_data.get("has_trademark_risk"):
         violations.append("ip_trap")
+
+    # commodity_trap — qualitative_edge.unique_hook.pass=false
+    qe = niche_data.get("qualitative_edge") or {}
+    uh = qe.get("unique_hook") or {}
+    if uh and uh.get("pass") is False:
+        violations.append("commodity_trap")
 
     return violations
 
@@ -291,22 +354,15 @@ def niche_score(
     longevity_0_10: float,
     opportunity_0_10: float,
 ) -> dict:
-    """Weighted niche score including Opportunity factor.
-
-    Weights sum to 1.0. Opportunity is heavily weighted because it is the
-    single best predictor of new-book success.
-    """
-    # Competition is INVERTED in the score — high competition = low points
+    """Weighted niche score (weights + thresholds from criteria JSON)."""
     competition_ease = 10 - competition_strength_0_10
 
-    weights = {
-        "demand":       0.20,
-        "opportunity":  0.25,   # NEW — heaviest weight
-        "competition":  0.15,
-        "margin":       0.15,
-        "content":      0.10,
-        "longevity":    0.15,
+    weights = _CRIT_WEIGHTS or {
+        "demand": 0.20, "opportunity": 0.25, "competition": 0.15,
+        "margin": 0.15, "content": 0.10, "longevity": 0.15,
     }
+    thresholds = _CRIT_THRESHOLDS or {"HOT": 7.5, "WARM": 6.0, "COLD": 4.5}
+
     overall = (
         weights["demand"] * demand_0_10
         + weights["opportunity"] * opportunity_0_10
@@ -317,23 +373,29 @@ def niche_score(
     )
     overall = round(overall, 2)
 
-    if overall >= 7.5:
+    if overall >= thresholds["HOT"]:
         rating = "HOT"
-    elif overall >= 6.0:
+    elif overall >= thresholds["WARM"]:
         rating = "WARM"
-    elif overall >= 4.5:
+    elif overall >= thresholds["COLD"]:
         rating = "COLD"
     else:
         rating = "SKIP"
 
-    return {"overall": overall, "rating": rating, "weights": weights}
+    return {
+        "overall": overall,
+        "rating": rating,
+        "weights": weights,
+        "thresholds": thresholds,
+        "criteria_version": CRITERIA_VERSION,
+    }
 
 
 # ────────────────────────────────────────────────────────
-# KDP content limits
+# KDP content limits — loaded from criteria JSON, fallback below
 # ────────────────────────────────────────────────────────
 
-LIMITS = {
+LIMITS = _CRIT_LIMITS or {
     "title_plus_subtitle_chars": 200,
     "subtitle_chars": 150,
     "description_chars": 4000,
@@ -348,10 +410,10 @@ LIMITS = {
 
 
 # ────────────────────────────────────────────────────────
-# Seasonal ramp calendar (start N days before peak)
+# Seasonal ramp calendar — loaded from criteria JSON, fallback below
 # ────────────────────────────────────────────────────────
 
-SEASONS = [
+SEASONS = _CRIT_SEASONS or [
     {"event": "valentines", "peak": "02-14", "ramp_days": 85},
     {"event": "mothers_day", "peak": "05-11", "ramp_days": 70},
     {"event": "fathers_day", "peak": "06-15", "ramp_days": 70},
@@ -368,11 +430,14 @@ if __name__ == "__main__":
     sample = {
         "cover_52_8.5x11": full_cover_dims("8.5x11", 52),
         "cover_100_8.5x8.5": full_cover_dims("8.5x8.5", 100),
-        "royalty_8.99_52p": royalty_per_sale_usd(8.99, 52),
-        "break_even_acos_8.99_52p": break_even_acos_pct(8.99, 52),
-        "max_cpc_8.99_52p_40acos_8cvr": max_cpc_usd(8.99, 52, 40, 8),
+        "royalty_rate_8.99": paperback_royalty_rate(8.99),
+        "royalty_rate_9.99": paperback_royalty_rate(9.99),
+        "royalty_8.99_52p_LOW_TIER": royalty_per_sale_usd(8.99, 52),
+        "royalty_9.99_52p_HIGH_TIER": royalty_per_sale_usd(9.99, 52),
+        "break_even_acos_9.99_52p": break_even_acos_pct(9.99, 52),
+        "max_cpc_9.99_52p_40acos_8cvr": max_cpc_usd(9.99, 52, 40, 8),
         "bsr_28k_daily_sales": bsr_to_daily_sales(28_000),
-        "bsr_28k_monthly_royalty_8.99_52p": estimate_monthly_royalty(28_000, 8.99, 52),
+        "bsr_28k_monthly_royalty_9.99_52p": estimate_monthly_royalty(28_000, 9.99, 52),
         "opportunity_300sales_180reviews": opportunity_score(300, 180),
         "opportunity_450sales_40reviews": opportunity_score(450, 40),
         "niche_score_sample_hot": niche_score(8, 4, 8, 9, 9, 7),

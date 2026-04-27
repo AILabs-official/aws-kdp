@@ -1,0 +1,214 @@
+{
+  "niche_name": "Large Print Sudoku for Seniors",
+  "primary_keyword": "large print sudoku for seniors",
+  "secondary_keywords": [
+    "sudoku for seniors large print",
+    "extra large print sudoku",
+    "easy sudoku large print"
+  ],
+  "long_tail_keywords": [
+    "large print sudoku for seniors 22pt",
+    "single puzzle per page sudoku seniors",
+    "gift sudoku large print elderly"
+  ],
+  "book_type": "activity",
+  "audience": "adults_seniors",
+  "page_size": "8.5x11",
+  "target_page_count": 161,
+  "recommended_list_price_usd": 9.99,
+  "score": {
+    "overall": 6.3,
+    "rating": "WARM"
+  },
+  "dimension_scores": {
+    "demand": 5,
+    "opportunity": 3.1,
+    "competition": 3.5,
+    "margin": 8,
+    "content": 10,
+    "longevity": 9
+  },
+  "flags": [
+    "LOW_REVIEW_BARRIER",
+    "FRAGMENTED_MARKET",
+    "EMERGING_MARKET",
+    "GOLDMINE_LITE"
+  ],
+  "eliminations": [],
+  "top10_asins": [
+    "B0GY7VM1WX",
+    "B0GYC96CX3",
+    "B0GYNP7RQJ",
+    "B0GYD321WZ",
+    "B0DGPZMK7Z",
+    "B0G2BM2SLR",
+    "B0DTHNJ8YT",
+    "B0FK4HJBD6",
+    "B0G5NMHCSN",
+    "B0GX9CPNW8"
+  ],
+  "top10_bsr": [
+    60146,
+    50220,
+    85118,
+    65598,
+    52902,
+    736223
+  ],
+  "top10_reviews": [
+    0,
+    0,
+    0,
+    0,
+    90,
+    9,
+    121,
+    20,
+    2,
+    0
+  ],
+  "top10_prices": [
+    9.99,
+    9.99,
+    13.99,
+    9.99,
+    6.99,
+    6.97,
+    4.84,
+    11.99,
+    9.99,
+    9.99
+  ],
+  "top10_pages": [
+    197,
+    65,
+    204,
+    197,
+    121,
+    110,
+    104,
+    211,
+    140,
+    130
+  ],
+  "top10_publishers": [
+    "Independently published",
+    "Independently published",
+    "Independently published",
+    "Independently published",
+    "Independently published",
+    "Independently published",
+    "Independently published",
+    "Independently published",
+    "Independently published",
+    "Independently published"
+  ],
+  "top10_age_days": [
+    7,
+    9,
+    3,
+    6,
+    596,
+    164,
+    465,
+    276,
+    141,
+    15
+  ],
+  "top10_rating": [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    4.5,
+    5.0,
+    4.6,
+    4.5,
+    5.0,
+    0.0
+  ],
+  "top10_titles": [
+    "Large Print Sudoku for Seniors: Strange But True / Oddities: 150 Easy, Medium & Hard Puzzles with a Completely True Odd Fact on Every Page — Volume 4 ... With Fascinating Facts: 10 Unique Volumes)",
+    "Large Print Sudoku for Seniors: Easy to Medium: 50 Easy to Medium Puzzles for Adults with Solutions, Brain Games to Keep Your Mind Sharp (Nostalgic Retro Series)",
+    "Large Print Sudoku for Seniors: Volume 3: 100 Easy & Relaxing Puzzles with Solutions",
+    "Large Print Sudoku for Seniors: Sports Facts 1950-1960: A Sports Fact on Every Page - Relive the Greatest Moments in 1950s Sports (Large Print Sudoku ... With Fascinating Facts: 10 Unique Volumes)",
+    "Easy Sudoku For Seniors: Large Print Easy Sudoku Puzzles with Solutions for Adults and Seniors to Sharpen the Mind and Enjoy",
+    "EASY (LARGE PRINT) SUDOKU PUZZLE BOOK FOR ADULTS & SENIORS: 300+ BRAIN EXERCISE PUZZLES - ALL EASY LEVEL - 4 PER PAGE - (22 PT FONT SIZE PUZZLES)",
+    "Big Sudoku Book for Adults - Easy to Hard: Large Print Sudoku Puzzles with Detailed Step-by-step Solutions and Hints When You Get Stuck",
+    "Easy Extra Large Print Sudoku for Seniors: Part of our Extra Large Print Puzzles for Visually Impaired series | 8.5x11 inches,210 pages | 150+ puzzles, 1 puzzle per page",
+    "2026 SUDOKU BIG BOOK FOR SENIORS & ADULTS Extra Large Print: 220+ PUZZLES - EASY & MEDIUM PUZZLES WITH SOLUTIONS - BOOK 5",
+    "Sudoku Large Print for Seniors: Easy Edition: 100 Relaxing Brain Games to Improve Memory and Focus, Extra Large Print Puzzle Book with Simple Logic and Solutions"
+  ],
+  "top10_avg_bsr": 175034,
+  "top10_median_bsr": 62872,
+  "top10_avg_reviews": 24.2,
+  "top10_avg_reviews_established": 48.4,
+  "top10_market_monthly_usd": 1622,
+  "estimated_monthly_royalty_usd": {
+    "low": 194.62,
+    "mid": 324.38,
+    "high": 519.0
+  },
+  "royalty_per_sale_usd": 4.325,
+  "is_seasonal": false,
+  "is_evergreen": true,
+  "days_to_peak": 999,
+  "has_trademark_risk": false,
+  "ip_risk_notes": "CLEAR — no Class 016 trademark hits (verified scripts/trademark_check.py)",
+  "trademark_check": {
+    "verdict": "CLEAR",
+    "class_016_live_hits": 0,
+    "source": "scripts/trademark_check.py"
+  },
+  "qualitative_edge": {
+    "unique_hook": {
+      "pass": true,
+      "angle": "22pt+ font (most competitors max 18-20pt) + single puzzle per page + tutorial pages every 25 puzzles"
+    },
+    "evergreen_baseline": {
+      "pass": true,
+      "evidence": "Senior puzzle category evergreen — Etsy bestsellers, Pinterest dedicated boards, Mother's/Father's Day gift-framing established"
+    },
+    "repeat_buyer": {
+      "pass": true,
+      "audience": "Seniors buy multiple volumes; gift-givers (children, grandchildren) for holidays + birthdays + retirement"
+    },
+    "content_scale": {
+      "pass": true,
+      "sequel_count": 6,
+      "evidence": "Sudoku generator → infinite difficulty levels + 12-month dated editions + themed (Mother's Day, Holiday, Travel) variants"
+    },
+    "score_0_10": 10
+  },
+  "leading_indicators": {
+    "etsy": "STRONG — multiple bestsellers (415-1000 puzzle bundles), gift-framed",
+    "pinterest": "Active boards 'Printable Sudoku Puzzles for Seniors'; ultra-large-print 20pt edition trending",
+    "google_trends": "Evergreen — 5y baseline stable; spike during Mother's Day, Q4 gift season",
+    "amazon_brand_signals": "10/10 'Independently published' top-10 → fully fragmented, no traditional publisher dominance"
+  },
+  "content_concepts_count": 161,
+  "content_concepts_sample": [
+    "Easy 1-50 (4-star difficulty)",
+    "Medium 51-100 (5-6 star)",
+    "Hard 101-150 (7-9 star)",
+    "Tutorial pages every 25 puzzles",
+    "Solutions sorted by puzzle # with bookmark page"
+  ],
+  "production_hint": "Use scripts/generate_sudoku.py + scripts/build_sudoku_book.py — content scales free",
+  "differentiation_hooks": [
+    "22pt or larger font (verifiable bigger vs 16-18pt competitors)",
+    "Single puzzle per page with thick grid lines (3pt+) for low-vision users",
+    "Easy → Medium → Hard progression with skill tutorials every 25 puzzles",
+    "Anti-glare matte cover, gripper spine for arthritic hands",
+    "Companion solution section + answer-key bookmark"
+  ],
+  "sources": [
+    "https://www.amazon.com/s?k=large+print+sudoku+for+seniors",
+    "https://www.etsy.com/listing/4428172185/sudoku-large-print-for-seniors-415-easy",
+    "https://www.amazon.com/2026-Sudoku-Seniors-Easy-Read/dp/B0FGXPXBL1",
+    "https://www.pinterest.com/ideas/printable-sudoku-puzzles-for-seniors/",
+    "scripts/trademark_check.py CLEAR verdict"
+  ],
+  "criteria_version": "2026.04.27",
+  "slug": "large_print_sudoku_for_seniors"
+}

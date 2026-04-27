@@ -6,7 +6,9 @@ import os
 from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
-ENV_PATH = HERE.parent / "config" / ".env"
+ROOT = HERE.parent
+_CANDIDATES = [ROOT / ".env", ROOT / "config" / ".env"]
+ENV_PATH = next((p for p in _CANDIDATES if p.exists()), _CANDIDATES[0])
 
 _loaded = False
 

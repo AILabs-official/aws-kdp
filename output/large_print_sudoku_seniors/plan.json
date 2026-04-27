@@ -1,0 +1,31 @@
+{
+  "theme_key": "large_print_sudoku_seniors",
+  "title": "Large Print Sudoku for Seniors",
+  "subtitle": "125 Easy to Hard Puzzles with Big Numbers, One Per Page, Solutions Included \u2014 Relaxing Brain Games for Elderly Adults",
+  "author": "BoBo Art",
+  "book_type": "sudoku",
+  "style": "sudoku",
+  "page_size": "8.5x11",
+  "audience": "adults_seniors",
+  "difficulty_distribution": {
+    "easy": 40,
+    "medium": 40,
+    "hard": 30,
+    "expert": 15
+  },
+  "target_page_count": 161,
+  "list_price_usd": 9.99,
+  "seed": 42,
+  "niche_id": 4,
+  "primary_keyword": "large print sudoku for seniors",
+  "secondary_keywords": [
+    "sudoku large print",
+    "sudoku for seniors",
+    "easy sudoku large print",
+    "big print sudoku",
+    "brain games for seniors",
+    "sudoku puzzle book seniors",
+    "sudoku gift for elderly"
+  ],
+  "actual_page_count": 158
+}

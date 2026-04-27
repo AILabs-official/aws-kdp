@@ -1,0 +1,3357 @@
+{
+  "primary_keyword": "kakuro puzzle book",
+  "top10_asins": [
+    "B0D7P54RMW",
+    "B0F5WP7W2K",
+    "B0GWMPPC6Y",
+    "1402787952",
+    "B0BNVHG1FC",
+    "B0FNLJ1HX8",
+    "B089279WZJ",
+    "B09Q1VDLW5",
+    "B0GXRG9LR5",
+    "1454935383"
+  ],
+  "top10_titles": [
+    "Kakuro medium to hard 102 puzzles: 16 by 20 puzzle grid",
+    "Kakuro Puzzle Book for Adults: Medium Level Logic Tasks 250 Engaging Brain Workouts Vol 2",
+    "Kakuro Puzzle book for Adults-Easy Medium: Easy to Medium Number Logic Puzzles Designed for Relaxing Brain Training Without Frustration",
+    "Second-Degree Green Belt Kakuro: Conceptis Puzzles (Martial Arts Puzzles)",
+    "600 Kakuro Puzzles: Easy, Medium and Hard Unique Cross Sum Puzzles with Solutions.",
+    "The Ultimate Kakuro Puzzle Book for Adults: 260 Cross Sums Logic Puzzles from Easy to Hard for Hours of Fun and Mind-Training Challenges",
+    "Kakuro Cross Sums – 300 Easy Puzzles Volume 1: 300 Easy Kakuro Cross Sums",
+    "Kakuro Cross Sums – 300 Medium Puzzles Volume 1: Ideal for Intermediate Solvers",
+    "Kakuro Puzzle Book for Adults: 100 Easy to Medium Puzzles with Complete Solutions",
+    "Colossal Kakuro: 72 Titanically Tricky Puzzles"
+  ],
+  "top10_bsr": [
+    201733,
+    1730222,
+    60427,
+    79535,
+    1052704,
+    249075,
+    1067801,
+    878155,
+    345831
+  ],
+  "top10_reviews": [
+    6,
+    1,
+    0,
+    227,
+    97,
+    1,
+    14,
+    7,
+    0,
+    14
+  ],
+  "top10_prices": [
+    10.99,
+    10.95,
+    10.99,
+    11.17,
+    8.99,
+    9.99,
+    9.99,
+    9.99,
+    9.99,
+    11.99
+  ],
+  "top10_rating": [
+    4.0,
+    5.0,
+    0.0,
+    4.7,
+    4.3,
+    5.0,
+    4.9,
+    4.8,
+    0.0,
+    4.4
+  ],
+  "top10_publishers": [
+    "Independently published",
+    "Independently published",
+    "Independently published",
+    "Sterling",
+    "Independently published",
+    "Independently published",
+    "Independently published",
+    "Independently published",
+    "Independently published",
+    "Puzzlewright Press"
+  ],
+  "top10_age_days": [
+    676,
+    373,
+    20,
+    5165,
+    1244,
+    249,
+    2165,
+    1570,
+    11,
+    1077
+  ],
+  "top10_pages": [
+    123,
+    280,
+    108,
+    192,
+    128,
+    139,
+    184,
+    184,
+    130,
+    96
+  ],
+  "sources": [
+    "https://www.amazon.com/dp/B0D7P54RMW",
+    "https://www.amazon.com/dp/B0F5WP7W2K",
+    "https://www.amazon.com/dp/B0GWMPPC6Y",
+    "https://www.amazon.com/dp/1402787952",
+    "https://www.amazon.com/dp/B0BNVHG1FC",
+    "https://www.amazon.com/dp/B0FNLJ1HX8",
+    "https://www.amazon.com/dp/B089279WZJ",
+    "https://www.amazon.com/dp/B09Q1VDLW5",
+    "https://www.amazon.com/dp/B0GXRG9LR5",
+    "https://www.amazon.com/dp/1454935383"
+  ],
+  "raw_products": [
+    {
+      "title": "Kakuro medium to hard 102 puzzles: 16 by 20 puzzle grid",
+      "url": "https://www.amazon.com/dp/B0D7P54RMW",
+      "asin": "B0D7P54RMW",
+      "originalAsin": "B0D7P54RMW",
+      "price": {
+        "value": 10.99,
+        "currency": "$"
+      },
+      "inStock": true,
+      "inStockText": "In Stock",
+      "listPrice": null,
+      "brand": null,
+      "author": "V.Puzzgen",
+      "shippingPrice": null,
+      "stars": 4,
+      "starsBreakdown": {},
+      "reviewsCount": 6,
+      "answeredQuestions": null,
+      "breadCrumbs": "Books > Science & Math > Mathematics > Pure Mathematics > Number Theory",
+      "videosCount": 0,
+      "visitStoreLink": null,
+      "thumbnailImage": "https://m.media-amazon.com/images/I/51dFWNl6FsL._SY445_SX342_FMwebp_.jpg",
+      "galleryThumbnails": [
+        "https://m.media-amazon.com/images/I/51dFWNl6FsL._SX38_SY50_CR,0,0,38.jpg",
+        "https://m.media-amazon.com/images/I/61S8PcI3lOL._SX38_SY50_CR,0,0,38.jpg"
+      ],
+      "highResolutionImages": [
+        "https://m.media-amazon.com/images/I/7196U-0jH3L._SL1499_.jpg"
+      ],
+      "importantInformation": null,
+      "sustainabilityFeatures": null,
+      "description": null,
+      "features": [],
+      "attributes": [
+        {
+          "key": "ASIN",
+          "value": "B0D7P54RMW"
+        },
+        {
+          "key": "Publisher",
+          "value": "Independently published"
+        },
+        {
+          "key": "Publication date",
+          "value": "June 20, 2024"
+        },
+        {
+          "key": "Language",
+          "value": "English"
+        },
+        {
+          "key": "Print length",
+          "value": "123 pages"
+        },
+        {
+          "key": "ISBN-13",
+          "value": "979-8328924818"
+        },
+        {
+          "key": "Item Weight",
+          "value": "8.5 ounces"
+        },
+        {
+          "key": "Dimensions",
+          "value": "6 x 0.28 x 9 inches"
+        },
+        {
+          "key": "Best Sellers Rank",
+          "value": "#201,733 in Books (See Top 100 in Books) #30 in Number Theory (Books)#162 in Math Games#1,310 in Puzzles (Books)"
+        },
+        {
+          "key": "Customer Reviews",
+          "value": "4.0 4.0 out of 5 stars (6)"
+        }
+      ],
+      "productOverview": [],
+      "variantAsins": [],
+      "variantDetails": [],
+      "reviewsLink": "https://www.amazon.com/product-reviews/B0D7P54RMW",
+      "hasReviews": true,
+      "delivery": "Saturday, May 2",
+      "fastestDelivery": "Thursday, April 30",
+      "condition": null,
+      "returnPolicy": null,
+      "support": null,
+      "variantAttributes": [],
+      "manufacturerAttributes": [],
+      "seller": {
+        "id": null,
+        "url": "https://www.amazon.com",
+        "name": "Amazon.com",
+        "businessName": "Amazon.com, Inc.",
+        "phone": "1-206-266-1000",
+        "address": [
+          "410 Terry Ave N",
+          "Seattle",
+          "WA",
+          "98109",
+          "US"
+        ]
+      },
+      "bestsellerRanks": [
+        {
+          "rank": 201733,
+          "category": "Books",
+          "url": "https://www.amazon.com/gp/bestsellers/books/ref=pd_zg_ts_books"
+        },
+        {
+          "rank": 30,
+          "category": "Number Theory (Books)",
+          "url": "https://www.amazon.com/gp/bestsellers/books/13963/ref=pd_zg_hrsr_books"
+        },
+        {
+          "rank": 162,
+          "category": "Math Games",
+          "url": "https://www.amazon.com/gp/bestsellers/books/775830/ref=pd_zg_hrsr_books"
+        },
+        {
+          "rank": 1310,
+          "category": "Puzzles (Books)",
+          "url": "https://www.amazon.com/gp/bestsellers/books/4439/ref=pd_zg_hrsr_books"
+        }
+      ],
+      "isAmazonChoice": false,
+      "amazonChoiceText": null,
+      "bookDescription": "102 Kakuro puzzled of 16 x 20 puzzle grid\n102 Kakuro puzzled of 16 x 20 puzzle grid\n6 more kakuro puzzles bonus\n6 more kakuro puzzles bonus\n108 kakuro puzzles in total\n108 kakuro puzzles in total\nBoth symmetric (about 20 puzzles) and non-symmetric grid (88 puzzles)\nBoth symmetric (about 20 puzzles) and non-symmetric grid (88 puzzles)\n1 puzzle per page\n1 puzzle per page\nMedium to hard dificulty\nMedium to hard dificulty\nSome digits are provided in the white cells (to be filled) as extra clues (which make the puzzle somewhat easier to start)\nSome digits are provided in the white cells (to be filled) as extra clues (which make the puzzle somewhat easier to start)\nNumber puzzles\nNumber puzzles\nMath puzzles\nMath puzzles\n102 Kakuro puzzled of 16 x 20 puzzle grid6 more kakuro puzzles bonus108 kakuro puzzles in totalBoth symmetric (about 20 puzzles) and non-symmetric grid (88 puzzles)1 puzzle per pageMedium to hard dificultySome digits are provided in the white cells (to be filled) as extra clues (which make the puzzle somewhat easier to start)Number puzzlesMath puzzlesThis Kakuro puzzle book is great addition for fans of logic puzzles, number games, and brain-training challenges. Kakuro puzzles, also called mathematical crosswords, combine simple addition with pure logic, making them fun and enjoyable Japanese logic puzzles for adults and seniors. Designed for beginners and experienced solvers alike, this puzzle book features Kakuro puzzles ranging from medium to hard. Although some puzzle might feel easier, this book also have challenging puzzles. The clear layouts and easy-to-read grids make it especially suitable for seniors and adults who enjoy relaxing yet stimulating brain games. Inside this Kakuro puzzle book the reader will find: i) 100+ original Kakuro puzzles, medium, and challenging difficulty levels, ii) puzzles approachable for beginners, iii) larger and easy-to-read grids which is great for seniors as well. Kakuro puzzles are a wonderful way to support mental sharpness, logical thinking, and focus at any age. If one enjoy Sudoku, crosswords, or math logic puzzles, this kakuro puzzle book offers a satisfying and rewarding brain workout for seniors, parents, grandparents, puzzle lovers, or anyone who enjoys calm, screen-free entertainment.",
+      "priceRange": null,
+      "aPlusContent": {
+        "title": "From the Publisher",
+        "rawText": "From the Publisher",
+        "rawImages": [
+          {
+            "name": "kakuro puzzle book for seniors",
+            "url": "https://m.media-amazon.com/images/S/aplus-media-library-service-media/95f9cf8c-41bb-4b18-a2e3-4ab7304e5efe.__CR0,133,3880,2400_PT0_SX970_V1___.png"
+          },
+          {
+            "name": "kakuro puzzle book, one puzzle per page, kakuro large fonts",
+            "url": "https://m.media-amazon.com/images/S/aplus-media-library-service-media/b9a54e25-108b-4a73-97d5-bd453e6aa2aa.__CR0,200,3880,2400_PT0_SX970_V1___.png"
+          },
+          {
+            "name": "one puzzle per page kakuro puzzles larger fonts",
+            "url": "https://m.media-amazon.com/images/S/aplus-media-library-service-media/4910f94b-5878-4f3c-8f48-324b580cf3ed.__CR0,15,3880,2400_PT0_SX970_V1___.png"
+          },
+          {
+            "name": "symetric kakuro puzzles versus puzzles with no symetry of clues on grid",
+            "url": "https://m.media-amazon.com/images/S/aplus-media-library-service-media/8dd776aa-a955-474d-b026-afe2445aa6a1.__CR0,24,3880,2400_PT0_SX970_V1___.png"
+          },
+          {
+            "name": "sudoku puzzles, sum sudoku puzzles, wordsearch, numbrix, futoshiki puzzles, samurai sudoku ,",
+            "url": "https://m.media-amazon.com/images/S/aplus-media-library-service-media/c7c5327c-c65e-4191-a9dc-4ac69cee7845.__CR0,122,3880,2400_PT0_SX970_V1___.png"
+          }
+        ],
+        "rawVideos": [],
+        "modules": [
+          {
+            "type": "3p-module-b",
+            "title": null,
+            "text": null,
+            "image": {
+              "name": "kakuro puzzle book for seniors",
+              "url": "https://m.media-amazon.com/images/S/aplus-media-library-service-media/95f9cf8c-41bb-4b18-a2e3-4ab7304e5efe.__CR0,133,3880,2400_PT0_SX970_V1___.png"
+            }
+          },
+          {
+            "type": "3p-module-b",
+            "title": null,
+            "text": null,
+            "image": {
+              "name": "kakuro puzzle book, one puzzle per page, kakuro large fonts",
+              "url": "https://m.media-amazon.com/images/S/aplus-media-library-service-media/b9a54e25-108b-4a73-97d5-bd453e6aa2aa.__CR0,200,3880,2400_PT0_SX970_V1___.png"
+            }
+          },
+          {
+            "type": "3p-module-b",
+            "title": null,
+            "text": null,
+            "image": {
+              "name": "one puzzle per page kakuro puzzles larger fonts",
+              "url": "https://m.media-amazon.com/images/S/aplus-media-library-service-media/4910f94b-5878-4f3c-8f48-324b580cf3ed.__CR0,15,3880,2400_PT0_SX970_V1___.png"
+            }
+          },
+          {
+            "type": "3p-module-b",
+            "title": null,
+            "text": null,
+            "image": {
+              "name": "symetric kakuro puzzles versus puzzles with no symetry of clues on grid",
+              "url": "https://m.media-amazon.com/images/S/aplus-media-library-service-media/8dd776aa-a955-474d-b026-afe2445aa6a1.__CR0,24,3880,2400_PT0_SX970_V1___.png"
+            }
+          },
+          {
+            "type": "3p-module-b",
+            "title": null,
+            "text": null,
+            "image": {
+              "name": "sudoku puzzles, sum sudoku puzzles, wordsearch, numbrix, futoshiki puzzles, samurai sudoku ,",
+              "url": "https://m.media-amazon.com/images/S/aplus-media-library-service-media/c7c5327c-c65e-4191-a9dc-4ac69cee7845.__CR0,122,3880,2400_PT0_SX970_V1___.png"
+            }
+          }
+        ]
+      },
+      "brandStory": null,
+      "productComparison": null,
+      "aiReviewsSummary": null,
+      "monthlyPurchaseVolume": null,
+      "productPageReviews": [
+        {
+          "username": "Helen Secreti",
+          "userId": "amzn1.account.AEBULTA54RMUUVHUIYFXSYQSXJGQ",
+          "userProfileLink": "https://www.amazon.com/gp/profile/amzn1.account.AEBULTA54RMUUVHUIYFXSYQSXJGQ",
+          "ratingScore": 4,
+          "reviewTitle": "Challenging Puzzles!",
+          "reviewDescription": "These puzzles are very challenging but also relaxing. Use a pencil!",
+          "date": "2025-11-17",
+          "position": 1,
+          "reviewedIn": "Reviewed in the United States on November 17, 2025",
+          "reviewId": "RHK0U1XB6ELJY",
+          "reviewUrl": "https://www.amazon.com/gp/customer-reviews/RHK0U1XB6ELJY/ref=cm_cr_dp_d_rvw_ttl?ie=UTF8",
+          "reviewImages": [],
+          "reviewReaction": null,
+          "isVerified": false,
+          "isAmazonVine": false,
+          "avatar": null,
+          "variant": "Format: Paperback",
+          "variantAttributes": [
+            {
+              "key": "Format",
+              "value": "Paperback"
+            }
+          ]
+        },
+        {
+          "username": "monique",
+          "userId": "amzn1.account.AGUMJZJICA3YGA2SN4FAHNEXIQEQ",
+          "userProfileLink": "https://www.amazon.com/gp/profile/amzn1.account.AGUMJZJICA3YGA2SN4FAHNEXIQEQ",
+          "ratingScore": 1,
+          "reviewTitle": "Hard to see",
+          "reviewDescription": "Extremely hard to read. Black around puzzle not needed, makes puzzle harder to see, and the print (boxes AND numbers) very hard to see. Better puzzle prints out there.",
+          "date": "2025-12-29",
+          "position": 2,
+          "reviewedIn": "Reviewed in the United States on December 29, 2025",
+          "reviewId": "R2NK86RA1PIK5M",
+          "reviewUrl": "https://www.amazon.com/gp/customer-reviews/R2NK86RA1PIK5M/ref=cm_cr_dp_d_rvw_ttl?ie=UTF8",
+          "reviewImages": [],
+          "reviewReaction": null,
+          "isVerified": false,
+          "isAmazonVine": false,
+          "avatar": null,
+          "variant": "Format: Paperback",
+          "variantAttributes": [
+            {
+              "key": "Format",
+              "value": "Paperback"
+            }
+          ]
+        }
+      ],
+      "productPageReviewsFromOtherCountries": [],
+      "locationText": "Update location",
+      "loadedCountryCode": "US",
+      "offers": [],
+      "unNormalizedProductUrl": "https://www.amazon.com/s?k=kakuro+puzzle+book&s=popularity-rank",
+      "categoryPageData": {
+        "pageNumber": 1,
+        "saleSummary": null,
+        "isSponsored": false,
+        "bestsellerBadge": null,
+        "productPosition": 29
+      },
+      "input": "https://www.amazon.com/s?k=kakuro+puzzle+book"
+    },
+    {
+      "title": "Kakuro Puzzle Book for Adults: Medium Level Logic Tasks 250 Engaging Brain Workouts Vol 2",
+      "url": "https://www.amazon.com/dp/B0F5WP7W2K",
+      "asin": "B0F5WP7W2K",
+      "originalAsin": "B0F5WP7W2K",
+      "price": {
+        "value": 10.95,
+        "currency": "$"
+      },
+      "inStock": true,
+      "inStockText": "In Stock",
+      "listPrice": null,
+      "brand": null,
+      "author": "Owena Breckon",
+      "shippingPrice": null,
+      "stars": 5,
+      "starsBreakdown": {},
+      "reviewsCount": 1,
+      "answeredQuestions": null,
+      "breadCrumbs": "Books > Humor & Entertainment > Puzzles & Games > Logic & Brain Teasers",
+      "videosCount": 0,
+      "visitStoreLink": null,
+      "thumbnailImage": "https://m.media-amazon.com/images/I/41iqwF71sbL._SY445_SX342_FMwebp_.jpg",
+      "galleryThumbnails": [
+        "https://m.media-amazon.com/images/I/41iqwF71sbL._SX38_SY50_CR,0,0,38.jpg",
+        "https://m.media-amazon.com/images/I/31+yFcF-1PL._SX38_SY50_CR,0,0,38.jpg"
+      ],
+      "highResolutionImages": [
+        "https://m.media-amazon.com/images/I/615YvEzcfcL._SL1499_.jpg"
+      ],
+      "importantInformation": null,
+      "sustainabilityFeatures": null,
+      "description": null,
+      "features": [],
+      "attributes": [
+        {
+          "key": "ASIN",
+          "value": "B0F5WP7W2K"
+        },
+        {
+          "key": "Publisher",
+          "value": "Independently published"
+        },
+        {
+          "key": "Publication date",
+          "value": "April 19, 2025"
+        },
+        {
+          "key": "Language",
+          "value": "English"
+        },
+        {
+          "key": "Print length",
+          "value": "280 pages"
+        },
+        {
+          "key": "ISBN-13",
+          "value": "979-8280578036"
+        },
+        {
+          "key": "Item Weight",
+          "value": "1.08 pounds"
+        },
+        {
+          "key": "Dimensions",
+          "value": "6 x 0.64 x 9 inches"
+        },
+        {
+          "key": "Best Sellers Rank",
+          "value": "#1,730,222 in Books (See Top 100 in Books) #1,246 in Math Games#4,117 in Logic & Brain Teasers (Books)#8,249 in Puzzles (Books)"
+        },
+        {
+          "key": "Customer Reviews",
+          "value": "5.0 5.0 out of 5 stars (1)"
+        }
+      ],
+      "productOverview": [],
+      "variantAsins": [],
+      "variantDetails": [],
+      "reviewsLink": "https://www.amazon.com/product-reviews/B0F5WP7W2K",
+      "hasReviews": false,
+      "delivery": "Saturday, May 2",
+      "fastestDelivery": "Wednesday, April 29",
+      "condition": null,
+      "returnPolicy": null,
+      "support": null,
+      "variantAttributes": [],
+      "manufacturerAttributes": [],
+      "seller": {
+        "id": null,
+        "url": "https://www.amazon.com",
+        "name": "Amazon.com",
+        "businessName": "Amazon.com, Inc.",
+        "phone": "1-206-266-1000",
+        "address": [
+          "410 Terry Ave N",
+          "Seattle",
+          "WA",
+          "98109",
+          "US"
+        ]
+      },
+      "bestsellerRanks": [
+        {
+          "rank": 1730222,
+          "category": "Books",
+          "url": "https://www.amazon.com/gp/bestsellers/books/ref=pd_zg_ts_books"
+        },
+        {
+          "rank": 1246,
+          "category": "Math Games",
+          "url": "https://www.amazon.com/gp/bestsellers/books/775830/ref=pd_zg_hrsr_books"
+        },
+        {
+          "rank": 4117,
+          "category": "Logic & Brain Teasers (Books)",
+          "url": "https://www.amazon.com/gp/bestsellers/books/4436/ref=pd_zg_hrsr_books"
+        },
+        {
+          "rank": 8249,
+          "category": "Puzzles (Books)",
+          "url": "https://www.amazon.com/gp/bestsellers/books/4439/ref=pd_zg_hrsr_books"
+        }
+      ],
+      "isAmazonChoice": false,
+      "amazonChoiceText": null,
+      "bookDescription": "Are you looking for a fun and engaging way to challenge your mind? This Kakuro Puzzle Book for Adults is perfect for both beginners and puzzle enthusiasts who enjoy logical thinking and number challenges.What’s Inside?✅ 250 Kakuro puzzles – designed to be both fun and stimulating✅ 14x22 grid size – the perfect balance of challenge and playability✅ Medium difficulty level – a balanced challenge for those sharpening their logical thinking✅ Solutions included – check your answers easily at the back of the bookKakuro puzzles are a fantastic way to boost your problem-solving skills, enhance concentration, and keep your brain sharp while having fun. Whether you’re at home, traveling, or just taking a break, this book is a great companion for any puzzle lover.Grab your copy today and enjoy hours of puzzle-solving fun!\nWhat’s Inside?",
+      "priceRange": null,
+      "aPlusContent": {
+        "title": "From the Publisher",
+        "rawText": "From the Publisher\n\t\nKakuro Puzzle Book for Adults: 250 Medium Logic Challenges for Focused and Cu... \nKakuro Puzzle Book for Adults: Medium Level Logic Tasks 250 Engaging Brain Wo... \nKakuro Puzzle Book for Adults: 250 Medium Difficulty Logic Games to Train You... \nKakuro Puzzle Book for Adults: Hard Logic Exercises 250 Mind Tests for Seriou... \nKakuro Puzzle Book for Adults: Extreme Hard Logic Workouts 250 Trials for Mas... \nKakuro Puzzle Book for Adults: 200 Logic-Powered Challenges Level Medium Vol 2 \n\t\nAdd to Cart \n\t\nAdd to Cart \n\t\nAdd to Cart \n\t\nAdd to Cart \n\t\nBuying Options \n\t\nAdd to Cart \n\t\nCustomer Reviews \n— \n\t\n5.0 out of 5 stars 1 \n\t\n— \n\t\n— \n\t\n3.0 out of 5 stars 1 \n\t\n— \n\t\nPrice $10.95$10.95 \t$10.95$10.95 \t$10.95$10.95 \t$10.95$10.95 \t— no data \t$9.99$9.99 \t\nLevel Medium \tMedium \tMedium \tHard \tExtreme Hard \tMedium \t\nTotal Puzzles 250 \t250 \t250 \t250 \t250 \t200",
+        "rawImages": [
+          {
+            "name": null,
+            "url": "https://m.media-amazon.com/images/I/41R05aDEmgL.__AC_SR150,300___.jpg"
+          },
+          {
+            "name": null,
+            "url": "https://m.media-amazon.com/images/I/41iqwF71sbL.__AC_SR150,300___.jpg"
+          },
+          {
+            "name": null,
+            "url": "https://m.media-amazon.com/images/I/41nzLi%2B%2B6QL.__AC_SR150,300___.jpg"
+          },
+          {
+            "name": null,
+            "url": "https://m.media-amazon.com/images/I/51GgzDkXXEL.__AC_SR150,300___.jpg"
+          },
+          {
+            "name": null,
+            "url": "https://m.media-amazon.com/images/I/51U2NeVRLdL.__AC_SR150,300___.jpg"
+          },
+          {
+            "name": null,
+            "url": "https://m.media-amazon.com/images/I/51iZ9qnktxL.__AC_SR150,300___.jpg"
+          }
+        ],
+        "rawVideos": [],
+        "modules": [
+          {
+            "type": "module-5",
+            "title": null,
+            "items": [
+              {
+                "image": {
+                  "name": null,
+                  "url": "https://m.media-amazon.com/images/I/41R05aDEmgL.__AC_SR150,300___.jpg"
+                },
+                "name": "Kakuro Puzzle Book for Adults: 250 Medium Logic Challenges for Focused and Cu...",
+                "url": "https://www.amazon.com/dp/B0F5W6HRGG?ref=emc_s_m_5_i_atc",
+                "data": {
+                  "Customer Reviews": "—",
+                  "Price": "$10.95",
+                  "Level": "Medium",
+                  "Total Puzzles": "250"
+                }
+              },
+              {
+                "image": {
+                  "name": null,
+                  "url": "https://m.media-amazon.com/images/I/41iqwF71sbL.__AC_SR150,300___.jpg"
+                },
+                "name": "Kakuro Puzzle Book for Adults: Medium Level Logic Tasks 250 Engaging Brain Wo...",
+                "url": "https://www.amazon.com/dp/B0F5WP7W2K?ref=emc_s_m_5_i_atc",
+                "data": {
+                  "Customer Reviews": "5.0 out of 5 stars 1",
+                  "Price": "$10.95",
+                  "Level": "Medium",
+                  "Total Puzzles": "250"
+                }
+              },
+              {
+                "image": {
+                  "name": null,
+                  "url": "https://m.media-amazon.com/images/I/41nzLi%2B%2B6QL.__AC_SR150,300___.jpg"
+                },
+                "name": "Kakuro Puzzle Book for Adults: 250 Medium Difficulty Logic Games to Train You...",
+                "url": "https://www.amazon.com/dp/B0F5WMD9Q7?ref=emc_s_m_5_i_atc",
+                "data": {
+                  "Customer Reviews": "—",
+                  "Price": "$10.95",
+                  "Level": "Medium",
+                  "Total Puzzles": "250"
+                }
+              },
+              {
+                "image": {
+                  "name": null,
+                  "url": "https://m.media-amazon.com/images/I/51GgzDkXXEL.__AC_SR150,300___.jpg"
+                },
+                "name": "Kakuro Puzzle Book for Adults: Hard Logic Exercises 250 Mind Tests for Seriou...",
+                "url": "https://www.amazon.com/dp/B0F6D77H6W?ref=emc_s_m_5_i_atc",
+                "data": {
+                  "Customer Reviews": "—",
+                  "Price": "$10.95",
+                  "Level": "Hard",
+                  "Total Puzzles": "250"
+                }
+              },
+              {
+                "image": {
+                  "name": null,
+                  "url": "https://m.media-amazon.com/images/I/51U2NeVRLdL.__AC_SR150,300___.jpg"
+                },
+                "name": "Kakuro Puzzle Book for Adults: Extreme Hard Logic Workouts 250 Trials for Mas...",
+                "url": "https://www.amazon.com/dp/B0F897C7NF?ref=emc_s_m_5_i_atc",
+                "data": {
+                  "Customer Reviews": "3.0 out of 5 stars 1",
+                  "Price": "— no data",
+                  "Level": "Extreme Hard",
+                  "Total Puzzles": "250"
+                }
+              },
+              {
+                "image": {
+                  "name": null,
+                  "url": "https://m.media-amazon.com/images/I/51iZ9qnktxL.__AC_SR150,300___.jpg"
+                },
+                "name": "Kakuro Puzzle Book for Adults: 200 Logic-Powered Challenges Level Medium Vol 2",
+                "url": "https://www.amazon.com/dp/B0F2F6WXB4?ref=emc_s_m_5_i_atc",
+                "data": {
+                  "Customer Reviews": "—",
+                  "Price": "$9.99",
+                  "Level": "Medium",
+                  "Total Puzzles": "200"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "brandStory": null,
+      "productComparison": null,
+      "aiReviewsSummary": null,
+      "monthlyPurchaseVolume": null,
+      "productPageReviews": [],
+      "productPageReviewsFromOtherCountries": [],
+      "locationText": "Update location",
+      "loadedCountryCode": "US",
+      "offers": [],
+      "unNormalizedProductUrl": "https://www.amazon.com/s?k=kakuro+puzzle+book&s=popularity-rank",
+      "categoryPageData": {
+        "pageNumber": 1,
+        "saleSummary": null,
+        "isSponsored": false,
+        "bestsellerBadge": null,
+        "productPosition": 31
+      },
+      "input": "https://www.amazon.com/s?k=kakuro+puzzle+book"
+    },
+    {
+      "title": "Kakuro Puzzle book for Adults-Easy Medium: Easy to Medium Number Logic Puzzles Designed for Relaxing Brain Training Without Frustration",
+      "url": "https://www.amazon.com/dp/B0GWMPPC6Y",
+      "asin": "B0GWMPPC6Y",
+      "originalAsin": "B0GWMPPC6Y",
+      "price": {
+        "value": 10.99,
+        "currency": "$"
+      },
+      "inStock": true,
+      "inStockText": "In Stock",
+      "listPrice": null,
+      "brand": null,
+      "author": "Brinc Publications",
+      "shippingPrice": null,
+      "stars": null,
+      "starsBreakdown": {},
+      "reviewsCount": null,
+      "answeredQuestions": null,
+      "breadCrumbs": "Books > Humor & Entertainment > Puzzles & Games > Logic & Brain Teasers",
+      "videosCount": 0,
+      "visitStoreLink": null,
+      "thumbnailImage": "https://m.media-amazon.com/images/I/41tna6l1waL._SY445_SX342_FMwebp_.jpg",
+      "galleryThumbnails": [
+        "https://m.media-amazon.com/images/I/41tna6l1waL._SX38_SY50_CR,0,0,38.jpg",
+        "https://m.media-amazon.com/images/I/51i59pEOzjL._SX38_SY50_CR,0,0,38.jpg"
+      ],
+      "highResolutionImages": [
+        "https://m.media-amazon.com/images/I/619h1uCL6HL._SL1499_.jpg"
+      ],
+      "importantInformation": null,
+      "sustainabilityFeatures": null,
+      "description": null,
+      "features": [],
+      "attributes": [
+        {
+          "key": "ASIN",
+          "value": "B0GWMPPC6Y"
+        },
+        {
+          "key": "Publisher",
+          "value": "Independently published"
+        },
+        {
+          "key": "Publication date",
+          "value": "April 7, 2026"
+        },
+        {
+          "key": "Language",
+          "value": "English"
+        },
+        {
+          "key": "Print length",
+          "value": "108 pages"
+        },
+        {
+          "key": "ISBN-13",
+          "value": "979-8255296699"
+        },
+        {
+          "key": "Item Weight",
+          "value": "7.7 ounces"
+        },
+        {
+          "key": "Dimensions",
+          "value": "6 x 0.25 x 9 inches"
+        }
+      ],
+      "productOverview": [],
+      "variantAsins": [],
+      "variantDetails": [],
+      "reviewsLink": "https://www.amazon.com/product-reviews/B0GWMPPC6Y",
+      "hasReviews": false,
+      "delivery": "Saturday, May 2",
+      "fastestDelivery": "Thursday, April 30",
+      "condition": null,
+      "returnPolicy": null,
+      "support": null,
+      "variantAttributes": [],
+      "manufacturerAttributes": [],
+      "seller": {
+        "id": null,
+        "url": "https://www.amazon.com",
+        "name": "Amazon.com",
+        "businessName": "Amazon.com, Inc.",
+        "phone": "1-206-266-1000",
+        "address": [
+          "410 Terry Ave N",
+          "Seattle",
+          "WA",
+          "98109",
+          "US"
+        ]
+      },
+      "bestsellerRanks": null,
+      "isAmazonChoice": false,
+      "amazonChoiceText": null,
+      "bookDescription": "Want relaxing puzzles that challenge your mind without feeling overwhelming?This Kakuro Puzzle Book for Adults (Easy–Medium) is designed for enjoyable, stress-free solving that builds confidence while keeping your brain active. Why You’ll Love This BookEasy–medium Kakuro puzzles ideal for beginners and casual solversImproves focus, reasoning, and mental sharpness through gentle brain trainingRelaxing, screen-free activity for daily enjoymentClear layouts designed for comfortable solvingPerfect for short breaks, travel, or quiet evenings at home130+ Puzzles with solutions Perfect ForAdults new to number logic puzzlesSudoku fans looking for a relaxing alternativeSeniors seeking enjoyable brain activityAnyone who wants puzzles that challenge without stress\nEasy–medium Kakuro puzzles ideal for beginners and casual solvers\nEasy–medium Kakuro puzzles ideal for beginners and casual solvers\nImproves focus, reasoning, and mental sharpness through gentle brain training\nImproves focus, reasoning, and mental sharpness through gentle brain training\nRelaxing, screen-free activity for daily enjoyment\nRelaxing, screen-free activity for daily enjoyment\nClear layouts designed for comfortable solving\nClear layouts designed for comfortable solving\nPerfect for short breaks, travel, or quiet evenings at home\nPerfect for short breaks, travel, or quiet evenings at home\n130+ Puzzles with solutions\n130+ Puzzles with solutions\nAdults new to number logic puzzles\nAdults new to number logic puzzles\nSudoku fans looking for a relaxing alternative\nSudoku fans looking for a relaxing alternative\nSeniors seeking enjoyable brain activity\nSeniors seeking enjoyable brain activity\nAnyone who wants puzzles that challenge without stress\nAnyone who wants puzzles that challenge without stress",
+      "priceRange": null,
+      "aPlusContent": {
+        "title": "From the Publisher",
+        "rawText": "From the Publisher",
+        "rawImages": [
+          {
+            "name": "front cover",
+            "url": "https://m.media-amazon.com/images/S/aplus-media-library-service-media/0cbaea69-26fc-4411-ae46-f1685d580c46.__CR0,0,970,600_PT0_SX970_V1___.png"
+          },
+          {
+            "name": "inside images",
+            "url": "https://m.media-amazon.com/images/S/aplus-media-library-service-media/dc5ed454-6547-4ab7-9b35-d171eabfa19e.__CR0,0,970,600_PT0_SX970_V1___.png"
+          },
+          {
+            "name": "why you&amp;#39;ll love this book",
+            "url": "https://m.media-amazon.com/images/S/aplus-media-library-service-media/7bf7160e-a8a0-4512-9c1b-8fa33c0fcfd6.__CR0,0,970,600_PT0_SX970_V1___.png"
+          },
+          {
+            "name": "our other puzzle books",
+            "url": "https://m.media-amazon.com/images/S/aplus-media-library-service-media/1cf4c29f-3dd8-4b8d-8c77-6a759a98128d.__CR0,0,970,600_PT0_SX970_V1___.png"
+          }
+        ],
+        "rawVideos": [],
+        "modules": [
+          {
+            "type": "3p-module-b",
+            "title": null,
+            "text": null,
+            "image": {
+              "name": "front cover",
+              "url": "https://m.media-amazon.com/images/S/aplus-media-library-service-media/0cbaea69-26fc-4411-ae46-f1685d580c46.__CR0,0,970,600_PT0_SX970_V1___.png"
+            }
+          },
+          {
+            "type": "3p-module-b",
+            "title": null,
+            "text": null,
+            "image": {
+              "name": "inside images",
+              "url": "https://m.media-amazon.com/images/S/aplus-media-library-service-media/dc5ed454-6547-4ab7-9b35-d171eabfa19e.__CR0,0,970,600_PT0_SX970_V1___.png"
+            }
+          },
+          {
+            "type": "3p-module-b",
+            "title": null,
+            "text": null,
+            "image": {
+              "name": "why you&amp;#39;ll love this book",
+              "url": "https://m.media-amazon.com/images/S/aplus-media-library-service-media/7bf7160e-a8a0-4512-9c1b-8fa33c0fcfd6.__CR0,0,970,600_PT0_SX970_V1___.png"
+            }
+          },
+          {
+            "type": "3p-module-b",
+            "title": null,
+            "text": null,
+            "image": {
+              "name": "our other puzzle books",
+              "url": "https://m.media-amazon.com/images/S/aplus-media-library-service-media/1cf4c29f-3dd8-4b8d-8c77-6a759a98128d.__CR0,0,970,600_PT0_SX970_V1___.png"
+            }
+          }
+        ]
+      },
+      "brandStory": null,
+      "productComparison": null,
+      "aiReviewsSummary": null,
+      "monthlyPurchaseVolume": null,
+      "productPageReviews": [],
+      "productPageReviewsFromOtherCountries": [],
+      "locationText": "Update location",
+      "loadedCountryCode": "US",
+      "offers": [],
+      "unNormalizedProductUrl": "https://www.amazon.com/s?k=kakuro+puzzle+book&s=popularity-rank",
+      "categoryPageData": {
+        "pageNumber": 1,
+        "saleSummary": null,
+        "isSponsored": true,
+        "bestsellerBadge": null,
+        "productPosition": 51
+      },
+      "input": "https://www.amazon.com/s?k=kakuro+puzzle+book"
+    },
+    {
+      "title": "Second-Degree Green Belt Kakuro: Conceptis Puzzles (Martial Arts Puzzles)",
+      "url": "https://www.amazon.com/dp/1402787952",
+      "asin": "1402787952",
+      "originalAsin": "1402787952",
+      "price": {
+        "value": 11.17,
+        "currency": "$"
+      },
+      "inStock": true,
+      "inStockText": "In Stock",
+      "listPrice": null,
+      "brand": null,
+      "author": "Conceptis Puzzles",
+      "shippingPrice": null,
+      "stars": 4.7,
+      "starsBreakdown": {},
+      "reviewsCount": 227,
+      "answeredQuestions": null,
+      "breadCrumbs": "Books > Humor & Entertainment > Puzzles & Games > Logic & Brain Teasers",
+      "videosCount": 0,
+      "visitStoreLink": null,
+      "thumbnailImage": "https://m.media-amazon.com/images/I/51kmn58tliL._SY445_SX342_FMwebp_.jpg",
+      "galleryThumbnails": [
+        "https://m.media-amazon.com/images/I/51kmn58tliL._SX38_SY50_CR,0,0,38.jpg",
+        "https://m.media-amazon.com/images/I/51l8TkP-SpS._SX38_SY50_CR,0,0,38.jpg",
+        "https://m.media-amazon.com/images/I/41Pn9Mi352S._SX38_SY50_CR,0,0,38.jpg",
+        "https://m.media-amazon.com/images/I/41RURgbZJvS._SX38_SY50_CR,0,0,38.jpg",
+        "https://m.media-amazon.com/images/I/31ncTdsuWLL._SX38_SY50_CR,0,0,38.jpg"
+      ],
+      "highResolutionImages": [
+        "https://m.media-amazon.com/images/I/818daw82ZyL._SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/81V-dIB4ZzS._SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/71KI+dfKOBS._SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/81ic06zEGmS._SL1500_.jpg"
+      ],
+      "importantInformation": null,
+      "sustainabilityFeatures": null,
+      "description": null,
+      "features": [],
+      "attributes": [
+        {
+          "key": "Publisher",
+          "value": "Sterling"
+        },
+        {
+          "key": "Publication date",
+          "value": "March 6, 2012"
+        },
+        {
+          "key": "Edition",
+          "value": "CSM"
+        },
+        {
+          "key": "Language",
+          "value": "English"
+        },
+        {
+          "key": "Print length",
+          "value": "192 pages"
+        },
+        {
+          "key": "ISBN-10",
+          "value": "1402787952"
+        },
+        {
+          "key": "ISBN-13",
+          "value": "978-1402787959"
+        },
+        {
+          "key": "Item Weight",
+          "value": "8.6 ounces"
+        },
+        {
+          "key": "Dimensions",
+          "value": "5.3 x 0.6 x 8.1 inches"
+        },
+        {
+          "key": "Part of series",
+          "value": "Martial Arts Puzzles"
+        },
+        {
+          "key": "Best Sellers Rank",
+          "value": "#60,427 in Books (See Top 100 in Books) #30 in Math Games#219 in Logic & Brain Teasers (Books)#460 in Puzzles (Books)"
+        },
+        {
+          "key": "Customer Reviews",
+          "value": "4.7 4.7 out of 5 stars (227)"
+        }
+      ],
+      "productOverview": [],
+      "variantAsins": [],
+      "variantDetails": [],
+      "reviewsLink": "https://www.amazon.com/product-reviews/1402787952",
+      "hasReviews": true,
+      "delivery": "Saturday, May 2",
+      "fastestDelivery": "Wednesday, April 29",
+      "condition": null,
+      "returnPolicy": null,
+      "support": null,
+      "variantAttributes": [],
+      "manufacturerAttributes": [],
+      "seller": {
+        "id": null,
+        "url": "https://www.amazon.com",
+        "name": "Amazon.com",
+        "businessName": "Amazon.com, Inc.",
+        "phone": "1-206-266-1000",
+        "address": [
+          "410 Terry Ave N",
+          "Seattle",
+          "WA",
+          "98109",
+          "US"
+        ]
+      },
+      "bestsellerRanks": [
+        {
+          "rank": 60427,
+          "category": "Books",
+          "url": "https://www.amazon.com/gp/bestsellers/books/ref=pd_zg_ts_books"
+        },
+        {
+          "rank": 30,
+          "category": "Math Games",
+          "url": "https://www.amazon.com/gp/bestsellers/books/775830/ref=pd_zg_hrsr_books"
+        },
+        {
+          "rank": 219,
+          "category": "Logic & Brain Teasers (Books)",
+          "url": "https://www.amazon.com/gp/bestsellers/books/4436/ref=pd_zg_hrsr_books"
+        },
+        {
+          "rank": 460,
+          "category": "Puzzles (Books)",
+          "url": "https://www.amazon.com/gp/bestsellers/books/4439/ref=pd_zg_hrsr_books"
+        }
+      ],
+      "isAmazonChoice": false,
+      "amazonChoiceText": null,
+      "bookDescription": "Looking for something challenging but not impossible, something to bump up your kakuro technique? These medium-hard \"green\" puzzles are just right for honing intermediate skills.",
+      "priceRange": null,
+      "aPlusContent": null,
+      "brandStory": {
+        "title": "From the brand",
+        "image": {
+          "name": null,
+          "url": "https://m.media-amazon.com/images/S/aplus-media-library-service-media/05a85b77-2558-4c9f-922a-63dd39dfacf2.__CR0,0,1464,625_PT0_SX1464_V1___.jpg"
+        },
+        "items": [
+          {
+            "title": "Puzzlewright Kakuro",
+            "text": "Visit the Store",
+            "url": "https://www.amazon.com/stores/page/DCB76E3B-C4FD-42FB-8721-FAEFA74DEC5A?store_ref=storeRecs_dp_aplus",
+            "image": {
+              "name": "Absolutely Nasty Kakuro Level Two (Absolutely Nasty Series)",
+              "url": "https://m.media-amazon.com/images/I/51ZVueSQ-6S.__AC_SR166,182___.jpg"
+            },
+            "items": [
+              {
+                "url": "https://www.amazon.com/dp/140279990X/ref=emc_bcc_2_i",
+                "image": {
+                  "name": "Absolutely Nasty Kakuro Level Two (Absolutely Nasty Series)",
+                  "url": "https://m.media-amazon.com/images/I/51ZVueSQ-6S.__AC_SR166,182___.jpg"
+                }
+              },
+              {
+                "url": "https://www.amazon.com/dp/1402787952/ref=emc_bcc_2_i",
+                "image": {
+                  "name": "Second-Degree Green Belt Kakuro (Martial Arts Puzzles Series)",
+                  "url": "https://m.media-amazon.com/images/I/51F0jEtQOAL.__AC_SR166,182___.jpg"
+                }
+              },
+              {
+                "url": "https://www.amazon.com/dp/1454929731/ref=emc_bcc_2_i",
+                "image": {
+                  "name": "Kakuro U: Sophomore Year",
+                  "url": "https://m.media-amazon.com/images/I/51Q-uPdCr9L.__AC_SR166,182___.jpg"
+                }
+              },
+              {
+                "url": "https://www.amazon.com/dp/1402799918/ref=emc_bcc_2_i",
+                "image": {
+                  "name": "Absolutely Nasty Kakuro Level Three (Absolutely Nasty Series)",
+                  "url": "https://m.media-amazon.com/images/I/51Tn91Tn7IL.__AC_SR166,182___.jpg"
+                }
+              }
+            ]
+          },
+          {
+            "title": null,
+            "text": "Your one-stop shop for all things puzzly. \nPuzzlewright Press prides itself on commitment to quality, accuracy, creativity, variety, inclusivity, and fun! Our products cover core puzzle types such as crosswords and sudoku, as well as every other genre: logic games, brainteasers, word searches, memory puzzles, mazes, acrostics, trivia, kakuro, chess, and more.",
+            "url": null,
+            "image": {
+              "name": null,
+              "url": "https://m.media-amazon.com/images/S/aplus-media-library-service-media/faf1f178-2b5e-4437-8033-2dddecc000a5.__CR0,31,496,228_PT0_SX315_V1___.png"
+            },
+            "items": []
+          }
+        ]
+      },
+      "productComparison": null,
+      "aiReviewsSummary": {
+        "text": "Customers find these Kakuro puzzles relatively easy and enjoyable, with one noting they can complete them without glasses. Customers describe them as lots of fun.",
+        "keywords": [
+          {
+            "name": "Difficulty",
+            "sentiment": "positive",
+            "text": "Customers find these Kakuro puzzles relatively easy, with an extra bit of challenge that makes them enjoyable, and one customer notes they can be completed without glasses.",
+            "customersMentionedCount": {
+              "total": 26,
+              "positive": 20,
+              "negative": 6
+            },
+            "partialReviews": [
+              {
+                "text": "Great fun: challenging, but solvable in about an hour per puzzle. I often had to leave and return to see the solution.",
+                "highlightedPart": "challenging",
+                "url": "https://www.amazon.com/gp/customer-reviews/R24C8E9GUGCTFL"
+              },
+              {
+                "text": "...I like the green level best because it's not too easy and not too hard....",
+                "highlightedPart": "not too easy",
+                "url": "https://www.amazon.com/gp/customer-reviews/R12FFPE9HWGU0F"
+              },
+              {
+                "text": "The puzzles are challenging, so that's good, but the pages/puzzles are too small to pencil in more than two numbers in a square....",
+                "highlightedPart": "puzzles are challenging",
+                "url": "https://www.amazon.com/gp/customer-reviews/R2Z28XL2CJKGKU"
+              },
+              {
+                "text": "I am no dummy, but these puzzles are VERY hard! I have done Kakuro before....",
+                "highlightedPart": "puzzles are VERY hard",
+                "url": "https://www.amazon.com/gp/customer-reviews/R31Y6PU6MKHOLI"
+              }
+            ]
+          },
+          {
+            "name": "Engaging",
+            "sentiment": "positive",
+            "text": "Customers find the book engaging and lots of fun.",
+            "customersMentionedCount": {
+              "total": 6,
+              "positive": 6,
+              "negative": 0
+            },
+            "partialReviews": [
+              {
+                "text": "As advertised. Lots of fun and good for a beginner.",
+                "highlightedPart": "Lots of fun",
+                "url": "https://www.amazon.com/gp/customer-reviews/R1IEOCKCN870T4"
+              },
+              {
+                "text": "Lots of great puzzles in this book. Very engaging, especially the medium ones.",
+                "highlightedPart": "Very engaging",
+                "url": "https://www.amazon.com/gp/customer-reviews/R11BV14Z5JJWCW"
+              },
+              {
+                "text": "Great fun: challenging, but solvable in about an hour per puzzle. I often had to leave and return to see the solution.",
+                "highlightedPart": "Great fun",
+                "url": "https://www.amazon.com/gp/customer-reviews/R24C8E9GUGCTFL"
+              },
+              {
+                "text": "...is has challenging but solvable puzzles and will give you many hour of enjoyable pastime.",
+                "highlightedPart": "many hour of enjoyable pastime",
+                "url": "https://www.amazon.com/gp/customer-reviews/R240AE38DE2JNB"
+              }
+            ]
+          }
+        ]
+      },
+      "monthlyPurchaseVolume": null,
+      "productPageReviews": [
+        {
+          "username": "Paul G",
+          "userId": "amzn1.account.AEWUMHFB4VFNCKGUROM4ZNHADRXA",
+          "userProfileLink": "https://www.amazon.com/gp/profile/amzn1.account.AEWUMHFB4VFNCKGUROM4ZNHADRXA",
+          "ratingScore": 5,
+          "reviewTitle": "Good brain teaser",
+          "reviewDescription": "This book is has challenging but solvable puzzles and will give you many hour of enjoyable pastime.",
+          "date": "2024-05-13",
+          "position": 1,
+          "reviewedIn": "Reviewed in the United States on May 13, 2024",
+          "reviewId": "R240AE38DE2JNB",
+          "reviewUrl": "https://www.amazon.com/gp/customer-reviews/R240AE38DE2JNB/ref=cm_cr_dp_d_rvw_ttl?ie=UTF8",
+          "reviewImages": [],
+          "reviewReaction": null,
+          "isVerified": false,
+          "isAmazonVine": false,
+          "avatar": null,
+          "variant": "Format: Paperback",
+          "variantAttributes": [
+            {
+              "key": "Format",
+              "value": "Paperback"
+            }
+          ]
+        },
+        {
+          "username": "John Moeller",
+          "userId": "amzn1.account.AF2X2L2CF6FD4OAPDRAD7PMLIPUQ",
+          "userProfileLink": "https://www.amazon.com/gp/profile/amzn1.account.AF2X2L2CF6FD4OAPDRAD7PMLIPUQ",
+          "ratingScore": 5,
+          "reviewTitle": "Fun and challenging",
+          "reviewDescription": "This is the 4th copy of Second-degree Green Belt I got. I've done all the other Belt levels. Anything above Green Belt is too much, and it takes the fun out of it. I'm able to solve about 70% of the puzzles in this book. So it's challenging, but not too Challenging.",
+          "date": "2020-01-19",
+          "position": 2,
+          "reviewedIn": "Reviewed in the United States on January 19, 2020",
+          "reviewId": "R18804E134WP8",
+          "reviewUrl": "https://www.amazon.com/gp/customer-reviews/R18804E134WP8/ref=cm_cr_dp_d_rvw_ttl?ie=UTF8",
+          "reviewImages": [],
+          "reviewReaction": "4 people found this helpful",
+          "isVerified": false,
+          "isAmazonVine": false,
+          "avatar": null,
+          "variant": "Format: Paperback",
+          "variantAttributes": [
+            {
+              "key": "Format",
+              "value": "Paperback"
+            }
+          ]
+        },
+        {
+          "username": "Valerie M.",
+          "userId": "amzn1.account.AGYMA4B627IAK43SHSLXMJL6MURQ",
+          "userProfileLink": "https://www.amazon.com/gp/profile/amzn1.account.AGYMA4B627IAK43SHSLXMJL6MURQ",
+          "ratingScore": 5,
+          "reviewTitle": "I like the green level best because it's not too easy ...",
+          "reviewDescription": "I got started on these years ago. I did green, brown, black, and now I'm half-way through the second-degree green. I like the green level best because it's not too easy and not too hard. The black level (even though I'd worked up to it) was always so slow going and required far too much thinking.Interestingly, I can do these puzzles without glasses (even though I need glasses to read). I guess we process numbers and puzzles differently and so I can just lie in bed, sans glasses, and do puzzles until I'm ready to sleep.",
+          "date": "2014-09-22",
+          "position": 3,
+          "reviewedIn": "Reviewed in the United States on September 22, 2014",
+          "reviewId": "R12FFPE9HWGU0F",
+          "reviewUrl": "https://www.amazon.com/gp/customer-reviews/R12FFPE9HWGU0F/ref=cm_cr_dp_d_rvw_ttl?ie=UTF8",
+          "reviewImages": [],
+          "reviewReaction": "5 people found this helpful",
+          "isVerified": false,
+          "isAmazonVine": false,
+          "avatar": "https://m.media-amazon.com/images/S/amazon-avatars-global/2cba466a-d617-422e-bcdd-7100916304a5._CR0%2C0%2C200%2C200_UX460_.jpg",
+          "variant": "Format: Paperback",
+          "variantAttributes": [
+            {
+              "key": "Format",
+              "value": "Paperback"
+            }
+          ]
+        },
+        {
+          "username": "TorieT",
+          "userId": "amzn1.account.AHMM7PRNNJVKQDHX6TWXNV6WHYXA",
+          "userProfileLink": "https://www.amazon.com/gp/profile/amzn1.account.AHMM7PRNNJVKQDHX6TWXNV6WHYXA",
+          "ratingScore": 5,
+          "reviewTitle": "Good Mid-level puzzles",
+          "reviewDescription": "Lots of great puzzles in this book. Very engaging, especially the medium ones.",
+          "date": "2023-07-04",
+          "position": 4,
+          "reviewedIn": "Reviewed in the United States on July 4, 2023",
+          "reviewId": "R11BV14Z5JJWCW",
+          "reviewUrl": "https://www.amazon.com/gp/customer-reviews/R11BV14Z5JJWCW/ref=cm_cr_dp_d_rvw_ttl?ie=UTF8",
+          "reviewImages": [],
+          "reviewReaction": null,
+          "isVerified": false,
+          "isAmazonVine": false,
+          "avatar": null,
+          "variant": "Format: Paperback",
+          "variantAttributes": [
+            {
+              "key": "Format",
+              "value": "Paperback"
+            }
+          ]
+        },
+        {
+          "username": "Emily Webb",
+          "userId": "amzn1.account.AFNQH4EGLBUIABFUVHZCCNDO6AJA",
+          "userProfileLink": "https://www.amazon.com/gp/profile/amzn1.account.AFNQH4EGLBUIABFUVHZCCNDO6AJA",
+          "ratingScore": 5,
+          "reviewTitle": "I absolutely love this series",
+          "reviewDescription": "I absolutely love this series.  It is a good size -- easy for travel or just use at home.  I use mine as a travel journal of sorts.  I take it on trips and as I do each puzzle I record the date and what I did that day.  Fun to look back at.  I had done all the first degree books and was excited to see the new second degree series out!  The puzzles are a good size and print is easy to read.  After finishing 6 of these books I am yet to find an error.  I used to be a suduko player, but got bored.  These books have kept my interest for quite awhile.  It takes me about a year to finish each book.  I've done several different books over the years and this series has been by far my favorite.",
+          "date": "2015-02-02",
+          "position": 5,
+          "reviewedIn": "Reviewed in the United States on February 2, 2015",
+          "reviewId": "R2O12M5LEY6I48",
+          "reviewUrl": "https://www.amazon.com/gp/customer-reviews/R2O12M5LEY6I48/ref=cm_cr_dp_d_rvw_ttl?ie=UTF8",
+          "reviewImages": [],
+          "reviewReaction": "6 people found this helpful",
+          "isVerified": false,
+          "isAmazonVine": false,
+          "avatar": "https://m.media-amazon.com/images/S/amazon-avatars-global/bb1e4c3c-299d-42ab-9025-f7434f915639._CR0%2C0%2C1125%2C1125_SX460_.jpg",
+          "variant": "Format: Paperback",
+          "variantAttributes": [
+            {
+              "key": "Format",
+              "value": "Paperback"
+            }
+          ]
+        },
+        {
+          "username": "Julie",
+          "userId": "amzn1.account.AHKGQTDJ3Y4GUKKWFOSJOTBG54PA",
+          "userProfileLink": "https://www.amazon.com/gp/profile/amzn1.account.AHKGQTDJ3Y4GUKKWFOSJOTBG54PA",
+          "ratingScore": 5,
+          "reviewTitle": "These puzzles keep my old brail active",
+          "reviewDescription": "I love the extra bit of challenge these puzzles give me. It's more creati e than just plugging in Sudoku numbers. I've go through several levels now and this one is my favorite!!",
+          "date": "2022-05-31",
+          "position": 6,
+          "reviewedIn": "Reviewed in the United States on May 31, 2022",
+          "reviewId": "RG8ERPNKSNUJJ",
+          "reviewUrl": "https://www.amazon.com/gp/customer-reviews/RG8ERPNKSNUJJ/ref=cm_cr_dp_d_rvw_ttl?ie=UTF8",
+          "reviewImages": [],
+          "reviewReaction": "One person found this helpful",
+          "isVerified": false,
+          "isAmazonVine": false,
+          "avatar": null,
+          "variant": "Format: Paperback",
+          "variantAttributes": [
+            {
+              "key": "Format",
+              "value": "Paperback"
+            }
+          ]
+        },
+        {
+          "username": "Walt Ling",
+          "userId": "amzn1.account.AEEZV7VEEWJEUSQHD6TRDMVEXLKQ",
+          "userProfileLink": "https://www.amazon.com/gp/profile/amzn1.account.AEEZV7VEEWJEUSQHD6TRDMVEXLKQ",
+          "ratingScore": 4,
+          "reviewTitle": "Kakuro 2nd degree green belt book",
+          "reviewDescription": "I found this puzzle book challenging at first and still challenging when I finished it.  The green belt designation threw me at first as it felt more like a brown belt book. I started taking a long time to complete a puzzle but improved as time went on.",
+          "date": "2012-10-26",
+          "position": 7,
+          "reviewedIn": "Reviewed in the United States on October 26, 2012",
+          "reviewId": "R2D1F8Q5QGDD7S",
+          "reviewUrl": "https://www.amazon.com/gp/customer-reviews/R2D1F8Q5QGDD7S/ref=cm_cr_dp_d_rvw_ttl?ie=UTF8",
+          "reviewImages": [],
+          "reviewReaction": null,
+          "isVerified": false,
+          "isAmazonVine": false,
+          "avatar": null,
+          "variant": "Format: Paperback",
+          "variantAttributes": [
+            {
+              "key": "Format",
+              "value": "Paperback"
+            }
+          ]
+        },
+        {
+          "username": "K. Walsh",
+          "userId": "amzn1.account.AE3CNYSTLMGVXEEXMC2LWRS4JTXA",
+          "userProfileLink": "https://www.amazon.com/gp/profile/amzn1.account.AE3CNYSTLMGVXEEXMC2LWRS4JTXA",
+          "ratingScore": 5,
+          "reviewTitle": "A bit harder than the White Belt which is as expected so that's good.",
+          "reviewDescription": "I used to do these puzzles all the time in Games and World of Puzzles but hadn't found them else where until now.  Love them!These are harder than White Belt but still doable for me.It has all answers so when I go off track, I can use the answers to figure  out how much to erase and redo.",
+          "date": "2014-08-21",
+          "position": 8,
+          "reviewedIn": "Reviewed in the United States on August 21, 2014",
+          "reviewId": "R2S1IHX72YN37M",
+          "reviewUrl": "https://www.amazon.com/gp/customer-reviews/R2S1IHX72YN37M/ref=cm_cr_dp_d_rvw_ttl?ie=UTF8",
+          "reviewImages": [],
+          "reviewReaction": null,
+          "isVerified": false,
+          "isAmazonVine": false,
+          "avatar": null,
+          "variant": "Format: Paperback",
+          "variantAttributes": [
+            {
+              "key": "Format",
+              "value": "Paperback"
+            }
+          ]
+        }
+      ],
+      "productPageReviewsFromOtherCountries": [
+        {
+          "username": "ParameswaranPM",
+          "userId": null,
+          "userProfileLink": null,
+          "ratingScore": 5,
+          "reviewTitle": "Five Stars",
+          "reviewDescription": "Simply excellent and makes one to be focussed on completion",
+          "date": "2015-03-16",
+          "position": 1,
+          "reviewedIn": "Reviewed in India on March 16, 2015",
+          "reviewId": "R19SG6PNHTV6C4",
+          "reviewUrl": null,
+          "reviewImages": [],
+          "reviewReaction": null,
+          "isVerified": false,
+          "isAmazonVine": false,
+          "avatar": null,
+          "variant": "Format: Paperback",
+          "variantAttributes": [
+            {
+              "key": "Format",
+              "value": "Paperback"
+            }
+          ]
+        },
+        {
+          "username": "Daniel Tosal",
+          "userId": null,
+          "userProfileLink": null,
+          "ratingScore": 5,
+          "reviewTitle": "Entretenido",
+          "reviewDescription": "El nivel de los juegos de este libro hace que sea más entretenido que los de cinturón negro. Para aquel que le gusten los kakuros, y que no quiera estar demasiado tiempo intentando resolver cada puzzle este es un buen libro.",
+          "date": "2014-01-27",
+          "position": 2,
+          "reviewedIn": "Reviewed in Spain on January 27, 2014",
+          "reviewId": "R2BZ1PZETOGS8B",
+          "reviewUrl": null,
+          "reviewImages": [],
+          "reviewReaction": null,
+          "isVerified": false,
+          "isAmazonVine": false,
+          "avatar": null,
+          "variant": "Format: Paperback",
+          "variantAttributes": [
+            {
+              "key": "Format",
+              "value": "Paperback"
+            }
+          ]
+        },
+        {
+          "username": "Merci. J'ai reçu",
+          "userId": null,
+          "userProfileLink": null,
+          "ratingScore": 5,
+          "reviewTitle": "Très bien",
+          "reviewDescription": "Très bien",
+          "date": "2024-09-22",
+          "position": 3,
+          "reviewedIn": "Reviewed in Canada on September 22, 2024",
+          "reviewId": "R38WMBYD98DWW1",
+          "reviewUrl": null,
+          "reviewImages": [],
+          "reviewReaction": null,
+          "isVerified": false,
+          "isAmazonVine": false,
+          "avatar": null,
+          "variant": "Format: Paperback",
+          "variantAttributes": [
+            {
+              "key": "Format",
+              "value": "Paperback"
+            }
+          ]
+        },
+        {
+          "username": "P. J. Cross",
+          "userId": null,
+          "userProfileLink": null,
+          "ratingScore": 5,
+          "reviewTitle": "Good level of difficulty and very addictive",
+          "reviewDescription": "I bought this for my wife as a present.  She was immediately addicted and didn't stop until she finished it (this took a month as there are 150 puzzles).She is not new to Kakuro and found the puzzles challenging.  They get progressively harder the further you advance in the book.Now on to the next level ( I'm going to be a Kakuro widow for even longer)",
+          "date": "2016-02-27",
+          "position": 4,
+          "reviewedIn": "Reviewed in the United Kingdom on February 27, 2016",
+          "reviewId": "R5C2WIN3YU3HM",
+          "reviewUrl": null,
+          "reviewImages": [],
+          "reviewReaction": null,
+          "isVerified": false,
+          "isAmazonVine": false,
+          "avatar": null,
+          "variant": "Format: Paperback",
+          "variantAttributes": [
+            {
+              "key": "Format",
+              "value": "Paperback"
+            }
+          ]
+        },
+        {
+          "username": "dietmar",
+          "userId": null,
+          "userProfileLink": null,
+          "ratingScore": 5,
+          "reviewTitle": "Kakuro-Fan",
+          "reviewDescription": "das Heft hat mir gut gefallen. Die Größe der Rätsel über eine ganze Seite und das Finden von Lösungen durch logisches Vorgehen waren der Maßstab. Die Rätsel sind mittelschwer; man sollte also schon eine gewisse Erfahrung haben und Lösungstricks kennen. Allerdings benutze ich auch die Tabelle mit den Zahlenkombinationen.Urteil: Empfehlendswert",
+          "date": "2017-07-15",
+          "position": 5,
+          "reviewedIn": "Reviewed in Germany on July 15, 2017",
+          "reviewId": "RFAD2ACEJ4L2Z",
+          "reviewUrl": null,
+          "reviewImages": [],
+          "reviewReaction": null,
+          "isVerified": false,
+          "isAmazonVine": false,
+          "avatar": null,
+          "variant": "Format: Paperback",
+          "variantAttributes": [
+            {
+              "key": "Format",
+              "value": "Paperback"
+            }
+          ]
+        }
+      ],
+      "locationText": "Update location",
+      "loadedCountryCode": "US",
+      "offers": [],
+      "unNormalizedProductUrl": "https://www.amazon.com/s?k=kakuro+puzzle+book&s=popularity-rank",
+      "categoryPageData": {
+        "pageNumber": 1,
+        "saleSummary": null,
+        "isSponsored": false,
+        "bestsellerBadge": null,
+        "productPosition": 4
+      },
+      "input": "https://www.amazon.com/s?k=kakuro+puzzle+book"
+    },
+    {
+      "title": "600 Kakuro Puzzles: Easy, Medium and Hard Unique Cross Sum Puzzles with Solutions.",
+      "url": "https://www.amazon.com/dp/B0BNVHG1FC",
+      "asin": "B0BNVHG1FC",
+      "originalAsin": "B0BNVHG1FC",
+      "price": {
+        "value": 8.99,
+        "currency": "$"
+      },
+      "inStock": true,
+      "inStockText": "In Stock",
+      "listPrice": null,
+      "brand": null,
+      "author": "Josh Ortiz Martin",
+      "shippingPrice": null,
+      "stars": 4.3,
+      "starsBreakdown": {},
+      "reviewsCount": 97,
+      "answeredQuestions": null,
+      "breadCrumbs": "Books > Science & Math > Mathematics > Pure Mathematics > Combinatorics",
+      "videosCount": 0,
+      "visitStoreLink": null,
+      "thumbnailImage": "https://m.media-amazon.com/images/I/41zMk-M3W1L._SX342_SY445_FMwebp_.jpg",
+      "galleryThumbnails": [
+        "https://m.media-amazon.com/images/I/41zMk-M3W1L._SX38_SY50_CR,0,0,38.jpg",
+        "https://m.media-amazon.com/images/I/61OR1Bq39lL._SX38_SY50_CR,0,0,38.jpg"
+      ],
+      "highResolutionImages": [
+        "https://m.media-amazon.com/images/I/617RoysZAjL._SL1293_.jpg"
+      ],
+      "importantInformation": null,
+      "sustainabilityFeatures": null,
+      "description": null,
+      "features": [],
+      "attributes": [
+        {
+          "key": "ASIN",
+          "value": "B0BNVHG1FC"
+        },
+        {
+          "key": "Publisher",
+          "value": "Independently published"
+        },
+        {
+          "key": "Publication date",
+          "value": "November 30, 2022"
+        },
+        {
+          "key": "Language",
+          "value": "English"
+        },
+        {
+          "key": "Print length",
+          "value": "128 pages"
+        },
+        {
+          "key": "ISBN-13",
+          "value": "979-8366257152"
+        },
+        {
+          "key": "Item Weight",
+          "value": "0.317 ounces"
+        },
+        {
+          "key": "Dimensions",
+          "value": "8.5 x 0.29 x 11 inches"
+        },
+        {
+          "key": "Best Sellers Rank",
+          "value": "#79,535 in Books (See Top 100 in Books) #4 in Combinatorics (Books)#53 in Math Games#155 in Sudoku (Books)"
+        },
+        {
+          "key": "Customer Reviews",
+          "value": "4.3 4.3 out of 5 stars (97)"
+        }
+      ],
+      "productOverview": [],
+      "variantAsins": [],
+      "variantDetails": [],
+      "reviewsLink": "https://www.amazon.com/product-reviews/B0BNVHG1FC",
+      "hasReviews": true,
+      "delivery": "Saturday, May 2",
+      "fastestDelivery": "Wednesday, April 29",
+      "condition": null,
+      "returnPolicy": null,
+      "support": null,
+      "variantAttributes": [],
+      "manufacturerAttributes": [],
+      "seller": {
+        "id": null,
+        "url": "https://www.amazon.com",
+        "name": "Amazon.com",
+        "businessName": "Amazon.com, Inc.",
+        "phone": "1-206-266-1000",
+        "address": [
+          "410 Terry Ave N",
+          "Seattle",
+          "WA",
+          "98109",
+          "US"
+        ]
+      },
+      "bestsellerRanks": [
+        {
+          "rank": 79535,
+          "category": "Books",
+          "url": "https://www.amazon.com/gp/bestsellers/books/ref=pd_zg_ts_books"
+        },
+        {
+          "rank": 4,
+          "category": "Combinatorics (Books)",
+          "url": "https://www.amazon.com/gp/bestsellers/books/13907/ref=pd_zg_hrsr_books"
+        },
+        {
+          "rank": 53,
+          "category": "Math Games",
+          "url": "https://www.amazon.com/gp/bestsellers/books/775830/ref=pd_zg_hrsr_books"
+        },
+        {
+          "rank": 155,
+          "category": "Sudoku (Books)",
+          "url": "https://www.amazon.com/gp/bestsellers/books/15756641/ref=pd_zg_hrsr_books"
+        }
+      ],
+      "isAmazonChoice": false,
+      "amazonChoiceText": null,
+      "bookDescription": "🧩 600 Kakuro Puzzles: Easy, Medium, and Hard – A Unique Collection of Cross Sum Puzzles 🧩\nDiscover the ultimate Kakuro puzzle experience with 600 Kakuro Puzzles! This diverse collection is designed to cater to puzzle lovers of all levels, offering a wide range of challenges that will sharpen your logic and keep you engaged. With puzzles ranging from small grids to more complex layouts, there’s something for everyone.\n🧩 600 Kakuro Puzzles: Easy, Medium, and Hard – A Unique Collection of Cross Sum Puzzles 🧩Discover the ultimate Kakuro puzzle experience with 600 Kakuro Puzzles! This diverse collection is designed to cater to puzzle lovers of all levels, offering a wide range of challenges that will sharpen your logic and keep you engaged. With puzzles ranging from small grids to more complex layouts, there’s something for everyone.Why This Book is Perfect for You:🟡 99 Easy 6x6 Puzzles: Start your Kakuro journey with simple and accessible grids that ease you into the fun of cross sum logic.🟡 66 Easy 10x10 Puzzles: Bigger grids offer a more enjoyable challenge while keeping the difficulty low for beginners.🟡 33 Easy 19x12 Puzzles: Take on larger grids at the easy level, perfect for practicing without too much pressure.🔴 99 Medium 6x6 Puzzles: Ideal for solvers ready to move beyond the basics and test their skills with moderate challenges.🔴 66 Medium 10x10 Puzzles: Enjoy the complexity of medium-sized grids that push your logical thinking just a bit further.🔴 33 Medium 19x12 Puzzles: A step up in size and difficulty, these puzzles are designed to give you a satisfying mental workout.⚫ 102 Hard 6x6 Puzzles: Don’t let the small size fool you—these puzzles will truly test your Kakuro-solving skills.⚫ 68 Hard 10x10 Puzzles: For experienced solvers, these larger puzzles will challenge your ability to think critically and strategically.⚫ 34 Hard 19x12 Puzzles: The ultimate test of logic and patience, these large and intricate puzzles are perfect for Kakuro experts.🗂️ Complete Solutions: Need a little help or want to double-check your work? Full solutions are included at the back of the book.📏 Optimal Format: The 8.5x11 inch size provides plenty of room to solve each puzzle comfortably while maintaining portability.✨ Glossy Cover: Sturdy and stylish, the glossy cover protects your book and adds a touch of elegance to your puzzle-solving collection.Perfect for Kakuro enthusiasts of all levels, 600 Kakuro Puzzles will provide hours of brain-boosting fun. Whether you’re looking to relax or challenge your problem-solving abilities, this collection has it all!\n🟡 99 Easy 6x6 Puzzles: Start your Kakuro journey with simple and accessible grids that ease you into the fun of cross sum logic.\n🟡 99 Easy 6x6 Puzzles: Start your Kakuro journey with simple and accessible grids that ease you into the fun of cross sum logic.\n🟡 66 Easy 10x10 Puzzles: Bigger grids offer a more enjoyable challenge while keeping the difficulty low for beginners.\n🟡 66 Easy 10x10 Puzzles: Bigger grids offer a more enjoyable challenge while keeping the difficulty low for beginners.\n🟡 33 Easy 19x12 Puzzles: Take on larger grids at the easy level, perfect for practicing without too much pressure.\n🟡 33 Easy 19x12 Puzzles: Take on larger grids at the easy level, perfect for practicing without too much pressure.\n🔴 99 Medium 6x6 Puzzles: Ideal for solvers ready to move beyond the basics and test their skills with moderate challenges.\n🔴 99 Medium 6x6 Puzzles: Ideal for solvers ready to move beyond the basics and test their skills with moderate challenges.\n🔴 66 Medium 10x10 Puzzles: Enjoy the complexity of medium-sized grids that push your logical thinking just a bit further.\n🔴 66 Medium 10x10 Puzzles: Enjoy the complexity of medium-sized grids that push your logical thinking just a bit further.\n🔴 33 Medium 19x12 Puzzles: A step up in size and difficulty, these puzzles are designed to give you a satisfying mental workout.\n🔴 33 Medium 19x12 Puzzles: A step up in size and difficulty, these puzzles are designed to give you a satisfying mental workout.\n⚫ 102 Hard 6x6 Puzzles: Don’t let the small size fool you—these puzzles will truly test your Kakuro-solving skills.\n⚫ 102 Hard 6x6 Puzzles: Don’t let the small size fool you—these puzzles will truly test your Kakuro-solving skills.\n⚫ 68 Hard 10x10 Puzzles: For experienced solvers, these larger puzzles will challenge your ability to think critically and strategically.\n⚫ 68 Hard 10x10 Puzzles: For experienced solvers, these larger puzzles will challenge your ability to think critically and strategically.\n⚫ 34 Hard 19x12 Puzzles: The ultimate test of logic and patience, these large and intricate puzzles are perfect for Kakuro experts.\n⚫ 34 Hard 19x12 Puzzles: The ultimate test of logic and patience, these large and intricate puzzles are perfect for Kakuro experts.\n🗂️ Complete Solutions: Need a little help or want to double-check your work? Full solutions are included at the back of the book.\n📏 Optimal Format: The 8.5x11 inch size provides plenty of room to solve each puzzle comfortably while maintaining portability.\n✨ Glossy Cover: Sturdy and stylish, the glossy cover protects your book and adds a touch of elegance to your puzzle-solving collection.\nPerfect for Kakuro enthusiasts of all levels, 600 Kakuro Puzzles will provide hours of brain-boosting fun. Whether you’re looking to relax or challenge your problem-solving abilities, this collection has it all!",
+      "priceRange": null,
+      "aPlusContent": {
+        "title": "From the Publisher",
+        "rawText": "From the Publisher\n\t\n600 Kakuro Puzzles \n600 Kakuro Puzzles \nMath Sudoku \nMath Activity Book For Mathematicians \n600 CrossMath Puzzles \nThe Ultimate Math Activity Book \n\t\nAdd to Cart \n\t\nAdd to Cart \n\t\nAdd to Cart \n\t\nAdd to Cart \n\t\nAdd to Cart \n\t\nAdd to Cart \n\t\nCustomer Reviews \n4.8 out of 5 stars 6 \n\t\n4.8 out of 5 stars 14 \n\t\n— \n\t\n4.6 out of 5 stars 31 \n\t\n4.4 out of 5 stars 61 \n\t\n3.9 out of 5 stars 4 \n\t\nPrice $7.99$7.99 \t$7.99$7.99 \t$6.99$6.99 \t$8.99$8.99 \t$7.99$7.99 \t$7.99$7.99 \t\nDifficulty Easy \tMedium \tEasy / Medium / Hard \tEasy / Medium \tEasy to Hard \tEasy / Medium \t\nPuzzles 600 \t600 \t600 \t450 \t600 \t400+ \t\nGrid Sizes 6x6 | 10x10 | 19x12 \t6x6 | 10x10 | 19x12 \t9x9 \tMixed \t3x3 \tMixed",
+        "rawImages": [
+          {
+            "name": "book cover, jompuzzles",
+            "url": "https://m.media-amazon.com/images/S/aplus-media-library-service-media/99ff1391-6f4f-451a-8c2a-871fcc29e62b.__CR0,0,970,600_PT0_SX970_V1___.png"
+          },
+          {
+            "name": "book cover, jompuzzles",
+            "url": "https://m.media-amazon.com/images/S/aplus-media-library-service-media/893b5ca9-85e8-4440-976d-731bce259221.__CR0,0,970,600_PT0_SX970_V1___.png"
+          },
+          {
+            "name": "cover and interior, jompuzzles",
+            "url": "https://m.media-amazon.com/images/S/aplus-media-library-service-media/f59c2f9b-6cbb-436b-b45d-83c9c4572f44.__CR0,0,970,600_PT0_SX970_V1___.png"
+          },
+          {
+            "name": null,
+            "url": "https://m.media-amazon.com/images/S/aplus-media-library-service-media/a84407bb-610d-48b0-ae89-cb2c3d88eda2.__AC_SR150,300___.jpg"
+          },
+          {
+            "name": null,
+            "url": "https://m.media-amazon.com/images/S/aplus-media-library-service-media/bc5ce5ed-2519-410d-b1c0-db7df94cfee7.__AC_SR150,300___.jpg"
+          },
+          {
+            "name": null,
+            "url": "https://m.media-amazon.com/images/S/aplus-media-library-service-media/bf1851da-92e0-45b1-9d26-bcff9f2e0452.__AC_SR150,300___.jpg"
+          },
+          {
+            "name": null,
+            "url": "https://m.media-amazon.com/images/S/aplus-media-library-service-media/4023ed11-685d-4cac-80dc-15640ad0b698.__AC_SR150,300___.jpg"
+          },
+          {
+            "name": null,
+            "url": "https://m.media-amazon.com/images/S/aplus-media-library-service-media/8f6f2910-7e5d-412c-a054-c301ec9de108.__AC_SR150,300___.jpg"
+          },
+          {
+            "name": null,
+            "url": "https://m.media-amazon.com/images/S/aplus-media-library-service-media/ca063c40-80b4-4489-8086-252f88579936.__AC_SR150,300___.jpg"
+          }
+        ],
+        "rawVideos": [],
+        "modules": [
+          {
+            "type": "3p-module-b",
+            "title": null,
+            "text": null,
+            "image": {
+              "name": "book cover, jompuzzles",
+              "url": "https://m.media-amazon.com/images/S/aplus-media-library-service-media/99ff1391-6f4f-451a-8c2a-871fcc29e62b.__CR0,0,970,600_PT0_SX970_V1___.png"
+            }
+          },
+          {
+            "type": "3p-module-b",
+            "title": null,
+            "text": null,
+            "image": {
+              "name": "book cover, jompuzzles",
+              "url": "https://m.media-amazon.com/images/S/aplus-media-library-service-media/893b5ca9-85e8-4440-976d-731bce259221.__CR0,0,970,600_PT0_SX970_V1___.png"
+            }
+          },
+          {
+            "type": "3p-module-b",
+            "title": null,
+            "text": null,
+            "image": {
+              "name": "cover and interior, jompuzzles",
+              "url": "https://m.media-amazon.com/images/S/aplus-media-library-service-media/f59c2f9b-6cbb-436b-b45d-83c9c4572f44.__CR0,0,970,600_PT0_SX970_V1___.png"
+            }
+          },
+          {
+            "type": "module-5",
+            "title": null,
+            "items": [
+              {
+                "image": {
+                  "name": null,
+                  "url": "https://m.media-amazon.com/images/S/aplus-media-library-service-media/a84407bb-610d-48b0-ae89-cb2c3d88eda2.__AC_SR150,300___.jpg"
+                },
+                "name": "600 Kakuro Puzzles",
+                "url": "https://www.amazon.com/dp/B0BVST6NVX?ref=emc_s_m_5_i_atc",
+                "data": {
+                  "Customer Reviews": "4.8 out of 5 stars 6",
+                  "Price": "$7.99",
+                  "Difficulty": "Easy",
+                  "Puzzles": "600",
+                  "Grid Sizes": "6x6 | 10x10 | 19x12"
+                }
+              },
+              {
+                "image": {
+                  "name": null,
+                  "url": "https://m.media-amazon.com/images/S/aplus-media-library-service-media/bc5ce5ed-2519-410d-b1c0-db7df94cfee7.__AC_SR150,300___.jpg"
+                },
+                "name": "600 Kakuro Puzzles",
+                "url": "https://www.amazon.com/dp/B0BVT8PZ2B?ref=emc_s_m_5_i_atc",
+                "data": {
+                  "Customer Reviews": "4.8 out of 5 stars 14",
+                  "Price": "$7.99",
+                  "Difficulty": "Medium",
+                  "Puzzles": "600",
+                  "Grid Sizes": "6x6 | 10x10 | 19x12"
+                }
+              },
+              {
+                "image": {
+                  "name": null,
+                  "url": "https://m.media-amazon.com/images/S/aplus-media-library-service-media/bf1851da-92e0-45b1-9d26-bcff9f2e0452.__AC_SR150,300___.jpg"
+                },
+                "name": "Math Sudoku",
+                "url": "https://www.amazon.com/dp/B0GRV4WZ4J?ref=emc_s_m_5_i_atc",
+                "data": {
+                  "Customer Reviews": "—",
+                  "Price": "$6.99",
+                  "Difficulty": "Easy / Medium / Hard",
+                  "Puzzles": "600",
+                  "Grid Sizes": "9x9"
+                }
+              },
+              {
+                "image": {
+                  "name": null,
+                  "url": "https://m.media-amazon.com/images/S/aplus-media-library-service-media/4023ed11-685d-4cac-80dc-15640ad0b698.__AC_SR150,300___.jpg"
+                },
+                "name": "Math Activity Book For Mathematicians",
+                "url": "https://www.amazon.com/dp/B0F6DG3X8W?ref=emc_s_m_5_i_atc",
+                "data": {
+                  "Customer Reviews": "4.6 out of 5 stars 31",
+                  "Price": "$8.99",
+                  "Difficulty": "Easy / Medium",
+                  "Puzzles": "450",
+                  "Grid Sizes": "Mixed"
+                }
+              },
+              {
+                "image": {
+                  "name": null,
+                  "url": "https://m.media-amazon.com/images/S/aplus-media-library-service-media/8f6f2910-7e5d-412c-a054-c301ec9de108.__AC_SR150,300___.jpg"
+                },
+                "name": "600 CrossMath Puzzles",
+                "url": "https://www.amazon.com/dp/B0D98K7S2C?ref=emc_s_m_5_i_atc",
+                "data": {
+                  "Customer Reviews": "4.4 out of 5 stars 61",
+                  "Price": "$7.99",
+                  "Difficulty": "Easy to Hard",
+                  "Puzzles": "600",
+                  "Grid Sizes": "3x3"
+                }
+              },
+              {
+                "image": {
+                  "name": null,
+                  "url": "https://m.media-amazon.com/images/S/aplus-media-library-service-media/ca063c40-80b4-4489-8086-252f88579936.__AC_SR150,300___.jpg"
+                },
+                "name": "The Ultimate Math Activity Book",
+                "url": "https://www.amazon.com/dp/B0F8D4RLR8?ref=emc_s_m_5_i_atc",
+                "data": {
+                  "Customer Reviews": "3.9 out of 5 stars 4",
+                  "Price": "$7.99",
+                  "Difficulty": "Easy / Medium",
+                  "Puzzles": "400+",
+                  "Grid Sizes": "Mixed"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "brandStory": null,
+      "productComparison": null,
+      "aiReviewsSummary": {
+        "text": "Customers find the Kakuro puzzles enjoyable and appreciate the variety of sizes. However, the difficulty level receives mixed feedback, with one customer noting it's not suitable for beginners.",
+        "keywords": [
+          {
+            "name": "Puzzle difficulty",
+            "sentiment": "positive",
+            "text": "Customers find the puzzles enjoyable, with one customer noting that the difficulty levels are clearly marked from easy to hard.",
+            "customersMentionedCount": {
+              "total": 7,
+              "positive": 6,
+              "negative": 1
+            },
+            "partialReviews": [
+              {
+                "text": "Puzzles are ok but the solutions format is horrible. Avoid until the fix solutions format....",
+                "highlightedPart": "Puzzles are ok",
+                "url": "https://www.amazon.com/gp/customer-reviews/R1I3FTCUQJR1OJ"
+              },
+              {
+                "text": "Lots of challenging puzzles",
+                "highlightedPart": "Lots of challenging puzzles",
+                "url": "https://www.amazon.com/gp/customer-reviews/R2W4A3IZIFY7TQ"
+              },
+              {
+                "text": "...It classifies the puzzles as easy, medium, and hard, but the easy difficulty is not novice....",
+                "highlightedPart": "classifies the puzzles as easy",
+                "url": "https://www.amazon.com/gp/customer-reviews/R2554B29AOU2US"
+              },
+              {
+                "text": "The Kakuro puzzles are fine, but what happens if/when you get stuck?...",
+                "highlightedPart": "Kakuro puzzles are fine",
+                "url": "https://www.amazon.com/gp/customer-reviews/R1WNWJW9KU53E6"
+              }
+            ]
+          },
+          {
+            "name": "Difficulty",
+            "sentiment": "mixed",
+            "text": "Customers have mixed opinions about the difficulty level of these Kakuro puzzles, with some finding them challenging.",
+            "customersMentionedCount": {
+              "total": 8,
+              "positive": 4,
+              "negative": 4
+            },
+            "partialReviews": [
+              {
+                "text": "...Are they solvable? Perhaps, but only to a select few. The answer key is simply stupid in its design. *...",
+                "highlightedPart": "Are they solvable",
+                "url": "https://www.amazon.com/gp/customer-reviews/RBRD7MF1CV03Y"
+              },
+              {
+                "text": "...classifies the puzzles as easy, medium, and hard, but the easy difficulty is not novice....",
+                "highlightedPart": "easy difficulty is not novice",
+                "url": "https://www.amazon.com/gp/customer-reviews/R2554B29AOU2US"
+              },
+              {
+                "text": "...2-3 for difficulty compared to other puzzle books, with a nice mix of easy-diffcult....",
+                "highlightedPart": "nice mix of easy-diffcult",
+                "url": "https://www.amazon.com/gp/customer-reviews/R2Z84SLCPG0RVI"
+              },
+              {
+                "text": "...And the way they have the answers listed in the back makes it almost impossible to use...",
+                "highlightedPart": "almost impossible to use",
+                "url": "https://www.amazon.com/gp/customer-reviews/R3VPHXN2MKJHMT"
+              }
+            ]
+          },
+          {
+            "name": "Puzzle size",
+            "sentiment": "mixed",
+            "text": "Customers have mixed opinions about the puzzle size, with some appreciating the good variety of sizes, while one customer notes the very small print.",
+            "customersMentionedCount": {
+              "total": 6,
+              "positive": 4,
+              "negative": 2
+            },
+            "partialReviews": [
+              {
+                "text": "This is a large book (8x11) compared to most Kakuro books, which makes the number boxes larger - always a good feature....",
+                "highlightedPart": "large book",
+                "url": "https://www.amazon.com/gp/customer-reviews/R2Z84SLCPG0RVI"
+              },
+              {
+                "text": "no dislikes like the size of the puzzles and the extra work space on each page",
+                "highlightedPart": "size of the puzzles",
+                "url": "https://www.amazon.com/gp/customer-reviews/R1UYHEFZG0GETX"
+              },
+              {
+                "text": "...2. Each page has small & medium size puzzles plus one large puzzle 3. The difficulty slooooowly increases, so my skill level increased also",
+                "highlightedPart": "medium size puzzles",
+                "url": "https://www.amazon.com/gp/customer-reviews/R30UBTVSVVZZWS"
+              },
+              {
+                "text": "Took on a plane ride. Fit well in my backpack. It had a nice variety of puzzle sizes and difficulty’s.",
+                "highlightedPart": "nice variety of puzzle sizes",
+                "url": "https://www.amazon.com/gp/customer-reviews/R2RS8ZMD9GVH93"
+              }
+            ]
+          }
+        ]
+      },
+      "monthlyPurchaseVolume": null,
+      "productPageReviews": [
+        {
+          "username": "Crystal Drummond",
+          "userId": "amzn1.account.AFRY3PRFJFNQ26SN6MOTWKZ5BGLQ",
+          "userProfileLink": "https://www.amazon.com/gp/profile/amzn1.account.AFRY3PRFJFNQ26SN6MOTWKZ5BGLQ",
+          "ratingScore": 5,
+          "reviewTitle": "Nice book",
+          "reviewDescription": "Lots of challenging puzzles",
+          "date": "2025-09-17",
+          "position": 1,
+          "reviewedIn": "Reviewed in the United States on September 17, 2025",
+          "reviewId": "R2W4A3IZIFY7TQ",
+          "reviewUrl": "https://www.amazon.com/gp/customer-reviews/R2W4A3IZIFY7TQ/ref=cm_cr_dp_d_rvw_ttl?ie=UTF8",
+          "reviewImages": [],
+          "reviewReaction": "One person found this helpful",
+          "isVerified": false,
+          "isAmazonVine": false,
+          "avatar": null,
+          "variant": "Format: Paperback",
+          "variantAttributes": [
+            {
+              "key": "Format",
+              "value": "Paperback"
+            }
+          ]
+        },
+        {
+          "username": "Bryan Combs",
+          "userId": "amzn1.account.AHHMPXSFOEK6E6KSUESMZXEVB5JA",
+          "userProfileLink": "https://www.amazon.com/gp/profile/amzn1.account.AHHMPXSFOEK6E6KSUESMZXEVB5JA",
+          "ratingScore": 5,
+          "reviewTitle": "Great value and variety",
+          "reviewDescription": "Nice price for 600 puzzles 👍 3 small, 2 medium, and 1 large size puzzle per page is great. It classifies the puzzles as easy, medium, and hard, but the easy difficulty is not novice. If you have never played Kakuro before, it might be overwhelming. I've played for hours and will play for several more. Thanks, Josh Ortiz Martin 👍",
+          "date": "2023-12-10",
+          "position": 2,
+          "reviewedIn": "Reviewed in the United States on December 10, 2023",
+          "reviewId": "R2554B29AOU2US",
+          "reviewUrl": "https://www.amazon.com/gp/customer-reviews/R2554B29AOU2US/ref=cm_cr_dp_d_rvw_ttl?ie=UTF8",
+          "reviewImages": [],
+          "reviewReaction": "5 people found this helpful",
+          "isVerified": false,
+          "isAmazonVine": false,
+          "avatar": "https://m.media-amazon.com/images/S/amazon-avatars-global/d4d9463e-085c-4d19-8d16-97a59d85c621._CR8%2C0%2C164%2C164_UX460_.jpg",
+          "variant": "Format: Paperback",
+          "variantAttributes": [
+            {
+              "key": "Format",
+              "value": "Paperback"
+            }
+          ]
+        },
+        {
+          "username": "Betsy",
+          "userId": "amzn1.account.AHTR3RIAGCMMTHQFEIKQDHKKHUTA",
+          "userProfileLink": "https://www.amazon.com/gp/profile/amzn1.account.AHTR3RIAGCMMTHQFEIKQDHKKHUTA",
+          "ratingScore": 5,
+          "reviewTitle": "Great Paper!",
+          "reviewDescription": "We are always looking for Kakuro puzzles on good paper, so we can erase if we need to, without destroying the page.  The puzzles, although it says Easy, Medium, Hard,  lean toward easy and medium.  I haven't found any that I couldn't do.  I do write in possible answers as I do them, but I think my husband who is better at them would do them all without any erasing.  But they aren't so easy that they are boring.",
+          "date": "2024-02-25",
+          "position": 3,
+          "reviewedIn": "Reviewed in the United States on February 25, 2024",
+          "reviewId": "R2GXDO3SX4UFSM",
+          "reviewUrl": "https://www.amazon.com/gp/customer-reviews/R2GXDO3SX4UFSM/ref=cm_cr_dp_d_rvw_ttl?ie=UTF8",
+          "reviewImages": [],
+          "reviewReaction": "4 people found this helpful",
+          "isVerified": false,
+          "isAmazonVine": false,
+          "avatar": null,
+          "variant": "Format: Paperback",
+          "variantAttributes": [
+            {
+              "key": "Format",
+              "value": "Paperback"
+            }
+          ]
+        },
+        {
+          "username": "dgsidekick",
+          "userId": "amzn1.account.AHXX6VY6C43IRGX6EU5NECNBUODA",
+          "userProfileLink": "https://www.amazon.com/gp/profile/amzn1.account.AHXX6VY6C43IRGX6EU5NECNBUODA",
+          "ratingScore": 3,
+          "reviewTitle": "Answers hard to decipher.",
+          "reviewDescription": "I don't often need to rely on the answers in the back of the book, but the way they are given makes it hard to discover a mistake and correct it.  The answers are given in rows instead of being able to see the whole puzzle.",
+          "date": "2025-03-19",
+          "position": 4,
+          "reviewedIn": "Reviewed in the United States on March 19, 2025",
+          "reviewId": "R3TNKZIZ3DLS9K",
+          "reviewUrl": "https://www.amazon.com/gp/customer-reviews/R3TNKZIZ3DLS9K/ref=cm_cr_dp_d_rvw_ttl?ie=UTF8",
+          "reviewImages": [],
+          "reviewReaction": "One person found this helpful",
+          "isVerified": false,
+          "isAmazonVine": false,
+          "avatar": null,
+          "variant": "Format: Paperback",
+          "variantAttributes": [
+            {
+              "key": "Format",
+              "value": "Paperback"
+            }
+          ]
+        },
+        {
+          "username": "Sharon H",
+          "userId": "amzn1.account.AHWKDKZNGBOHXU6AXRFV3URH6DDA",
+          "userProfileLink": "https://www.amazon.com/gp/profile/amzn1.account.AHWKDKZNGBOHXU6AXRFV3URH6DDA",
+          "ratingScore": 4,
+          "reviewTitle": "Not That Easy",
+          "reviewDescription": "It is more challenging than other Kakuro books that I have used in the past (for the easy and medium puzzles).  And the way they have the answers listed in the back makes it almost impossible to use (especially if you want to just peek at one cell to see if you are doing things correctly).  The book is 8 1/2\" X 11\" so it is not something you can tuck in a pocket and carry with you.  I do like the fact that it is printed with ink that I am not sensitive to - so I will keep it.",
+          "date": "2024-01-26",
+          "position": 5,
+          "reviewedIn": "Reviewed in the United States on January 26, 2024",
+          "reviewId": "R3VPHXN2MKJHMT",
+          "reviewUrl": "https://www.amazon.com/gp/customer-reviews/R3VPHXN2MKJHMT/ref=cm_cr_dp_d_rvw_ttl?ie=UTF8",
+          "reviewImages": [],
+          "reviewReaction": "2 people found this helpful",
+          "isVerified": false,
+          "isAmazonVine": false,
+          "avatar": null,
+          "variant": "Format: Paperback",
+          "variantAttributes": [
+            {
+              "key": "Format",
+              "value": "Paperback"
+            }
+          ]
+        },
+        {
+          "username": "Kelly Chuma",
+          "userId": "amzn1.account.AH44SXKC5UHDVY62GNBVIF5EWP5Q",
+          "userProfileLink": "https://www.amazon.com/gp/profile/amzn1.account.AH44SXKC5UHDVY62GNBVIF5EWP5Q",
+          "ratingScore": 5,
+          "reviewTitle": "LOVE LOVE LOVE",
+          "reviewDescription": "I love these kinds of puzzles. The best features of this particular book:1. EXCELLENT quality paper, important because many erasures are necessary;2. Each page has small & medium size puzzles plus one large puzzle3. The difficulty slooooowly increases, so my skill level increased also",
+          "date": "2023-04-11",
+          "position": 6,
+          "reviewedIn": "Reviewed in the United States on April 11, 2023",
+          "reviewId": "R30UBTVSVVZZWS",
+          "reviewUrl": "https://www.amazon.com/gp/customer-reviews/R30UBTVSVVZZWS/ref=cm_cr_dp_d_rvw_ttl?ie=UTF8",
+          "reviewImages": [],
+          "reviewReaction": "One person found this helpful",
+          "isVerified": false,
+          "isAmazonVine": false,
+          "avatar": null,
+          "variant": "Format: Paperback",
+          "variantAttributes": [
+            {
+              "key": "Format",
+              "value": "Paperback"
+            }
+          ]
+        },
+        {
+          "username": "Chanie W",
+          "userId": "amzn1.account.AHCY2UNOWGJGLWIO4G5MWQSQOCQA",
+          "userProfileLink": "https://www.amazon.com/gp/profile/amzn1.account.AHCY2UNOWGJGLWIO4G5MWQSQOCQA",
+          "ratingScore": 5,
+          "reviewTitle": "So many puzzles.",
+          "reviewDescription": "Each page has puzzles of various levels of difficulty.",
+          "date": "2024-03-19",
+          "position": 7,
+          "reviewedIn": "Reviewed in the United States on March 19, 2024",
+          "reviewId": "RURY1Y1YDB8JU",
+          "reviewUrl": "https://www.amazon.com/gp/customer-reviews/RURY1Y1YDB8JU/ref=cm_cr_dp_d_rvw_ttl?ie=UTF8",
+          "reviewImages": [],
+          "reviewReaction": "One person found this helpful",
+          "isVerified": false,
+          "isAmazonVine": false,
+          "avatar": null,
+          "variant": "Format: Paperback",
+          "variantAttributes": [
+            {
+              "key": "Format",
+              "value": "Paperback"
+            }
+          ]
+        },
+        {
+          "username": "John",
+          "userId": "amzn1.account.AF2JOOU4WHAGR6ICR25AO7B5YWZQ",
+          "userProfileLink": "https://www.amazon.com/gp/profile/amzn1.account.AF2JOOU4WHAGR6ICR25AO7B5YWZQ",
+          "ratingScore": 5,
+          "reviewTitle": "Good paper",
+          "reviewDescription": "Printed on decent paper that can stand up to erasers fine.",
+          "date": "2024-10-25",
+          "position": 8,
+          "reviewedIn": "Reviewed in the United States on October 25, 2024",
+          "reviewId": "R2FJ99IBP1T4V8",
+          "reviewUrl": "https://www.amazon.com/gp/customer-reviews/R2FJ99IBP1T4V8/ref=cm_cr_dp_d_rvw_ttl?ie=UTF8",
+          "reviewImages": [],
+          "reviewReaction": "One person found this helpful",
+          "isVerified": false,
+          "isAmazonVine": false,
+          "avatar": "https://m.media-amazon.com/images/S/amazon-avatars-global/fefded3b-ab16-4be4-bb8b-8bd165fe5036._CR62%2C0%2C375%2C375_SX460_.jpg",
+          "variant": "Format: Paperback",
+          "variantAttributes": [
+            {
+              "key": "Format",
+              "value": "Paperback"
+            }
+          ]
+        }
+      ],
+      "productPageReviewsFromOtherCountries": [
+        {
+          "username": "Monica",
+          "userId": null,
+          "userProfileLink": null,
+          "ratingScore": 5,
+          "reviewTitle": "quello che cercavo",
+          "reviewDescription": "Perfetto! diverse difficoltà, soluzioni incluse. Divertimento assicurato",
+          "date": "2025-08-28",
+          "position": 1,
+          "reviewedIn": "Reviewed in Italy on August 28, 2025",
+          "reviewId": "R1BVOFOV15EZSK",
+          "reviewUrl": null,
+          "reviewImages": [],
+          "reviewReaction": null,
+          "isVerified": false,
+          "isAmazonVine": false,
+          "avatar": null,
+          "variant": "Format: Paperback",
+          "variantAttributes": [
+            {
+              "key": "Format",
+              "value": "Paperback"
+            }
+          ]
+        },
+        {
+          "username": "Philippa Pickford",
+          "userId": null,
+          "userProfileLink": null,
+          "ratingScore": 5,
+          "reviewTitle": "Great book",
+          "reviewDescription": "Great fun!",
+          "date": "2025-02-25",
+          "position": 2,
+          "reviewedIn": "Reviewed in Spain on February 25, 2025",
+          "reviewId": "R1ORLSX7A9QTLE",
+          "reviewUrl": null,
+          "reviewImages": [],
+          "reviewReaction": null,
+          "isVerified": false,
+          "isAmazonVine": false,
+          "avatar": null,
+          "variant": "Format: Paperback",
+          "variantAttributes": [
+            {
+              "key": "Format",
+              "value": "Paperback"
+            }
+          ]
+        },
+        {
+          "username": "Michelle Davidson",
+          "userId": null,
+          "userProfileLink": null,
+          "ratingScore": 5,
+          "reviewTitle": "Good",
+          "reviewDescription": "Good",
+          "date": "2025-06-22",
+          "position": 3,
+          "reviewedIn": "Reviewed in the United Kingdom on June 22, 2025",
+          "reviewId": "R3E4KFWHSX6ITZ",
+          "reviewUrl": null,
+          "reviewImages": [],
+          "reviewReaction": null,
+          "isVerified": false,
+          "isAmazonVine": false,
+          "avatar": null,
+          "variant": "Format: Paperback",
+          "variantAttributes": [
+            {
+              "key": "Format",
+              "value": "Paperback"
+            }
+          ]
+        },
+        {
+          "username": "R S REYNOLDS",
+          "userId": null,
+          "userProfileLink": null,
+          "ratingScore": 5,
+          "reviewTitle": "My partner loves the book",
+          "reviewDescription": "I don't do puzzles, but my good lady loves them. She says these are excellent.",
+          "date": "2024-01-05",
+          "position": 4,
+          "reviewedIn": "Reviewed in the United Kingdom on January 5, 2024",
+          "reviewId": "R2X8JTXBLH55N4",
+          "reviewUrl": null,
+          "reviewImages": [],
+          "reviewReaction": null,
+          "isVerified": false,
+          "isAmazonVine": false,
+          "avatar": null,
+          "variant": "Format: Paperback",
+          "variantAttributes": [
+            {
+              "key": "Format",
+              "value": "Paperback"
+            }
+          ]
+        },
+        {
+          "username": "sambagirl",
+          "userId": null,
+          "userProfileLink": null,
+          "ratingScore": 5,
+          "reviewTitle": "As advertised",
+          "reviewDescription": "As advertised",
+          "date": "2023-12-01",
+          "position": 5,
+          "reviewedIn": "Reviewed in the United Kingdom on December 1, 2023",
+          "reviewId": "R2M2ZSQXCGWSW0",
+          "reviewUrl": null,
+          "reviewImages": [],
+          "reviewReaction": null,
+          "isVerified": false,
+          "isAmazonVine": false,
+          "avatar": null,
+          "variant": "Format: Paperback",
+          "variantAttributes": [
+            {
+              "key": "Format",
+              "value": "Paperback"
+            }
+          ]
+        }
+      ],
+      "locationText": "Update location",
+      "loadedCountryCode": "US",
+      "offers": [],
+      "unNormalizedProductUrl": "https://www.amazon.com/s?k=kakuro+puzzle+book&s=popularity-rank",
+      "categoryPageData": {
+        "pageNumber": 1,
+        "saleSummary": null,
+        "isSponsored": false,
+        "bestsellerBadge": null,
+        "productPosition": 6
+      },
+      "input": "https://www.amazon.com/s?k=kakuro+puzzle+book"
+    },
+    {
+      "title": "The Ultimate Kakuro Puzzle Book for Adults: 260 Cross Sums Logic Puzzles from Easy to Hard for Hours of Fun and Mind-Training Challenges",
+      "url": "https://www.amazon.com/dp/B0FNLJ1HX8",
+      "asin": "B0FNLJ1HX8",
+      "originalAsin": "B0FNLJ1HX8",
+      "price": {
+        "value": 9.99,
+        "currency": "$"
+      },
+      "inStock": true,
+      "inStockText": "In Stock",
+      "listPrice": null,
+      "brand": null,
+      "author": "CM7074 Bros",
+      "shippingPrice": null,
+      "stars": 5,
+      "starsBreakdown": {},
+      "reviewsCount": 1,
+      "answeredQuestions": null,
+      "breadCrumbs": "Books > Humor & Entertainment > Puzzles & Games > Logic & Brain Teasers",
+      "videosCount": 0,
+      "visitStoreLink": null,
+      "thumbnailImage": "https://m.media-amazon.com/images/I/41LnvoKySUL._SX342_SY445_FMwebp_.jpg",
+      "galleryThumbnails": [
+        "https://m.media-amazon.com/images/I/41LnvoKySUL._SX38_SY50_CR,0,0,38.jpg",
+        "https://m.media-amazon.com/images/I/617et1rgcHL._SX38_SY50_CR,0,0,38.jpg"
+      ],
+      "highResolutionImages": [
+        "https://m.media-amazon.com/images/I/61LE-zLGRTL._SL1293_.jpg"
+      ],
+      "importantInformation": null,
+      "sustainabilityFeatures": null,
+      "description": null,
+      "features": [],
+      "attributes": [
+        {
+          "key": "ASIN",
+          "value": "B0FNLJ1HX8"
+        },
+        {
+          "key": "Publisher",
+          "value": "Independently published"
+        },
+        {
+          "key": "Publication date",
+          "value": "August 21, 2025"
+        },
+        {
+          "key": "Language",
+          "value": "English"
+        },
+        {
+          "key": "Print length",
+          "value": "139 pages"
+        },
+        {
+          "key": "ISBN-13",
+          "value": "979-8298439312"
+        },
+        {
+          "key": "Item Weight",
+          "value": "15 ounces"
+        },
+        {
+          "key": "Dimensions",
+          "value": "8.5 x 0.32 x 11 inches"
+        },
+        {
+          "key": "Best Sellers Rank",
+          "value": "#1,052,704 in Books (See Top 100 in Books) #802 in Math Games#2,633 in Logic & Brain Teasers (Books)#5,244 in Puzzles (Books)"
+        },
+        {
+          "key": "Customer Reviews",
+          "value": "5.0 5.0 out of 5 stars (1)"
+        }
+      ],
+      "productOverview": [],
+      "variantAsins": [],
+      "variantDetails": [],
+      "reviewsLink": "https://www.amazon.com/product-reviews/B0FNLJ1HX8",
+      "hasReviews": false,
+      "delivery": "Saturday, May 2",
+      "fastestDelivery": "Wednesday, April 29",
+      "condition": null,
+      "returnPolicy": null,
+      "support": null,
+      "variantAttributes": [],
+      "manufacturerAttributes": [],
+      "seller": {
+        "id": null,
+        "url": "https://www.amazon.com",
+        "name": "Amazon.com",
+        "businessName": "Amazon.com, Inc.",
+        "phone": "1-206-266-1000",
+        "address": [
+          "410 Terry Ave N",
+          "Seattle",
+          "WA",
+          "98109",
+          "US"
+        ]
+      },
+      "bestsellerRanks": [
+        {
+          "rank": 1052704,
+          "category": "Books",
+          "url": "https://www.amazon.com/gp/bestsellers/books/ref=pd_zg_ts_books"
+        },
+        {
+          "rank": 802,
+          "category": "Math Games",
+          "url": "https://www.amazon.com/gp/bestsellers/books/775830/ref=pd_zg_hrsr_books"
+        },
+        {
+          "rank": 2633,
+          "category": "Logic & Brain Teasers (Books)",
+          "url": "https://www.amazon.com/gp/bestsellers/books/4436/ref=pd_zg_hrsr_books"
+        },
+        {
+          "rank": 5244,
+          "category": "Puzzles (Books)",
+          "url": "https://www.amazon.com/gp/bestsellers/books/4439/ref=pd_zg_hrsr_books"
+        }
+      ],
+      "isAmazonChoice": false,
+      "amazonChoiceText": null,
+      "bookDescription": "✨ Ready to challenge your mind while having fun?Discover Kakuro, the ultimate number-logic puzzle that combines the strategy of crosswords with the thrill of Sudoku — a perfect daily workout for your brain.\nThis complete collection of 260 puzzles is designed for adults and seniors who love keeping their minds sharp, focused, and entertained. With large print and a progressive structure, it’s ideal both for beginners and experienced solvers looking for new challenges.\n✨ Ready to challenge your mind while having fun?Discover Kakuro, the ultimate number-logic puzzle that combines the strategy of crosswords with the thrill of Sudoku — a perfect daily workout for your brain.This complete collection of 260 puzzles is designed for adults and seniors who love keeping their minds sharp, focused, and entertained. With large print and a progressive structure, it’s ideal both for beginners and experienced solvers looking for new challenges.What You’ll Get Inside🧩 260 Puzzles with Solutions – Each carefully designed with one clear, logical answer.🎯 3 Levels of Difficulty – 80 Easy puzzles (6×6 and 7×7 grids), 100 Medium puzzles (8×8 and 9×9 grids), and 80 Hard puzzles (10×10, 13×13, 14×14 grids).📖 Large Print Format (8.5 × 11 in) – Designed for maximum comfort, with 4 puzzles per page for grids up to 9×9, 2 puzzles per page for 10×10, and 1 puzzle per page for the largest grids.🧠 Progressive Challenge – Start simple and advance to more complex puzzles, steadily boosting memory, logic, and concentration skills.🌟 Fun and Mind-Training Challenges – Kakuro puzzles are more than just entertainment: they sharpen focus, improve problem-solving, strengthen memory, reduce stress, and offer hours of screen-free relaxation.Whether you’re looking for a fun daily challenge, a mindful break from routine, or a smart gift idea, this book delivers a perfect mix of relaxation and brain-boosting fun.👉 Don’t wait — grab your copy today and start boosting your brain while having fun!\n🧩 260 Puzzles with Solutions – Each carefully designed with one clear, logical answer.\n🎯 3 Levels of Difficulty – 80 Easy puzzles (6×6 and 7×7 grids), 100 Medium puzzles (8×8 and 9×9 grids), and 80 Hard puzzles (10×10, 13×13, 14×14 grids).\n📖 Large Print Format (8.5 × 11 in) – Designed for maximum comfort, with 4 puzzles per page for grids up to 9×9, 2 puzzles per page for 10×10, and 1 puzzle per page for the largest grids.\n🧠 Progressive Challenge – Start simple and advance to more complex puzzles, steadily boosting memory, logic, and concentration skills.\n🌟 Fun and Mind-Training Challenges – Kakuro puzzles are more than just entertainment: they sharpen focus, improve problem-solving, strengthen memory, reduce stress, and offer hours of screen-free relaxation.\nWhether you’re looking for a fun daily challenge, a mindful break from routine, or a smart gift idea, this book delivers a perfect mix of relaxation and brain-boosting fun.\n👉 Don’t wait — grab your copy today and start boosting your brain while having fun!",
+      "priceRange": null,
+      "aPlusContent": {
+        "title": "From the Publisher",
+        "rawText": "From the Publisher\nA complete Kakuro collection featuring 260 puzzles with solutions — 80 Easy, 100 Medium, and 80 Hard challenges designed for hours of logical fun \nEnjoy a variety of grid sizes designed for every skill level — from quick 6×6 puzzles to challenging 14×14 grids. Each page is carefully formatted for easy reading and writing comfort. \n\t\n4000 Big Word Search for Adults Large Print: 200 Themed Puzzles for Hours of ... \nEngaging Focus & Fun Variety Puzzle Book for Adults and Seniors: Over 350 Puz... \n2023 Word Search Large Print Puzzle Books for Adults: 100 Themed Word Find Pu... \n1000+ Sudoku Puzzles for Adults: Sudoku Puzzle Book Easy to Hard \nSudoku for Kids Ages 8-12: 320 Fun and Challenging Puzzles with Solutions \n\t\nAdd to Cart \n\t\nAdd to Cart \n\t\nAdd to Cart \n\t\nAdd to Cart \n\t\nAdd to Cart \n\t\nCustomer Reviews \n4.9 out of 5 stars 53 \n\t\n— \n\t\n4.8 out of 5 stars 6 \n\t\n4.4 out of 5 stars 6 \n\t\n3.6 out of 5 stars 4 \n\t\nPrice $9.99$9.99 \t$10.99$10.99 \t$9.99$9.99 \t$9.99$9.99 \t$9.99$9.99 \t\nBook Style Word Search \tVariety Puzzle Book \tWord Search \tSudoku \tSudoku \t\nDescription 200 Puzzles - 4000 Words \t369 Puzzles \t100 Puzzles - 2400 Words \t1044 Puzzles \t320 Puzzles \t\nLarge Print ✓ \t✓ \t✓ \t✓ \t✓",
+        "rawImages": [
+          {
+            "name": "Kakuro Puzzle Book for Adults",
+            "url": "https://m.media-amazon.com/images/S/aplus-media-library-service-media/4acdceb5-83a1-4e13-bab8-ec6de1682982.__CR0,0,970,600_PT0_SX970_V1___.png"
+          },
+          {
+            "name": "Kakuru",
+            "url": "https://m.media-amazon.com/images/S/aplus-media-library-service-media/c345ba29-390f-401a-ba23-80c02e0c28f4.__CR0,0,970,600_PT0_SX970_V1___.png"
+          },
+          {
+            "name": "Kakuro Puzzles",
+            "url": "https://m.media-amazon.com/images/S/aplus-media-library-service-media/4f96b14b-5bfc-4d96-a3f5-63c32f7676ce.__CR0,0,970,600_PT0_SX970_V1___.png"
+          },
+          {
+            "name": null,
+            "url": "https://m.media-amazon.com/images/S/aplus-media-library-service-media/e9352f78-58ab-4e49-8a16-29f5f312c30e.__AC_SR150,300___.jpg"
+          },
+          {
+            "name": null,
+            "url": "https://m.media-amazon.com/images/S/aplus-media-library-service-media/f2957000-9ad0-4346-ae44-3eb3169d4636.__AC_SR150,300___.jpg"
+          },
+          {
+            "name": null,
+            "url": "https://m.media-amazon.com/images/S/aplus-media-library-service-media/07e43f53-520f-49fa-8b64-19acb4752b76.__AC_SR150,300___.jpg"
+          },
+          {
+            "name": null,
+            "url": "https://m.media-amazon.com/images/S/aplus-media-library-service-media/10c1ba49-a95a-4c9a-a3d1-642602ec0108.__AC_SR150,300___.jpg"
+          },
+          {
+            "name": null,
+            "url": "https://m.media-amazon.com/images/S/aplus-media-library-service-media/c139c87f-90df-4503-a1db-7eabab8103cc.__AC_SR150,300___.jpg"
+          }
+        ],
+        "rawVideos": [],
+        "modules": [
+          {
+            "type": "3p-module-b",
+            "title": null,
+            "text": "A complete Kakuro collection featuring 260 puzzles with solutions — 80 Easy, 100 Medium, and 80 Hard challenges designed for hours of logical fun",
+            "image": {
+              "name": "Kakuro Puzzle Book for Adults",
+              "url": "https://m.media-amazon.com/images/S/aplus-media-library-service-media/4acdceb5-83a1-4e13-bab8-ec6de1682982.__CR0,0,970,600_PT0_SX970_V1___.png"
+            }
+          },
+          {
+            "type": "3p-module-b",
+            "title": null,
+            "text": "Enjoy a variety of grid sizes designed for every skill level — from quick 6×6 puzzles to challenging 14×14 grids. Each page is carefully formatted for easy reading and writing comfort.",
+            "image": {
+              "name": "Kakuru",
+              "url": "https://m.media-amazon.com/images/S/aplus-media-library-service-media/c345ba29-390f-401a-ba23-80c02e0c28f4.__CR0,0,970,600_PT0_SX970_V1___.png"
+            }
+          },
+          {
+            "type": "3p-module-b",
+            "title": null,
+            "text": null,
+            "image": {
+              "name": "Kakuro Puzzles",
+              "url": "https://m.media-amazon.com/images/S/aplus-media-library-service-media/4f96b14b-5bfc-4d96-a3f5-63c32f7676ce.__CR0,0,970,600_PT0_SX970_V1___.png"
+            }
+          },
+          {
+            "type": "module-5",
+            "title": null,
+            "items": [
+              {
+                "image": {
+                  "name": null,
+                  "url": "https://m.media-amazon.com/images/S/aplus-media-library-service-media/e9352f78-58ab-4e49-8a16-29f5f312c30e.__AC_SR150,300___.jpg"
+                },
+                "name": "4000 Big Word Search for Adults Large Print: 200 Themed Puzzles for Hours of ...",
+                "url": "https://www.amazon.com/dp/B0DF84YZSP?ref=emc_s_m_5_i_atc",
+                "data": {
+                  "Customer Reviews": "4.9 out of 5 stars 53",
+                  "Price": "$9.99",
+                  "Book Style": "Word Search",
+                  "Description": "200 Puzzles - 4000 Words",
+                  "Large Print": "✓"
+                }
+              },
+              {
+                "image": {
+                  "name": null,
+                  "url": "https://m.media-amazon.com/images/S/aplus-media-library-service-media/f2957000-9ad0-4346-ae44-3eb3169d4636.__AC_SR150,300___.jpg"
+                },
+                "name": "Engaging Focus & Fun Variety Puzzle Book for Adults and Seniors: Over 350 Puz...",
+                "url": "https://www.amazon.com/dp/B0FVWWGYYQ?ref=emc_s_m_5_i_atc",
+                "data": {
+                  "Customer Reviews": "—",
+                  "Price": "$10.99",
+                  "Book Style": "Variety Puzzle Book",
+                  "Description": "369 Puzzles",
+                  "Large Print": "✓"
+                }
+              },
+              {
+                "image": {
+                  "name": null,
+                  "url": "https://m.media-amazon.com/images/S/aplus-media-library-service-media/07e43f53-520f-49fa-8b64-19acb4752b76.__AC_SR150,300___.jpg"
+                },
+                "name": "2023 Word Search Large Print Puzzle Books for Adults: 100 Themed Word Find Pu...",
+                "url": "https://www.amazon.com/dp/B0C6BWSF26?ref=emc_s_m_5_i_atc",
+                "data": {
+                  "Customer Reviews": "4.8 out of 5 stars 6",
+                  "Price": "$9.99",
+                  "Book Style": "Word Search",
+                  "Description": "100 Puzzles - 2400 Words",
+                  "Large Print": "✓"
+                }
+              },
+              {
+                "image": {
+                  "name": null,
+                  "url": "https://m.media-amazon.com/images/S/aplus-media-library-service-media/10c1ba49-a95a-4c9a-a3d1-642602ec0108.__AC_SR150,300___.jpg"
+                },
+                "name": "1000+ Sudoku Puzzles for Adults: Sudoku Puzzle Book Easy to Hard",
+                "url": "https://www.amazon.com/dp/B0CQ538XN4?ref=emc_s_m_5_i_atc",
+                "data": {
+                  "Customer Reviews": "4.4 out of 5 stars 6",
+                  "Price": "$9.99",
+                  "Book Style": "Sudoku",
+                  "Description": "1044 Puzzles",
+                  "Large Print": "✓"
+                }
+              },
+              {
+                "image": {
+                  "name": null,
+                  "url": "https://m.media-amazon.com/images/S/aplus-media-library-service-media/c139c87f-90df-4503-a1db-7eabab8103cc.__AC_SR150,300___.jpg"
+                },
+                "name": "Sudoku for Kids Ages 8-12: 320 Fun and Challenging Puzzles with Solutions",
+                "url": "https://www.amazon.com/dp/B0CW36W45K?ref=emc_s_m_5_i_atc",
+                "data": {
+                  "Customer Reviews": "3.6 out of 5 stars 4",
+                  "Price": "$9.99",
+                  "Book Style": "Sudoku",
+                  "Description": "320 Puzzles",
+                  "Large Print": "✓"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "brandStory": null,
+      "productComparison": null,
+      "aiReviewsSummary": null,
+      "monthlyPurchaseVolume": null,
+      "productPageReviews": [],
+      "productPageReviewsFromOtherCountries": [],
+      "locationText": "Update location",
+      "loadedCountryCode": "US",
+      "offers": [],
+      "unNormalizedProductUrl": "https://www.amazon.com/s?k=kakuro+puzzle+book&s=popularity-rank",
+      "categoryPageData": {
+        "pageNumber": 1,
+        "saleSummary": null,
+        "isSponsored": false,
+        "bestsellerBadge": null,
+        "productPosition": 28
+      },
+      "input": "https://www.amazon.com/s?k=kakuro+puzzle+book"
+    },
+    {
+      "title": "Kakuro Cross Sums – 300 Easy Puzzles Volume 1: 300 Easy Kakuro Cross Sums",
+      "url": "https://www.amazon.com/dp/B089279WZJ",
+      "asin": "B089279WZJ",
+      "originalAsin": "B089279WZJ",
+      "price": {
+        "value": 9.99,
+        "currency": "$"
+      },
+      "inStock": true,
+      "inStockText": "In Stock",
+      "listPrice": null,
+      "brand": null,
+      "author": "Christian Demarco",
+      "shippingPrice": null,
+      "stars": 4.9,
+      "starsBreakdown": {},
+      "reviewsCount": 14,
+      "answeredQuestions": null,
+      "breadCrumbs": "Books > Humor & Entertainment > Puzzles & Games > Logic & Brain Teasers",
+      "videosCount": 0,
+      "visitStoreLink": null,
+      "thumbnailImage": "https://m.media-amazon.com/images/I/61xL7jJzLqL._SY445_SX342_FMwebp_.jpg",
+      "galleryThumbnails": [
+        "https://m.media-amazon.com/images/I/61xL7jJzLqL._SX38_SY50_CR,0,0,38.jpg",
+        "https://m.media-amazon.com/images/I/617HjiUzsTL._SX38_SY50_CR,0,0,38.jpg"
+      ],
+      "highResolutionImages": [],
+      "importantInformation": null,
+      "sustainabilityFeatures": null,
+      "description": null,
+      "features": [],
+      "attributes": [
+        {
+          "key": "ASIN",
+          "value": "B089279WZJ"
+        },
+        {
+          "key": "Publisher",
+          "value": "Independently published"
+        },
+        {
+          "key": "Publication date",
+          "value": "May 23, 2020"
+        },
+        {
+          "key": "Language",
+          "value": "English"
+        },
+        {
+          "key": "Print length",
+          "value": "184 pages"
+        },
+        {
+          "key": "ISBN-13",
+          "value": "979-8648192058"
+        },
+        {
+          "key": "Item Weight",
+          "value": "11.8 ounces"
+        },
+        {
+          "key": "Dimensions",
+          "value": "6 x 0.42 x 9 inches"
+        },
+        {
+          "key": "Best Sellers Rank",
+          "value": "#249,075 in Books (See Top 100 in Books) #192 in Math Games#764 in Logic & Brain Teasers (Books)#1,537 in Puzzles (Books)"
+        },
+        {
+          "key": "Customer Reviews",
+          "value": "4.9 4.9 out of 5 stars (14)"
+        }
+      ],
+      "productOverview": [],
+      "variantAsins": [],
+      "variantDetails": [],
+      "reviewsLink": "https://www.amazon.com/product-reviews/B089279WZJ",
+      "hasReviews": true,
+      "delivery": "Saturday, May 2",
+      "fastestDelivery": "Wednesday, April 29",
+      "condition": null,
+      "returnPolicy": null,
+      "support": null,
+      "variantAttributes": [],
+      "manufacturerAttributes": [],
+      "seller": {
+        "id": null,
+        "url": "https://www.amazon.com",
+        "name": "Amazon.com",
+        "businessName": "Amazon.com, Inc.",
+        "phone": "1-206-266-1000",
+        "address": [
+          "410 Terry Ave N",
+          "Seattle",
+          "WA",
+          "98109",
+          "US"
+        ]
+      },
+      "bestsellerRanks": [
+        {
+          "rank": 249075,
+          "category": "Books",
+          "url": "https://www.amazon.com/gp/bestsellers/books/ref=pd_zg_ts_books"
+        },
+        {
+          "rank": 192,
+          "category": "Math Games",
+          "url": "https://www.amazon.com/gp/bestsellers/books/775830/ref=pd_zg_hrsr_books"
+        },
+        {
+          "rank": 764,
+          "category": "Logic & Brain Teasers (Books)",
+          "url": "https://www.amazon.com/gp/bestsellers/books/4436/ref=pd_zg_hrsr_books"
+        },
+        {
+          "rank": 1537,
+          "category": "Puzzles (Books)",
+          "url": "https://www.amazon.com/gp/bestsellers/books/4439/ref=pd_zg_hrsr_books"
+        }
+      ],
+      "isAmazonChoice": false,
+      "amazonChoiceText": null,
+      "bookDescription": "Kakuro puzzles (often referred to as Cross Sums or Cross Addition Puzzles) are number puzzles solved in a crossword style grid. A number above the diagonal line in a black square represents the total of the numbers in the white squares to the right of it; similarly, a number below the diagonal line is the total sum of the digits in the white squares below it.The white squares can contain any of the digits 1 to 9, however, these digits cannot be repeated more than once in any vertical column or horizontal line to make the target number. For example, if the total number in the black square is 4 and there are 2 white squares, the digits must be 1 and 3, they cannot be 2 and 2.Located at the back of this book is a handy reference guide listing all the possible combinations for the numbers from 3 to 45, also listed are the target numbers with only one possible combination.The full number combinations can also be downloaded as a PDF file for easy printing.All puzzles have unique solutions and can be solved using logical methods without guessing. Very easy to readWide Inner Margin300 Easy Kakuro Cross Sum puzzles and solutionsOnly 2 puzzles per pageFull number combinations reference guideIdeal for Beginners\nVery easy to read\nVery easy to read\nWide Inner Margin\nWide Inner Margin\n300 Easy Kakuro Cross Sum puzzles and solutions\n300 Easy Kakuro Cross Sum puzzles and solutions\nOnly 2 puzzles per page\nOnly 2 puzzles per page\nFull number combinations reference guide\nFull number combinations reference guide\nIdeal for Beginners\nIdeal for Beginners",
+      "priceRange": null,
+      "aPlusContent": null,
+      "brandStory": null,
+      "productComparison": null,
+      "aiReviewsSummary": null,
+      "monthlyPurchaseVolume": null,
+      "productPageReviews": [],
+      "productPageReviewsFromOtherCountries": [
+        {
+          "username": "Amazon Customer",
+          "userId": null,
+          "userProfileLink": null,
+          "ratingScore": 5,
+          "reviewTitle": "Challenging but solvable",
+          "reviewDescription": "Keeps my brain sharp",
+          "date": "2025-01-21",
+          "position": 1,
+          "reviewedIn": "Reviewed in Canada on January 21, 2025",
+          "reviewId": "R2D9D10LXU9GUV",
+          "reviewUrl": null,
+          "reviewImages": [],
+          "reviewReaction": null,
+          "isVerified": false,
+          "isAmazonVine": false,
+          "avatar": null,
+          "variant": "Format: Paperback",
+          "variantAttributes": [
+            {
+              "key": "Format",
+              "value": "Paperback"
+            }
+          ]
+        },
+        {
+          "username": "SUE",
+          "userId": null,
+          "userProfileLink": null,
+          "ratingScore": 5,
+          "reviewTitle": "First book",
+          "reviewDescription": "Learning how to kakuro",
+          "date": "2025-06-06",
+          "position": 2,
+          "reviewedIn": "Reviewed in the United Kingdom on June 6, 2025",
+          "reviewId": "R3K89KZGSM32ND",
+          "reviewUrl": null,
+          "reviewImages": [],
+          "reviewReaction": null,
+          "isVerified": false,
+          "isAmazonVine": false,
+          "avatar": null,
+          "variant": "Format: Paperback",
+          "variantAttributes": [
+            {
+              "key": "Format",
+              "value": "Paperback"
+            }
+          ]
+        }
+      ],
+      "locationText": "Update location",
+      "loadedCountryCode": "US",
+      "offers": [],
+      "unNormalizedProductUrl": "https://www.amazon.com/s?k=kakuro+puzzle+book&s=popularity-rank",
+      "categoryPageData": {
+        "pageNumber": 1,
+        "saleSummary": null,
+        "isSponsored": false,
+        "bestsellerBadge": null,
+        "productPosition": 32
+      },
+      "input": "https://www.amazon.com/s?k=kakuro+puzzle+book"
+    },
+    {
+      "title": "Kakuro Cross Sums – 300 Medium Puzzles Volume 1: Ideal for Intermediate Solvers",
+      "url": "https://www.amazon.com/dp/B09Q1VDLW5",
+      "asin": "B09Q1VDLW5",
+      "originalAsin": "B09Q1VDLW5",
+      "price": {
+        "value": 9.99,
+        "currency": "$"
+      },
+      "inStock": true,
+      "inStockText": "In Stock",
+      "listPrice": null,
+      "brand": null,
+      "author": "Christian Demarco",
+      "shippingPrice": null,
+      "stars": 4.8,
+      "starsBreakdown": {},
+      "reviewsCount": 7,
+      "answeredQuestions": null,
+      "breadCrumbs": "Books > Humor & Entertainment > Puzzles & Games > Logic & Brain Teasers",
+      "videosCount": 0,
+      "visitStoreLink": null,
+      "thumbnailImage": "https://m.media-amazon.com/images/I/41MYzP4uxdL._SY445_SX342_FMwebp_.jpg",
+      "galleryThumbnails": [
+        "https://m.media-amazon.com/images/I/41MYzP4uxdL._SX38_SY50_CR,0,0,38.jpg",
+        "https://m.media-amazon.com/images/I/41pV9MrTMEL._SX38_SY50_CR,0,0,38.jpg"
+      ],
+      "highResolutionImages": [
+        "https://m.media-amazon.com/images/I/71oPrPu2K7L._SL1500_.jpg"
+      ],
+      "importantInformation": null,
+      "sustainabilityFeatures": null,
+      "description": null,
+      "features": [],
+      "attributes": [
+        {
+          "key": "ASIN",
+          "value": "B09Q1VDLW5"
+        },
+        {
+          "key": "Publisher",
+          "value": "Independently published"
+        },
+        {
+          "key": "Publication date",
+          "value": "January 8, 2022"
+        },
+        {
+          "key": "Language",
+          "value": "English"
+        },
+        {
+          "key": "Print length",
+          "value": "184 pages"
+        },
+        {
+          "key": "ISBN-13",
+          "value": "979-8797860259"
+        },
+        {
+          "key": "Item Weight",
+          "value": "11.8 ounces"
+        },
+        {
+          "key": "Dimensions",
+          "value": "6 x 0.42 x 9 inches"
+        },
+        {
+          "key": "Part of series",
+          "value": "Kakuro Cross Sums 300 Medium Puzzles"
+        },
+        {
+          "key": "Best Sellers Rank",
+          "value": "#1,067,801 in Books (See Top 100 in Books) #807 in Math Games#2,662 in Logic & Brain Teasers (Books)#5,305 in Puzzles (Books)"
+        },
+        {
+          "key": "Customer Reviews",
+          "value": "4.8 4.8 out of 5 stars (7)"
+        }
+      ],
+      "productOverview": [],
+      "variantAsins": [],
+      "variantDetails": [],
+      "reviewsLink": "https://www.amazon.com/product-reviews/B09Q1VDLW5",
+      "hasReviews": true,
+      "delivery": "Saturday, May 2",
+      "fastestDelivery": "Wednesday, April 29",
+      "condition": null,
+      "returnPolicy": null,
+      "support": null,
+      "variantAttributes": [],
+      "manufacturerAttributes": [],
+      "seller": {
+        "id": null,
+        "url": "https://www.amazon.com",
+        "name": "Amazon.com",
+        "businessName": "Amazon.com, Inc.",
+        "phone": "1-206-266-1000",
+        "address": [
+          "410 Terry Ave N",
+          "Seattle",
+          "WA",
+          "98109",
+          "US"
+        ]
+      },
+      "bestsellerRanks": [
+        {
+          "rank": 1067801,
+          "category": "Books",
+          "url": "https://www.amazon.com/gp/bestsellers/books/ref=pd_zg_ts_books"
+        },
+        {
+          "rank": 807,
+          "category": "Math Games",
+          "url": "https://www.amazon.com/gp/bestsellers/books/775830/ref=pd_zg_hrsr_books"
+        },
+        {
+          "rank": 2662,
+          "category": "Logic & Brain Teasers (Books)",
+          "url": "https://www.amazon.com/gp/bestsellers/books/4436/ref=pd_zg_hrsr_books"
+        },
+        {
+          "rank": 5305,
+          "category": "Puzzles (Books)",
+          "url": "https://www.amazon.com/gp/bestsellers/books/4439/ref=pd_zg_hrsr_books"
+        }
+      ],
+      "isAmazonChoice": false,
+      "amazonChoiceText": null,
+      "bookDescription": "Kakuro Cross Sums - 300 Medium Puzzles - Ideal for Intermediate Solvers\nKakuro puzzles (often referred to as Cross Sums or Cross Addition Puzzles) are number puzzles solved in a crossword style grid.\nA number above the diagonal line in a black square represents the total of the numbers in the white squares to the right of it; similarly, a number below the diagonal line is the total sum of the digits in the white squares below it.\nThe white squares can contain any of the digits 1 to 9, however, these digits cannot be repeated more than once in any vertical column or horizontal line to make the target number. For example, if the total number in the black square is 4 and there are 2 white squares, the digits must be 1 and 3, they cannot be 2 and 2.\nLocated at the back of this book is a handy reference guide listing all the possible combinations for the numbers from 3 to 45, also listed are the target numbers with only one possible combination.\nThe full number combinations can also be downloaded as a PDF file for easy printing.\nAll puzzles have unique solutions and can be solved using logical methods without guessing.\nVery easy to read\nVery easy to read\nWide Inner Margin\nWide Inner Margin\n300 Medium Kakuro Cross Sum puzzles and solutions\n300 Medium Kakuro Cross Sum puzzles and solutions\nOnly 2 puzzles per page\nOnly 2 puzzles per page\nFull number combinations reference guide\nFull number combinations reference guide\nIdeal for Intermediate Solvers\nIdeal for Intermediate Solvers",
+      "priceRange": null,
+      "aPlusContent": null,
+      "brandStory": null,
+      "productComparison": null,
+      "aiReviewsSummary": null,
+      "monthlyPurchaseVolume": null,
+      "productPageReviews": [],
+      "productPageReviewsFromOtherCountries": [
+        {
+          "username": "Lisa",
+          "userId": null,
+          "userProfileLink": null,
+          "ratingScore": 5,
+          "reviewTitle": "Macht Spaß",
+          "reviewDescription": "Toller Zeitvertreib. Ist nicht mein erstes Rätselheft dieser Reihe, und sicher auch nicht mein letztes",
+          "date": "2023-10-14",
+          "position": 1,
+          "reviewedIn": "Reviewed in Germany on October 14, 2023",
+          "reviewId": "R10VYG7VVZ16D9",
+          "reviewUrl": null,
+          "reviewImages": [],
+          "reviewReaction": null,
+          "isVerified": false,
+          "isAmazonVine": false,
+          "avatar": null,
+          "variant": "Format: Paperback",
+          "variantAttributes": [
+            {
+              "key": "Format",
+              "value": "Paperback"
+            }
+          ]
+        },
+        {
+          "username": "Mrs. Ann Fielden",
+          "userId": null,
+          "userProfileLink": null,
+          "ratingScore": 5,
+          "reviewTitle": "Brilliant puzzle books",
+          "reviewDescription": "I have had many puzzle books by this author, they never disappoint",
+          "date": "2023-06-14",
+          "position": 2,
+          "reviewedIn": "Reviewed in the United Kingdom on June 14, 2023",
+          "reviewId": "R13KL92NO6XF5B",
+          "reviewUrl": null,
+          "reviewImages": [],
+          "reviewReaction": null,
+          "isVerified": false,
+          "isAmazonVine": false,
+          "avatar": null,
+          "variant": "Format: Paperback",
+          "variantAttributes": [
+            {
+              "key": "Format",
+              "value": "Paperback"
+            }
+          ]
+        }
+      ],
+      "locationText": "Update location",
+      "loadedCountryCode": "US",
+      "offers": [],
+      "unNormalizedProductUrl": "https://www.amazon.com/s?k=kakuro+puzzle+book&s=popularity-rank",
+      "categoryPageData": {
+        "pageNumber": 1,
+        "saleSummary": null,
+        "isSponsored": false,
+        "bestsellerBadge": null,
+        "productPosition": 33
+      },
+      "input": "https://www.amazon.com/s?k=kakuro+puzzle+book"
+    },
+    {
+      "title": "Kakuro Puzzle Book for Adults: 100 Easy to Medium Puzzles with Complete Solutions",
+      "url": "https://www.amazon.com/dp/B0GXRG9LR5",
+      "asin": "B0GXRG9LR5",
+      "originalAsin": "B0GXRG9LR5",
+      "price": {
+        "value": 9.99,
+        "currency": "$"
+      },
+      "inStock": true,
+      "inStockText": "In Stock",
+      "listPrice": null,
+      "brand": null,
+      "author": "Jeff Lehrer",
+      "shippingPrice": null,
+      "stars": null,
+      "starsBreakdown": {},
+      "reviewsCount": null,
+      "answeredQuestions": null,
+      "breadCrumbs": "Books > Humor & Entertainment > Puzzles & Games > Logic & Brain Teasers",
+      "videosCount": 0,
+      "visitStoreLink": null,
+      "thumbnailImage": "https://m.media-amazon.com/images/I/31vMo2LIEnL._SX342_SY445_FMwebp_.jpg",
+      "galleryThumbnails": [
+        "https://m.media-amazon.com/images/I/31vMo2LIEnL._SX38_SY50_CR,0,0,38.jpg",
+        "https://m.media-amazon.com/images/I/41gsSz6f5eL._SX38_SY50_CR,0,0,38.jpg"
+      ],
+      "highResolutionImages": [
+        "https://m.media-amazon.com/images/I/51oQRAilEeL._SL1293_.jpg"
+      ],
+      "importantInformation": null,
+      "sustainabilityFeatures": null,
+      "description": null,
+      "features": [],
+      "attributes": [
+        {
+          "key": "ASIN",
+          "value": "B0GXRG9LR5"
+        },
+        {
+          "key": "Publisher",
+          "value": "Independently published"
+        },
+        {
+          "key": "Publication date",
+          "value": "April 16, 2026"
+        },
+        {
+          "key": "Language",
+          "value": "English"
+        },
+        {
+          "key": "Print length",
+          "value": "130 pages"
+        },
+        {
+          "key": "ISBN-13",
+          "value": "979-8257661754"
+        },
+        {
+          "key": "Item Weight",
+          "value": "14.1 ounces"
+        },
+        {
+          "key": "Dimensions",
+          "value": "8.5 x 0.3 x 11 inches"
+        },
+        {
+          "key": "Book 1 of 1",
+          "value": "Kakuro Puzzle Book for Adults"
+        },
+        {
+          "key": "Best Sellers Rank",
+          "value": "#878,155 in Books (See Top 100 in Books) #693 in Math Games#2,284 in Logic & Brain Teasers (Books)#6,566 in Mathematics (Books)"
+        }
+      ],
+      "productOverview": [],
+      "variantAsins": [],
+      "variantDetails": [],
+      "reviewsLink": "https://www.amazon.com/product-reviews/B0GXRG9LR5",
+      "hasReviews": false,
+      "delivery": "Saturday, May 2",
+      "fastestDelivery": "Wednesday, April 29",
+      "condition": null,
+      "returnPolicy": null,
+      "support": null,
+      "variantAttributes": [],
+      "manufacturerAttributes": [],
+      "seller": {
+        "id": null,
+        "url": "https://www.amazon.com",
+        "name": "Amazon.com",
+        "businessName": "Amazon.com, Inc.",
+        "phone": "1-206-266-1000",
+        "address": [
+          "410 Terry Ave N",
+          "Seattle",
+          "WA",
+          "98109",
+          "US"
+        ]
+      },
+      "bestsellerRanks": [
+        {
+          "rank": 878155,
+          "category": "Books",
+          "url": "https://www.amazon.com/gp/bestsellers/books/ref=pd_zg_ts_books"
+        },
+        {
+          "rank": 693,
+          "category": "Math Games",
+          "url": "https://www.amazon.com/gp/bestsellers/books/775830/ref=pd_zg_hrsr_books"
+        },
+        {
+          "rank": 2284,
+          "category": "Logic & Brain Teasers (Books)",
+          "url": "https://www.amazon.com/gp/bestsellers/books/4436/ref=pd_zg_hrsr_books"
+        },
+        {
+          "rank": 6566,
+          "category": "Mathematics (Books)",
+          "url": "https://www.amazon.com/gp/bestsellers/books/13884/ref=pd_zg_hrsr_books"
+        }
+      ],
+      "isAmazonChoice": false,
+      "amazonChoiceText": null,
+      "bookDescription": "Sharpen your logic and arithmetic skills with 100 carefully crafted kakuro puzzles — the legendary \"king of pencil puzzles\" from Japan.What's Inside:• 50 Easy puzzles to build your confidence and learn kakuro techniques• 50 Medium puzzles for a satisfying mental challenge• Complete solutions section in the back• Large 8.5\" × 11\" format with one puzzle per page• Clean, easy-to-read grid design with large print clue numbersWhy Kakuro?Kakuro combines the logic of Sudoku with basic arithmetic. Each puzzle has a unique solution — no guessing required. It's pure deductive reasoning that keeps your mind sharp.Perfect for:• Puzzle enthusiasts looking for something beyond Sudoku• Adults and seniors wanting daily brain exercise• Anyone who enjoys screen-free, relaxing mental challenges• Math lovers who appreciate clean logic puzzlesEvery puzzle has exactly one solution — no guessing, just satisfying logic. Whether you're new to kakuro or looking for your next puzzle book, Volume 1 is designed to be both accessible and rewarding.",
+      "priceRange": null,
+      "aPlusContent": null,
+      "brandStory": null,
+      "productComparison": null,
+      "aiReviewsSummary": null,
+      "monthlyPurchaseVolume": null,
+      "productPageReviews": [],
+      "productPageReviewsFromOtherCountries": [],
+      "locationText": "Update location",
+      "loadedCountryCode": "US",
+      "offers": [],
+      "unNormalizedProductUrl": "https://www.amazon.com/s?k=kakuro+puzzle+book&s=popularity-rank",
+      "categoryPageData": {
+        "pageNumber": 1,
+        "saleSummary": null,
+        "isSponsored": false,
+        "bestsellerBadge": null,
+        "productPosition": 39
+      },
+      "input": "https://www.amazon.com/s?k=kakuro+puzzle+book"
+    },
+    {
+      "title": "Colossal Kakuro: 72 Titanically Tricky Puzzles",
+      "url": "https://www.amazon.com/dp/1454935383",
+      "asin": "1454935383",
+      "originalAsin": "1454935383",
+      "price": {
+        "value": 11.99,
+        "currency": "$"
+      },
+      "inStock": true,
+      "inStockText": "Only 18 left in stock (more on the way).",
+      "listPrice": null,
+      "brand": null,
+      "author": "Conceptis Puzzles",
+      "shippingPrice": null,
+      "stars": 4.4,
+      "starsBreakdown": {},
+      "reviewsCount": 14,
+      "answeredQuestions": null,
+      "breadCrumbs": "Books > Humor & Entertainment > Puzzles & Games > Logic & Brain Teasers",
+      "videosCount": 0,
+      "visitStoreLink": null,
+      "thumbnailImage": "https://m.media-amazon.com/images/I/514HeUyeTSL._SX342_SY445_FMwebp_.jpg",
+      "galleryThumbnails": [
+        "https://m.media-amazon.com/images/I/514HeUyeTSL._SX38_SY50_CR,0,0,38.jpg",
+        "https://m.media-amazon.com/images/I/51MWCXMS9DL._SX38_SY50_CR,0,0,38.jpg",
+        "https://m.media-amazon.com/images/I/51Apq3usAiL._SX38_SY50_CR,0,0,38.jpg",
+        "https://m.media-amazon.com/images/I/51YZWGDhn-L._SX38_SY50_CR,0,0,38.jpg",
+        "https://m.media-amazon.com/images/I/51IrYoYOTnL._SX38_SY50_CR,0,0,38.jpg",
+        "https://m.media-amazon.com/images/I/51E2lEJksmL._SX38_SY50_CR,0,0,38.jpg",
+        "https://m.media-amazon.com/images/I/51sPluN3-wL._SX38_SY50_CR,0,0,38.jpg"
+      ],
+      "highResolutionImages": [
+        "https://m.media-amazon.com/images/I/61ISM3Y79jL._SL1250_.jpg",
+        "https://m.media-amazon.com/images/I/81fn5SQN1bL._SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/71PlkERRGcL._SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/71VrZvB5QHL._SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/71dNx32B+aL._SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/71Y8m9BClFL._SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/71X5fY5yhTL._SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/71zw9PfamvL._SL1500_.jpg"
+      ],
+      "importantInformation": null,
+      "sustainabilityFeatures": null,
+      "description": null,
+      "features": [],
+      "attributes": [
+        {
+          "key": "Publisher",
+          "value": "Puzzlewright Press"
+        },
+        {
+          "key": "Publication date",
+          "value": "May 16, 2023"
+        },
+        {
+          "key": "Language",
+          "value": "English"
+        },
+        {
+          "key": "Print length",
+          "value": "96 pages"
+        },
+        {
+          "key": "ISBN-10",
+          "value": "1454935383"
+        },
+        {
+          "key": "ISBN-13",
+          "value": "978-1454935384"
+        },
+        {
+          "key": "Item Weight",
+          "value": "2.31 pounds"
+        },
+        {
+          "key": "Reading age",
+          "value": "14 years and up"
+        },
+        {
+          "key": "Dimensions",
+          "value": "8.32 x 0.41 x 9.94 inches"
+        },
+        {
+          "key": "Grade level",
+          "value": "9 and up"
+        },
+        {
+          "key": "Best Sellers Rank",
+          "value": "#345,831 in Books (See Top 100 in Books) #283 in Math Games#1,072 in Logic & Brain Teasers (Books)#2,073 in Puzzles (Books)"
+        },
+        {
+          "key": "Customer Reviews",
+          "value": "4.4 4.4 out of 5 stars (14)"
+        }
+      ],
+      "productOverview": [],
+      "variantAsins": [],
+      "variantDetails": [],
+      "reviewsLink": "https://www.amazon.com/product-reviews/1454935383",
+      "hasReviews": true,
+      "delivery": "Saturday, May 2",
+      "fastestDelivery": "Wednesday, April 29",
+      "condition": null,
+      "returnPolicy": null,
+      "support": null,
+      "variantAttributes": [],
+      "manufacturerAttributes": [],
+      "seller": {
+        "id": null,
+        "url": "https://www.amazon.com",
+        "name": "Amazon.com",
+        "businessName": "Amazon.com, Inc.",
+        "phone": "1-206-266-1000",
+        "address": [
+          "410 Terry Ave N",
+          "Seattle",
+          "WA",
+          "98109",
+          "US"
+        ]
+      },
+      "bestsellerRanks": [
+        {
+          "rank": 345831,
+          "category": "Books",
+          "url": "https://www.amazon.com/gp/bestsellers/books/ref=pd_zg_ts_books"
+        },
+        {
+          "rank": 283,
+          "category": "Math Games",
+          "url": "https://www.amazon.com/gp/bestsellers/books/775830/ref=pd_zg_hrsr_books"
+        },
+        {
+          "rank": 1072,
+          "category": "Logic & Brain Teasers (Books)",
+          "url": "https://www.amazon.com/gp/bestsellers/books/4436/ref=pd_zg_hrsr_books"
+        },
+        {
+          "rank": 2073,
+          "category": "Puzzles (Books)",
+          "url": "https://www.amazon.com/gp/bestsellers/books/4439/ref=pd_zg_hrsr_books"
+        }
+      ],
+      "isAmazonChoice": false,
+      "amazonChoiceText": null,
+      "bookDescription": "Sum-thing big is on the horizon Kakuro puzzles (also known as cross sums) are like a combination of crosswords and sudoku: each clue in the grid tells you the sum of the digits in its answer, and just like sudoku, digits are never repeated within an answer. From this simple premise, extremely challenging puzzles can be constructed, and that’s just what Conceptis Puzzles has done for these collections, which each contain 72 supersized kakuro, offering massive solving pleasure for the brave souls who love tackling such challenges.",
+      "priceRange": null,
+      "aPlusContent": null,
+      "brandStory": null,
+      "productComparison": null,
+      "aiReviewsSummary": null,
+      "monthlyPurchaseVolume": null,
+      "productPageReviews": [
+        {
+          "username": "Mainer",
+          "userId": "amzn1.account.AEH46M7BI73XVDHUYNER3B6UFNHA",
+          "userProfileLink": "https://www.amazon.com/gp/profile/amzn1.account.AEH46M7BI73XVDHUYNER3B6UFNHA",
+          "ratingScore": 5,
+          "reviewTitle": "challenging",
+          "reviewDescription": "These are challenging but not impossible.  My brain gets a \"workout.\"!",
+          "date": "2025-02-03",
+          "position": 1,
+          "reviewedIn": "Reviewed in the United States on February 3, 2025",
+          "reviewId": "R2HFLYYZKL3V9B",
+          "reviewUrl": "https://www.amazon.com/gp/customer-reviews/R2HFLYYZKL3V9B/ref=cm_cr_dp_d_rvw_ttl?ie=UTF8",
+          "reviewImages": [],
+          "reviewReaction": null,
+          "isVerified": false,
+          "isAmazonVine": false,
+          "avatar": null,
+          "variant": "Format: Spiral-bound",
+          "variantAttributes": [
+            {
+              "key": "Format",
+              "value": "Spiral-bound"
+            }
+          ]
+        },
+        {
+          "username": "B D",
+          "userId": "amzn1.account.AG7H652ADBB57IDV7TP66ZOGAYVQ",
+          "userProfileLink": "https://www.amazon.com/gp/profile/amzn1.account.AG7H652ADBB57IDV7TP66ZOGAYVQ",
+          "ratingScore": 5,
+          "reviewTitle": "Large size",
+          "reviewDescription": "I like to do Kakuro puzzles as I'm mindlessly watching TV or listening to something, This is a large format book that has a sprawling puzzle page. I'd love one that's just a giant poster too but in book format this one is great",
+          "date": "2024-02-28",
+          "position": 2,
+          "reviewedIn": "Reviewed in the United States on February 28, 2024",
+          "reviewId": "R3GQNIUTY5ZHW2",
+          "reviewUrl": "https://www.amazon.com/gp/customer-reviews/R3GQNIUTY5ZHW2/ref=cm_cr_dp_d_rvw_ttl?ie=UTF8",
+          "reviewImages": [],
+          "reviewReaction": null,
+          "isVerified": false,
+          "isAmazonVine": false,
+          "avatar": null,
+          "variant": "Format: Spiral-bound",
+          "variantAttributes": [
+            {
+              "key": "Format",
+              "value": "Spiral-bound"
+            }
+          ]
+        },
+        {
+          "username": "Mom of two",
+          "userId": "amzn1.account.AG53RCN6DI5KUI7XM6BEUMYHFLUA",
+          "userProfileLink": "https://www.amazon.com/gp/profile/amzn1.account.AG53RCN6DI5KUI7XM6BEUMYHFLUA",
+          "ratingScore": 5,
+          "reviewTitle": "Longtime Kakuro-doer and I find this just right!",
+          "reviewDescription": "I really enjoyed these puzzles. The book is nice and big, making it easier to work on. Great spiral bound book.  I only got stuck near the end of the book and had to peek at the answers. 72 puzzles lasted me over 2 months of almost daily puzzling. Not too easy, which I want now that I have been doing these for quite awhile.",
+          "date": "2023-07-31",
+          "position": 3,
+          "reviewedIn": "Reviewed in the United States on July 31, 2023",
+          "reviewId": "R2T2M892YXKC9H",
+          "reviewUrl": "https://www.amazon.com/gp/customer-reviews/R2T2M892YXKC9H/ref=cm_cr_dp_d_rvw_ttl?ie=UTF8",
+          "reviewImages": [],
+          "reviewReaction": "One person found this helpful",
+          "isVerified": false,
+          "isAmazonVine": false,
+          "avatar": null,
+          "variant": "Format: Spiral-bound",
+          "variantAttributes": [
+            {
+              "key": "Format",
+              "value": "Spiral-bound"
+            }
+          ]
+        }
+      ],
+      "productPageReviewsFromOtherCountries": [
+        {
+          "username": "Avid",
+          "userId": null,
+          "userProfileLink": null,
+          "ratingScore": 5,
+          "reviewTitle": "Brain workout",
+          "reviewDescription": "It’s the best",
+          "date": "2026-02-08",
+          "position": 1,
+          "reviewedIn": "Reviewed in Canada on February 8, 2026",
+          "reviewId": "R1AHTB5CCKR882",
+          "reviewUrl": null,
+          "reviewImages": [],
+          "reviewReaction": null,
+          "isVerified": false,
+          "isAmazonVine": false,
+          "avatar": null,
+          "variant": "Format: Spiral-bound",
+          "variantAttributes": [
+            {
+              "key": "Format",
+              "value": "Spiral-bound"
+            }
+          ]
+        }
+      ],
+      "locationText": "Update location",
+      "loadedCountryCode": "US",
+      "offers": [],
+      "unNormalizedProductUrl": "https://www.amazon.com/s?k=kakuro+puzzle+book&s=popularity-rank",
+      "categoryPageData": {
+        "pageNumber": 1,
+        "saleSummary": null,
+        "isSponsored": false,
+        "bestsellerBadge": null,
+        "productPosition": 36
+      },
+      "input": "https://www.amazon.com/s?k=kakuro+puzzle+book"
+    }
+  ],
+  "niche_name": "Kakuro Puzzle Book",
+  "audience": "adults_puzzle",
+  "book_type": "activity",
+  "target_page_count": 120,
+  "page_size": "8.5x11",
+  "recommended_list_price_usd": 10.47,
+  "is_seasonal": false,
+  "has_trademark_risk": false,
+  "trademark_check": {
+    "keyword": "kakuro puzzle book",
+    "verdict": "CLEAR",
+    "mode": "heuristic",
+    "class_016_live_hits": 0,
+    "adjacent_class_live_hits": 0,
+    "registrations": [],
+    "manual_check_urls": {
+      "uspto_tmsearch_class_016": "https://tmsearch.uspto.gov/search/search-information?searchText=kakuro+puzzle+book&filter=live&filter=class:016",
+      "uspto_tmsearch_all": "https://tmsearch.uspto.gov/search/search-information?searchText=kakuro+puzzle+book&filter=live",
+      "trademarkia": "https://www.trademarkia.com/trademarks-search.aspx?tn=kakuro+puzzle+book",
+      "euipo_eu": "https://www.tmdn.org/tmview/#/tmview/results?text=kakuro+puzzle+book",
+      "google_trademark_check": "https://www.google.com/search?q=%22kakuro+puzzle+book%22+trademark+site%3Auspto.gov"
+    },
+    "notes": [
+      "Mode=urls: agent must WebSearch the URLs in `manual_check_urls` and look for LIVE registrations in Class 016.",
+      "Heuristic check passed — keyword does not contain known trademark traps. Verify manually via the URLs in `manual_check_urls`."
+    ],
+    "timestamp_utc": "2026-04-27T14:26:18Z"
+  },
+  "criteria_version": "2026.04.27-activity",
+  "overall_score": 4.49,
+  "rating": "SKIP",
+  "competitor_analysis": {
+    "top10_avg_bsr": null,
+    "top10_avg_reviews": null,
+    "opp_score": null,
+    "hard_eliminations": [],
+    "blue_ocean_flags": [
+      "LOW_REVIEW_BARRIER"
+    ]
+  },
+  "estimated_monthly_royalty_usd": 58.9,
+  "slug": "kakuro_puzzle_book"
+}

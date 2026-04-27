@@ -82,19 +82,83 @@ def draw_sudoku_grid(
 # ---- Page builders ----
 
 def build_title_page(c: canvas.Canvas, meta: dict) -> None:
-    c.setFont("Times-Bold", 46)
     title = meta["title"]
-    # Auto-wrap if very long
-    c.drawCentredString(PAGE_W / 2, PAGE_H * 0.72, title)
+    max_width = PAGE_W - 1.0 * inch  # 0.5" margin each side
+
+    # Auto-shrink, then wrap if still too wide
+    title_size = 46
+    while title_size > 30 and c.stringWidth(title, "Times-Bold", title_size) > max_width:
+        title_size -= 2
+
+    title_y_top = PAGE_H * 0.78
+    if c.stringWidth(title, "Times-Bold", title_size) <= max_width:
+        c.setFont("Times-Bold", title_size)
+        c.drawCentredString(PAGE_W / 2, title_y_top - title_size, title)
+    else:
+        # Still too wide → wrap to multi-line
+        _draw_wrapped(
+            c, title, PAGE_W / 2, title_y_top - title_size,
+            max_width=max_width, font="Times-Bold",
+            size=title_size, leading=title_size * 1.15,
+        )
+
     if meta.get("subtitle"):
-        c.setFont("Times-Italic", 16)
         subtitle = meta["subtitle"]
-        _draw_wrapped(c, subtitle, PAGE_W / 2, PAGE_H * 0.58, max_width=PAGE_W - 1.5 * inch,
-                      font="Times-Italic", size=16, leading=22)
+        _draw_wrapped(
+            c, subtitle, PAGE_W / 2, PAGE_H * 0.55,
+            max_width=PAGE_W - 1.5 * inch, font="Times-Italic",
+            size=16, leading=22,
+        )
     author = meta.get("author", "")
     if author:
         c.setFont("Times-Roman", 14)
-        c.drawCentredString(PAGE_W / 2, PAGE_H * 0.25, f"By {author}")
+        c.drawCentredString(PAGE_W / 2, PAGE_H * 0.20, f"By {author}")
+    c.showPage()
+
+
+def build_bookplate_page(c: canvas.Canvas) -> None:
+    """\"This book belongs to ___\" page — adds personal value, common in
+    senior-targeted puzzle books. Hand-fillable lines."""
+    c.setFont("Times-Bold", 30)
+    c.drawCentredString(PAGE_W / 2, PAGE_H * 0.82, "This Book Belongs To")
+
+    # Decorative ornament
+    c.setFont("Times-Italic", 16)
+    c.drawCentredString(PAGE_W / 2, PAGE_H * 0.76, "❦")
+
+    # Name line
+    c.setFont("Times-Roman", 14)
+    line_y = PAGE_H * 0.62
+    line_w = 4.5 * inch
+    line_x = (PAGE_W - line_w) / 2
+    c.setLineWidth(0.6)
+    c.line(line_x, line_y, line_x + line_w, line_y)
+    c.drawCentredString(PAGE_W / 2, line_y - 18, "Name")
+
+    # If found / contact
+    line_y2 = PAGE_H * 0.46
+    c.line(line_x, line_y2, line_x + line_w, line_y2)
+    c.drawCentredString(PAGE_W / 2, line_y2 - 18, "If found, please return to (optional)")
+
+    # Started / Completed dates
+    c.setFont("Times-Roman", 12)
+    label_y = PAGE_H * 0.30
+    half = (PAGE_W - 2.0 * inch) / 2
+    # Started
+    sx1 = 1.0 * inch
+    c.line(sx1, label_y, sx1 + half - 0.25 * inch, label_y)
+    c.drawCentredString(sx1 + (half - 0.25 * inch) / 2, label_y - 16, "Started")
+    # Completed
+    sx2 = sx1 + half + 0.25 * inch
+    c.line(sx2, label_y, sx2 + half - 0.25 * inch, label_y)
+    c.drawCentredString(sx2 + (half - 0.25 * inch) / 2, label_y - 16, "Completed")
+
+    # Dedication line
+    c.setFont("Times-Italic", 11)
+    c.drawCentredString(
+        PAGE_W / 2, PAGE_H * 0.13,
+        "May every quiet hour with this book bring focus, calm, and a smile.",
+    )
     c.showPage()
 
 
@@ -124,37 +188,182 @@ def build_copyright_page(c: canvas.Canvas, meta: dict) -> None:
     c.showPage()
 
 
-def build_howto_page(c: canvas.Canvas) -> None:
+def build_howto_page_1(c: canvas.Canvas) -> None:
+    """Page 1 of How to Play — the rules + how to start."""
+    c.setFont("Times-Bold", 32)
+    c.drawCentredString(PAGE_W / 2, PAGE_H * 0.90, "How to Play")
+
+    c.setFont("Times-Roman", 13)
+    body = [
+        "Sudoku is a logic puzzle played on a 9 × 9 grid divided into",
+        "nine smaller 3 × 3 boxes. Some cells are filled with numbers",
+        "(the clues); the rest are empty.",
+        "",
+        "The goal is to fill every empty cell so that all three rules",
+        "are satisfied at once:",
+        "",
+        "   1.   Every row contains each of the numbers 1 – 9 exactly once.",
+        "   2.   Every column contains each of the numbers 1 – 9 exactly once.",
+        "   3.   Every 3 × 3 box contains each of the numbers 1 – 9 exactly once.",
+        "",
+        "Every puzzle in this book has been verified to have exactly",
+        "one correct solution, reached by logic alone — no guessing.",
+        "",
+        "",
+        "Tips for getting started",
+        "",
+        "•  Work in pencil. You will change your mind, and that is",
+        "    a normal part of solving.",
+        "",
+        "•  Look for rows, columns, or 3 × 3 boxes that already have",
+        "    many clues. They are easier to complete first.",
+        "",
+        "•  When you find a number that can go in only one place,",
+        "    write it firmly. Each new entry tightens the puzzle.",
+        "",
+        "•  If you feel stuck, take a short break. A fresh look",
+        "    often reveals the next move.",
+    ]
+    y = PAGE_H * 0.81
+    for line in body:
+        c.drawString(0.85 * inch, y, line)
+        y -= 18
+    c.showPage()
+
+
+def build_howto_page_2(c: canvas.Canvas) -> None:
+    """Page 2 of How to Play — a worked example showing the scanning technique."""
     c.setFont("Times-Bold", 28)
-    c.drawCentredString(PAGE_W / 2, PAGE_H * 0.88, "How to Play")
+    c.drawCentredString(PAGE_W / 2, PAGE_H * 0.92, "A Helpful Technique: Scanning")
 
     c.setFont("Times-Roman", 12)
-    body = [
-        "Sudoku is a logic puzzle played on a 9 × 9 grid divided into nine",
-        "3 × 3 boxes. Some cells are filled with numbers (the clues); the",
-        "rest are empty.",
-        "",
-        "The goal is to fill in every empty cell so that three rules are",
-        "all satisfied at once:",
-        "",
-        "   1.  Every row contains each of the numbers 1 through 9 exactly once.",
-        "   2.  Every column contains each of the numbers 1 through 9 exactly once.",
-        "   3.  Every 3 × 3 box contains each of the numbers 1 through 9 exactly once.",
-        "",
-        "Every puzzle in this book has exactly one correct solution, reached",
-        "through pure logic — no guessing required.",
-        "",
-        "Work in pencil. Begin with the easier cells, where only one number",
-        "can possibly fit. Use the clues you add to uncover more constraints.",
-        "Breathe, take your time, and enjoy the quiet satisfaction of each",
-        "completed grid.",
-        "",
-        "Full solutions are provided at the back of the book.",
+    intro = [
+        "Pick a number — say, the digit 5 — and look at where it already appears.",
+        "Each row, column, and 3 × 3 box can contain only one 5. By eliminating",
+        "the rows, columns, and boxes that already have a 5, you often find that",
+        "only one cell is left where another 5 can go.",
     ]
+    y = PAGE_H * 0.86
+    for line in intro:
+        c.drawCentredString(PAGE_W / 2, y, line)
+        y -= 16
+
+    # Worked-example mini grid showing where a 5 must go
+    example_grid = [
+        [0, 0, 0, 0, 5, 0, 0, 0, 0],
+        [0, 5, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 5],
+        [5, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0],  # row 4 = the row we are solving
+        [0, 0, 0, 0, 0, 0, 5, 0, 0],
+        [0, 0, 5, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 5, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 5, 0, 0, 0],
+    ]
+    grid_size = 4.2 * inch
+    gx = (PAGE_W - grid_size) / 2
+    gy = PAGE_H * 0.30
+    draw_sudoku_grid(
+        c, gx, gy, grid_size, example_grid,
+        clue_font="Helvetica-Bold",
+        clue_font_size=18,
+        thick_w=2.2, thin_w=0.6,
+    )
+
+    # Explanation below the grid
+    c.setFont("Times-Italic", 12)
+    explain = [
+        "In this snapshot, look at row 5 (the empty middle row). Columns 1, 4,",
+        "and 9 already have a 5 elsewhere in the puzzle, and so does the",
+        "middle 3 × 3 box. Cross those out, and only one cell in row 5 can",
+        "hold a 5. That is your next confident entry.",
+    ]
+    y = gy - 0.40 * inch
+    for line in explain:
+        c.drawCentredString(PAGE_W / 2, y, line)
+        y -= 15
+
+    # Footer
+    c.setFont("Times-Roman", 11)
+    c.drawCentredString(
+        PAGE_W / 2, 0.55 * inch,
+        "Full solutions are provided at the back of the book.",
+    )
+    c.showPage()
+
+
+def build_toc_page(
+    c: canvas.Canvas,
+    sections: list[dict],
+) -> None:
+    """Table of Contents grouped by difficulty section.
+
+    `sections` is a list of dicts: {label, count, divider_page, first_puzzle_page,
+    last_puzzle_page}. Solutions section is appended at the end by the caller.
+    """
+    c.setFont("Times-Bold", 32)
+    c.drawCentredString(PAGE_W / 2, PAGE_H * 0.90, "Table of Contents")
+
+    # Decorative rule
+    c.setLineWidth(0.7)
+    c.line(2.5 * inch, PAGE_H * 0.86, PAGE_W - 2.5 * inch, PAGE_H * 0.86)
+
+    c.setFont("Times-Roman", 14)
+    label_x = 1.4 * inch
+    page_x = PAGE_W - 1.4 * inch
     y = PAGE_H * 0.78
-    for line in body:
-        c.drawString(1.0 * inch, y, line)
-        y -= 18
+
+    for sec in sections:
+        label = sec["label"]
+        page_str = sec["page_str"]
+        c.drawString(label_x, y, label)
+        # Dotted leader between label and page number
+        leader_start = label_x + c.stringWidth(label, "Times-Roman", 14) + 6
+        leader_end = page_x - c.stringWidth(page_str, "Times-Roman", 14) - 6
+        c.setFont("Times-Roman", 14)
+        if leader_end > leader_start:
+            dot_y = y + 3
+            for dx in range(int(leader_start), int(leader_end), 6):
+                c.drawString(dx, dot_y - 3, ".")
+        c.drawRightString(page_x, y, page_str)
+        # Sub-line: count of puzzles
+        if sec.get("subtitle"):
+            c.setFont("Times-Italic", 10)
+            c.drawString(label_x + 0.2 * inch, y - 14, sec["subtitle"])
+            c.setFont("Times-Roman", 14)
+        y -= 38
+
+    c.setFont("Times-Italic", 11)
+    c.drawCentredString(
+        PAGE_W / 2, 0.65 * inch,
+        "Each puzzle prints one per page in extra-large numbers.",
+    )
+    c.showPage()
+
+
+def build_section_divider(
+    c: canvas.Canvas,
+    label: str,
+    count: int,
+    blurb: str,
+) -> None:
+    """Full-page section divider for a difficulty band."""
+    c.setFont("Times-Bold", 56)
+    c.drawCentredString(PAGE_W / 2, PAGE_H * 0.62, label)
+
+    c.setFont("Times-Italic", 18)
+    c.drawCentredString(PAGE_W / 2, PAGE_H * 0.54, f"{count} Puzzles")
+
+    # Decorative ornament
+    c.setFont("Times-Roman", 22)
+    c.drawCentredString(PAGE_W / 2, PAGE_H * 0.46, "❦")
+
+    c.setFont("Times-Italic", 13)
+    _draw_wrapped(
+        c, blurb, PAGE_W / 2, PAGE_H * 0.38,
+        max_width=PAGE_W - 2.5 * inch,
+        font="Times-Italic", size=13, leading=20,
+    )
     c.showPage()
 
 
@@ -190,34 +399,38 @@ def build_solutions_divider(c: canvas.Canvas) -> None:
 
 
 def build_solutions_page(c: canvas.Canvas, chunk: list[dict], page_num: int) -> None:
-    """Render up to 4 solutions in a 2x2 grid on one page."""
-    # Grid layout: 2 cols × 2 rows, with labels
-    grid_size = 3.0 * inch
-    gap_x = 0.5 * inch
-    gap_y = 0.75 * inch
-    total_w = 2 * grid_size + gap_x
-    total_h = 2 * grid_size + gap_y
+    """Render up to 6 solutions in a 3 rows × 2 cols layout on one page.
+
+    Each grid is 2.85 in. wide; numbers stay legible (~10 pt) which is fine
+    for reference-only solution check (not for solving)."""
+    grid_size = 2.85 * inch
+    gap_x = 0.45 * inch
+    gap_y = 0.55 * inch
+    cols = 2
+    rows = 3
+    total_w = cols * grid_size + (cols - 1) * gap_x
+    total_h = rows * grid_size + (rows - 1) * gap_y + (rows * 0.20 * inch)  # extra for labels
     start_x = (PAGE_W - total_w) / 2
-    start_y = (PAGE_H - total_h) / 2 - 0.1 * inch  # slight shift for header
+    start_y = (PAGE_H - total_h) / 2 - 0.05 * inch
 
     for idx, puz in enumerate(chunk):
-        row = idx // 2
-        col = idx % 2
+        row = idx // cols
+        col = idx % cols
         gx = start_x + col * (grid_size + gap_x)
-        # reportlab y = bottom-up; top row should be ABOVE bottom row
-        gy = start_y + (1 - row) * (grid_size + gap_y)
+        # reportlab y = bottom-up; top row should be visually highest
+        gy = start_y + (rows - 1 - row) * (grid_size + gap_y + 0.20 * inch)
 
         # Label above grid
         c.setFont("Helvetica-Bold", 10)
         c.drawCentredString(
-            gx + grid_size / 2, gy + grid_size + 0.12 * inch,
+            gx + grid_size / 2, gy + grid_size + 0.10 * inch,
             f"#{puz['id']:03d}",
         )
         draw_sudoku_grid(
             c, gx, gy, grid_size, puz["solution"],
             clue_font="Helvetica",
-            clue_font_size=12,
-            thick_w=1.5, thin_w=0.4,
+            clue_font_size=11,
+            thick_w=1.3, thin_w=0.35,
         )
 
     # Page number
@@ -300,29 +513,91 @@ def assemble(theme: str) -> Path:
 
     print(f"Assembling {out_path} …")
 
-    # Count pages: title(1) + copyright(1) + howto(1) + puzzles(N) + sol_div(1) + sol_pages(ceil(N/4)) + thankyou(1)
+    # ---- Group puzzles by difficulty (preserves insertion order) ----
+    DIFF_ORDER = ["easy", "medium", "hard", "expert"]
+    DIFF_LABEL = {
+        "easy":   "Easy Puzzles",
+        "medium": "Medium Puzzles",
+        "hard":   "Hard Puzzles",
+        "expert": "Expert Puzzles",
+    }
+    DIFF_BLURB = {
+        "easy":   "A gentle warm-up. Most cells reveal themselves with a single, calm pass.",
+        "medium": "A pleasant challenge. You will need to look twice and follow the clues a step further.",
+        "hard":   "Now we think carefully. Patience and a sharp pencil are your best friends.",
+        "expert": "The deepest puzzles in this book. Take your time — the answer is always reachable by logic.",
+    }
+    by_diff: dict[str, list[dict]] = {d: [] for d in DIFF_ORDER}
+    for puz in puzzles:
+        d = puz.get("difficulty", "medium")
+        by_diff.setdefault(d, []).append(puz)
+    sections = [(d, by_diff[d]) for d in DIFF_ORDER if by_diff.get(d)]
+
     n_puzzles = len(puzzles)
-    n_sol_pages = (n_puzzles + 3) // 4
-    core_pages = 3 + n_puzzles + 1 + n_sol_pages + 1  # front + puzzles + sol_div + sols + thankyou
-    # Enforce even page count
+    n_sol_pages = (n_puzzles + 5) // 6  # 6 solutions per page now
+    n_section_dividers = sum(1 for _, group in sections if group)
+
+    # Front matter: title + bookplate + copyright + howto×2 + TOC = 6 pages
+    front_pages = 6
+    core_pages = (
+        front_pages
+        + n_section_dividers + n_puzzles      # difficulty divider + its puzzles
+        + 1 + n_sol_pages                      # solutions divider + solutions
+        + 1                                    # thank-you
+    )
     pad_blank = 1 if core_pages % 2 != 0 else 0
     total_pages = core_pages + pad_blank
 
-    # Front matter
+    # ---- First pass: compute the absolute page number where each section starts ----
+    # We need this to render the TOC on page 6 with the right numbers.
+    toc_entries: list[dict] = []
+    page_cursor = front_pages + 1  # first page after the front matter (the first divider)
+    for diff, group in sections:
+        if not group:
+            continue
+        divider_page = page_cursor
+        first_puzzle_page = page_cursor + 1
+        last_puzzle_page = first_puzzle_page + len(group) - 1
+        toc_entries.append({
+            "label": DIFF_LABEL[diff],
+            "page_str": f"{divider_page}",
+            "subtitle": f"{len(group)} puzzles · pages {first_puzzle_page}–{last_puzzle_page}",
+        })
+        page_cursor = last_puzzle_page + 1
+
+    # Solutions section in TOC
+    solutions_divider_page = page_cursor
+    solutions_first_page = solutions_divider_page + 1
+    solutions_last_page = solutions_divider_page + n_sol_pages
+    toc_entries.append({
+        "label": "Solutions",
+        "page_str": f"{solutions_divider_page}",
+        "subtitle": f"{n_puzzles} solutions · pages {solutions_first_page}–{solutions_last_page}",
+    })
+
+    # ---- Second pass: actually emit the pages ----
     page_num = 1
     build_title_page(c, meta); page_num += 1
+    build_bookplate_page(c); page_num += 1
     build_copyright_page(c, meta); page_num += 1
-    build_howto_page(c); page_num += 1
+    build_howto_page_1(c); page_num += 1
+    build_howto_page_2(c); page_num += 1
+    build_toc_page(c, toc_entries); page_num += 1
 
-    # Puzzle pages
-    for puz in puzzles:
-        build_puzzle_page(c, puz, page_num)
+    # Puzzle sections
+    for diff, group in sections:
+        if not group:
+            continue
+        build_section_divider(c, DIFF_LABEL[diff], len(group), DIFF_BLURB[diff])
         page_num += 1
+        for puz in group:
+            build_puzzle_page(c, puz, page_num)
+            page_num += 1
 
     # Solutions
     build_solutions_divider(c); page_num += 1
-    for i in range(0, len(puzzles), 4):
-        chunk = puzzles[i:i + 4]
+    for i in range(0, len(puzzles), 6):
+        chunk = puzzles[i:i + 6]
         build_solutions_page(c, chunk, page_num)
         page_num += 1
 
@@ -336,8 +611,12 @@ def assemble(theme: str) -> Path:
     c.save()
 
     print(f"✅ Wrote {total_pages} pages to {out_path}")
-    print(f"   Front matter: 3 · Puzzles: {n_puzzles} · Solutions divider+pages: {1 + n_sol_pages} · Thank-you: 1"
-          + (f" · Padding: {pad_blank}" if pad_blank else ""))
+    print(
+        f"   Title + bookplate + copyright + howto×2 + TOC: {front_pages} · "
+        f"Section dividers: {n_section_dividers} · Puzzles: {n_puzzles} · "
+        f"Solutions (divider + {n_sol_pages} @ 6/pg): {1 + n_sol_pages} · "
+        f"Thank-you: 1" + (f" · Padding: {pad_blank}" if pad_blank else "")
+    )
     return out_path
 
 

@@ -1,0 +1,154 @@
+{
+  "version": "2026.04.27",
+  "schema_version": 2,
+  "description": "KDP OS niche selection criteria — single source of truth for niche-hunter, kdp_config, and SKILL docs. Edit this file → bump version → archive old version. All scoring, thresholds, and rules MUST trace back to this file.",
+  "effective_from": "2026-04-27",
+  "previous_version": null,
+
+  "weights": {
+    "_doc": "Composite niche_score weights — must sum to 1.0. Opportunity heaviest because it best predicts new-book success.",
+    "demand":       0.20,
+    "opportunity":  0.25,
+    "competition":  0.15,
+    "margin":       0.15,
+    "content":      0.10,
+    "longevity":    0.15
+  },
+
+  "thresholds": {
+    "_doc": "niche_score → rating buckets. Score scale 0-10.",
+    "HOT":  7.5,
+    "WARM": 6.0,
+    "COLD": 4.5
+  },
+
+  "opportunity_tiers": {
+    "_doc": "opportunity_score = avg_monthly_sales_top10 / avg_review_count_top10",
+    "BLUE_OCEAN": 5.0,
+    "MODERATE":   2.0,
+    "COMPETITIVE": 0.5
+  },
+
+  "hard_elimination": {
+    "_doc": "Any one rule triggers reject. Implementation lives in scripts/kdp_config.py::apply_hard_elimination — these entries are the canonical specification; the Python function MUST match.",
+    "rules": [
+      {
+        "id": "dead_market",
+        "description": "Top-3 BSR (lowest 3 values from top10) đều > 300K → không có demand",
+        "params": {"top3_bsr_min_threshold": 300000}
+      },
+      {
+        "id": "over_saturated",
+        "description": "Top-10 reviews đều > 500 → review moat quá dày",
+        "params": {"top10_reviews_min_threshold": 500}
+      },
+      {
+        "id": "race_to_bottom",
+        "description": "Top-10 prices đều ≤ $6.99 AND pages ≤ 50 → margin chết",
+        "params": {"max_price": 6.99, "max_pages": 50}
+      },
+      {
+        "id": "single_publisher_lock",
+        "description": "≥ 6/10 cùng publisher (loại trừ 'Independently published')",
+        "params": {"max_same_publisher": 6, "indie_aliases": ["independently published", "?", "", "unknown"]}
+      },
+      {
+        "id": "seasonal_missed_window",
+        "description": "is_seasonal AND days_to_peak < 75 → không kịp 72h KDP review + 30-60d ads warm-up",
+        "params": {"min_days_to_peak": 75}
+      },
+      {
+        "id": "ip_trap",
+        "description": "trademark_check verdict = FAIL hoặc has_trademark_risk=true",
+        "params": {}
+      },
+      {
+        "id": "commodity_trap",
+        "description": "qualitative_edge.unique_hook.pass = false → sách clone top-10",
+        "params": {}
+      }
+    ]
+  },
+
+  "flags": {
+    "_doc": "Bonus signals — append to niche record but không ảnh hưởng score chính.",
+    "BLUE_OCEAN_OPPORTUNITY": {"rule": "opportunity_score >= 5", "threshold": 5.0},
+    "LOW_REVIEW_BARRIER":     {"rule": "avg(top10_reviews) < 50", "threshold": 50},
+    "FRAGMENTED_MARKET":      {"rule": "max_publisher_count(top10) <= 2", "threshold": 2},
+    "EMERGING_MARKET":        {"rule": "avg(top10_age_days) < 365", "threshold": 365},
+    "GOLDMINE":               {"rule": "avg_top10_monthly_royalty > 500 AND avg(top10_reviews) < 100", "thresholds": {"royalty": 500, "reviews": 100}}
+  },
+
+  "qualitative_edge": {
+    "_doc": "Step 7.5 — 4 checks; 4/4 = +1.0 bonus, unique_hook=FAIL = commodity_trap auto-reject.",
+    "checks": [
+      {"id": "unique_hook",        "description": "Góc khác top-10 (large print, age-specific, theme combo)"},
+      {"id": "evergreen_baseline", "description": "Google Trends 5y baseline ≥ peak/3"},
+      {"id": "repeat_buyer",       "description": "Demographic mua lặp (gift, hobbyist, recurrence)"},
+      {"id": "content_scale",      "description": "Hỗ trợ ≥ 3 sequels từ research"}
+    ],
+    "scoring": {"4_of_4": 10, "3_of_4": 7, "2_of_4": 5, "1_or_less": 2}
+  },
+
+  "book_type_minimums": {
+    "_doc": "Min content concepts per book type — niche fail check trước khi launch.",
+    "coloring":    {"min_concepts": 30, "min_content_scale_score": 7},
+    "low_content": {"min_concepts": 10, "requires_template": true},
+    "activity":    {"min_concepts": 20, "requires_difficulty_ladder": true}
+  },
+
+  "bsr_to_sales_table": {
+    "_doc": "Formula 1 — BSR → daily sales (US paperback). Source: aggregated Publisher Rocket + KDSPY + Book Bolt 2023-2025.",
+    "tiers": [
+      {"bsr_min": 1,         "bsr_max": 10,        "low": 2000, "mid": 3500, "high": 5000},
+      {"bsr_min": 11,        "bsr_max": 100,       "low": 300,  "mid": 900,  "high": 2000},
+      {"bsr_min": 101,       "bsr_max": 1000,      "low": 80,   "mid": 160,  "high": 300},
+      {"bsr_min": 1001,      "bsr_max": 5000,      "low": 25,   "mid": 45,   "high": 80},
+      {"bsr_min": 5001,      "bsr_max": 10000,     "low": 10,   "mid": 17,   "high": 25},
+      {"bsr_min": 10001,     "bsr_max": 25000,     "low": 6,    "mid": 9,    "high": 13},
+      {"bsr_min": 25001,     "bsr_max": 50000,     "low": 3,    "mid": 5,    "high": 8},
+      {"bsr_min": 50001,     "bsr_max": 100000,    "low": 1.5,  "mid": 2.5,  "high": 4},
+      {"bsr_min": 100001,    "bsr_max": 200000,    "low": 0.7,  "mid": 1.2,  "high": 2},
+      {"bsr_min": 200001,    "bsr_max": 500000,    "low": 0.2,  "mid": 0.4,  "high": 0.8},
+      {"bsr_min": 500001,    "bsr_max": 1000000,   "low": 0.05, "mid": 0.12, "high": 0.25},
+      {"bsr_min": 1000001,   "bsr_max": 99999999,  "low": 0.01, "mid": 0.03, "high": 0.07}
+    ]
+  },
+
+  "seasons": [
+    {"event": "valentines",     "peak": "02-14", "ramp_days": 85},
+    {"event": "mothers_day",    "peak": "05-11", "ramp_days": 70},
+    {"event": "fathers_day",    "peak": "06-15", "ramp_days": 70},
+    {"event": "back_to_school", "peak": "08-20", "ramp_days": 80},
+    {"event": "halloween",      "peak": "10-31", "ramp_days": 90},
+    {"event": "christmas",      "peak": "12-25", "ramp_days": 130},
+    {"event": "new_year",       "peak": "01-01", "ramp_days": 80}
+  ],
+
+  "limits": {
+    "_doc": "KDP content/listing hard limits.",
+    "title_plus_subtitle_chars": 200,
+    "subtitle_chars": 150,
+    "description_chars": 4000,
+    "keyword_chars": 50,
+    "keywords_count": 7,
+    "category_count_initial": 2,
+    "category_count_extra_request": 10,
+    "min_line_weight_pt": 0.75,
+    "min_dpi": 300,
+    "max_pdf_mb": 650
+  },
+
+  "win_checklist": {
+    "_doc": "7-row WIN checklist — niche phải pass HẾT 7 dòng để launch.",
+    "items": [
+      {"id": "opportunity_5",      "rule": "opportunity_score >= 5"},
+      {"id": "unique_hook",        "rule": "qualitative_edge.unique_hook.pass == true"},
+      {"id": "low_review_barrier", "rule": "avg(top10_reviews) < 100"},
+      {"id": "margin_4usd",        "rule": "royalty_per_sale_usd >= 4.0 AND avg_top10_monthly_royalty >= 300"},
+      {"id": "repeat_buyer",       "rule": "qualitative_edge.repeat_buyer.pass == true"},
+      {"id": "trademark_clear",    "rule": "trademark_check.verdict == 'CLEAR'"},
+      {"id": "season_window_ok",   "rule": "is_seasonal == false OR days_to_peak >= 75"}
+    ]
+  }
+}

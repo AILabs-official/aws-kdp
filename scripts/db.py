@@ -285,6 +285,33 @@ CREATE TABLE IF NOT EXISTS insights (
     updated_at TEXT DEFAULT CURRENT_TIMESTAMP
 );
 
+CREATE TABLE IF NOT EXISTS categories (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    node_id TEXT,                       -- Amazon zgbs node id when known (eg "12345"); else NULL
+    name TEXT NOT NULL,                 -- leaf category name (eg "Mandala Coloring Books")
+    breadcrumb TEXT,                    -- full path "Books > Crafts > Coloring > Mandala"
+    parent_node_id TEXT,                -- parent in zgbs tree
+    bestseller_url TEXT,                -- canonical /Best-Sellers-Books-.../zgbs/books/<id> URL
+    top_asin TEXT,                      -- #1 bestseller ASIN at scan time
+    top_title TEXT,
+    top_bsr INTEGER,                    -- overall Books BSR of #1 (used for revenue math)
+    top_price_usd REAL,
+    top_pages INTEGER,
+    top_rating_avg REAL,
+    top_reviews_count INTEGER,
+    top_publish_date TEXT,
+    top_daily_sales_mid REAL,           -- bsr_to_daily_sales(top_bsr).mid
+    top_monthly_royalty_usd REAL,       -- estimate_monthly_royalty(...).mid
+    weakness_label TEXT,                -- 'EASY' | 'MODERATE' | 'HARD' (heuristic)
+    seed_keyword TEXT,                  -- the keyword that surfaced this category
+    seed_book_type TEXT,                -- 'coloring'|'sudoku'|'low_content'|'activity'|...
+    source TEXT,                        -- 'apify:junglee/amazon-crawler' | 'websearch'
+    raw_json_path TEXT,                 -- audit trail
+    notes TEXT,
+    scanned_at TEXT DEFAULT CURRENT_TIMESTAMP,
+    UNIQUE(name, seed_book_type)
+);
+
 CREATE INDEX IF NOT EXISTS idx_books_status ON books(status);
 CREATE INDEX IF NOT EXISTS idx_books_niche ON books(niche_id);
 CREATE INDEX IF NOT EXISTS idx_royalties_date ON royalties(date);
@@ -297,6 +324,9 @@ CREATE INDEX IF NOT EXISTS idx_amazon_listings_bsr ON amazon_listings(bsr_overal
 CREATE INDEX IF NOT EXISTS idx_niche_competitors_niche ON niche_competitors(niche_id);
 CREATE INDEX IF NOT EXISTS idx_research_queries_query ON research_queries(query, executed_at DESC);
 CREATE INDEX IF NOT EXISTS idx_insights_category ON insights(category, applies_to_book_type);
+CREATE INDEX IF NOT EXISTS idx_categories_seed ON categories(seed_keyword, seed_book_type);
+CREATE INDEX IF NOT EXISTS idx_categories_top_bsr ON categories(top_bsr);
+CREATE INDEX IF NOT EXISTS idx_categories_royalty ON categories(top_monthly_royalty_usd);
 """
 
 
