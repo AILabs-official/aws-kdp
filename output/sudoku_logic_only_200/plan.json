@@ -1,0 +1,69 @@
+{
+  "theme_key": "sudoku_logic_only_200",
+  "book_type": "sudoku",
+  "audience": "adults_seniors",
+  "page_size": "8.5x11",
+  "seed": 42,
+
+  "title": "Large Print Sudoku Puzzle Book for Adults & Seniors",
+  "subtitle": "200 Hand-Verified Puzzles in 5 Levels — From Gentle Warm-Up to Diabolic Expert · Logic-Only Guarantee · 3-Tier Hint System · Brain Training Journal Built-In",
+  "author": "Brain Craft Publishing",
+
+  "difficulty_distribution": {
+    "warmup": 20,
+    "easy":   60,
+    "medium": 60,
+    "hard":   40,
+    "expert": 20
+  },
+
+  "layout_per_difficulty": {
+    "warmup": 4,
+    "easy":   1,
+    "medium": 2,
+    "hard":   4,
+    "expert": 4
+  },
+
+  "warmup_grid_size": 6,
+
+  "include_journal_cells": true,
+  "include_hints": {
+    "tier1": "first_move",
+    "tier2": "five_extra_clues",
+    "tier3": "full_solution"
+  },
+
+  "target_page_count": 174,
+  "actual_page_count": 172,
+
+  "cover_prompt": "Premium minimalist book cover artwork for a senior-friendly large-print Sudoku puzzle book. Centered focal point: an elegant partial Sudoku grid (about 50 percent filled) rendered in crisp deep-navy serif numbers on warm cream paper, with strong thick lines defining the 3x3 boxes. Background: a soft hand-drawn watercolor wash gradient — dusty sage green at the top, warm cream in the middle, gentle terracotta rose at the bottom. Subtle botanical line illustrations at the four corners — delicate eucalyptus leaves and small wildflowers in muted gold. Decorative thin gold geometric border framing the grid. Editorial stationery aesthetic, like a high-end notebook cover. Calm, focused, intelligent atmosphere — feels like a quiet morning with coffee. Clean studio lighting, soft shadows, professional book cover quality. NO text, NO numbers other than the sudoku grid digits, NO author name on artwork. Generous negative space at top and bottom for separate title overlay. Sophisticated, warm, inviting — appeals to adults and seniors who value craft over flashy design. Aspect ratio 3:4 portrait.",
+
+
+  "usps": [
+    "Logic-Only Guarantee — every puzzle solvable by pure deduction, no guessing required",
+    "5 Difficulty Levels (vs competitor 3): Warm-Up 6×6 → Easy → Medium → Hard → Diabolic Expert",
+    "Senior-Friendly Hybrid Layout: Easy puzzles 1-per-page with extra-large grids (8mm cells)",
+    "Progressive 3-Tier Hint System: First-Move Hint → 5 Extra Clues → Full Solution",
+    "Built-in Brain Training Journal: Time / Date / Star-Rating cells on every puzzle"
+  ],
+
+  "description_html": "See listing.md (full HTML description ready to paste into KDP)",
+  "keywords": [
+    "sudoku puzzle book for adults large print",
+    "sudoku books for seniors with solutions",
+    "brain games for adults seniors logic",
+    "sudoku gift for elderly grandparents",
+    "brain training puzzle book memory",
+    "sudoku 5 levels easy medium hard expert",
+    "logic puzzles no guessing required"
+  ],
+  "categories": [
+    "GAM015000",
+    "GAM013000"
+  ],
+  "list_price_usd": 9.99,
+  "reading_age_min": 16,
+
+  "_notes": "Distribution B from analysis. Targets B0FFZ9K9CG (Mind & Logic, 4.5★/41 reviews, BSR #3,207). Warm-up tier uses 6×6 mini-Sudoku (numbers 1-6, boxes 2×3) to capture beginners + reduce abandon rate. Easy 1/page is the Large-Print USP that compresses competitor B0DKTMJ1KC (Kimokotoo, 4.7★/861)."
+}

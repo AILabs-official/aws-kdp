@@ -39,22 +39,46 @@ import config  # noqa: E402
 
 
 class SudokuGenerator:
-    """Backtracking generator with unique-solution guarantee."""
+    """Backtracking generator with unique-solution guarantee.
 
+    Supports two grid sizes:
+      • 9×9 (box 3×3, digits 1–9) — standard tiers: easy / medium / hard / expert
+      • 6×6 (box 2×3, digits 1–6) — warm-up tier ("warmup")
+    """
+
+    # Per-difficulty (min_clues, max_clues). The "warmup" tier targets a 6×6
+    # grid (36 cells); all other tiers target a 9×9 grid (81 cells).
     DIFFICULTY_CLUES = {
+        "warmup": (22, 26),  # 6×6 — gentle introduction (most cells filled)
         "easy":   (38, 45),
         "medium": (30, 36),
         "hard":   (26, 29),
         "expert": (22, 25),
     }
 
-    def __init__(self, seed: int | None = None):
+    # Grid size + box dimensions per tier.
+    TIER_GRID = {
+        "warmup": {"size": 6, "box_rows": 2, "box_cols": 3},
+        "easy":   {"size": 9, "box_rows": 3, "box_cols": 3},
+        "medium": {"size": 9, "box_rows": 3, "box_cols": 3},
+        "hard":   {"size": 9, "box_rows": 3, "box_cols": 3},
+        "expert": {"size": 9, "box_rows": 3, "box_cols": 3},
+    }
+
+    def __init__(self, seed: int | None = None, size: int = 9, box_rows: int = 3, box_cols: int = 3):
         self.rng = random.Random(seed)
+        self.size = size
+        self.box_rows = box_rows
+        self.box_cols = box_cols
+        # size must equal box_rows × box_cols (e.g. 9 = 3×3, 6 = 2×3)
+        assert size == box_rows * box_cols, (
+            f"size {size} must equal box_rows ({box_rows}) × box_cols ({box_cols})"
+        )
 
     # ---- Full grid generation ----
 
     def generate_complete_grid(self) -> list[list[int]]:
-        grid = [[0] * 9 for _ in range(9)]
+        grid = [[0] * self.size for _ in range(self.size)]
         self._fill(grid)
         return grid
 
@@ -63,7 +87,7 @@ class SudokuGenerator:
         if cell is None:
             return True
         r, c = cell
-        nums = list(range(1, 10))
+        nums = list(range(1, self.size + 1))
         self.rng.shuffle(nums)
         for n in nums:
             if self._is_valid(grid, r, c, n):
@@ -73,22 +97,21 @@ class SudokuGenerator:
                 grid[r][c] = 0
         return False
 
-    @staticmethod
-    def _find_empty(grid: list[list[int]]) -> tuple[int, int] | None:
-        for r in range(9):
-            for c in range(9):
+    def _find_empty(self, grid: list[list[int]]) -> tuple[int, int] | None:
+        for r in range(self.size):
+            for c in range(self.size):
                 if grid[r][c] == 0:
                     return (r, c)
         return None
 
-    @staticmethod
-    def _is_valid(grid: list[list[int]], r: int, c: int, n: int) -> bool:
-        for i in range(9):
+    def _is_valid(self, grid: list[list[int]], r: int, c: int, n: int) -> bool:
+        for i in range(self.size):
             if grid[r][i] == n or grid[i][c] == n:
                 return False
-        br, bc = (r // 3) * 3, (c // 3) * 3
-        for i in range(br, br + 3):
-            for j in range(bc, bc + 3):
+        br = (r // self.box_rows) * self.box_rows
+        bc = (c // self.box_cols) * self.box_cols
+        for i in range(br, br + self.box_rows):
+            for j in range(bc, bc + self.box_cols):
                 if grid[i][j] == n:
                     return False
         return True
@@ -110,7 +133,7 @@ class SudokuGenerator:
             state[0] += 1
             return
         r, c = cell
-        for n in range(1, 10):
+        for n in range(1, self.size + 1):
             if self._is_valid(grid, r, c, n):
                 grid[r][c] = n
                 self._count_helper(grid, state, limit)
@@ -126,16 +149,17 @@ class SudokuGenerator:
         """Return (puzzle, solution, clue_count). Retries up to `max_attempts`
         times if the target clue count is unreachable due to uniqueness floor."""
         min_clues, max_clues = self.DIFFICULTY_CLUES[difficulty]
+        n_cells = self.size * self.size
 
         for _ in range(max_attempts):
             solution = self.generate_complete_grid()
             puzzle = [row[:] for row in solution]
 
-            cells = [(r, c) for r in range(9) for c in range(9)]
+            cells = [(r, c) for r in range(self.size) for c in range(self.size)]
             self.rng.shuffle(cells)
 
             target_clues = self.rng.randint(min_clues, max_clues)
-            clues_left = 81
+            clues_left = n_cells
 
             for r, c in cells:
                 if clues_left <= target_clues:
@@ -153,33 +177,48 @@ class SudokuGenerator:
         # Fallback: return whatever we got (still unique)
         return puzzle, solution, clues_left
 
-    # ---- Batch ----
 
-    def batch(self, counts: dict[str, int]) -> list[dict]:
-        puzzles: list[dict] = []
-        pid = 1
-        t0 = time.time()
-        for difficulty in ("easy", "medium", "hard", "expert"):
-            n = counts.get(difficulty, 0)
-            if n <= 0:
-                continue
-            print(f"\n  {difficulty.upper()} × {n}")
-            for _ in range(n):
-                ts = time.time()
-                puzzle, solution, clues = self.make_puzzle(difficulty)
-                dt = time.time() - ts
-                puzzles.append({
-                    "id": pid,
-                    "difficulty": difficulty,
-                    "clue_count": clues,
-                    "puzzle": puzzle,
-                    "solution": solution,
-                })
-                print(f"    #{pid:03d}  clues={clues:2d}  ({dt:.1f}s)")
-                pid += 1
-        elapsed = time.time() - t0
-        print(f"\n⏱  Total: {elapsed:.1f}s ({elapsed/len(puzzles):.1f}s/puzzle)")
-        return puzzles
+def batch_mixed(counts: dict[str, int], seed: int | None = None) -> list[dict]:
+    """Run a batch across mixed grid sizes. Per-tier generators are instantiated
+    so the 6×6 warm-up and 9×9 standard tiers each get their own correct
+    box geometry. Seeds are derived deterministically from the master seed."""
+    puzzles: list[dict] = []
+    pid = 1
+    t0 = time.time()
+
+    # Order: warmup first (gentle introduction), then standard tiers.
+    for difficulty in ("warmup", "easy", "medium", "hard", "expert"):
+        n = counts.get(difficulty, 0)
+        if n <= 0:
+            continue
+        tier = SudokuGenerator.TIER_GRID[difficulty]
+        # Derive a per-tier seed so each tier is independent but reproducible.
+        sub_seed = None if seed is None else seed + hash(difficulty) % 10_000
+        gen = SudokuGenerator(
+            seed=sub_seed,
+            size=tier["size"],
+            box_rows=tier["box_rows"],
+            box_cols=tier["box_cols"],
+        )
+        print(f"\n  {difficulty.upper()} × {n}  ({tier['size']}×{tier['size']})")
+        for _ in range(n):
+            ts = time.time()
+            puzzle, solution, clues = gen.make_puzzle(difficulty)
+            dt = time.time() - ts
+            puzzles.append({
+                "id": pid,
+                "difficulty": difficulty,
+                "grid_size": tier["size"],
+                "clue_count": clues,
+                "puzzle": puzzle,
+                "solution": solution,
+            })
+            print(f"    #{pid:03d}  clues={clues:2d}  ({dt:.1f}s)")
+            pid += 1
+    elapsed = time.time() - t0
+    if puzzles:
+        print(f"\n⏱  Total: {elapsed:.1f}s ({elapsed/len(puzzles):.2f}s/puzzle)")
+    return puzzles
 
 
 # ---- CLI ----
@@ -206,7 +245,7 @@ def main() -> None:
     parser.add_argument("--theme", required=True, help="theme_key (folder under output/)")
     parser.add_argument(
         "--difficulty", required=True,
-        help="spec like 'easy:50,medium:100,hard:80,expert:20'",
+        help="spec like 'warmup:20,easy:50,medium:100,hard:80,expert:20'",
     )
     parser.add_argument("--seed", type=int, default=None, help="RNG seed (reproducible)")
     args = parser.parse_args()
@@ -219,10 +258,10 @@ def main() -> None:
 
     print(f"Generating {total} sudoku puzzles for '{args.theme}':")
     for d, n in counts.items():
-        print(f"  {d}: {n}")
+        tier = SudokuGenerator.TIER_GRID[d]
+        print(f"  {d}: {n}  ({tier['size']}×{tier['size']})")
 
-    gen = SudokuGenerator(seed=args.seed)
-    puzzles = gen.batch(counts)
+    puzzles = batch_mixed(counts, seed=args.seed)
 
     out_path = theme_dir / "sudoku_puzzles.json"
     out_path.write_text(json.dumps(puzzles, indent=2))
