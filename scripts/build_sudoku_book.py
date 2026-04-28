@@ -693,12 +693,12 @@ def _format_hint_line(puzzle_id: int, hints: list[tuple[int, int, int]]) -> str:
 def build_hints_master_divider(c: canvas.Canvas) -> None:
     """Top-level divider explaining the 3-tier hint system."""
     c.setFont("Times-Bold", 50)
-    c.drawCentredString(PAGE_W / 2, PAGE_H * 0.78, "Stuck?")
+    c.drawCentredString(PAGE_W / 2, PAGE_H * 0.80, "Stuck?")
     c.setFont("Times-Italic", 22)
-    c.drawCentredString(PAGE_W / 2, PAGE_H * 0.71, "A 3-Tier Hint System")
+    c.drawCentredString(PAGE_W / 2, PAGE_H * 0.73, "A 3-Tier Hint System")
 
     c.setLineWidth(0.7)
-    c.line(2.5 * inch, PAGE_H * 0.66, PAGE_W - 2.5 * inch, PAGE_H * 0.66)
+    c.line(2.5 * inch, PAGE_H * 0.69, PAGE_W - 2.5 * inch, PAGE_H * 0.69)
 
     c.setFont("Times-Roman", 13)
     intro = [
@@ -706,36 +706,41 @@ def build_hints_master_divider(c: canvas.Canvas) -> None:
         "guessing required. But sometimes the next move is hiding in",
         "plain sight, and a small nudge is all you need.",
         "",
-        "We provide three progressive levels of help so you can",
-        "choose how much you want revealed:",
+        "Three progressive levels of help — choose how much to reveal:",
     ]
-    y = PAGE_H * 0.60
+    y = PAGE_H * 0.63
     for line in intro:
         c.drawCentredString(PAGE_W / 2, y, line)
         y -= 17
 
-    # Tier blurbs
+    # Tier blurbs — reflects new per-size counts and cumulative behaviour
     tiers = [
-        ("Tier 1 — Five Extra Clues",
-         "Five additional cells revealed. Just enough to break a logjam."),
-        ("Tier 2 — Ten Extra Clues",
-         "Twice the help. Use this when Tier 1 still leaves you stuck."),
-        ("Tier 3 — Full Solution",
-         "The complete grid. For verification when you have finished."),
+        (
+            "Tier 1 — A Handful of Extra Clues",
+            "5 additional cells revealed   (2 cells for the 6×6 warm-up).",
+        ),
+        (
+            "Tier 2 — Twice the Help, Cumulative",
+            "Tier 1 hints repeated, plus 5 more cells   (Tier 1 + 2 more for warm-up).",
+        ),
+        (
+            "Tier 3 — Full Solution",
+            "The complete grid for verification once you have finished.",
+        ),
     ]
-    y -= 12
+    y -= 8
     for label, blurb in tiers:
         c.setFont("Times-Bold", 14)
         c.drawCentredString(PAGE_W / 2, y, label)
         y -= 18
         c.setFont("Times-Italic", 12)
         c.drawCentredString(PAGE_W / 2, y, blurb)
-        y -= 28
+        y -= 30
 
     c.setFont("Times-Italic", 11)
     c.drawCentredString(
         PAGE_W / 2, 0.7 * inch,
-        "Each hint references a cell as RxCy (Row x, Column y).",
+        "Each hint references a cell as RxCy  (Row x, Column y).",
     )
     c.showPage()
 
@@ -743,19 +748,27 @@ def build_hints_master_divider(c: canvas.Canvas) -> None:
 def build_hint_tier_divider(
     c: canvas.Canvas,
     tier_label: str,
-    n_clues: int,
+    subtitle: str,
     blurb: str,
 ) -> None:
-    """Section divider for a single hint tier."""
+    """Section divider for a single hint tier.
+
+    `subtitle` is a short descriptor (e.g. "5 extra cells per puzzle") shown
+    under the tier label; `blurb` is a longer prose explanation below.
+    """
     c.setFont("Times-Bold", 48)
     c.drawCentredString(PAGE_W / 2, PAGE_H * 0.62, tier_label)
-    c.setFont("Times-Italic", 18)
-    c.drawCentredString(PAGE_W / 2, PAGE_H * 0.55, f"{n_clues} extra clues per puzzle")
+    c.setFont("Times-Italic", 16)
+    _draw_wrapped(
+        c, subtitle, PAGE_W / 2, PAGE_H * 0.55,
+        max_width=PAGE_W - 1.5 * inch,
+        font="Times-Italic", size=16, leading=22,
+    )
     c.setFont("Times-Roman", 22)
-    c.drawCentredString(PAGE_W / 2, PAGE_H * 0.49, "❦")
+    c.drawCentredString(PAGE_W / 2, PAGE_H * 0.47, "❦")
     c.setFont("Times-Italic", 13)
     _draw_wrapped(
-        c, blurb, PAGE_W / 2, PAGE_H * 0.42,
+        c, blurb, PAGE_W / 2, PAGE_H * 0.40,
         max_width=PAGE_W - 2.5 * inch,
         font="Times-Italic", size=13, leading=20,
     )
@@ -1066,8 +1079,10 @@ def assemble(theme: str) -> Path:
         section_pages[d] = (len(group) + per_page - 1) // per_page
     n_puzzle_body_pages = sum(section_pages.values())
 
-    # Hint section: 1 master divider + 2 tier dividers + tier1 + tier2 hint pages
-    n_hint_t1_pages = (n_puzzles + HINT_LINES_PER_PAGE - 1) // HINT_LINES_PER_PAGE
+    # Hint section: 1 master divider + 2 tier dividers + T1 + T2 hint pages.
+    # T1 and T2 use the same item structure (200 puzzles + 5 section headers)
+    # so they produce the same page count.
+    n_hint_t1_pages = count_hint_pages(puzzles)
     n_hint_t2_pages = n_hint_t1_pages
     n_hint_total = 1 + 1 + n_hint_t1_pages + 1 + n_hint_t2_pages
 
@@ -1144,26 +1159,39 @@ def assemble(theme: str) -> Path:
                 build_puzzle_page_4up(c, chunk, page_num)
             page_num += 1
 
-    # Hint section (Tier 1 + Tier 2). Seed RNG from plan so hints are reproducible.
+    # Pre-compute Tier 1 + Tier 2 hints. Tier 2 is CUMULATIVE — it includes
+    # all of Tier 1's cells plus extras — so a reader who used Tier 1 and
+    # is still stuck sees their existing hints again, just augmented.
     hint_seed = plan.get("seed", 42)
-    rng_t1 = random.Random((hint_seed << 1) ^ 0xA5A5)
-    rng_t2 = random.Random((hint_seed << 1) ^ 0x5A5A)
+    tier1_by_id, tier2_by_id = compute_tier_hints(puzzles, hint_seed)
 
     build_hints_master_divider(c); page_num += 1
 
     build_hint_tier_divider(
-        c, "Tier 1", 5,
-        "Five extra cells revealed for each puzzle. Just enough to break a "
-        "logjam without giving the answer away.",
+        c, "Tier 1",
+        "5 extra cells per puzzle  (2 for Warm-Up)",
+        "A handful of additional cells revealed — just enough to break a "
+        "logjam without giving the puzzle away.",
     ); page_num += 1
-    page_num = build_hint_pages(c, puzzles, 5, rng_t1, page_num)
+    page_num = build_hint_pages(
+        c, puzzles, tier1_by_id,
+        tier_label="Tier 1 — Extra Clues",
+        tier_subtext="5 cells per puzzle  ·  2 cells for Warm-Up (6×6)",
+        starting_page_num=page_num,
+    )
 
     build_hint_tier_divider(
-        c, "Tier 2", 10,
-        "Ten extra cells revealed. When Tier 1 still leaves you stuck, "
-        "this should put you firmly back on the path.",
+        c, "Tier 2",
+        "Tier 1 hints  +  5 more cells   (Tier 1 + 2 more for Warm-Up)",
+        "Every Tier 1 hint is shown again, alongside fresh extras. Use this "
+        "when Tier 1 alone has not been enough.",
     ); page_num += 1
-    page_num = build_hint_pages(c, puzzles, 10, rng_t2, page_num)
+    page_num = build_hint_pages(
+        c, puzzles, tier2_by_id,
+        tier_label="Tier 2 — Extra Clues  (Cumulative)",
+        tier_subtext="Tier 1 hints + 5 more  ·  Tier 1 + 2 more for Warm-Up",
+        starting_page_num=page_num,
+    )
 
     # Tier 3: Full Solutions
     build_solutions_divider(c); page_num += 1

@@ -357,6 +357,24 @@ def _draw_sudoku_grid_pil(
             d.text((cx - tw // 2 - bbox[0], cy - th // 2 - bbox[1]), str(n), fill=ink, font=font)
 
 
+def _shift_color(rgb: tuple[int, int, int], delta: int) -> tuple[int, int, int]:
+    """Lighten (delta>0) or darken (delta<0) an RGB color, clipped to [0,255]."""
+    return tuple(max(0, min(255, c + delta)) for c in rgb)
+
+
+def _is_light(rgb: tuple[int, int, int]) -> bool:
+    """Rough perceived-luminance check. True for pale backgrounds."""
+    r, g, b = rgb
+    return (0.299 * r + 0.587 * g + 0.114 * b) > 160
+
+
+_DIFF_LABEL_OVERRIDES = {
+    "warmup": "WARM-UP",
+    "warm-up": "WARM-UP",
+    "warm_up": "WARM-UP",
+}
+
+
 def _render_sudoku_back_and_spine(
     cover: Image.Image,
     dims: dict,
@@ -366,17 +384,49 @@ def _render_sudoku_back_and_spine(
 ) -> None:
     """Paint the back cover + spine for a sudoku book.
 
-    Matches the front's commercial navy + gold palette, renders three real
-    sample grids (easy / medium / hard) pulled from sudoku_puzzles.json, shows
-    feature bullets + description, and reserves the KDP barcode slot.
+    Plan-driven: every text block, the puzzle count, the palette, and the sample
+    difficulties come from plan.json so the back stays consistent with the front
+    and reflects the book's actual contents (no hardcoded "240 PUZZLES").
     """
+    # --- Derive puzzle count from plan ---
+    diff_dist = plan.get("difficulty_distribution", {}) or {}
+    puzzle_count = (
+        plan.get("puzzle_count")
+        or (sum(diff_dist.values()) if diff_dist else 0)
+        or 0
+    )
+
+    # --- Palette: prefer new semantic keys, fall back to legacy navy/gold ---
     palette = plan.get("cover_palette", {}) or {}
-    navy = _hex_to_rgb(palette.get("dominant", "#1B3A5C"))
-    gold = _hex_to_rgb(palette.get("accent_primary", "#D4A857"))
-    cream = _hex_to_rgb(palette.get("accent_secondary", "#F7F1E3"))
-    red = (200, 40, 50)
-    white = (255, 255, 255)
-    navy_lighter = tuple(min(255, c + 14) for c in navy)
+    legacy_dominant = palette.get("dominant", "#1B3A5C")
+    legacy_accent = palette.get("accent_primary", "#D4A857")
+    legacy_secondary = palette.get("accent_secondary", "#F7F1E3")
+
+    bg = _hex_to_rgb(palette.get("back_bg", legacy_dominant))
+    light_bg = _is_light(bg)
+    # On a dark navy-style bg the ink defaults to white; on a cream bg it
+    # defaults to deep navy so text stays legible.
+    default_ink = "#FFFFFF" if not light_bg else legacy_dominant
+    ink = _hex_to_rgb(palette.get("back_ink", default_ink))
+    accent = _hex_to_rgb(palette.get("back_accent", legacy_accent))
+    panel_bg = _hex_to_rgb(palette.get("back_panel_bg", legacy_secondary))
+    panel_ink = _hex_to_rgb(palette.get("back_panel_ink", legacy_dominant))
+    pill_left_bg_default = "#C82832" if not light_bg else legacy_dominant
+    pill_left_bg = _hex_to_rgb(palette.get("back_pill_left_bg", pill_left_bg_default))
+    pill_left_ink = _hex_to_rgb(palette.get("back_pill_left_ink", "#FFFFFF"))
+    pill_right_bg = _hex_to_rgb(palette.get("back_pill_right_bg", legacy_accent))
+    pill_right_ink = _hex_to_rgb(palette.get("back_pill_right_ink", legacy_dominant))
+
+    grid_bg = _hex_to_rgb(palette.get("back_grid_bg", "#FFFFFF"))
+    grid_line = _hex_to_rgb(palette.get("back_grid_line", "#202020"))
+    grid_ink = _hex_to_rgb(palette.get("back_grid_ink", legacy_dominant))
+
+    spine_bg = _hex_to_rgb(palette.get("spine_bg", palette.get("back_bg", legacy_dominant)))
+    spine_ink = _hex_to_rgb(
+        palette.get("spine_ink", palette.get("back_accent", legacy_accent))
+    )
+
+    watermark = _shift_color(bg, -10 if light_bg else 14)
 
     d = ImageDraw.Draw(cover)
     H = dims["full_height_px"]
@@ -384,128 +434,157 @@ def _render_sudoku_back_and_spine(
     back_x0, back_x1 = 0, dims["spine_start_x"]
     spine_x0, spine_x1 = dims["spine_start_x"], dims["front_start_x"]
 
-    # --- Navy background for back + spine (full bleed) ---
-    d.rectangle([back_x0, 0, spine_x1, H], fill=navy)
+    # --- Background fill for back + spine (full bleed) ---
+    d.rectangle([back_x0, 0, spine_x1, H], fill=bg)
 
     # --- Subtle sudoku-grid watermark across back ---
     wm_cell = int(0.42 * config.DPI)
     for gx in range(bleed - wm_cell, back_x1 + wm_cell, wm_cell):
-        d.line([(gx, 0), (gx, H)], fill=navy_lighter, width=1)
+        d.line([(gx, 0), (gx, H)], fill=watermark, width=1)
     for gy in range(bleed - wm_cell, H + wm_cell, wm_cell):
-        d.line([(back_x0, gy), (back_x1, gy)], fill=navy_lighter, width=1)
+        d.line([(back_x0, gy), (back_x1, gy)], fill=watermark, width=1)
 
     safe = dims["safe_px"]
     content_left = bleed + safe
     content_right = back_x1 - safe
     content_w = content_right - content_left
 
-    # --- Top: gold "3 LEVELS" pill + red "GIFT EDITION" pill ---
+    # --- Top: two pill badges (left + right), text from plan ---
     top_y = bleed + int(0.35 * config.DPI)
     pill_h = int(0.55 * config.DPI)
+    pill_font = get_font(int(0.22 * config.DPI), bold=True)
 
-    red_font = get_font(int(0.22 * config.DPI), bold=True)
-    red_text = "GIFT EDITION"
-    bb = d.textbbox((0, 0), red_text, font=red_font)
-    red_w = (bb[2] - bb[0]) + int(0.7 * config.DPI)
+    pill_left_text = plan.get("back_pill_left", "GIFT EDITION")
+    bb = d.textbbox((0, 0), pill_left_text, font=pill_font)
+    pl_w = (bb[2] - bb[0]) + int(0.7 * config.DPI)
     d.rounded_rectangle(
-        [content_left, top_y, content_left + red_w, top_y + pill_h],
-        radius=pill_h // 2, fill=red,
+        [content_left, top_y, content_left + pl_w, top_y + pill_h],
+        radius=pill_h // 2, fill=pill_left_bg,
     )
     d.text(
-        (content_left + (red_w - (bb[2] - bb[0])) // 2 - bb[0],
+        (content_left + (pl_w - (bb[2] - bb[0])) // 2 - bb[0],
          top_y + (pill_h - (bb[3] - bb[1])) // 2 - bb[1]),
-        red_text, fill=white, font=red_font,
+        pill_left_text, fill=pill_left_ink, font=pill_font,
     )
 
-    gold_font = get_font(int(0.22 * config.DPI), bold=True)
-    gold_text = "240 PUZZLES"
-    bb = d.textbbox((0, 0), gold_text, font=gold_font)
-    gold_w = (bb[2] - bb[0]) + int(0.7 * config.DPI)
+    pill_right_text = plan.get(
+        "back_pill_right",
+        f"{puzzle_count} PUZZLES" if puzzle_count else "BIG PRINT",
+    )
+    bb = d.textbbox((0, 0), pill_right_text, font=pill_font)
+    pr_w = (bb[2] - bb[0]) + int(0.7 * config.DPI)
     d.rounded_rectangle(
-        [content_right - gold_w, top_y, content_right, top_y + pill_h],
-        radius=pill_h // 2, fill=gold,
+        [content_right - pr_w, top_y, content_right, top_y + pill_h],
+        radius=pill_h // 2, fill=pill_right_bg,
     )
     d.text(
-        (content_right - gold_w + (gold_w - (bb[2] - bb[0])) // 2 - bb[0],
+        (content_right - pr_w + (pr_w - (bb[2] - bb[0])) // 2 - bb[0],
          top_y + (pill_h - (bb[3] - bb[1])) // 2 - bb[1]),
-        gold_text, fill=navy, font=gold_font,
+        pill_right_text, fill=pill_right_ink, font=pill_font,
     )
 
-    # --- Headline (white) + subheadline (gold) ---
-    headline = plan.get("back_headline") or "THE PERFECT RETIREMENT GIFT"
-    subheadline = plan.get("back_subheadline") or "240 hand-verified large-print puzzles,"
-    sub2 = "one thoughtful page at a time."
+    # --- Headline + subheadlines (plan-driven) ---
+    headline = plan.get("back_headline") or "BRAIN-FRIENDLY SUDOKU"
+
+    # Accept either back_subheadline (string) or back_subheadlines (list of lines)
+    sub_lines = plan.get("back_subheadlines")
+    if not sub_lines:
+        legacy_sub = plan.get("back_subheadline")
+        if legacy_sub:
+            sub_lines = [legacy_sub]
+        elif puzzle_count:
+            sub_lines = [
+                f"{puzzle_count} hand-verified large-print puzzles,",
+                "one thoughtful page at a time.",
+            ]
+        else:
+            sub_lines = ["Hand-verified puzzles in comfortable large print."]
 
     headline_font = get_font(int(0.42 * config.DPI), bold=True)
     sub_font = get_font(int(0.26 * config.DPI), bold=False)
 
     hl_y = top_y + pill_h + int(0.45 * config.DPI)
     bb = d.textbbox((0, 0), headline, font=headline_font)
-    # Shrink-to-fit
     while bb[2] - bb[0] > content_w and headline_font.size > 40:
         headline_font = get_font(headline_font.size - 4, bold=True)
         bb = d.textbbox((0, 0), headline, font=headline_font)
     d.text(
         (content_left + (content_w - (bb[2] - bb[0])) // 2 - bb[0], hl_y),
-        headline, fill=white, font=headline_font,
+        headline, fill=ink, font=headline_font,
     )
 
-    sub_y = hl_y + (bb[3] - bb[1]) + int(0.15 * config.DPI)
-    bb2 = d.textbbox((0, 0), subheadline, font=sub_font)
-    d.text(
-        (content_left + (content_w - (bb2[2] - bb2[0])) // 2 - bb2[0], sub_y),
-        subheadline, fill=gold, font=sub_font,
-    )
-    sub_y2 = sub_y + (bb2[3] - bb2[1]) + int(0.06 * config.DPI)
-    bb3 = d.textbbox((0, 0), sub2, font=sub_font)
-    d.text(
-        (content_left + (content_w - (bb3[2] - bb3[0])) // 2 - bb3[0], sub_y2),
-        sub2, fill=gold, font=sub_font,
-    )
+    cur_y = hl_y + (bb[3] - bb[1]) + int(0.15 * config.DPI)
+    last_h = 0
+    for line in sub_lines:
+        bb_line = d.textbbox((0, 0), line, font=sub_font)
+        d.text(
+            (content_left + (content_w - (bb_line[2] - bb_line[0])) // 2 - bb_line[0], cur_y),
+            line, fill=accent, font=sub_font,
+        )
+        last_h = bb_line[3] - bb_line[1]
+        cur_y += last_h + int(0.06 * config.DPI)
+    sub_block_end = cur_y - int(0.06 * config.DPI)
 
-    # --- Cream description panel ---
-    panel_y0 = sub_y2 + (bb3[3] - bb3[1]) + int(0.45 * config.DPI)
+    # --- Description panel (bullets) ---
+    panel_y0 = sub_block_end + int(0.45 * config.DPI)
     panel_h = int(2.4 * config.DPI)
     d.rounded_rectangle(
         [content_left, panel_y0, content_right, panel_y0 + panel_h],
-        radius=int(0.12 * config.DPI), fill=cream,
+        radius=int(0.12 * config.DPI), fill=panel_bg,
     )
 
-    # Feature bullets inside cream panel
-    bullets = [
-        "240 hand-verified puzzles  (60 easy · 120 medium · 60 hard)",
-        "Large print · one puzzle per page · easy on the eyes",
-        "Every grid has exactly one solution",
-        "Complete answer key included at the back",
-        "A calm, giftable edition for retirement and beyond",
-    ]
+    # Bullets: prefer explicit back_bullets, then plan["usps"], then derive from puzzle_count
+    bullets = plan.get("back_bullets") or plan.get("usps")
+    if not bullets:
+        diff_summary_parts = []
+        for k, v in diff_dist.items():
+            if not v:
+                continue
+            diff_summary_parts.append(f"{v} {k}")
+        diff_summary = " · ".join(diff_summary_parts)
+        bullets = [
+            (f"{puzzle_count} hand-verified puzzles" + (f"  ({diff_summary})" if diff_summary else ""))
+            if puzzle_count else "Hand-verified puzzles, fully solvable",
+            "Large print · one puzzle per page · easy on the eyes",
+            "Every grid has exactly one solution",
+            "Complete answer key included at the back",
+            "A calm, giftable edition for relaxing brain training",
+        ]
+    bullets = list(bullets)[:5]
+
     bullet_font = get_font(int(0.21 * config.DPI), bold=False)
     by = panel_y0 + int(0.35 * config.DPI)
     line_gap = int(0.44 * config.DPI)
     for b in bullets:
-        # gold check-dot
         dot_r = int(0.08 * config.DPI)
         d.ellipse(
             [content_left + int(0.35 * config.DPI) - dot_r,
              by + int(0.12 * config.DPI) - dot_r,
              content_left + int(0.35 * config.DPI) + dot_r,
              by + int(0.12 * config.DPI) + dot_r],
-            fill=gold,
+            fill=accent,
         )
         d.text((content_left + int(0.6 * config.DPI), by), b,
-               fill=navy, font=bullet_font)
+               fill=panel_ink, font=bullet_font)
         by += line_gap
 
-    # --- Sample grids row (3 mini grids: easy / medium / hard) ---
-    sample_labels = [("EASY", "easy"), ("MEDIUM", "medium"), ("HARD", "hard")]
+    # --- Sample grids row (plan-driven sample difficulties) ---
+    sample_diffs = plan.get("back_sample_difficulties") or ["easy", "medium", "hard"]
     samples_by_diff: dict = {}
     try:
         with open(puzzles_path) as f:
             puzzles = json.load(f)
-        for label, diff in sample_labels:
+        for diff in sample_diffs:
             for p in puzzles:
-                if p.get("difficulty") == diff and p.get("puzzle"):
-                    samples_by_diff[diff] = p["puzzle"]
+                grid = p.get("puzzle")
+                # Only 9x9 grids fit the back-cover sample renderer
+                if (
+                    p.get("difficulty") == diff
+                    and grid
+                    and len(grid) == 9
+                    and len(grid[0]) == 9
+                ):
+                    samples_by_diff[diff] = grid
                     break
     except Exception as e:
         print(f"  Warning: could not load sudoku puzzles for back cover: {e}")
@@ -513,53 +592,67 @@ def _render_sudoku_back_and_spine(
     grid_top = panel_y0 + panel_h + int(0.45 * config.DPI)
     grid_size = int(1.55 * config.DPI)
     label_h = int(0.35 * config.DPI)
-    slot_w = content_w // 3
+    slot_w = content_w // max(1, len(sample_diffs))
     label_font = get_font(int(0.20 * config.DPI), bold=True)
 
-    for i, (label, diff) in enumerate(sample_labels):
+    for i, diff in enumerate(sample_diffs):
         slot_x0 = content_left + i * slot_w
         gx = slot_x0 + (slot_w - grid_size) // 2
         gy = grid_top + label_h
 
-        # difficulty label in gold above the grid
-        bb = d.textbbox((0, 0), label, font=label_font)
+        label_text = _DIFF_LABEL_OVERRIDES.get(diff.lower(), diff.upper())
+        bb = d.textbbox((0, 0), label_text, font=label_font)
         d.text(
             (slot_x0 + (slot_w - (bb[2] - bb[0])) // 2 - bb[0], grid_top),
-            label, fill=gold, font=label_font,
+            label_text, fill=accent, font=label_font,
         )
 
         clues = samples_by_diff.get(diff)
         if clues:
-            _draw_sudoku_grid_pil(cover, gx, gy, grid_size, clues,
-                                  thick_px=4, thin_px=1)
+            _draw_sudoku_grid_pil(
+                cover, gx, gy, grid_size, clues,
+                thick_px=4, thin_px=1,
+                bg=grid_bg, line=grid_line, ink=grid_ink,
+            )
 
-    # --- Author credit bottom center ---
-    author_line = author.upper() if author else ""
-    if author_line:
+    # --- Author / imprint credit, sitting ABOVE the KDP barcode placeholder ---
+    # The barcode (drawn later in build_cover) is bleed+safe+1.2" from the
+    # bottom-right of the back. Anchor the credit above that band so it
+    # never gets clipped by the barcode rectangle.
+    credit_text = (plan.get("imprint") or author or "").upper()
+    if credit_text:
         author_font = get_font(int(0.22 * config.DPI), bold=True)
-        # Letter-spacing fake: insert spaces between chars
-        spaced = "  ".join(author_line)
+        spaced = "  ".join(credit_text)
         bb = d.textbbox((0, 0), spaced, font=author_font)
-        ay = H - bleed - safe - int(0.3 * config.DPI) - (bb[3] - bb[1])
+        if bb[2] - bb[0] > content_w:
+            spaced = " ".join(credit_text)
+            bb = d.textbbox((0, 0), spaced, font=author_font)
+        if bb[2] - bb[0] > content_w:
+            spaced = credit_text
+            bb = d.textbbox((0, 0), spaced, font=author_font)
+        while bb[2] - bb[0] > content_w and author_font.size > 24:
+            author_font = get_font(author_font.size - 2, bold=True)
+            bb = d.textbbox((0, 0), spaced, font=author_font)
+
+        barcode_h = int(1.2 * config.DPI)
+        barcode_top = H - bleed - safe - barcode_h
+        ay = barcode_top - int(0.35 * config.DPI) - (bb[3] - bb[1])
         d.text(
             (content_left + (content_w - (bb[2] - bb[0])) // 2 - bb[0], ay),
-            spaced, fill=gold, font=author_font,
+            spaced, fill=accent, font=author_font,
         )
 
-    # --- Spine: navy stays, add gold spine title if page count allows ---
-    d.rectangle([spine_x0, 0, spine_x1, H], fill=navy)
+    # --- Spine ---
+    d.rectangle([spine_x0, 0, spine_x1, H], fill=spine_bg)
     if dims.get("can_have_spine_text") and dims["spine_w_px"] >= int(0.125 * config.DPI):
         spine_title = plan.get("spine_title") or plan.get("title", "").upper()
         if spine_title:
-            # Render title on transparent layer, then rotate and paste on spine.
             spine_len = H - 2 * bleed - 2 * int(SPINE_TEXT_CLEARANCE * config.DPI)
-            # Font size ~60% of spine width
             spine_font = get_font(max(14, int(dims["spine_w_px"] * 0.45)), bold=True)
             bb = Image.new("L", (1, 1))
             dbb = ImageDraw.Draw(bb)
             tbb = dbb.textbbox((0, 0), spine_title, font=spine_font)
             tw, th = tbb[2] - tbb[0], tbb[3] - tbb[1]
-            # Shrink to fit spine_len
             while tw > spine_len and spine_font.size > 10:
                 spine_font = get_font(spine_font.size - 2, bold=True)
                 tbb = dbb.textbbox((0, 0), spine_title, font=spine_font)
@@ -567,10 +660,8 @@ def _render_sudoku_back_and_spine(
 
             layer = Image.new("RGBA", (tw + 8, th + 8), (0, 0, 0, 0))
             ldraw = ImageDraw.Draw(layer)
-            ldraw.text((4 - tbb[0], 4 - tbb[1]), spine_title, fill=gold + (255,), font=spine_font)
-            # Rotate 90° counterclockwise (reads bottom-to-top on standing spine)
+            ldraw.text((4 - tbb[0], 4 - tbb[1]), spine_title, fill=spine_ink + (255,), font=spine_font)
             rotated = layer.rotate(90, expand=True)
-            # Paste centered in spine horizontally, vertically centered
             rx = spine_x0 + (dims["spine_w_px"] - rotated.size[0]) // 2
             ry = (H - rotated.size[1]) // 2
             cover.paste(rotated, (rx, ry), rotated)
