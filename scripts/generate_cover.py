@@ -749,6 +749,34 @@ def _heavy_font(size: int) -> ImageFont.FreeTypeFont:
     return ImageFont.load_default()
 
 
+def _derive_sudoku_spine_title(plan: dict) -> str:
+    """Build a distinctive spine title from plan — strips redundant 'PUZZLE BOOK',
+    appends year if not already present.
+
+    Examples:
+      title="Extra Large Print Sudoku Puzzle Book" -> "EXTRA LARGE PRINT SUDOKU  2026"
+      title="Sudoku for Kids Ages 8-12"            -> "SUDOKU FOR KIDS AGES 8-12  2026"
+      title="Sudoku Variety Pack"                  -> "SUDOKU VARIETY PACK  2026"
+
+    When books sit side-by-side on a shelf, the spine must be distinctive —
+    a generic "SUDOKU 2026" makes a series indistinguishable.
+    """
+    title = (plan.get("title") or "SUDOKU").upper()
+    # Strip redundant suffixes — spine context already implies "puzzle book"
+    for redundant in ("PUZZLE BOOKS", "PUZZLE BOOK", "PUZZLES BOOK"):
+        if title.endswith(" " + redundant):
+            title = title[: -(len(redundant) + 1)]
+            break
+        if " " + redundant + " " in (" " + title + " "):
+            title = title.replace(redundant, "").strip()
+            break
+    title = " ".join(title.split())  # collapse whitespace
+    year = (plan.get("front_year_text") or "").strip()
+    if year and year not in title:
+        title = f"{title}  {year}"
+    return title
+
+
 def _wrap_text(text: str, font: ImageFont.FreeTypeFont, max_width: int,
                draw_obj: ImageDraw.ImageDraw) -> list[str]:
     """Word-wrap a string into lines that fit max_width (px)."""
@@ -1484,10 +1512,7 @@ def _render_sudoku_unified_back_spine(
     # ── 10. Spine (same bg, white SUDOKU vertical) ──
     d.rectangle([spine_x0, 0, spine_x1, H], fill=bg)
     if dims.get("can_have_spine_text") and dims["spine_w_px"] >= int(0.125 * config.DPI):
-        spine_title = plan.get("spine_title")
-        if not spine_title:
-            spine_year = plan.get("front_year_text", "2026")
-            spine_title = f"SUDOKU  {spine_year}"
+        spine_title = plan.get("spine_title") or _derive_sudoku_spine_title(plan)
         spine_len = H - 2 * bleed - 2 * int(SPINE_TEXT_CLEARANCE * config.DPI)
         spine_font = _heavy_font(max(14, int(dims["spine_w_px"] * 0.45)))
         tbb_dummy_img = Image.new("L", (1, 1))

@@ -1209,6 +1209,16 @@ def assemble(theme: str) -> Path:
 
     c.save()
 
+    # Sync actual_page_count back into plan.json so cover spine math + DB rows
+    # stay accurate. Skip if value already matches to avoid noisy git diffs.
+    try:
+        if plan.get("actual_page_count") != total_pages:
+            plan["actual_page_count"] = total_pages
+            plan_path.write_text(json.dumps(plan, indent=2, ensure_ascii=False) + "\n")
+            print(f"   Synced {plan_path.name}: actual_page_count={total_pages}")
+    except Exception as e:
+        print(f"   Warning: could not sync actual_page_count to plan.json: {e}")
+
     print(f"✅ Wrote {total_pages} pages to {out_path}")
     print(
         f"   Front matter: {front_pages} · "

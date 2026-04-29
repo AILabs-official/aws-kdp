@@ -40,5 +40,5 @@
   "imprint": "BrainCraft Publishing",
   "ip_risk_notes": "Avoid 'Highlights', 'Scholastic', 'Brainstorm', 'Will Shortz' branding cues. Generic kid puzzle imagery only.",
   "ladder_note_v1": "Ladder support (4x4 / 6x6) requires generate_sudoku.py extension; v1 ships 100% 9x9 easy/medium per pipeline note.",
-  "actual_page_count": 136
+  "actual_page_count": 168
 }

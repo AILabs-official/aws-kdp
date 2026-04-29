@@ -285,6 +285,23 @@ def build_pdf(theme: str, title: str | None = None, subtitle: str | None = None,
 
     c.save()
 
+    # Sync actual_page_count back into plan.json so cover spine math + DB rows
+    # stay accurate. Skip when value already matches to avoid noisy git diffs.
+    try:
+        import json
+        plan_path = config.get_plan_path(theme)
+        if os.path.exists(plan_path):
+            with open(plan_path) as f:
+                plan_to_sync = json.load(f)
+            if plan_to_sync.get("actual_page_count") != page_num:
+                plan_to_sync["actual_page_count"] = page_num
+                with open(plan_path, "w") as f:
+                    json.dump(plan_to_sync, f, indent=2, ensure_ascii=False)
+                    f.write("\n")
+                print(f"Synced plan.json: actual_page_count={page_num}")
+    except Exception as e:
+        print(f"Warning: could not sync actual_page_count to plan.json: {e}")
+
     print(f"PDF created: {output_path}")
     print(f"Total pages: {page_num}")
     print(f"  - Title page: 1")
