@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-KDP Coloring Book Generator — end-to-end pipeline for producing Amazon Kindle Direct Publishing coloring books (adults + kids). A book flows: `ideas/*.md` → plan (SEO metadata + page prompts) → images (via pluggable renderer) → interior PDF → full-color cover → KDP pre-flight QC. The repo is both a Python toolbox in [scripts/](scripts/) and an orchestration layer of [.claude/agents/](.claude/agents/) + [.claude/skills/](.claude/skills/) that drive those scripts through the `/kdp-create-book` slash command.
+KDP Coloring Book Generator — end-to-end pipeline for producing Amazon Kindle Direct Publishing coloring books (adults + kids) and Sudoku puzzle books. A book flows: `ideas/*.md` → plan (SEO metadata + page prompts) → images/puzzles → interior PDF → full-color cover → KDP pre-flight QC → live listing → Amazon Ads → analytics. The repo is both a Python toolbox in [scripts/](scripts/) and an orchestration layer of [.claude/agents/](.claude/agents/) + [.claude/skills/](.claude/skills/) that drive those scripts through slash commands.
 
 ## Running the pipeline
 
@@ -27,11 +27,14 @@ python scripts/batch_generate_images.py [--book <theme_key>] [--ai33-only|--nano
 python scripts/batch_rebuild_interior.py             # rebuild every interior.pdf
 python scripts/batch_rebuild_cover.py [renderer] [--regenerate]   # default renderer=nanopic; reuses saved front_artwork.png unless --regenerate
 
-# End-to-end via agent orchestrator (preferred):
-/kdp-create-book "concept here"           # interviews, plans, generates, reviews, assembles
-/kdp-batch-planner                        # one plan per ideas/*.md
-/kdp-batch-assembler                      # generate+assemble every book that has plan.json but no interior.pdf
+# End-to-end via agent orchestrator (preferred — slash commands defined in .claude/commands/):
+/create-book   "concept here"   # launch pipeline: 1 book end-to-end (interview → plan → manuscript ∥ listing → cover → QA)
+/daily-brief                    # morning report: yesterday revenue, ad spend, alerts (bleed/spike/paused)
+/weekly-cycle                   # analyst classification → top-N actions → CEO dispatches to dept agents
+/ceo                            # full access to all 7 pipelines (launch, daily, weekly, optimize, scale, kill, seasonal)
 ```
+
+There are **no `/kdp-batch-planner` or `/kdp-batch-assembler` commands** — only the four above. For batch operations, call `scripts/batch_*.py` directly or run `/ceo` and pick a pipeline.
 
 `scripts/` is also on `sys.path` for cross-script imports (e.g., `batch_rebuild_*.py` import `build_pdf` / `generate_cover` directly — they are libraries as well as CLIs).
 
@@ -75,6 +78,28 @@ Briefs to turn into plans live in [ideas/](ideas/) as markdown with YAML frontma
 
 [scripts/pdf_qc.py](scripts/pdf_qc.py) is the pre-flight validator. Checks trim size, bleed (cover), even page count, and minimum line weight against KDP manual-review rules. Exits non-zero on any CRITICAL violation — wire it into any batch flow that ends in "ready to upload."
 
+### Sudoku book pipeline (parallel route, no image renderer)
+
+When `plan.json.book_type == 'sudoku'` (or `style == 'sudoku'`), `manuscript-generator` dispatches to the Sudoku route instead of the image pipeline:
+- [scripts/generate_sudoku.py](scripts/generate_sudoku.py) — backtracking 9×9 puzzle generator with unique-solution verification (4 difficulties: easy/medium/hard/expert).
+- [scripts/build_sudoku_book.py](scripts/build_sudoku_book.py) — assembles interior: title → copyright → how-to-play → puzzle pages → solutions section → thank-you, even page count enforced.
+- Skill: `kdp-sudoku-generator` wraps both. Cover still uses `generate_cover.py`.
+- Output layout same as coloring (`output/{theme_key}/interior.pdf` + `cover.pdf`), but no `images/` dir — `puzzles.json` instead.
+
+### External research / Amazon Ads / KDP reports (data ingest layer)
+
+These scripts pull from external APIs into `data/kdp.db`:
+
+- [scripts/amazon_ads_api.py](scripts/amazon_ads_api.py) — Amazon Ads API client (Sponsored Products only). Sub-commands: `test-connection`, `list-profiles`, `list-campaigns`, `pause` / `resume`, `update-budget`, `launch` (3-campaign structure), `report` (max 31-day window/request, `--write-db` writes rows to `ad_performance`). Auth via `.env` (`ADS_API_CLIENT_ID/CLIENT_SECRET/REFRESH_TOKEN/PROFILE_ID/REGION/REDIRECT_URI`); refresh token obtained once via [scripts/ads_oauth_helper.py](scripts/ads_oauth_helper.py).
+- [scripts/daily_ads_report.sh](scripts/daily_ads_report.sh) — daily cron puller. Pulls **yesterday only** (D-1 fully settled by 9am) → `ad_performance`. Crontab entry: `7 9 * * * scripts/daily_ads_report.sh`. Logs → `logs/daily_ads_YYYYMMDD.log`.
+- [scripts/ads_pull_history.py](scripts/ads_pull_history.py) — backfill helper, loops day-by-day with skip-existing dedup. Run once after API setup: `python3 scripts/ads_pull_history.py --days 95`.
+- [scripts/amazon_kdp_reports.py](scripts/amazon_kdp_reports.py) — KDP royalty / KENP-reads puller (sales report, performance-analyst depends on this for revenue classification).
+- [scripts/apify_research.py](scripts/apify_research.py), [scripts/amazon_research.py](scripts/amazon_research.py) — niche research data via Apify Actors / direct Amazon scrape.
+- [scripts/trademark_check.py](scripts/trademark_check.py) — pre-publish trademark guardrail.
+- [scripts/category_finder.py](scripts/category_finder.py) — crawls Amazon's category tree, finds sub-categories with weak #1 bestsellers, persists to `categories` table.
+
+**⚠️ Amazon Ads API hard limit:** Sponsored Products report endpoint caps at **95-day lookback**. Older data is unrecoverable. The `ad_performance` table is therefore the only long-term archive — daily cron must not skip > 95 days, otherwise gaps become permanent.
+
 ### Agent/skill layer — KDP Company Structure
 
 The agent tier is modeled as a publishing company with **1 CEO + 7 department heads**, each head wrapping 1-4 skills with batch parallelism and DB persistence. Agent files live in [.claude/agents/](.claude/agents/); skills (reusable domain logic, no DB writes) live in [.claude/skills/](.claude/skills/).
@@ -100,7 +125,13 @@ The agent tier is modeled as a publishing company with **1 CEO + 7 department he
 
 ### Database (multi-agent state)
 
-[scripts/db.py](scripts/db.py) is a SQLite CLI at `data/kdp.db` used as the shared state store for all 8 agents (tables: `niches`, `books`, `manuscripts`, `covers`, `listings`, `qa_reports`, `ad_campaigns`, `royalties`, `ad_performance`, `actions`, `pipelines`). **WAL mode is enabled** (`journal_mode=WAL`, `busy_timeout=30s`) so multiple batch agents can write concurrently without "database is locked".
+[scripts/db.py](scripts/db.py) is a SQLite CLI at `data/kdp.db` used as the shared state store for all 8 agents. **WAL mode is enabled** (`journal_mode=WAL`, `busy_timeout=30s`) so multiple batch agents can write concurrently without "database is locked".
+
+**Core book/pipeline tables** (managed via `db.py` CLI): `niches`, `books`, `manuscripts`, `covers`, `listings`, `qa_reports`, `ad_campaigns`, `ad_performance`, `royalties`, `actions`, `pipelines`.
+
+**Niche research v2 tables** (managed by [scripts/niches_v2.py](scripts/niches_v2.py) + [scripts/niche_criteria.py](scripts/niche_criteria.py); migration path in [scripts/migrate_niches_v2.py](scripts/migrate_niches_v2.py)): `amazon_listings`, `niche_competitors`, `research_queries`, `insights`, `niche_research_runs`, `niche_scores`, `niche_flags`, `niche_top10`, `niche_eliminations`, `niche_decisions`. These hold the raw research workflow (per-keyword run → score → flag → eliminate/promote → top-10 decision) — separate from the `niches` summary table to keep history. **Don't write to v2 tables via raw SQL** — go through `niches_v2.py`.
+
+**Categories table** (managed by `category_finder.py` + skill `kdp-category-finder`): one row per Amazon sub-category leaf, ranked by weakness of #1 bestseller (lower BSR-adjusted royalty = easier to dethrone).
 
 **CLI conventions (agents must follow exactly):**
 - `create` / `update` — take a JSON payload string: `python3 scripts/db.py books create '{"theme_key":"x","status":"DRAFT"}'`
@@ -124,4 +155,6 @@ Prompt style — adults: cute-cozy medium-detail, layered foreground/midground/b
 - `build_pdf.py` / `generate_cover.py` reuse the page size from `plan.json` when available; `--size` is an explicit override.
 - Cover builds reuse `front_artwork.png` by default; pass `--regenerate` to pay the renderer call again.
 - `batch_rebuild_cover.py` runs 6 books in parallel; first positional arg is renderer, second can be `--regenerate`.
-- [AGENTS.md](AGENTS.md) is the operator-facing brief (Vietnamese + English) — update it only if the user-visible `/kdp-create-book` flow changes.
+- [AGENTS.md](AGENTS.md) is the operator-facing brief (Vietnamese + English) — update it only if the user-visible `/create-book` flow changes.
+- `logs/` holds time-stamped logs from cron + batch jobs (`daily_ads_*.log`, `backfill_*.log`); not committed.
+- `scripts/test_ai33.py` / `scripts/test_nanopic.py` are smoke tests for image renderers — run `python3 scripts/test_<provider>.py` to verify a renderer's auth + 1-image roundtrip before kicking off a batch.
