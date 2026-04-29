@@ -228,6 +228,49 @@ class AdsClient:
         r.raise_for_status()
         return r.json()
 
+    def update_campaign_state(self, campaign_id, state: str) -> dict:
+        """Pause / resume / archive an existing campaign. Amazon expects campaignId as string."""
+        body = {"campaigns": [{"campaignId": str(campaign_id), "state": state.upper()}]}
+        r = self.request("PUT", "/sp/campaigns",
+                         json_body=body,
+                         content_type="application/vnd.spCampaign.v3+json")
+        r.raise_for_status()
+        return r.json()
+
+    def update_campaign_budget(self, campaign_id, daily_budget: float) -> dict:
+        """Update daily budget. Amazon expects campaignId as string."""
+        body = {"campaigns": [{
+            "campaignId": str(campaign_id),
+            "budget": {"budget": round(daily_budget, 2), "budgetType": "DAILY"},
+        }]}
+        r = self.request("PUT", "/sp/campaigns",
+                         json_body=body,
+                         content_type="application/vnd.spCampaign.v3+json")
+        r.raise_for_status()
+        return r.json()
+
+    def list_campaigns(self, states: list[str] | None = None, asin_filter: str | None = None) -> list[dict]:
+        """List SP campaigns, optionally filtered by state or by which ASIN they target."""
+        body = {"stateFilter": {"include": states or ["ENABLED","PAUSED","ARCHIVED"]}, "maxResults": 100}
+        r = self.request("POST", "/sp/campaigns/list",
+                         json_body=body,
+                         content_type="application/vnd.spCampaign.v3+json")
+        r.raise_for_status()
+        camps = r.json().get("campaigns", [])
+        if not asin_filter:
+            return camps
+        # Filter to campaigns whose productAds include the given ASIN
+        out = []
+        for camp in camps:
+            cid = camp["campaignId"]
+            pa = self.request("POST", "/sp/productAds/list",
+                              json_body={"campaignIdFilter": {"include": [cid]}, "maxResults": 50},
+                              content_type="application/vnd.spProductAd.v3+json")
+            if pa.status_code == 200:
+                if asin_filter in {a.get("asin") for a in pa.json().get("productAds", [])}:
+                    out.append(camp)
+        return out
+
     def request_report(self, start_date: str, end_date: str, ad_product: str = "SPONSORED_PRODUCTS",
                        group_by: str | None = None,
                        metrics: list[str] | None = None) -> str:
@@ -241,7 +284,7 @@ class AdsClient:
                 "groupBy": [group_by or "campaign"],
                 "columns": metrics or [
                     "campaignName", "campaignId", "impressions", "clicks", "cost",
-                    "purchases7d", "sales7d", "acosClicks7d",
+                    "purchases7d", "sales7d", "acosClicks14d",
                 ],
                 "reportTypeId": "spCampaigns",
                 "timeUnit": "SUMMARY",
@@ -518,9 +561,16 @@ def cmd_bulk_export(args) -> int:
 
 
 def cmd_report(args) -> int:
+    if args.days > 31:
+        print(f"ERROR: Amazon SP reports max 31 days/request. Got --days {args.days}.", file=sys.stderr)
+        print("       Use --start-date / --end-date for older data, or run multiple 31-day chunks.", file=sys.stderr)
+        return 2
     client = AdsClient()
-    end = _today()
-    start = time.strftime("%Y-%m-%d", time.gmtime(time.time() - args.days * 86400))
+    if args.start_date and args.end_date:
+        start, end = args.start_date, args.end_date
+    else:
+        end = _today()
+        start = time.strftime("%Y-%m-%d", time.gmtime(time.time() - args.days * 86400))
     print(f"Requesting Sponsored Products campaigns report {start} → {end}...")
     report_id = client.request_report(start, end)
     print(f"  reportId={report_id} — polling...")
@@ -529,18 +579,94 @@ def cmd_report(args) -> int:
     if not url:
         print(f"⚠ report COMPLETED but no download URL: {data}", file=sys.stderr)
         return 1
-    # download (gzipped JSON)
     import gzip
-    import io
     raw = requests.get(url, timeout=60).content
     rows = json.loads(gzip.decompress(raw).decode())
     print(f"✓ {len(rows)} rows")
     if args.out:
         Path(args.out).write_text(json.dumps(rows, indent=2))
         print(f"  saved to {args.out}")
-    else:
+    if args.write_db and rows:
+        import subprocess
+        wrote = 0
+        for r in rows:
+            cost = float(r.get("cost") or 0)
+            sales = float(r.get("sales7d") or 0)
+            clicks = int(r.get("clicks") or 0)
+            impressions = int(r.get("impressions") or 0)
+            orders = int(r.get("purchases7d") or 0)
+            acos = float(r.get("acosClicks14d") or 0)
+            ctr = (clicks / impressions * 100) if impressions else 0
+            cvr = (orders / clicks * 100) if clicks else 0
+            payload = {
+                "book_id": 0,
+                "campaign_id": 0,
+                "amazon_campaign_id": str(r.get("campaignId", "")),
+                "campaign_name": r.get("campaignName", ""),
+                "date": end,
+                "impressions": impressions,
+                "clicks": clicks,
+                "spend_usd": cost,
+                "sales_usd": sales,
+                "orders": orders,
+                "acos_pct": acos,
+                "ctr_pct": round(ctr, 2),
+                "cvr_pct": round(cvr, 2),
+            }
+            cmd = ["python3", str(HERE / "db.py"), "ad_performance", "create", json.dumps(payload)]
+            try:
+                subprocess.run(cmd, check=True, capture_output=True, text=True)
+                wrote += 1
+            except subprocess.CalledProcessError as e:
+                print(f"  ⚠ DB write failed: {e.stderr}", file=sys.stderr)
+        print(f"✓ wrote {wrote}/{len(rows)} rows into ad_performance")
+    elif not args.out:
         for r in rows[:10]:
             print(f"  {r}")
+    return 0
+
+
+def cmd_pause(args) -> int:
+    client = AdsClient()
+    res = client.update_campaign_state(args.campaign_id, "PAUSED")
+    errors = res.get("campaigns", {}).get("error", [])
+    if errors:
+        print(f"⚠ errors: {errors}", file=sys.stderr)
+        return 1
+    print(f"✓ paused campaign {args.campaign_id}")
+    return 0
+
+
+def cmd_resume(args) -> int:
+    client = AdsClient()
+    res = client.update_campaign_state(args.campaign_id, "ENABLED")
+    if res.get("campaigns", {}).get("error"):
+        print(f"⚠ {res['campaigns']['error']}", file=sys.stderr)
+        return 1
+    print(f"✓ resumed campaign {args.campaign_id}")
+    return 0
+
+
+def cmd_update_budget(args) -> int:
+    client = AdsClient()
+    res = client.update_campaign_budget(args.campaign_id, args.budget)
+    if res.get("campaigns", {}).get("error"):
+        print(f"⚠ {res['campaigns']['error']}", file=sys.stderr)
+        return 1
+    print(f"✓ updated campaign {args.campaign_id} budget → ${args.budget}/day")
+    return 0
+
+
+def cmd_list_campaigns(args) -> int:
+    client = AdsClient()
+    states = args.states.split(",") if args.states else None
+    camps = client.list_campaigns(states=states, asin_filter=args.asin)
+    if args.json:
+        print(json.dumps(camps, indent=2, default=str))
+        return 0
+    print(f"{'STATE':<9} {'BUDGET':>8}  {'ID':<18} NAME")
+    for c in camps:
+        print(f"{c.get('state','?'):<9} ${c.get('budget',{}).get('budget','?'):>6}/d  {c.get('campaignId','?'):<18} {c.get('name','')}")
     return 0
 
 
@@ -551,6 +677,21 @@ def main() -> int:
     sub.add_parser("test-connection", help="verify credentials + token refresh")
 
     sub.add_parser("list-profiles", help="GET /v2/profiles")
+
+    lcamp = sub.add_parser("list-campaigns", help="list SP campaigns (with optional ASIN filter)")
+    lcamp.add_argument("--states", help="comma-separated: ENABLED,PAUSED,ARCHIVED (default: all)")
+    lcamp.add_argument("--asin", help="only show campaigns whose productAds target this ASIN")
+    lcamp.add_argument("--json", action="store_true", help="output JSON instead of table")
+
+    p = sub.add_parser("pause", help="pause an existing SP campaign")
+    p.add_argument("--campaign-id", dest="campaign_id", required=True)
+
+    rs = sub.add_parser("resume", help="resume a paused SP campaign")
+    rs.add_argument("--campaign-id", dest="campaign_id", required=True)
+
+    ub = sub.add_parser("update-budget", help="change daily budget of an existing SP campaign")
+    ub.add_argument("--campaign-id", dest="campaign_id", required=True)
+    ub.add_argument("--budget", type=float, required=True, help="new daily budget in USD")
 
     lc = sub.add_parser("launch", help="create 3-campaign launch via API")
     lc.add_argument("--asin", required=True)
@@ -576,13 +717,20 @@ def main() -> int:
     b.add_argument("--out", required=True)
 
     r = sub.add_parser("report", help="pull SP campaigns report")
-    r.add_argument("--days", type=int, default=7)
+    r.add_argument("--days", type=int, default=7, help="last N days (max 31, Amazon limit)")
+    r.add_argument("--start-date", dest="start_date", help="YYYY-MM-DD (overrides --days)")
+    r.add_argument("--end-date", dest="end_date", help="YYYY-MM-DD (overrides --days)")
     r.add_argument("--out", help="dump rows to JSON file")
+    r.add_argument("--write-db", action="store_true", help="insert rows into ad_performance table")
 
     args = parser.parse_args()
     cmd_map = {
         "test-connection": cmd_test_connection,
         "list-profiles": cmd_list_profiles,
+        "list-campaigns": cmd_list_campaigns,
+        "pause": cmd_pause,
+        "resume": cmd_resume,
+        "update-budget": cmd_update_budget,
         "launch": cmd_launch,
         "bulk-export": cmd_bulk_export,
         "report": cmd_report,
