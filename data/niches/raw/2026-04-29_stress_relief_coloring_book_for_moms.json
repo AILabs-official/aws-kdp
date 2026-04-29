@@ -1,0 +1,155 @@
+{
+  "niche_name": "stress relief coloring book for moms",
+  "primary_keyword": "stress relief coloring book for moms",
+  "book_type": "coloring",
+  "audience": "moms",
+  "page_size": "8.5x11",
+  "target_page_count": 80,
+  "recommended_list_price_usd": 8.99,
+  "secondary_keywords": [],
+  "long_tail_keywords": [],
+  "top10_asins": [
+    "B0GYNTV11W",
+    "B0GYL3XB86",
+    "B0GTLWHBYQ",
+    "B0GYNJQ96M",
+    "B0B67WYWCV",
+    "B0CJKY948X",
+    "B0F1LCPRJS"
+  ],
+  "top10_bsr": [
+    363913,
+    4709352,
+    6079496,
+    465286,
+    4317463,
+    917990,
+    708
+  ],
+  "top10_reviews": [
+    0,
+    0,
+    0,
+    0,
+    17,
+    18,
+    0
+  ],
+  "top10_prices": [
+    9.99,
+    7.99,
+    7.99,
+    7.99,
+    9.99,
+    12.99,
+    7.99
+  ],
+  "top10_pages": [
+    65,
+    86,
+    97,
+    30,
+    82,
+    103,
+    109
+  ],
+  "top10_publishers": [
+    "Independently published",
+    "Independently published",
+    "Independently published",
+    "Independently published",
+    "Independently published",
+    "Independently published",
+    "Independently published"
+  ],
+  "top10_age_days": [
+    5,
+    5,
+    40,
+    7,
+    1388,
+    966,
+    412
+  ],
+  "top10_rating": [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    4.4,
+    4.9,
+    0.0
+  ],
+  "content_concepts_count": 60,
+  "content_concepts_sample": [
+    "mandala",
+    "flowers",
+    "animals",
+    "landscapes",
+    "patterns",
+    "geometric",
+    "nature",
+    "abstract"
+  ],
+  "is_seasonal": false,
+  "is_evergreen": true,
+  "is_seasonal_recurring": false,
+  "is_trend": false,
+  "is_fad": false,
+  "days_to_peak": 999,
+  "has_trademark_risk": false,
+  "ip_risk_notes": "CLEAR — heuristic check passed",
+  "trademark_check": {
+    "verdict": "CLEAR",
+    "class_016_live_hits": 0,
+    "adjacent_class_live_hits": 0,
+    "source": "scripts/trademark_check.py"
+  },
+  "qualitative_edge": {
+    "unique_hook": {
+      "pass": true,
+      "angle": "Demographic targeting (moms) — only 1 of top-10 (BSR 708 'Mom's Sanity') has real sales velocity; others all > 300K BSR. Either a true blue ocean OR an under-validated niche."
+    },
+    "evergreen_baseline": {
+      "pass": true,
+      "evidence": "wellness market +12-15%/yr through 2026"
+    },
+    "repeat_buyer": {
+      "pass": true,
+      "audience": "moms"
+    },
+    "content_scale": {
+      "pass": true,
+      "sequel_count": 4
+    },
+    "score_0_10": 7
+  },
+  "leading_indicators": {
+    "etsy": "stress relief coloring printables widely sold",
+    "google_trends": "evergreen, +12-15%/yr (DrAxe wellness 2026)"
+  },
+  "sources": [
+    "https://www.amazon.com/dp/B0GYNTV11W",
+    "https://www.amazon.com/dp/B0GYL3XB86",
+    "https://www.amazon.com/dp/B0GTLWHBYQ",
+    "https://www.amazon.com/dp/B0GYNJQ96M",
+    "https://www.amazon.com/dp/B0B67WYWCV",
+    "https://www.amazon.com/dp/B0CJKY948X",
+    "https://www.amazon.com/dp/B0F1LCPRJS",
+    "https://www.amazon.com/dp/B0GY78WKPZ",
+    "https://www.amazon.com/dp/B0GXRTMF4J",
+    "https://www.amazon.com/dp/B0FNRCDFMJ"
+  ],
+  "operator_note": "HIGH SCORE BUT THIN VALIDATION — only 1 of top-10 sells in volume. Demand may be ad-driven or seasonal (Mother's Day). Validate with /niche-hunter seasonal Mother's Day before launching.",
+  "eliminations": [
+    {
+      "reason": "thin_validation",
+      "details": "9 of 10 top results have BSR > 300K (effectively dead). Score inflated by avg-5-reviews. Either blue ocean or undersold niche; needs Mother's Day timing test."
+    }
+  ],
+  "score": {
+    "rating": "WARM"
+  },
+  "criteria_version": "2026.04.27",
+  "slug": "stress_relief_coloring_book_for_moms"
+}

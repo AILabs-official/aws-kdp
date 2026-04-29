@@ -9,6 +9,17 @@ Produces the **interior** of a Sudoku book end-to-end: puzzles + PDF. Front matt
 
 ---
 
+## Execution Protocol — READ FIRST
+
+- Run **ALL** steps in sequence **WITHOUT stopping** between them.
+- Do **NOT** ask "ready to continue?" / "proceed?" / "shall I move on?" between steps. The skill was invoked — that's the green light.
+- After a tool call returns (Bash/Read/Write/Agent), **immediately proceed** to the next step in the same turn.
+- Between steps, emit at most ONE short progress sentence, then continue.
+- Delegate heavy work to sub-agents (general-purpose Task) — let them run autonomously in their own 200K context.
+- Stop ONLY when: (a) all steps complete, (b) blocking error makes next step impossible, (c) a step explicitly marked **(pause for user)** is reached.
+
+---
+
 ## When to use
 
 - User wants to build a Sudoku book interior
@@ -44,6 +55,8 @@ Required fields (skill fails loud if missing):
 Optional fields (with defaults):
 - `subtitle` — empty string if missing
 - `seed` — integer RNG seed for reproducibility (omit for random)
+
+**→ proceed directly to next step without pausing.**
 
 ### Step 2 — Generate puzzles
 
@@ -89,6 +102,8 @@ print(f'OK — {len(p)} puzzles, distribution {got}')
 "
 ```
 
+**→ proceed directly to next step without pausing.**
+
 ### Step 3 — Build interior PDF
 
 ```bash
@@ -108,6 +123,8 @@ print(f'OK — {n} pages')
 "
 ```
 
+**→ proceed directly to next step without pausing.**
+
 ### Step 4 — QC
 
 ```bash
@@ -118,6 +135,8 @@ python3 scripts/pdf_qc.py \
 ```
 
 Must exit 0 (`GO`). On `NO_GO`, surface the critical issues to the caller — do not silently continue.
+
+**→ proceed directly to next step without pausing.**
 
 ### Step 5 — Update plan.json + DB
 
@@ -160,6 +179,8 @@ python3 scripts/db.py books update $BOOK_ID '{"actual_page_count": '$PAGES', "st
 ```
 
 Note: `book_type` in DB uses `"activity"` (the schema CHECK allows coloring/low_content/activity). Sudoku books are classified as activity.
+
+**→ END of skill execution. Report results to user.**
 
 ---
 

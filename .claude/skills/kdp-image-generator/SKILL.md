@@ -9,6 +9,17 @@ Generates coloring book page images using the configured image renderer (from `I
 
 ---
 
+## Execution Protocol — READ FIRST
+
+- Run **ALL** steps in sequence **WITHOUT stopping** between them.
+- Do **NOT** ask "ready to continue?" / "proceed?" / "shall I move on?" between steps. The skill was invoked — that's the green light.
+- After a tool call returns (Bash/Read/Write/Agent), **immediately proceed** to the next step in the same turn.
+- Between steps, emit at most ONE short progress sentence, then continue.
+- Delegate heavy work to sub-agents (general-purpose Task) — let them run autonomously in their own 200K context.
+- Stop ONLY when: (a) all steps complete, (b) blocking error makes next step impossible, (c) a step explicitly marked **(pause for user)** is reached.
+
+---
+
 ## When to Use
 
 - After prompts are written (by `kdp-prompt-writer` skill)
@@ -30,6 +41,8 @@ Check that:
 ls output/{theme_key}/plan.json
 ```
 
+**→ proceed directly to next step without pausing.**
+
 ### Step 2: Run Image Generation
 
 **Plan-based (recommended):**
@@ -48,6 +61,8 @@ python generate_images.py --theme {theme_key} --count {num_pages}
 python generate_images.py --plan output/{theme_key}/plan.json --count {num_pages} --start {start_index}
 ```
 
+**→ proceed directly to next step without pausing.**
+
 ### Step 3: Monitor Progress
 
 The script outputs:
@@ -57,6 +72,8 @@ The script outputs:
 
 Note failed pages for regeneration.
 
+**→ proceed directly to next step without pausing.**
+
 ### Step 4: Handle Failures
 
 If pages fail:
@@ -64,6 +81,8 @@ If pages fail:
 2. If still failing, wait and re-run with `--start` at the failed index
 3. Rate limit: 5 seconds between requests (built-in)
 4. If persistent failures, check API key and quota
+
+**→ proceed directly to next step without pausing.**
 
 ### Step 5: Verify Output
 
@@ -75,6 +94,8 @@ Check:
 - Expected number of `page_XX.png` files exist
 - File sizes are reasonable (>50KB each)
 - No zero-byte files
+
+**→ END of skill execution. Report results to user.**
 
 ---
 

@@ -8,6 +8,17 @@ user-invocable: true
 
 You are the **Ads Manager** for KDP OS. You design, launch, and iterate Amazon Sponsored Products campaigns for KDP books. You are NOT running Merch on Demand ads — economics and product type are different.
 
+## Execution Protocol — READ FIRST
+
+- Run **ALL** steps in sequence **WITHOUT stopping** between them.
+- Do **NOT** ask "ready to continue?" / "proceed?" / "shall I move on?" between steps. The skill was invoked — that's the green light.
+- After a tool call returns (Bash/Read/Write/Agent), **immediately proceed** to the next step in the same turn.
+- Between steps, emit at most ONE short progress sentence, then continue.
+- Delegate heavy work to sub-agents (general-purpose Task) — let them run autonomously in their own 200K context.
+- Stop ONLY when: (a) all steps complete, (b) blocking error makes next step impossible, (c) a step explicitly marked **(pause for user)** is reached.
+
+---
+
 ## How to Use
 ```
 /ads-manager book_id=[X]                 # set up launch ads for a new book
@@ -32,6 +43,8 @@ python3 "/Users/tonytrieu/Documents/KDP OS/scripts/db.py" listings get --book_id
 ```
 
 Pull: `asin`, `title`, `list_price`, `niche.primary_keyword`, `niche.secondary_keywords`, `niche.long_tail_keywords`, `listings.keywords` (7 backend).
+
+**→ proceed directly to next step without pausing.**
 
 ---
 
@@ -59,6 +72,8 @@ Assume 8% conversion rate (typical KDP books with decent listing):
 `max_cpc = 4.51 × 0.25 × 0.08 = $0.09` (mature, profitable)
 
 **Store these numbers in `ad_campaigns.target_cpc` for reference in every iteration.**
+
+**→ proceed directly to next step without pausing.**
 
 ---
 
@@ -89,6 +104,8 @@ Example:
 - "Download" (they want digital, not paperback)
 - Brand names (if any slipped in)
 - "For kids" (if this is an adult book — or vice versa)
+
+**→ proceed directly to next step without pausing.**
 
 ---
 
@@ -121,6 +138,8 @@ Set up **3 campaigns** for the launch week. Each has ONE AD GROUP with the ASIN.
 
 **Total launch spend: $20/day × 14 days = $280 launch budget**
 
+**→ proceed directly to next step without pausing.**
+
 ---
 
 ## STEP 4: Negative Keywords Setup
@@ -128,6 +147,8 @@ Set up **3 campaigns** for the launch week. Each has ONE AD GROUP with the ASIN.
 Apply to ALL campaigns:
 - Negative exact: `free`, `download`, `pdf`, `kindle` (we are paperback-first)
 - Negative phrase: `for kids` (if adult book), `for adults` (if kids book), obvious brand names
+
+**→ proceed directly to next step without pausing.**
 
 ---
 
@@ -146,6 +167,8 @@ Generate the official Amazon Ads bulk upload CSV per Amazon's template:
 - File: `output/{theme_key}/amazon_ads_bulk_upload.csv`
 - Headers match the bulk-upload spec (Record Type, Campaign, Ad Group, Keyword, Match Type, Bid, State, etc.)
 - User uploads manually at advertising.amazon.com → Bulk operations
+
+**→ proceed directly to next step without pausing.**
 
 ---
 
@@ -168,6 +191,8 @@ python3 "/Users/tonytrieu/Documents/KDP OS/scripts/db.py" ad_campaigns create '{
 ```
 
 Repeat for Campaign 2 and 3.
+
+**→ END of skill execution. Report results to user.**
 
 ---
 

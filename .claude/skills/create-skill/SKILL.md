@@ -9,6 +9,17 @@ Teaches Claude how to create properly structured skills through a guided intervi
 
 ---
 
+## Execution Protocol — READ FIRST
+
+- Run **ALL** steps in sequence **WITHOUT stopping** between them.
+- Do **NOT** ask "ready to continue?" / "proceed?" / "shall I move on?" between steps. The skill was invoked — that's the green light.
+- After a tool call returns (Bash/Read/Write/Agent), **immediately proceed** to the next step in the same turn.
+- Between steps, emit at most ONE short progress sentence, then continue.
+- Delegate heavy work to sub-agents (general-purpose Task) — let them run autonomously in their own 200K context.
+- Stop ONLY when: (a) all steps complete, (b) blocking error makes next step impossible, (c) a step explicitly marked **(pause for user)** is reached.
+
+---
+
 ## What is a Skill?
 
 A skill is a set of instructions that teaches Claude HOW to do something. Skills live in `.claude/skills/[skill-name]/`.
@@ -168,6 +179,17 @@ Brief description of what this skill accomplishes.
 
 ---
 
+## Execution Protocol — READ FIRST
+
+- Run **ALL** steps in sequence **WITHOUT stopping** between them.
+- Do **NOT** ask "ready to continue?" / "proceed?" / "shall I move on?" between steps. The skill was invoked — that's the green light.
+- After a tool call returns (Bash/Read/Write/Agent), **immediately proceed** to the next step in the same turn.
+- Between steps, emit at most ONE short progress sentence, then continue.
+- Delegate heavy work to sub-agents (general-purpose Task) — let them run autonomously in their own 200K context.
+- Stop ONLY when: (a) all steps complete, (b) blocking error makes next step impossible, (c) a step explicitly marked **(pause for user)** is reached.
+
+---
+
 ## Workflow Routing
 
 | Workflow | When to Use |
@@ -199,8 +221,12 @@ Brief description of what this skill accomplishes.
 ### Step 1: [Action]
 [What to do - focus on the THINKING, not just the action]
 
+**→ proceed directly to Step 2 without pausing.**
+
 ### Step 2: [Action]
 [What to do]
+
+**→ END of skill execution. Report results to user.**
 
 ---
 
@@ -384,6 +410,8 @@ Before finalizing a skill, verify:
 - [ ] Workflow routing table (if multiple workflows)
 - [ ] References documented (if using references/)
 - [ ] Scripts documented with run commands (if using scripts/)
+- [ ] **Execution Protocol** block included (for skills with 2+ steps)
+- [ ] Each step ends with continuation marker (`**→ proceed directly to next step.**`) unless it's a user-pause step
 
 ---
 
@@ -411,6 +439,7 @@ Before finalizing a skill, verify:
 6. **Wrong architecture** - Don't overcomplicate simple skills; don't underbuild complex ones
 7. **Scripts in references** - Scripts go in `scripts/`, not `references/`
 8. **Forgetting CLAUDE.md** - Always update routing table after creating skill
+9. **Missing Execution Protocol** - Multi-step skills without the "Execution Protocol — READ FIRST" block stop mid-execution waiting for confirmation. Always include it for skills with 2+ steps so Claude runs them in sequence without pausing.
 
 ---
 

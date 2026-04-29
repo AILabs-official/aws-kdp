@@ -10,6 +10,17 @@ You are the **Quality Reviewer** for KDP OS. You run the final pre-publish audit
 
 KDP manual review takes 48-72 hours AND rejects for picky reasons. Your job is to catch every issue BEFORE that wait.
 
+## Execution Protocol — READ FIRST
+
+- Run **ALL** steps in sequence **WITHOUT stopping** between them.
+- Do **NOT** ask "ready to continue?" / "proceed?" / "shall I move on?" between steps. The skill was invoked — that's the green light.
+- After a tool call returns (Bash/Read/Write/Agent), **immediately proceed** to the next step in the same turn.
+- Between steps, emit at most ONE short progress sentence, then continue.
+- Delegate heavy work to sub-agents (general-purpose Task) — let them run autonomously in their own 200K context.
+- Stop ONLY when: (a) all steps complete, (b) blocking error makes next step impossible, (c) a step explicitly marked **(pause for user)** is reached.
+
+---
+
 ## How to Use
 ```
 /quality-reviewer book_id=[X]
@@ -29,6 +40,8 @@ python3 "/Users/tonytrieu/Documents/KDP OS/scripts/db.py" manuscripts get --book
 python3 "/Users/tonytrieu/Documents/KDP OS/scripts/db.py" covers get --book_id [book_id]
 python3 "/Users/tonytrieu/Documents/KDP OS/scripts/db.py" listings get --book_id [book_id]
 ```
+
+**→ proceed directly to next step without pausing.**
 
 ---
 
@@ -66,6 +79,8 @@ python3 "/Users/tonytrieu/Documents/KDP OS/scripts/pdf_qc.py" \
   --require-even-pages \
   --min-line-weight 0.75pt
 ```
+
+**→ proceed directly to next step without pausing.**
 
 ---
 
@@ -105,6 +120,8 @@ python3 "/Users/tonytrieu/Documents/KDP OS/scripts/pdf_qc.py" \
   --expected-bleed 0.125
 ```
 
+**→ proceed directly to next step without pausing.**
+
 ---
 
 ## SECTION C — Listing Audit
@@ -141,6 +158,8 @@ python3 "/Users/tonytrieu/Documents/KDP OS/scripts/pdf_qc.py" \
   - 52-page coloring book @ $8.99: printing ≈ $2.65 → royalty ≈ $3.80
 - [ ] Price matches nicheniche.recommended_list_price_usd within $1
 
+**→ proceed directly to next step without pausing.**
+
 ---
 
 ## SECTION D — IP Risk Re-check
@@ -151,6 +170,8 @@ Re-run a final check by invoking `/trademark-guardian` on:
 - `covers.front_art_path` (check for logos/characters)
 
 Block publish if any HIGH-risk flag.
+
+**→ proceed directly to next step without pausing.**
 
 ---
 
@@ -185,6 +206,8 @@ python3 "/Users/tonytrieu/Documents/KDP OS/scripts/db.py" qa_reports create '{
 ```
 
 Update `books.status = BLOCKED` if NO-GO, else `books.status = READY_TO_PUBLISH`.
+
+**→ END of skill execution. Report results to user.**
 
 ---
 

@@ -12,6 +12,17 @@ This is a **research-only skill** — it never writes a listing or launches ads.
 
 ---
 
+## Execution Protocol — READ FIRST
+
+- Run **ALL** steps in sequence **WITHOUT stopping** between them.
+- Do **NOT** ask "ready to continue?" / "proceed?" / "shall I move on?" between steps. The skill was invoked — that's the green light.
+- After a tool call returns (Bash/Read/Write/Agent), **immediately proceed** to the next step in the same turn.
+- Between steps, emit at most ONE short progress sentence, then continue.
+- Delegate heavy work to sub-agents (general-purpose Task) — let them run autonomously in their own 200K context.
+- Stop ONLY when: (a) all steps complete, (b) blocking error makes next step impossible, (c) a step explicitly marked **(pause for user)** is reached.
+
+---
+
 ## How to use
 
 ```
@@ -42,6 +53,8 @@ grep -q "^APIFY_API_TOKEN=[^[:space:]]" .env && echo "APIFY ACTIVE" || echo "WEB
 
 The wrapped script does steps 2–5 in one call. You stay involved at steps 1 and 6.
 
+**→ proceed directly to next step without pausing.**
+
 ### STEP 1 — Clarify seed (if user is vague)
 
 If the user only says "find me a weak category" with no keyword, ask:
@@ -50,6 +63,8 @@ If the user only says "find me a weak category" with no keyword, ask:
 - How many top products to harvest categories from? (default 20, range 10–30)
 
 If user gives only a niche/topic, infer book_type from the niche-hunter detection table (coloring/low_content/activity).
+
+**→ proceed directly to next step without pausing.**
 
 ### STEP 2 — Run the scan
 
@@ -80,9 +95,13 @@ where one of our seed products is #1**, which is exactly the actionable case (we
 publish books that match the keyword, so we want to know which leafs we can dominate).
 For categories where no seed is #1, we record the upper bound and flag it in `notes`.
 
+**→ proceed directly to next step without pausing.**
+
 ### STEP 3 — Read the ranked output
 
 The script prints categories sorted **weakest #1 first**. EASY rows = the operator can probably hit #1 with one well-listed book. VERY_HARD rows = competitors running for years; skip unless we want to fight.
+
+**→ proceed directly to next step without pausing.**
 
 ### STEP 4 — Sanity-check the top-3 EASY rows
 
@@ -90,6 +109,8 @@ For each EASY/MODERATE candidate the user is excited about:
 - Re-fetch the leaf bestseller list with `--max-products` extended to 5 if you want depth (manual call).
 - Verify the breadcrumb is a **legitimate KDP-allowed BISAC sub-category** — Amazon has ranks for things like "Calendars" or "Audible" that we can't actually target. Spot-check the `breadcrumb` against the BISAC tree before recommending.
 - Look for trademark-name in the breadcrumb (eg "Star Wars Coloring") — those leafs are infested with licensed product, our generic book won't rank.
+
+**→ proceed directly to next step without pausing.**
 
 ### STEP 5 — Cross-check with niche-hunter
 
@@ -100,6 +121,8 @@ python3 scripts/db.py niches list --status KILLED --limit 50 | grep -i "<keyword
 ```
 
 If yes — surface the kill reason to the user. Easy category + dead niche = false positive.
+
+**→ proceed directly to next step without pausing.**
 
 ### STEP 6 — Hand off
 
@@ -116,6 +139,8 @@ Don't auto-launch a book. Output for the operator:
 ```
 
 Then ask: "Want me to /niche-hunter <category-derived-keyword> to validate demand before commissioning a book?"
+
+**→ END of skill execution. Report results to user.**
 
 ---
 

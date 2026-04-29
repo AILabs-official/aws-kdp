@@ -9,6 +9,17 @@ Assembles all approved coloring pages into a KDP-compliant PDF interior and gene
 
 ---
 
+## Execution Protocol — READ FIRST
+
+- Run **ALL** steps in sequence **WITHOUT stopping** between them.
+- Do **NOT** ask "ready to continue?" / "proceed?" / "shall I move on?" between steps. The skill was invoked — that's the green light.
+- After a tool call returns (Bash/Read/Write/Agent), **immediately proceed** to the next step in the same turn.
+- Between steps, emit at most ONE short progress sentence, then continue.
+- Delegate heavy work to sub-agents (general-purpose Task) — let them run autonomously in their own 200K context.
+- Stop ONLY when: (a) all steps complete, (b) blocking error makes next step impossible, (c) a step explicitly marked **(pause for user)** is reached.
+
+---
+
 ## When to Use
 
 - After images pass quality review (by `kdp-image-reviewer` skill)
@@ -35,6 +46,8 @@ If theme not in config.py, register it:
 },
 ```
 
+**→ proceed directly to next step without pausing.**
+
 ### Step 2: Build Interior PDF
 
 ```bash
@@ -57,6 +70,8 @@ python build_pdf.py --theme {theme_key} --title "Book Title" --subtitle "Subtitl
 
 **Specs:** Page size auto-detected from plan JSON (`page_size` field) or theme config. Supported: 8.5"x11" (portrait) or 8.5"x8.5" (square). No bleed, single-sided coloring pages.
 
+**→ proceed directly to next step without pausing.**
+
 ### Step 3: Verify PDF (KDP Pre-flight)
 
 Check the output:
@@ -67,6 +82,8 @@ Check the output:
 - **No more than 4 consecutive blank pages** in body (KDP limit)
 - **No more than 10 blank pages** at end (KDP limit)
 - **Metadata consistency**: title on title page matches cover title, author on title page matches cover author
+
+**→ proceed directly to next step without pausing.**
 
 ### Step 4: Generate Cover
 
@@ -89,6 +106,8 @@ python generate_cover.py --theme {theme_key} --author "Author Name" --title "Cus
 - Full width = (2 x 8.5") + spine + (2 x 0.125" bleed)
 - Full height = 11" + (2 x 0.125" bleed)
 
+**→ proceed directly to next step without pausing.**
+
 ### Step 5: Verify Cover
 
 Check:
@@ -97,6 +116,8 @@ Check:
 - Title/subtitle text is readable
 - Author name displays correctly
 - Barcode area is clear on back cover
+
+**→ proceed directly to next step without pausing.**
 
 ### Step 6: Present Deliverables
 
@@ -125,6 +146,8 @@ NEXT STEPS FOR KDP UPLOAD:
 5. Set trim size to 8.5" x 11" (no bleed)
 6. Use title, description, and keywords from the plan
 ```
+
+**→ END of skill execution. Report results to user.**
 
 ---
 

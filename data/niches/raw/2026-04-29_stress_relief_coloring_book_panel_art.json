@@ -1,0 +1,162 @@
+{
+  "niche_name": "stress relief coloring book panel art",
+  "primary_keyword": "stress relief coloring book panel art",
+  "book_type": "coloring",
+  "audience": "adults_relaxation",
+  "page_size": "8.5x11",
+  "target_page_count": 80,
+  "recommended_list_price_usd": 8.99,
+  "secondary_keywords": [],
+  "long_tail_keywords": [],
+  "top10_asins": [
+    "B0G2S3ZBHH",
+    "B0DY1W9H4Y",
+    "B0GXPB9JKX",
+    "B0F8946CW8",
+    "B0GHWK6W1B",
+    "1967727228",
+    "B0CZLPLRZ2",
+    "B0G2S8V8TF",
+    "B0GLF336QT"
+  ],
+  "top10_bsr": [
+    30118,
+    61470,
+    433359,
+    1439194,
+    1628126,
+    20038,
+    519703,
+    30128,
+    1401898
+  ],
+  "top10_reviews": [
+    25,
+    6,
+    0,
+    1,
+    0,
+    41,
+    30,
+    25,
+    1
+  ],
+  "top10_prices": [
+    11.99,
+    4.99,
+    12.99,
+    4.99,
+    5.99,
+    9.99,
+    11.98,
+    11.99,
+    9.99
+  ],
+  "top10_pages": [
+    80,
+    102,
+    88,
+    89,
+    95,
+    102,
+    208,
+    80,
+    85
+  ],
+  "top10_publishers": [
+    "Generic",
+    "Independently published",
+    "Independently published",
+    "Independently published",
+    "Independently published",
+    "Harmo Press",
+    "Independently published",
+    "Generic",
+    "Independently published"
+  ],
+  "top10_age_days": [
+    435,
+    14,
+    356,
+    100,
+    104,
+    765,
+    87,
+    86,
+    104
+  ],
+  "top10_rating": [
+    3.9,
+    4.5,
+    0.0,
+    5.0,
+    0.0,
+    4.6,
+    4.3,
+    3.9,
+    3.0
+  ],
+  "content_concepts_count": 60,
+  "content_concepts_sample": [
+    "mandala",
+    "flowers",
+    "animals",
+    "landscapes",
+    "patterns",
+    "geometric",
+    "nature",
+    "abstract"
+  ],
+  "is_seasonal": false,
+  "is_evergreen": true,
+  "is_seasonal_recurring": false,
+  "is_trend": false,
+  "is_fad": false,
+  "days_to_peak": 999,
+  "has_trademark_risk": false,
+  "ip_risk_notes": "CLEAR — heuristic check passed",
+  "trademark_check": {
+    "verdict": "CLEAR",
+    "class_016_live_hits": 0,
+    "adjacent_class_live_hits": 0,
+    "source": "scripts/trademark_check.py"
+  },
+  "qualitative_edge": {
+    "unique_hook": {
+      "pass": true,
+      "angle": "Panel art = format twist; each page is a multi-panel grid layout. Top-3 incumbents have only 25-41 reviews → low review barrier"
+    },
+    "evergreen_baseline": {
+      "pass": true,
+      "evidence": "wellness market +12-15%/yr through 2026"
+    },
+    "repeat_buyer": {
+      "pass": true,
+      "audience": "adults_relaxation"
+    },
+    "content_scale": {
+      "pass": true,
+      "sequel_count": 4
+    },
+    "score_0_10": 9
+  },
+  "leading_indicators": {
+    "etsy": "stress relief coloring printables widely sold",
+    "google_trends": "evergreen, +12-15%/yr (DrAxe wellness 2026)"
+  },
+  "sources": [
+    "https://www.amazon.com/dp/B0G2S3ZBHH",
+    "https://www.amazon.com/dp/B0DY1W9H4Y",
+    "https://www.amazon.com/dp/B0GXPB9JKX",
+    "https://www.amazon.com/dp/B0F8946CW8",
+    "https://www.amazon.com/dp/B0GHWK6W1B",
+    "https://www.amazon.com/dp/1967727228",
+    "https://www.amazon.com/dp/B0CZLPLRZ2",
+    "https://www.amazon.com/dp/B0G2S8V8TF",
+    "https://www.amazon.com/dp/B0GLF336QT",
+    "https://www.amazon.com/dp/B0GLN9F8RQ"
+  ],
+  "operator_note": "GENUINE BLUE OCEAN — best bet of batch; format-twist niche w/ established demand and weak incumbents.",
+  "criteria_version": "2026.04.27",
+  "slug": "stress_relief_coloring_book_panel_art"
+}

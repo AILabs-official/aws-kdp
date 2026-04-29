@@ -37,21 +37,70 @@ pdf_qc.py           ← pre-flight KDP (trim, bleed, line weight, …)
 
 ## Cài đặt
 
+### 1. Clone + dependencies
+
 ```bash
+git clone <this-repo>
+cd aws-kdp-ai
 pip install -r requirements.txt
 ```
 
-Tạo file `.env` ở repo root (không commit):
+### 2. Tạo file `.env`
 
-```env
-IMAGE_RENDERER=nanopic          # ai33 | bimai | kie | nanopic
-NANOPIC_ACCESS_TOKEN=token1,token2,token3   # pool rotate round-robin
-AI33_API_KEY=...
-BIMAI_KEY=...
-KIE_API_KEY=...
-GEMINI_API_KEY=...
-AUTHOR_FIRST_NAME=BoBo
-AUTHOR_LAST_NAME=Art
+Repo có sẵn [`.env.example`](.env.example) — copy ra `.env` rồi điền giá trị thật:
+
+```bash
+cp .env.example .env
+# rồi mở .env bằng editor, thay placeholder bằng key thật
+```
+
+> ⚠️ **`.env` đã được .gitignore** — TUYỆT ĐỐI không commit token thật. Nếu lỡ commit thì rotate ngay (xem hướng dẫn rotate ở từng provider bên dưới).
+
+### 3. Block cấu hình theo nhu cầu
+
+`.env.example` chia thành 4 block, mỗi block bật/tắt độc lập:
+
+| Block | Bắt buộc khi nào | Setup time |
+|-------|------------------|-----------|
+| **1. Image Renderer** (`AI33_KEY` / `BIMAI_KEY` / `KIE_API_KEY` / `NANOPIC_ACCESS_TOKEN`) | Chạy `generate_images.py` hoặc `cover-designer` | 5 phút |
+| **2. Author Info** (`AUTHOR_FIRST_NAME`, `AUTHOR_LAST_NAME`) | Chạy `build_pdf.py` / `generate_cover.py` (mọi pipeline) | 10 giây |
+| **3. Apify** (`APIFY_API_TOKEN`) | Niche research deep-dive (`niche-hunter`) — fallback WebSearch nếu không có | 5 phút (free tier) |
+| **4. Amazon Ads API** (6 vars `ADS_API_*`) | Auto-launch ads (`ads-manager`) — bỏ qua nếu chưa lên sách | **1–3 tuần** (Amazon review) |
+
+### Renderer nào nên dùng?
+
+| Renderer | Giá / ảnh | Tốc độ | Quality coloring | Khi dùng |
+|----------|-----------|--------|------------------|----------|
+| `ai33` | ~$0.005 | Trung bình | ★★★☆☆ ổn định | Default. Rẻ, batch được. |
+| `nanopic` | ~$0.01 | Nhanh nhất (token pool) | ★★★★☆ | Khi cần tốc độ + có nhiều token |
+| `bimai` | ~$0.02 | Trung bình | ★★★★★ | Cover quality cao, ít page |
+| `kie` | ~$0.015 | Trung bình | ★★★★☆ | Backup khi 3 cái trên rate-limit |
+
+Đổi renderer chỉ cần đổi `IMAGE_RENDERER=` trong `.env` — không cần code change.
+
+### Setup Amazon Ads API (chi tiết)
+
+Block 4 trong `.env.example` đã có comment từng bước. Tóm tắt 5 bước:
+
+1. **LWA Security Profile** ([developer.amazon.com](https://developer.amazon.com) → Settings → Security Profiles) → lấy `CLIENT_ID` + `CLIENT_SECRET`
+2. **Apply Ads API access** ([advertising.amazon.com/API](https://advertising.amazon.com/API/docs/en-us/setting-up/overview)) → chờ 1-3 tuần
+3. **Refresh token**: `python3 scripts/ads_oauth_helper.py` → browser tự mở → Allow → token in ra console
+4. **Profile ID**: `python3 scripts/amazon_ads_api.py list-profiles` → copy profileId của marketplace US (hoặc marketplace bạn bán)
+5. **Verify**: `python3 scripts/amazon_ads_api.py test-connection` → in `✅ Connected`
+
+> 📌 Tip: chưa có Ads API access vẫn chạy `ads-manager` được — agent sẽ output CSV để upload thủ công vào KDP Ads dashboard.
+
+### Verify cài đặt
+
+```bash
+# Test image renderer (1 ảnh smoke test)
+python3 scripts/test_ai33.py        # hoặc test_nanopic.py
+
+# Test Amazon Ads (nếu có)
+python3 scripts/amazon_ads_api.py test-connection
+
+# Test Apify (nếu có)
+python3 -c "import os; from apify_client import ApifyClient; ApifyClient(os.getenv('APIFY_API_TOKEN')).user('me').get(); print('✅ Apify OK')"
 ```
 
 ---

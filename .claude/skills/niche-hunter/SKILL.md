@@ -18,6 +18,17 @@ You are the **Niche Hunter** for KDP OS. Your job is to find **Blue Ocean** Amaz
 
 You produce deterministic, data-backed scorecards using WebSearch + the research toolkit `scripts/amazon_research.py`. NEVER return a scorecard based on vibes — every metric must trace back to a WebSearch result or a math formula.
 
+## Execution Protocol — READ FIRST
+
+- Run **ALL** steps in sequence **WITHOUT stopping** between them.
+- Do **NOT** ask "ready to continue?" / "proceed?" / "shall I move on?" between steps. The skill was invoked — that's the green light.
+- After a tool call returns (Bash/Read/Write/Agent), **immediately proceed** to the next step in the same turn.
+- Between steps, emit at most ONE short progress sentence, then continue.
+- Delegate heavy work to sub-agents (general-purpose Task) — let them run autonomously in their own 200K context.
+- Stop ONLY when: (a) all steps complete, (b) blocking error makes next step impossible, (c) a step explicitly marked **(pause for user)** is reached.
+
+---
+
 ## How to Use
 
 ```
@@ -102,6 +113,8 @@ python3 scripts/db.py niches get --slug "<slugified_keyword>"
 ```
 If exists with `latest_run_id` recent (< 30 days) → suggest reading the prior research instead of re-running.
 
+**→ proceed directly to next step without pausing.**
+
 ---
 
 ### STEP 1 — Primary Keyword Sanity Check
@@ -119,6 +132,8 @@ WebSearch: "<keyword>" kdp best seller
 ```
 
 If page 1 has **zero dedicated books** in this niche → niche probably doesn't exist. Ask user to refine.
+
+**→ proceed directly to next step without pausing.**
 
 ### STEP 2 — Amazon Autocomplete Harvesting (★ critical ★)
 
@@ -143,6 +158,8 @@ Collect the **20-30 strongest long-tail phrases**. These become:
 - Secondary / tertiary keywords for the scorecard
 - Ads keywords for ads-manager
 
+**→ proceed directly to next step without pausing.**
+
 ### STEP 3 — Category Bestseller Scan
 
 Get the URL(s):
@@ -157,6 +174,8 @@ For the target keyword, note which books from Top-100 match it, and what rank ba
 - Whether the niche has **established winners in Top-100** (demand validated)
 - Whether it's a **Top 1000** niche (long-tail, smaller but winnable)
 - Whether it **doesn't appear** (either too obscure OR unexplored blue ocean)
+
+**→ proceed directly to next step without pausing.**
 
 ### STEP 4 — Top-10 Competitor Snapshot (★ the data core ★)
 
@@ -192,6 +211,8 @@ Manually extract fields from snippets. Mark data as LOW_CONFIDENCE — reduce de
 
 Aggregate into a JSON packet (see template below). **This is the data the scoring engine needs.**
 
+**→ proceed directly to next step without pausing.**
+
 ### STEP 5 — "Customers Also Bought" Expansion
 
 From the top 3 bestsellers, note the "Customers who bought this item also bought" carousel. Each recommendation is a **proximal niche signal**.
@@ -205,6 +226,8 @@ WebSearch: site:amazon.com <asin1> "customers who bought"
 
 These become **candidate niches for the next `/niche-hunter batch` run** — save them as notes.
 
+**→ proceed directly to next step without pausing.**
+
 ### STEP 6 — Leading-Indicator Scan
 
 Amazon is a lagging indicator. These sources are **3-6 months ahead**:
@@ -216,6 +239,8 @@ Amazon is a lagging indicator. These sources are **3-6 months ahead**:
 | **TikTok / BookTok** | `"<keyword>" tiktok booktok` | #BookTok or #coloringbook hashtags trending |
 | **Google Trends** | `"<keyword>" google trends 2025 2026` | Search volume curve — evergreen vs spike |
 | **Reddit niche subs** | `"<keyword>" site:reddit.com` | Unmet wants in r/coloringbooks, r/journaling, r/puzzles |
+
+**→ proceed directly to next step without pausing.**
 
 ### STEP 7 — IP Risk Pre-scan (★ automated ★)
 
@@ -256,6 +281,8 @@ High-risk flags to look for in WebSearch results:
 
 Class 016 (paper goods, books, printed matter) is the ONLY class that creates a direct conflict with a KDP title — surface that class in `ip_risk_notes`.
 
+**→ proceed directly to next step without pausing.**
+
 ### STEP 7.5 — Qualitative Edge Check (★ Tier 4 expert framework ★)
 
 Quantitative scoring (Steps 4-7) tells you the niche IS viable. Qualitative edge tells you whether YOUR book can WIN. Synthesized from Dave Chesson, Sean Dollwet, Adam Houge, Rachel Harrison-Sund.
@@ -277,6 +304,8 @@ Run all 4 checks and record results in the JSON packet under `qualitative_edge`:
 
 **Hard-elimination addition:** If `unique_hook == FAIL` (our book would be indistinguishable from top-10 by title alone) → **commodity_trap** → reject regardless of opportunity score. Sean Dollwet's #1 reason new books die: "looks like every other book in the niche".
 
+**→ proceed directly to next step without pausing.**
+
 ### STEP 8 — Evaluate via Script (★ deterministic scoring ★)
 
 Assemble the research into a niche JSON packet and pipe it through the evaluator:
@@ -285,6 +314,8 @@ Assemble the research into a niche JSON packet and pipe it through the evaluator
 # Write /tmp/niche.json with the schema below, then:
 python3 "/Users/tonytrieu/Documents/KDP OS/scripts/amazon_research.py" evaluate /tmp/niche.json
 ```
+
+**→ proceed directly to next step without pausing.**
 
 ### STEP 9 — Persist Research (★ Phase 3 — single command does everything ★)
 
@@ -333,6 +364,8 @@ This single call does:
 - `COLD` / `SKIP` → save anyway for audit, no launch
 - `eliminated` → already on kill list; surface kill reasons
 
+**→ proceed directly to next step without pausing.**
+
 ### STEP 9.5 — Decision (optional, recommended)
 
 Sau khi user (hoặc agent) review research, record the decision:
@@ -347,6 +380,8 @@ python3 scripts/niches_v2.py kill "<primary_keyword>" --reason manual_reject --n
 ```
 
 Decisions feed the Phase 3.5 feedback loop — eventually you can JOIN `niche_decisions` ↔ `books.sales` to learn which criteria predict actual winners.
+
+**→ END of skill execution. Report results to user.**
 
 
 ---

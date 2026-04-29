@@ -1,0 +1,201 @@
+{
+  "niche_name": "coloring book for adults stress relief",
+  "primary_keyword": "coloring book for adults stress relief",
+  "book_type": "coloring",
+  "audience": "adults_general",
+  "page_size": "8.5x11",
+  "target_page_count": 80,
+  "recommended_list_price_usd": 8.99,
+  "secondary_keywords": [
+    "stress relief coloring book adults",
+    "adult coloring book relaxation",
+    "anxiety relief coloring book",
+    "mindfulness coloring book adults",
+    "calming coloring book for women"
+  ],
+  "long_tail_keywords": [
+    "stress relief coloring book for adults bold and easy",
+    "stress relief coloring book for adults large print",
+    "stress relief coloring book for adults flowers",
+    "stress relief coloring book for adults mandalas",
+    "stress relief coloring book for adults animals"
+  ],
+  "top10_asins": [
+    "1645585417",
+    "B0DZY2V81Z",
+    "B0C91KFHH7",
+    "B0DF33B1YG",
+    "B0DG8ZWNPB",
+    "B0DYDR8ZRG",
+    "1967727228",
+    "B0BRRR4CDQ",
+    "1648766099",
+    "B0DCJPRFFZ"
+  ],
+  "top10_bsr": [
+    41,
+    333,
+    1439,
+    2191,
+    5168,
+    7697,
+    20037,
+    171083,
+    281902,
+    1230068
+  ],
+  "top10_reviews": [
+    7465,
+    585,
+    4146,
+    1674,
+    1857,
+    326,
+    41,
+    156,
+    1530,
+    9
+  ],
+  "top10_prices": [
+    6.42,
+    8.99,
+    9.99,
+    9.99,
+    5.99,
+    9.99,
+    9.99,
+    7.39,
+    7.99,
+    7.9
+  ],
+  "top10_pages": [
+    64,
+    80,
+    106,
+    110,
+    108,
+    80,
+    102,
+    73,
+    72,
+    103
+  ],
+  "top10_publishers": [
+    "New Seasons",
+    "ZICOTO",
+    "Independently published",
+    "Independently published",
+    "Independently published",
+    "apolyone",
+    "Harmo Press",
+    "Callisto",
+    "Callisto",
+    "Independently published"
+  ],
+  "top10_age_days": [
+    1500,
+    104,
+    1891,
+    1674,
+    1042,
+    603,
+    1156,
+    616,
+    1977,
+    630
+  ],
+  "top10_rating": [
+    4.7,
+    4.7,
+    4.6,
+    4.8,
+    4.8,
+    4.8,
+    4.6,
+    4.7,
+    4.6,
+    4.8
+  ],
+  "content_concepts_count": 80,
+  "content_concepts_sample": [
+    "Mandala flower bouquet",
+    "Forest landscape",
+    "Cute cat with flowers",
+    "Geometric pattern fill",
+    "Owl in moonlight",
+    "Beach sunset scene"
+  ],
+  "is_seasonal": false,
+  "is_evergreen": true,
+  "is_seasonal_recurring": false,
+  "is_trend": false,
+  "is_fad": false,
+  "days_to_peak": 999,
+  "has_trademark_risk": false,
+  "ip_risk_notes": "CLEAR — heuristic check passed; no LIVE Class-016 conflicts detected",
+  "trademark_check": {
+    "verdict": "CLEAR",
+    "class_016_live_hits": 0,
+    "adjacent_class_live_hits": 0,
+    "source": "scripts/trademark_check.py"
+  },
+  "qualitative_edge": {
+    "unique_hook": {
+      "pass": false,
+      "angle": "Top-10 are all generic 'stress relief + flowers/animals/mandalas/landscapes' — no differentiating angle in the keyword itself. A book published under this exact keyword will look identical to top-10 by title alone."
+    },
+    "evergreen_baseline": {
+      "pass": true,
+      "evidence": "Google Trends 5y evergreen; market growing 12-15% annually per industry reports"
+    },
+    "repeat_buyer": {
+      "pass": true,
+      "audience": "Wellness/mindfulness adults, gift demographic — buys multiple volumes & gifts"
+    },
+    "content_scale": {
+      "pass": true,
+      "sequel_count": 6
+    },
+    "score_0_10": 5
+  },
+  "leading_indicators": {
+    "etsy": "Saturated — many printable PDFs at this exact keyword (Coco Wyo, etc.) — high supply",
+    "pinterest": "Strong evergreen — coloring/mindfulness boards consistently pinned",
+    "tiktok": "#coloringbook + #stressrelief steady; not a viral spike",
+    "google_trends": "Evergreen, 12-15% annual market growth through 2026 (wellness trend tailwind)"
+  },
+  "sources": [
+    "https://www.amazon.com/s?k=coloring+book+for+adults+stress+relief",
+    "https://www.amazon.com/dp/1645585417",
+    "https://www.amazon.com/dp/B0DZY2V81Z",
+    "https://www.amazon.com/dp/B0C91KFHH7",
+    "https://www.etsy.com/search?q=stress+relief+coloring+book",
+    "https://draxe.com/health/wellness-trends-2026/",
+    "https://time.com/article/2026/04/21/coloring-stress-relief-benefits/"
+  ],
+  "score": {
+    "overall": 7.71,
+    "rating": "SKIP"
+  },
+  "dimension_scores": {
+    "demand": 10,
+    "opportunity": 2.015,
+    "competition": 8.26,
+    "margin": 8,
+    "content": 10,
+    "longevity": 10
+  },
+  "flags": [],
+  "eliminations": [
+    {
+      "reason": "commodity_trap",
+      "details": "qualitative_edge.unique_hook = FAIL. Top-10 are all 'stress relief + flowers/animals/mandalas/landscapes' clones. Our book under this exact keyword would be indistinguishable from top-10 by title alone. Sean Dollwet rule: #1 reason new books die in this niche is 'looks like every other book'. Underlying demand is real (avg 12,866/mo top-10 royalty, evergreen 12-15% growth), but generic entry has no path to differentiate. Pivot to a sharper subniche (specific theme, demographic, format twist) before launching."
+    },
+    {
+      "reason": "high_review_barrier",
+      "details": "Avg top-10 reviews = 1779; #1 has 7465 reviews, #3 has 4146 reviews. New entrant needs many months of ads spend to accumulate social proof to compete on the generic keyword."
+    }
+  ],
+  "criteria_version": "2026.04.27",
+  "slug": "coloring_book_for_adults_stress_relief"
+}
