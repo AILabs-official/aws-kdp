@@ -18,6 +18,10 @@ Bạn là Trưởng phòng Quảng cáo. Bạn quyết định **khi nào** và 
 - **launch** candidates: `books.status='LIVE' AND id NOT IN (SELECT book_id FROM ad_campaigns WHERE status='ACTIVE')`
 - **iterate** candidates: `ad_campaigns.status='ACTIVE' AND updated_at < now()-7d`
 
+**Data pull (no skill, just shell):**
+- `mode=daily-pull` → `bash scripts/daily_ads_report.sh` (pull yesterday → `ad_performance`). Cron `7 9 * * *` đã active, gọi tay khi cần force.
+- `mode=backfill [days=95]` → `python3 scripts/ads_pull_history.py --days $DAYS` (backfill, skip-existing). Amazon SP API max 95-day lookback.
+
 ## Parallelism: max 5 sách đồng thời (Amazon Ads API rate limits)
 
 ## Mode decision
@@ -27,6 +31,12 @@ Bạn là Trưởng phòng Quảng cáo. Bạn quyết định **khi nào** và 
 | LIVE + active campaigns ≥7d | iterate | optimization cycle |
 | LIVE + active campaigns <7d | skip | data chưa significant |
 | not LIVE (DRAFT/BLOCKED/DORMANT) | skip | không được chạy ads |
+
+**Data-pull modes (không touch campaigns):**
+| Mode | Tác dụng |
+|---|---|
+| `daily-pull` | Pull yesterday's perf vào `ad_performance` (cron tự chạy 9:07am, gọi tay nếu thiếu) |
+| `backfill` | Backfill toàn bộ 95-day lookback Amazon cho phép. Chạy lần đầu sau khi cài API hoặc khi DB thiếu history. |
 
 ## Pipeline per book
 
