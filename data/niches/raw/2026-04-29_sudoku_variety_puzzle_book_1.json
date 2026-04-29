@@ -1,0 +1,197 @@
+{
+  "niche_name": "Sudoku Variety Puzzle Book",
+  "book_type": "activity",
+  "primary_keyword": "sudoku variety puzzle book",
+  "secondary_keywords": [],
+  "long_tail_keywords": [],
+  "audience": "adults_general",
+  "page_size": "8.5x11",
+  "target_page_count": 120,
+  "recommended_list_price_usd": 9.99,
+  "top10_bsr": [
+    117443,
+    168925,
+    52704,
+    2200063,
+    648252,
+    4476521,
+    2640861,
+    67857,
+    299054,
+    1942802
+  ],
+  "top10_reviews": [
+    52,
+    125,
+    36,
+    112,
+    0,
+    7,
+    9,
+    71,
+    181,
+    9
+  ],
+  "top10_prices": [
+    7.99,
+    9.99,
+    3.99,
+    11.49,
+    9.99,
+    8.99,
+    9.99,
+    37.99,
+    10.24,
+    11.99
+  ],
+  "top10_pages": [
+    146,
+    100,
+    116,
+    269,
+    153,
+    112,
+    146,
+    144,
+    269
+  ],
+  "top10_publishers": [
+    "Abbix Publishing Company",
+    "Independently published",
+    "Independently published",
+    "?",
+    "Independently published",
+    "Independently published",
+    "Independently published",
+    "Variety Savings",
+    "Puzzlewright Press",
+    "Typeset Publishing"
+  ],
+  "top10_age_days": [
+    332,
+    2067,
+    688,
+    1692,
+    152,
+    2123,
+    2304,
+    2402,
+    1689
+  ],
+  "top10_rating": [
+    4.8,
+    4.5,
+    3.6,
+    4.7,
+    0,
+    4.6,
+    3.2,
+    4.5,
+    4.6,
+    4.8
+  ],
+  "top10_asins": [
+    "1966489226",
+    "B08H566GXC",
+    "B0D6R92CVX",
+    "1956652000",
+    "B0G4G9WBW6",
+    "B08CGDNM87",
+    "1656992205",
+    "B0BS89TY3W",
+    "1454934247",
+    "1956652019"
+  ],
+  "top10_titles": [
+    "Variety Adult Puzzle Book: 100 Large Print Sudoku, Word Search, Crossword, Number Search, Word Scramble Mazes and More",
+    "Sudoku Variations Puzzle Book for Adults: Killer, Samurai, Jigsaw, Diagonal X and Classic Sudoku Variants Logic Puzzlebook | Easy to Hard",
+    "Sudoku Puzzle Book for Adults Easy To Hard: Sudoku activity book for seniors and Teens with variety puzzles Easy-Medium-Hard",
+    "Sudoku Puzzle Book: 432 Puzzles for Adults: Easy to Hard (Sudoku Variety Series)",
+    "Sudoku Variations Puzzle Book: 300+ Easy Medium Hard Sudoku Variants | Eye Friendly | Classic, Windoku, Twodoku, Arrow, Snowflake Star, Samurai and Flower Sudoku | With Solutions",
+    "Sudoku Variety Puzzle Book: 100 puzzles, featuring 10 fun sudoku variants!",
+    "Sudoku Variety Puzzle Books: Sudoku Variations Puzzle Books Featuring Sudoku X, Sudoku Hyper, Sudoku Twins, Sudoku Triathlon A, Sudoku Triathlon B, ... Sudoku Samurai, Sudoku 12x12 & Sudoku 16x16.",
+    "17-Pack 1400+ Sudoku Puzzles for Adults, Large WordSearch Puzzle for Adults, Aging Seniors Brain Stimulation Activity Books (Variety Pack Bulk) - Large 8x10 & Digest 5x8 Combo",
+    "Wild Sudoku Variants",
+    "Sudoku Puzzle Book: 432 Puzzles for Adults: Easy to Hard – Volume 2 (Sudoku Variety Series)"
+  ],
+  "content_concepts_count": 200,
+  "content_concepts_sample": [],
+  "is_seasonal": false,
+  "is_evergreen": true,
+  "is_seasonal_recurring": false,
+  "is_trend": false,
+  "is_fad": false,
+  "days_to_peak": 999,
+  "has_trademark_risk": false,
+  "ip_risk_notes": "Sudoku is a generic puzzle format. Avoid 'Will Shortz', 'Penny Press', 'KAPPA', 'New York Times' style branding.",
+  "trademark_check": {
+    "verdict": "CLEAR",
+    "class_016_live_hits": 0,
+    "adjacent_class_live_hits": 0,
+    "source": "scripts/trademark_check.py"
+  },
+  "qualitative_edge": {
+    "unique_hook": {
+      "pass": false,
+      "angle": "Variety puzzles (sudoku + crossword + word search) is a crowded category with strong incumbents (KAPPA, Penny Press); generic title would clone top-10"
+    },
+    "evergreen_baseline": {
+      "pass": true,
+      "evidence": "Variety puzzle market is mature/stable"
+    },
+    "repeat_buyer": {
+      "pass": true,
+      "audience": "Casual puzzle solvers who want variety"
+    },
+    "content_scale": {
+      "pass": true,
+      "sequel_count": 4
+    },
+    "score_0_10": 7
+  },
+  "leading_indicators": {
+    "google_trends": "Sudoku evergreen (5y stable baseline, no major decline)",
+    "etsy": "Printable sudoku market exists but small relative to Amazon",
+    "tags": [
+      "variety",
+      "mixed_puzzles"
+    ]
+  },
+  "low_confidence": false,
+  "tech_blocker": "Our pipeline currently only outputs sudoku — no crossword/wordsearch generators",
+  "sources": [
+    "https://www.amazon.com/dp/1966489226",
+    "https://www.amazon.com/dp/B08H566GXC",
+    "https://www.amazon.com/dp/B0D6R92CVX",
+    "https://www.amazon.com/dp/1956652000",
+    "https://www.amazon.com/dp/B0G4G9WBW6"
+  ],
+  "score": {
+    "overall": 5.39,
+    "rating": "COLD"
+  },
+  "dimension_scores": {
+    "demand": 2,
+    "opportunity": 0.4,
+    "competition": 5.28,
+    "margin": 8,
+    "content": 10,
+    "longevity": 10
+  },
+  "flags": [],
+  "eliminations": [],
+  "our_estimated_monthly_royalty": {
+    "bsr": 1942802,
+    "daily_sales_low": 0.01,
+    "daily_sales_mid": 0.03,
+    "daily_sales_high": 0.07,
+    "royalty_per_sale_usd": 4.62,
+    "monthly_low_usd": 1.39,
+    "monthly_mid_usd": 4.16,
+    "monthly_high_usd": 9.7
+  },
+  "demand_avg_top10_monthly_royalty_usd": 111.44,
+  "opportunity_score": 0.401,
+  "criteria_version": "2026.04.27",
+  "slug": "sudoku_variety_puzzle_book"
+}

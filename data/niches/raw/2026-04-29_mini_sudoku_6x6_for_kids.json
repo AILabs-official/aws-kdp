@@ -1,0 +1,171 @@
+{
+  "niche_name": "Mini Sudoku 6x6 for Kids",
+  "book_type": "activity",
+  "primary_keyword": "mini sudoku 6x6 for kids",
+  "secondary_keywords": [],
+  "long_tail_keywords": [],
+  "audience": "kids_5_8",
+  "page_size": "8.5x11",
+  "target_page_count": 90,
+  "recommended_list_price_usd": 7.99,
+  "top10_bsr": [
+    1892264,
+    1507587,
+    1729525,
+    687998,
+    1775868,
+    753827,
+    283292
+  ],
+  "top10_reviews": [
+    11,
+    9,
+    0,
+    20,
+    0,
+    0,
+    20,
+    0,
+    133,
+    6
+  ],
+  "top10_prices": [
+    9.99,
+    8.99,
+    5.95,
+    9.99,
+    5.95,
+    15.0,
+    9.99,
+    13.5,
+    7.85,
+    8.99
+  ],
+  "top10_pages": [
+    180,
+    156,
+    117,
+    180,
+    125,
+    375,
+    180,
+    375,
+    98,
+    256
+  ],
+  "top10_publishers": [
+    "CreateSpace Independent Publishing Platform",
+    "Purple Tulip Press",
+    "Independently published",
+    "CreateSpace Independent Publishing Platform",
+    "Independently published",
+    "Independently published",
+    "CreateSpace Independent Publishing Platform",
+    "Independently published",
+    "CreateSpace Independent Publishing Platform",
+    "Independently published"
+  ],
+  "top10_age_days": [
+    4176,
+    671,
+    2374,
+    4176,
+    2197,
+    1840,
+    4176,
+    1840,
+    4187,
+    2083
+  ],
+  "top10_rating": [
+    4.3,
+    4.3,
+    0,
+    4.5,
+    0,
+    0,
+    4.4,
+    0,
+    4.7,
+    5.0
+  ],
+  "top10_asins": [
+    "1503352315",
+    "B0D8BT46D3",
+    "170335432X",
+    "150335217X",
+    "B087L6Q168",
+    "B092PJ9F8H",
+    "1503352013",
+    "B092PG6LP4",
+    "1503187950",
+    "B08FP9P36D"
+  ],
+  "top10_titles": [
+    "Mini Sudoku 6x6 - Medium - Volume 45 - 276 Puzzles",
+    "Go Figure...100 Large Print Sudoku Puzzles from Beginner to Medium, Volume 2: 6x6 and 9x9 Grid Format for Kids, Adults and Seniors with Brain Teasing ... Activity, Sized for Travel, Easy to Read",
+    "Mini Sudoku For Kids: 100 Easy 6x6 Sudoku Puzzles For Kids",
+    "Mini Sudoku 6x6 - Easy - Volume 44 - 276 Puzzles",
+    "Sudoku For Kids 6x6 Easy To Medium 100 Puzzle Pack: The Perfect Gift For Hours Of Sudoku Fun. Sudoku For Children And Sudoku For Beginners. 100 Pages Of Mini Sudoku Puzzles.",
+    "Mini Sudoku For Kids 6 x 6: - Easy to Hard - Volume 4 - 300 Games",
+    "Mini Sudoku 6x6 - Easy to Hard - Volume 43 - 276 Puzzles",
+    "Mini Sudoku For Kids 6x6: Easy to Hard - Volume 1 - 300 Games",
+    "Mini Sudoku For Kids 6x6 - Easy to Hard - Volume 1 - 145 Puzzles",
+    "The Ultimate 6x6 Mini Sudoku Book: 1000+ Puzzles Easy to Hard"
+  ],
+  "content_concepts_count": 80,
+  "content_concepts_sample": [],
+  "is_seasonal": false,
+  "is_evergreen": true,
+  "is_seasonal_recurring": false,
+  "is_trend": false,
+  "is_fad": false,
+  "days_to_peak": 999,
+  "has_trademark_risk": false,
+  "ip_risk_notes": "Sudoku is a generic puzzle format. Avoid 'Will Shortz', 'Penny Press', 'KAPPA', 'New York Times' style branding.",
+  "trademark_check": {
+    "verdict": "CLEAR",
+    "class_016_live_hits": 0,
+    "adjacent_class_live_hits": 0,
+    "source": "scripts/trademark_check.py"
+  },
+  "qualitative_edge": {
+    "unique_hook": {
+      "pass": true,
+      "angle": "Pure 6x6 for ages 5-8 with picture clues + sticker rewards; most top-10 mix 4x4/6x6/9x9 → ours stays squarely in the right zone"
+    },
+    "evergreen_baseline": {
+      "pass": true,
+      "evidence": "Kids brain training evergreen"
+    },
+    "repeat_buyer": {
+      "pass": true,
+      "audience": "Parents + homeschool"
+    },
+    "content_scale": {
+      "pass": false,
+      "sequel_count": 2
+    },
+    "score_0_10": 7
+  },
+  "leading_indicators": {
+    "google_trends": "Sudoku evergreen (5y stable baseline, no major decline)",
+    "etsy": "Printable sudoku market exists but small relative to Amazon",
+    "tags": [
+      "kids",
+      "mini_sudoku",
+      "6x6"
+    ]
+  },
+  "low_confidence": false,
+  "tech_blocker": "scripts/generate_sudoku.py only supports 9x9 — needs 6x6 backtracker",
+  "sources": [
+    "https://www.amazon.com/dp/1503352315",
+    "https://www.amazon.com/dp/B0D8BT46D3",
+    "https://www.amazon.com/dp/170335432X",
+    "https://www.amazon.com/dp/150335217X",
+    "https://www.amazon.com/dp/B087L6Q168"
+  ],
+  "criteria_version": "2026.04.27",
+  "slug": "mini_sudoku_6x6_for_kids"
+}

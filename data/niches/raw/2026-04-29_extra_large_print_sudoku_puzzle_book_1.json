@@ -1,0 +1,204 @@
+{
+  "niche_name": "Extra Large Print Sudoku Puzzle Book",
+  "book_type": "activity",
+  "primary_keyword": "extra large print sudoku puzzle book",
+  "secondary_keywords": [],
+  "long_tail_keywords": [],
+  "audience": "seniors_low_vision",
+  "page_size": "8.5x11",
+  "target_page_count": 110,
+  "recommended_list_price_usd": 9.99,
+  "top10_bsr": [
+    193110,
+    58730,
+    2162298,
+    378475,
+    4118631,
+    1287448,
+    2640062,
+    565008,
+    451,
+    718665
+  ],
+  "top10_reviews": [
+    9,
+    2,
+    5,
+    66,
+    0,
+    3,
+    1,
+    11,
+    4,
+    0
+  ],
+  "top10_prices": [
+    11.99,
+    9.99,
+    9.99,
+    9.99,
+    9.99,
+    10.95,
+    9.99,
+    10.95,
+    18.9,
+    8.99
+  ],
+  "top10_pages": [
+    124,
+    140,
+    112,
+    134,
+    186,
+    252,
+    197,
+    252,
+    123,
+    100
+  ],
+  "top10_publishers": [
+    "Independently published",
+    "Independently published",
+    "Independently published",
+    "CreateSpace Independent Publishing Platform",
+    "Independently published",
+    "Independently published",
+    "Independently published",
+    "Independently published",
+    "Independently published",
+    "Independently published"
+  ],
+  "top10_age_days": [
+    432,
+    143,
+    607,
+    3283,
+    246,
+    978,
+    262,
+    978,
+    328,
+    158
+  ],
+  "top10_rating": [
+    3.6,
+    5.0,
+    4.2,
+    4.8,
+    0,
+    5.0,
+    5.0,
+    4.6,
+    4.7,
+    0
+  ],
+  "top10_asins": [
+    "B0DY7RVT63",
+    "B0G5NMHCSN",
+    "B0DFW6SN2Z",
+    "1546478396",
+    "B0FP52WL4W",
+    "B0CGL65L81",
+    "B0FM46B2GS",
+    "B0CGL3JWZH",
+    "B0FCC5SBR5",
+    "B0G3HPVM39"
+  ],
+  "top10_titles": [
+    "Extra Large Print Sudoku: 100 Puzzles With Level Easy, Medium & Hard. 1 Puzzle per Page. Includes Solutions. (Large Print Sudoku Puzzle Books for Adults)",
+    "2026 SUDOKU BIG BOOK FOR SENIORS & ADULTS Extra Large Print: 220+ PUZZLES - EASY & MEDIUM PUZZLES WITH SOLUTIONS - BOOK 5",
+    "Extra Large Print Sudoku Puzzle Book for Adults - 88 Easy to Hard Puzzles: Puzzle Book for Adult and Seniors - Suitable for Dementia and Elderly",
+    "Extra Large Print Sudoku: 100 Very Easy Puzzles",
+    "SUDOKU EXTRA LARGE PRINT: Puzzles for Adults & Seniors, Easy to Hard (SUDOKU LARGE PRINT PUZZLE BOOKS)",
+    "Extra Large Print Sudoku: 200 Expert Puzzles with Solutions, One per Page | Volume 1 (Extra Large Print Expert Sudoku – The Ultimate Challenge)",
+    "Extra Large Print Sudoku Puzzle Book: Boost brain power with 150 easy to read Sudoku puzzles, one per page, Five skill levels (Easy to Hard), ... cognitive games, memory, attention activity",
+    "Extra Large Print Sudoku: 200 Hard Puzzles with Solutions, One per Page | Volume 1 (Extra Large Print Hard Sudoku – The Tough Challenge)",
+    "Extra Large Print Sudoku Puzzles: 100 Medium Sudoku Puzzles, 6 Levels of Difficulty One Puzzle Per Page - for Adults, Seniors and Elderly With Solutions and Instructions",
+    "Extra Large Print Sudoku Medium Difficulty: Large print Sudoku Puzzle book with medium level challenges for daily mental exercise| 50 puzzles with solutions"
+  ],
+  "content_concepts_count": 100,
+  "content_concepts_sample": [],
+  "is_seasonal": false,
+  "is_evergreen": true,
+  "is_seasonal_recurring": false,
+  "is_trend": false,
+  "is_fad": false,
+  "days_to_peak": 999,
+  "has_trademark_risk": false,
+  "ip_risk_notes": "Sudoku is a generic puzzle format. Avoid 'Will Shortz', 'Penny Press', 'KAPPA', 'New York Times' style branding.",
+  "trademark_check": {
+    "verdict": "CLEAR",
+    "class_016_live_hits": 0,
+    "adjacent_class_live_hits": 0,
+    "source": "scripts/trademark_check.py"
+  },
+  "qualitative_edge": {
+    "unique_hook": {
+      "pass": true,
+      "angle": "30pt+ numerals (most 'extra large print' top-10 are actually only 20-22pt); one puzzle per page; thick grid lines for low-vision/macular-degeneration readers"
+    },
+    "evergreen_baseline": {
+      "pass": true,
+      "evidence": "Low-vision senior market grows ~3% YoY"
+    },
+    "repeat_buyer": {
+      "pass": true,
+      "audience": "Same buyer profile as 'seniors_large_print' but stricter — and willing to pay $9.99"
+    },
+    "content_scale": {
+      "pass": true,
+      "sequel_count": 6
+    },
+    "score_0_10": 10
+  },
+  "leading_indicators": {
+    "google_trends": "Sudoku evergreen (5y stable baseline, no major decline)",
+    "etsy": "Printable sudoku market exists but small relative to Amazon",
+    "tags": [
+      "large_print",
+      "low_vision",
+      "accessibility"
+    ]
+  },
+  "low_confidence": false,
+  "tech_blocker": null,
+  "sources": [
+    "https://www.amazon.com/dp/B0DY7RVT63",
+    "https://www.amazon.com/dp/B0G5NMHCSN",
+    "https://www.amazon.com/dp/B0DFW6SN2Z",
+    "https://www.amazon.com/dp/1546478396",
+    "https://www.amazon.com/dp/B0FP52WL4W"
+  ],
+  "score": {
+    "overall": 9.31,
+    "rating": "HOT"
+  },
+  "dimension_scores": {
+    "demand": 10,
+    "opportunity": 10,
+    "competition": 7.41,
+    "margin": 8,
+    "content": 10,
+    "longevity": 10
+  },
+  "flags": [
+    "BLUE_OCEAN_OPPORTUNITY",
+    "LOW_REVIEW_BARRIER",
+    "GOLDMINE"
+  ],
+  "eliminations": [],
+  "our_estimated_monthly_royalty": {
+    "bsr": 718665,
+    "daily_sales_low": 0.05,
+    "daily_sales_mid": 0.12,
+    "daily_sales_high": 0.25,
+    "royalty_per_sale_usd": 4.692,
+    "monthly_low_usd": 7.04,
+    "monthly_mid_usd": 16.89,
+    "monthly_high_usd": 35.19
+  },
+  "demand_avg_top10_monthly_royalty_usd": 2314.94,
+  "opportunity_score": 48.85,
+  "criteria_version": "2026.04.27",
+  "slug": "extra_large_print_sudoku_puzzle_book"
+}

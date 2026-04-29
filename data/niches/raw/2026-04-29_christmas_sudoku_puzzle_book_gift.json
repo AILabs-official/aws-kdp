@@ -1,0 +1,141 @@
+{
+  "niche_name": "Christmas Sudoku Puzzle Book Gift",
+  "book_type": "activity",
+  "primary_keyword": "christmas sudoku puzzle book gift",
+  "secondary_keywords": [
+    "christmas sudoku for adults",
+    "christmas stocking stuffer sudoku",
+    "winter sudoku puzzle book"
+  ],
+  "long_tail_keywords": [
+    "christmas sudoku large print",
+    "christmas sudoku for seniors gift"
+  ],
+  "audience": "gift_buyers_q4",
+  "page_size": "8.5x11",
+  "target_page_count": 110,
+  "recommended_list_price_usd": 9.99,
+  "top10_bsr": [],
+  "top10_reviews": [],
+  "top10_prices": [
+    9.99,
+    9.99,
+    9.99,
+    8.99
+  ],
+  "top10_pages": [
+    120,
+    150,
+    100,
+    110
+  ],
+  "top10_publishers": [
+    "Independently published",
+    "Independently published",
+    "Independently published",
+    "Independently published"
+  ],
+  "top10_age_days": [
+    120,
+    240,
+    90,
+    180
+  ],
+  "top10_rating": [],
+  "top10_asins": [
+    "B0FWZPM682",
+    "B0FL138KTH",
+    "B0FWZV33V5",
+    "B0FQJK6LRH"
+  ],
+  "top10_titles": [
+    "SUDOKU PUZZLE BOOK 2026 EDITION - 1000+ PUZZLES Christmas Gift Idea",
+    "Sudoku Puzzle Book 2026 Easy to Hard Large Print Adults & Seniors",
+    "NEW 2026 ULTIMATE SUDOKU PUZZLE BOOK Adults & Teens",
+    "Winter Wonder 2026 Sudoku Puzzle Book Cozy Winter Fun"
+  ],
+  "content_concepts_count": 100,
+  "content_concepts_sample": [],
+  "is_seasonal": true,
+  "is_evergreen": false,
+  "is_seasonal_recurring": true,
+  "is_trend": false,
+  "is_fad": false,
+  "days_to_peak": 240,
+  "has_trademark_risk": false,
+  "ip_risk_notes": "CLEAR. Avoid 'Will Shortz' / 'New York Times' / Hallmark branding.",
+  "trademark_check": {
+    "verdict": "CLEAR",
+    "class_016_live_hits": 0,
+    "adjacent_class_live_hits": 0,
+    "source": "scripts/trademark_check.py"
+  },
+  "qualitative_edge": {
+    "unique_hook": {
+      "pass": false,
+      "angle": "Top-10 already commoditized with generic '2026 Edition Christmas Gift' framing — would need stronger differentiation (e.g. 25-Day Sudoku Advent Calendar format) to stand out"
+    },
+    "evergreen_baseline": {
+      "pass": false,
+      "evidence": "Pure Q4 spike — Google Trends shows 5-10x lift Nov-Dec, near-zero rest of year"
+    },
+    "repeat_buyer": {
+      "pass": false,
+      "audience": "Annual gift purchase only — repurchase yearly but single-use seasonal"
+    },
+    "content_scale": {
+      "pass": true,
+      "sequel_count": 3
+    },
+    "score_0_10": 2
+  },
+  "leading_indicators": {
+    "google_trends": "Strong Nov-Dec spike, baseline near zero",
+    "amazon_search": "Active 'sudoku christmas' competitive set, 2026-edition books already shipping",
+    "tags": [
+      "christmas",
+      "seasonal_q4",
+      "gift"
+    ]
+  },
+  "low_confidence": true,
+  "data_source": "WebSearch fallback (Apify monthly limit exhausted)",
+  "sources": [
+    "https://www.amazon.com/SUDOKU-PUZZLE-BOOK-Year-Round-Relaxation/dp/B0FWZPM682",
+    "https://www.amazon.com/Sudoku-Puzzle-Large-Adults-Seniors/dp/B0FL138KTH",
+    "https://www.amazon.com/NEW-2026-Solutions-Comprehensive-Collection/dp/B0FWZV33V5",
+    "https://us.amazon.com/Winter-Wonder-2026-Sudoku-Puzzle/dp/B0FQJK6LRH"
+  ],
+  "score": {
+    "overall": 7.28,
+    "rating": "WARM"
+  },
+  "dimension_scores": {
+    "demand": 2,
+    "opportunity": 10,
+    "competition": 7.54,
+    "margin": 8,
+    "content": 10,
+    "longevity": 7
+  },
+  "flags": [
+    "BLUE_OCEAN_OPPORTUNITY",
+    "LOW_REVIEW_BARRIER",
+    "EMERGING_MARKET"
+  ],
+  "eliminations": [],
+  "our_estimated_monthly_royalty": {
+    "bsr": 150000,
+    "daily_sales_low": 0.7,
+    "daily_sales_mid": 1.2,
+    "daily_sales_high": 2,
+    "royalty_per_sale_usd": 4.692,
+    "monthly_low_usd": 98.53,
+    "monthly_mid_usd": 168.91,
+    "monthly_high_usd": 281.52
+  },
+  "demand_avg_top10_monthly_royalty_usd": 0,
+  "opportunity_score": 999,
+  "criteria_version": "2026.04.27",
+  "slug": "christmas_sudoku_puzzle_book_gift"
+}

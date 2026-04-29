@@ -1,0 +1,172 @@
+{
+  "niche_name": "Travel Size Sudoku Pocket Book",
+  "book_type": "activity",
+  "primary_keyword": "travel size sudoku pocket book",
+  "secondary_keywords": [],
+  "long_tail_keywords": [],
+  "audience": "adults_travelers",
+  "page_size": "8.5x11",
+  "target_page_count": 100,
+  "recommended_list_price_usd": 7.99,
+  "top10_bsr": [
+    101908,
+    210414,
+    568908,
+    181003,
+    116519,
+    19187,
+    363118,
+    1144370,
+    129679,
+    561488
+  ],
+  "top10_reviews": [
+    24,
+    0,
+    38,
+    6,
+    59,
+    167,
+    19,
+    8,
+    23,
+    3
+  ],
+  "top10_prices": [
+    9.99,
+    9.99,
+    6.99,
+    9.99,
+    15.99,
+    6.99,
+    7.99,
+    6.24,
+    6.99,
+    5.99
+  ],
+  "top10_pages": [
+    106,
+    120,
+    115,
+    118,
+    135,
+    120,
+    121,
+    110,
+    95
+  ],
+  "top10_publishers": [
+    "Independently published",
+    "Independently published",
+    "Independently published",
+    "Independently published",
+    "Variety Savings",
+    "Independently published",
+    "Independently published",
+    "Independently published",
+    "Independently published",
+    "Independently published"
+  ],
+  "top10_age_days": [
+    636,
+    193,
+    699,
+    169,
+    951,
+    832,
+    2482,
+    914,
+    863
+  ],
+  "top10_rating": [
+    3.7,
+    0,
+    4.5,
+    4.2,
+    4.5,
+    4.8,
+    4.7,
+    4.7,
+    4.0,
+    4.6
+  ],
+  "top10_asins": [
+    "B0DC55F51J",
+    "B0FX1YKT9M",
+    "B0D5QGNDRY",
+    "B0G1X33KDF",
+    "B0BT3R2SZC",
+    "B0CJHB82BD",
+    "B0CSWC33KZ",
+    "1080233946",
+    "B0CM2HS88H",
+    "B0CQP56Q7P"
+  ],
+  "top10_titles": [
+    "Pretty Pocket Sudoku - Easy Puzzles - Volume 01: 200 Sudoku Puzzles - Small Travel Friendly Size Only 4 x 6 Inches (Pop of Color — Pocket Sudoku)",
+    "Pretty Pocket Sudoku - Medium: The Blue Bauhaus Series: Minimal Small Travel Size Puzzle Book 4*6 Inches | Art Meets Focus",
+    "Pocket Sudoku Book for Adults - Travel Size Small Sudoku Book - Pocket Size Sudoku To Go - VOL 1: 200 Puzzles - Easy to Hard Sudoku - Sudoku Games to ... - 4x6 Inches (FunWiser - Pocket Puzzle Books)",
+    "Pretty Minimalist Sudoku Book Pocket Size Edition - 99 Puzzles, Easy to Hard Puzzles, Travel and Relaxation: Aesthetic pocket puzzles for travel, ... Series, Volume Two. (Pretty Sudoku)",
+    "5-Pack 450+ Travel-Size Sudoku Book,Sudoku Puzzles for Adults, Large Print WordSearch Puzzle Books for Adults, Aging Seniors Brain Stimulation Variety Pack Bulk – Digest Size 8x5",
+    "Pocket Sudoku: Compact & Travel-Friendly Puzzle Book | Only 4 x 6 Inches in Size | 200 Easy to Hard Sudoku Puzzles for Adults with Solutions at the Back | Small in Size, Big in Fun",
+    "Pocket Sudoku: 100 Puzzles - Easy, Medium, Hard - with Solutions, Compact and Travel Size 4x6 Inches, Volume 3 (Pocket Sudoku - Easy/Medium/Hard)",
+    "Sudoku Travel Book: Easy Sudoku Puzzles Book Pocket Sized For Travel",
+    "Pocket Sudoku: Compact & Travel Friendly Power Packed Puzzle Book: 200+ Easy to Hard Sudoku Puzzles for Adults | Only 4 x 6 inches in size",
+    "Pocket Sudoku Book: for Adults,4x6,150 Easy to Hard, Small, Mini, Compact, Travel Size Sudoku Book with Solutions,Large Font."
+  ],
+  "content_concepts_count": 150,
+  "content_concepts_sample": [],
+  "is_seasonal": false,
+  "is_evergreen": true,
+  "is_seasonal_recurring": false,
+  "is_trend": false,
+  "is_fad": false,
+  "days_to_peak": 999,
+  "has_trademark_risk": false,
+  "ip_risk_notes": "Sudoku is a generic puzzle format. Avoid 'Will Shortz', 'Penny Press', 'KAPPA', 'New York Times' style branding.",
+  "trademark_check": {
+    "verdict": "CLEAR",
+    "class_016_live_hits": 0,
+    "adjacent_class_live_hits": 0,
+    "source": "scripts/trademark_check.py"
+  },
+  "qualitative_edge": {
+    "unique_hook": {
+      "pass": true,
+      "angle": "Real travel-size 5x8 trim with airplane-friendly puzzle counts (50 quick puzzles); most 'travel' books in top-10 are still standard 8.5x11"
+    },
+    "evergreen_baseline": {
+      "pass": true,
+      "evidence": "Travel commerce evergreen with mild Q2/Q3 lift"
+    },
+    "repeat_buyer": {
+      "pass": true,
+      "audience": "Frequent travelers, cruise/RV buyers"
+    },
+    "content_scale": {
+      "pass": true,
+      "sequel_count": 3
+    },
+    "score_0_10": 10
+  },
+  "leading_indicators": {
+    "google_trends": "Sudoku evergreen (5y stable baseline, no major decline)",
+    "etsy": "Printable sudoku market exists but small relative to Amazon",
+    "tags": [
+      "travel",
+      "pocket",
+      "5x8"
+    ]
+  },
+  "low_confidence": false,
+  "tech_blocker": "Need 5x8 trim support — config currently only 8.5x11 + 8.5x8.5",
+  "sources": [
+    "https://www.amazon.com/dp/B0DC55F51J",
+    "https://www.amazon.com/dp/B0FX1YKT9M",
+    "https://www.amazon.com/dp/B0D5QGNDRY",
+    "https://www.amazon.com/dp/B0G1X33KDF",
+    "https://www.amazon.com/dp/B0BT3R2SZC"
+  ],
+  "criteria_version": "2026.04.27",
+  "slug": "travel_size_sudoku_pocket_book"
+}

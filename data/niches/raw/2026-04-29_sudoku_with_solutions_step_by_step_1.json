@@ -1,0 +1,198 @@
+{
+  "niche_name": "Sudoku with Solutions Step by Step",
+  "book_type": "activity",
+  "primary_keyword": "sudoku with solutions step by step",
+  "secondary_keywords": [],
+  "long_tail_keywords": [],
+  "audience": "adults_learners",
+  "page_size": "8.5x11",
+  "target_page_count": 130,
+  "recommended_list_price_usd": 9.99,
+  "top10_bsr": [
+    359020,
+    784124,
+    927913,
+    3343553,
+    226064,
+    1320271,
+    589925,
+    7812408,
+    2211838
+  ],
+  "top10_reviews": [
+    0,
+    2,
+    212,
+    349,
+    30,
+    0,
+    0,
+    78,
+    0,
+    3
+  ],
+  "top10_prices": [
+    3.7,
+    14.95,
+    8.95,
+    8.99,
+    3.89,
+    19.99,
+    9.99,
+    7.99,
+    10.95
+  ],
+  "top10_pages": [
+    100,
+    296,
+    264,
+    96,
+    126,
+    113,
+    420,
+    178,
+    131,
+    115
+  ],
+  "top10_publishers": [
+    "Independently published",
+    "Enigma Scientific Publications",
+    "Independently published",
+    "Independently published",
+    "Independently published",
+    "Independently published",
+    "Independently published",
+    "Independently published",
+    "Independently published",
+    "Independently published"
+  ],
+  "top10_age_days": [
+    11,
+    4103,
+    1280,
+    1302,
+    1189,
+    1213,
+    20,
+    1029,
+    223,
+    402
+  ],
+  "top10_rating": [
+    0,
+    4.5,
+    4.7,
+    4.4,
+    4.4,
+    0,
+    0,
+    4.4,
+    0,
+    5.0
+  ],
+  "top10_asins": [
+    "B0GXYSRTGD",
+    "B00T6MU2BA",
+    "B0BKSCY3MC",
+    "B0BHG29RX8",
+    "B0BT6WWR82",
+    "B0BRLYBXYY",
+    "B0GWXQZ9KK",
+    "B0C9SLCRLF",
+    "B0FRYVCBCK",
+    "B0F2HK7YN8"
+  ],
+  "top10_titles": [
+    "Sudoku Puzzles Beginner Level 50 Puzzles",
+    "Sudoku Seventeen: A selection of 200 special, challenging puzzles with a step-by-step guide to their solution",
+    "3000+ Sudoku Puzzle Book for Adults: Easy, Medium, and Hard Sudoku with Detailed Step-by-step Solutions (SUDOKU LADDER)",
+    "1000+ Sudoku Puzzle Book for Adults: Easy, Medium, and Hard Sudoku with Detailed Step-by-step Solutions",
+    "300+ Sudoku Puzzle Book for Adults Medium to Hard: Large Print Sudoku Puzzles with Detailed Step-by-step Solutions | 4 Large Sudoku Grids per Page (Large Grid Sudoku Collection)",
+    "200 Best Sudoku, Easy, Medium And Hard Mix Puzzles For All Ages: I Big Book Of Sudoku 200 Puzzle & 70 Step By Step Solutions, For Young, Expert & Senior, Handwritten, Perfect Of A Gift",
+    "Sudoku Book for Adults -Sudoku Puzzle Book with Solutions - Medium Level: Large Print Easy Sudoku Puzzles for Stress Relief and Mental Focus (Step by step sudoku, by amal bennani smires)",
+    "1000+ Sudoku Puzzles for Adults: Easy to Medium Sudoku Puzzles with Detailed Step-by-step Solutions and Hints When You Get Stuck",
+    "2026 Sudoku Puzzle Book for Adults with Solutions: 500 Challenging & Large-print Sudoku Puzzles with Step-by-Step Solutions to Boost Focus, Patience, and Problem-Solving Skills",
+    "The Ultimate Sudoku Book for Smart Kids Ages 8–12: 400+ Fun Puzzles with Solutions – Learn Sudoku Step by Step with 4x4, 6x6, and 9x9 Grids That Get Harder as You Go!"
+  ],
+  "content_concepts_count": 100,
+  "content_concepts_sample": [],
+  "is_seasonal": false,
+  "is_evergreen": true,
+  "is_seasonal_recurring": false,
+  "is_trend": false,
+  "is_fad": false,
+  "days_to_peak": 999,
+  "has_trademark_risk": false,
+  "ip_risk_notes": "Sudoku is a generic puzzle format. Avoid 'Will Shortz', 'Penny Press', 'KAPPA', 'New York Times' style branding.",
+  "trademark_check": {
+    "verdict": "CLEAR",
+    "class_016_live_hits": 0,
+    "adjacent_class_live_hits": 0,
+    "source": "scripts/trademark_check.py"
+  },
+  "qualitative_edge": {
+    "unique_hook": {
+      "pass": true,
+      "angle": "True step-by-step solution walkthroughs (technique annotations: naked single, hidden pair, X-wing) — most top-10 just dump answer keys"
+    },
+    "evergreen_baseline": {
+      "pass": true,
+      "evidence": "Sudoku-as-tutorial demand growing as new solvers enter"
+    },
+    "repeat_buyer": {
+      "pass": true,
+      "audience": "Learners → graduate up the difficulty ladder"
+    },
+    "content_scale": {
+      "pass": true,
+      "sequel_count": 4
+    },
+    "score_0_10": 10
+  },
+  "leading_indicators": {
+    "google_trends": "Sudoku evergreen (5y stable baseline, no major decline)",
+    "etsy": "Printable sudoku market exists but small relative to Amazon",
+    "tags": [
+      "tutorial",
+      "step_by_step",
+      "techniques"
+    ]
+  },
+  "low_confidence": false,
+  "tech_blocker": null,
+  "sources": [
+    "https://www.amazon.com/dp/B0GXYSRTGD",
+    "https://www.amazon.com/dp/B00T6MU2BA",
+    "https://www.amazon.com/dp/B0BKSCY3MC",
+    "https://www.amazon.com/dp/B0BHG29RX8",
+    "https://www.amazon.com/dp/B0BT6WWR82"
+  ],
+  "score": {
+    "overall": 5.73,
+    "rating": "COLD"
+  },
+  "dimension_scores": {
+    "demand": 2,
+    "opportunity": 0.06,
+    "competition": 7.56,
+    "margin": 8,
+    "content": 10,
+    "longevity": 10
+  },
+  "flags": [],
+  "eliminations": [],
+  "our_estimated_monthly_royalty": {
+    "bsr": 2211838,
+    "daily_sales_low": 0.01,
+    "daily_sales_mid": 0.03,
+    "daily_sales_high": 0.07,
+    "royalty_per_sale_usd": 4.548,
+    "monthly_low_usd": 1.36,
+    "monthly_mid_usd": 4.09,
+    "monthly_high_usd": 9.55
+  },
+  "demand_avg_top10_monthly_royalty_usd": 19.4,
+  "opportunity_score": 0.063,
+  "criteria_version": "2026.04.27",
+  "slug": "sudoku_with_solutions_step_by_step"
+}

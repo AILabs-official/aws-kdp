@@ -48,3 +48,312 @@ Backfill window: 2026-01-24 → 2026-04-28 (95 days)
   ✓ ✓ 0 rows
 
 [16/95] 2026-02-08 ...
+  ✓ ✓ 0 rows
+
+[17/95] 2026-02-09 ...
+  ✓ ✓ 0 rows
+
+[18/95] 2026-02-10 ...
+  ✓ ✓ 0 rows
+
+[19/95] 2026-02-11 ...
+  ✓ ✓ 0 rows
+
+[20/95] 2026-02-12 ...
+  ✗ ient.poll_report(report_id, max_wait_s=600)
+  File "/Users/tonytrieu/Downloads/AIOS/aws-kdp/scripts/amazon_ads_api.py", line 313, in poll_report
+    raise TimeoutError(f"report {report_id} not ready a
+
+[21/95] 2026-02-13 ...
+  ✗ ient.poll_report(report_id, max_wait_s=600)
+  File "/Users/tonytrieu/Downloads/AIOS/aws-kdp/scripts/amazon_ads_api.py", line 313, in poll_report
+    raise TimeoutError(f"report {report_id} not ready a
+
+[22/95] 2026-02-14 ...
+  ✗ ient.poll_report(report_id, max_wait_s=600)
+  File "/Users/tonytrieu/Downloads/AIOS/aws-kdp/scripts/amazon_ads_api.py", line 313, in poll_report
+    raise TimeoutError(f"report {report_id} not ready a
+
+[23/95] 2026-02-15 ...
+  ✗ ient.poll_report(report_id, max_wait_s=600)
+  File "/Users/tonytrieu/Downloads/AIOS/aws-kdp/scripts/amazon_ads_api.py", line 313, in poll_report
+    raise TimeoutError(f"report {report_id} not ready a
+
+[24/95] 2026-02-16 ...
+  ✗ ient.poll_report(report_id, max_wait_s=600)
+  File "/Users/tonytrieu/Downloads/AIOS/aws-kdp/scripts/amazon_ads_api.py", line 313, in poll_report
+    raise TimeoutError(f"report {report_id} not ready a
+
+[25/95] 2026-02-17 ...
+  ✗ ient.poll_report(report_id, max_wait_s=600)
+  File "/Users/tonytrieu/Downloads/AIOS/aws-kdp/scripts/amazon_ads_api.py", line 313, in poll_report
+    raise TimeoutError(f"report {report_id} not ready a
+
+[26/95] 2026-02-18 ...
+  ✗ ient.poll_report(report_id, max_wait_s=600)
+  File "/Users/tonytrieu/Downloads/AIOS/aws-kdp/scripts/amazon_ads_api.py", line 313, in poll_report
+    raise TimeoutError(f"report {report_id} not ready a
+
+[27/95] 2026-02-19 ...
+  ✓ ✓ 0 rows
+
+[28/95] 2026-02-20 ...
+  ✓ ✓ 0 rows
+
+[29/95] 2026-02-21 ...
+  ✗  port=443): Max retries exceeded with url: /reporting/reports/7df8505b-56e0-41b6-a6f7-7c55f03891c0 (Caused by NameResolutionError("HTTPSConnection(host='advertising-api.amazon.com', port=443): Failed 
+
+[30/95] 2026-02-22 ...
+  ✗ tions.ConnectionError: HTTPSConnectionPool(host='api.amazon.com', port=443): Max retries exceeded with url: /auth/o2/token (Caused by NameResolutionError("HTTPSConnection(host='api.amazon.com', port=4
+
+[31/95] 2026-02-23 ...
+  ✗ tions.ConnectionError: HTTPSConnectionPool(host='api.amazon.com', port=443): Max retries exceeded with url: /auth/o2/token (Caused by NameResolutionError("HTTPSConnection(host='api.amazon.com', port=4
+
+[32/95] 2026-02-24 ...
+  ✗ tions.ConnectionError: HTTPSConnectionPool(host='api.amazon.com', port=443): Max retries exceeded with url: /auth/o2/token (Caused by NameResolutionError("HTTPSConnection(host='api.amazon.com', port=4
+
+[33/95] 2026-02-25 ...
+  ✗ tions.ConnectionError: HTTPSConnectionPool(host='api.amazon.com', port=443): Max retries exceeded with url: /auth/o2/token (Caused by NameResolutionError("HTTPSConnection(host='api.amazon.com', port=4
+
+[34/95] 2026-02-26 ...
+  ✗ tions.ConnectionError: HTTPSConnectionPool(host='api.amazon.com', port=443): Max retries exceeded with url: /auth/o2/token (Caused by NameResolutionError("HTTPSConnection(host='api.amazon.com', port=4
+
+[35/95] 2026-02-27 ...
+  ✗ tions.ConnectionError: HTTPSConnectionPool(host='api.amazon.com', port=443): Max retries exceeded with url: /auth/o2/token (Caused by NameResolutionError("HTTPSConnection(host='api.amazon.com', port=4
+
+[36/95] 2026-02-28 ...
+  ✗ tions.ConnectionError: HTTPSConnectionPool(host='api.amazon.com', port=443): Max retries exceeded with url: /auth/o2/token (Caused by NameResolutionError("HTTPSConnection(host='api.amazon.com', port=4
+
+[37/95] 2026-03-01 ...
+  ✗ tions.ConnectionError: HTTPSConnectionPool(host='api.amazon.com', port=443): Max retries exceeded with url: /auth/o2/token (Caused by NameResolutionError("HTTPSConnection(host='api.amazon.com', port=4
+
+[38/95] 2026-03-02 ...
+  ✗ tions.ConnectionError: HTTPSConnectionPool(host='api.amazon.com', port=443): Max retries exceeded with url: /auth/o2/token (Caused by NameResolutionError("HTTPSConnection(host='api.amazon.com', port=4
+
+[39/95] 2026-03-03 ...
+  ✗ tions.ConnectionError: HTTPSConnectionPool(host='api.amazon.com', port=443): Max retries exceeded with url: /auth/o2/token (Caused by NameResolutionError("HTTPSConnection(host='api.amazon.com', port=4
+
+[40/95] 2026-03-04 ...
+  ✗ tions.ConnectionError: HTTPSConnectionPool(host='api.amazon.com', port=443): Max retries exceeded with url: /auth/o2/token (Caused by NameResolutionError("HTTPSConnection(host='api.amazon.com', port=4
+
+[41/95] 2026-03-05 ...
+  ✗ tions.ConnectionError: HTTPSConnectionPool(host='api.amazon.com', port=443): Max retries exceeded with url: /auth/o2/token (Caused by NameResolutionError("HTTPSConnection(host='api.amazon.com', port=4
+
+[42/95] 2026-03-06 ...
+  ✗ tions.ConnectionError: HTTPSConnectionPool(host='api.amazon.com', port=443): Max retries exceeded with url: /auth/o2/token (Caused by NameResolutionError("HTTPSConnection(host='api.amazon.com', port=4
+
+[43/95] 2026-03-07 ...
+  ✗ tions.ConnectionError: HTTPSConnectionPool(host='api.amazon.com', port=443): Max retries exceeded with url: /auth/o2/token (Caused by NameResolutionError("HTTPSConnection(host='api.amazon.com', port=4
+
+[44/95] 2026-03-08 ...
+  ✓ ✓ 0 rows
+
+[45/95] 2026-03-09 ...
+  ✓ ✓ 0 rows
+
+[46/95] 2026-03-10 ...
+  ✓ ✓ 0 rows
+
+[47/95] 2026-03-11 ...
+  ✓ ✓ 0 rows
+
+[48/95] 2026-03-12 ...
+  ✓ ✓ 0 rows
+
+[49/95] 2026-03-13 ...
+  ✓ ✓ 0 rows
+
+[50/95] 2026-03-14 ...
+  ✓ ✓ 0 rows
+
+[51/95] 2026-03-15 ...
+  ✓ ✓ 0 rows
+
+[52/95] 2026-03-16 ...
+  ✓ ✓ 0 rows
+
+[53/95] 2026-03-17 ...
+  ✗ rror(e, request=request)
+requests.exceptions.SSLError: HTTPSConnectionPool(host='advertising-api.amazon.com', port=443): Max retries exceeded with url: /reporting/reports/abc886f2-8115-47cf-a575-5ace6
+
+[54/95] 2026-03-18 ...
+  ✗ , **kwargs)
+  File "/Users/tonytrieu/Library/Python/3.9/lib/python/site-packages/requests/adapters.py", line 659, in send
+    raise ConnectionError(err, request=request)
+requests.exceptions.Connection
+
+[55/95] 2026-03-19 ...
+  ✗ ient.poll_report(report_id, max_wait_s=600)
+  File "/Users/tonytrieu/Downloads/AIOS/aws-kdp/scripts/amazon_ads_api.py", line 313, in poll_report
+    raise TimeoutError(f"report {report_id} not ready a
+
+[56/95] 2026-03-20 ...
+  ✗ ient.poll_report(report_id, max_wait_s=600)
+  File "/Users/tonytrieu/Downloads/AIOS/aws-kdp/scripts/amazon_ads_api.py", line 313, in poll_report
+    raise TimeoutError(f"report {report_id} not ready a
+
+[57/95] 2026-03-21 ...
+  ✗ ient.poll_report(report_id, max_wait_s=600)
+  File "/Users/tonytrieu/Downloads/AIOS/aws-kdp/scripts/amazon_ads_api.py", line 313, in poll_report
+    raise TimeoutError(f"report {report_id} not ready a
+
+[58/95] 2026-03-22 ...
+  ✗ tions.ConnectionError: HTTPSConnectionPool(host='api.amazon.com', port=443): Max retries exceeded with url: /auth/o2/token (Caused by NameResolutionError("HTTPSConnection(host='api.amazon.com', port=4
+
+[59/95] 2026-03-23 ...
+  ✗ tions.ConnectionError: HTTPSConnectionPool(host='api.amazon.com', port=443): Max retries exceeded with url: /auth/o2/token (Caused by NameResolutionError("HTTPSConnection(host='api.amazon.com', port=4
+
+[60/95] 2026-03-24 ...
+  ✗ ient.poll_report(report_id, max_wait_s=600)
+  File "/Users/tonytrieu/Downloads/AIOS/aws-kdp/scripts/amazon_ads_api.py", line 313, in poll_report
+    raise TimeoutError(f"report {report_id} not ready a
+
+[61/95] 2026-03-25 ...
+  ✗ ient.poll_report(report_id, max_wait_s=600)
+  File "/Users/tonytrieu/Downloads/AIOS/aws-kdp/scripts/amazon_ads_api.py", line 313, in poll_report
+    raise TimeoutError(f"report {report_id} not ready a
+
+[62/95] 2026-03-26 ...
+  ✗ ient.poll_report(report_id, max_wait_s=600)
+  File "/Users/tonytrieu/Downloads/AIOS/aws-kdp/scripts/amazon_ads_api.py", line 313, in poll_report
+    raise TimeoutError(f"report {report_id} not ready a
+
+[63/95] 2026-03-27 ...
+  ✗ ient.poll_report(report_id, max_wait_s=600)
+  File "/Users/tonytrieu/Downloads/AIOS/aws-kdp/scripts/amazon_ads_api.py", line 313, in poll_report
+    raise TimeoutError(f"report {report_id} not ready a
+
+[64/95] 2026-03-28 ...
+  ✗ ient.poll_report(report_id, max_wait_s=600)
+  File "/Users/tonytrieu/Downloads/AIOS/aws-kdp/scripts/amazon_ads_api.py", line 313, in poll_report
+    raise TimeoutError(f"report {report_id} not ready a
+
+[65/95] 2026-03-29 ...
+  ✗ est, **kwargs)
+  File "/Users/tonytrieu/Library/Python/3.9/lib/python/site-packages/requests/adapters.py", line 690, in send
+    raise ReadTimeout(e, request=request)
+requests.exceptions.ReadTimeout: 
+
+[66/95] 2026-03-30 ...
+  ✗ ient.poll_report(report_id, max_wait_s=600)
+  File "/Users/tonytrieu/Downloads/AIOS/aws-kdp/scripts/amazon_ads_api.py", line 313, in poll_report
+    raise TimeoutError(f"report {report_id} not ready a
+
+[67/95] 2026-03-31 ...
+  ✗ ient.poll_report(report_id, max_wait_s=600)
+  File "/Users/tonytrieu/Downloads/AIOS/aws-kdp/scripts/amazon_ads_api.py", line 313, in poll_report
+    raise TimeoutError(f"report {report_id} not ready a
+
+[68/95] 2026-04-01 ...
+  ✗ ient.poll_report(report_id, max_wait_s=600)
+  File "/Users/tonytrieu/Downloads/AIOS/aws-kdp/scripts/amazon_ads_api.py", line 313, in poll_report
+    raise TimeoutError(f"report {report_id} not ready a
+
+[69/95] 2026-04-02 ...
+  ✗  port=443): Max retries exceeded with url: /reporting/reports/9389a973-f226-4d91-85b9-1a3e517e3ee6 (Caused by NameResolutionError("HTTPSConnection(host='advertising-api.amazon.com', port=443): Failed 
+
+[70/95] 2026-04-03 ...
+  ✗ tions.ConnectionError: HTTPSConnectionPool(host='api.amazon.com', port=443): Max retries exceeded with url: /auth/o2/token (Caused by NameResolutionError("HTTPSConnection(host='api.amazon.com', port=4
+
+[71/95] 2026-04-04 ...
+  ✗ tions.ConnectionError: HTTPSConnectionPool(host='api.amazon.com', port=443): Max retries exceeded with url: /auth/o2/token (Caused by NameResolutionError("HTTPSConnection(host='api.amazon.com', port=4
+
+[72/95] 2026-04-05 ...
+  ✗ tions.ConnectionError: HTTPSConnectionPool(host='api.amazon.com', port=443): Max retries exceeded with url: /auth/o2/token (Caused by NameResolutionError("HTTPSConnection(host='api.amazon.com', port=4
+
+[73/95] 2026-04-06 ...
+  ✗ tions.ConnectionError: HTTPSConnectionPool(host='api.amazon.com', port=443): Max retries exceeded with url: /auth/o2/token (Caused by NameResolutionError("HTTPSConnection(host='api.amazon.com', port=4
+
+[74/95] 2026-04-07 ...
+  ✗ tions.ConnectionError: HTTPSConnectionPool(host='api.amazon.com', port=443): Max retries exceeded with url: /auth/o2/token (Caused by NameResolutionError("HTTPSConnection(host='api.amazon.com', port=4
+
+[75/95] 2026-04-08 ...
+  ✗ tions.ConnectionError: HTTPSConnectionPool(host='api.amazon.com', port=443): Max retries exceeded with url: /auth/o2/token (Caused by NameResolutionError("HTTPSConnection(host='api.amazon.com', port=4
+
+[76/95] 2026-04-09 ...
+  ✗ tions.ConnectionError: HTTPSConnectionPool(host='api.amazon.com', port=443): Max retries exceeded with url: /auth/o2/token (Caused by NameResolutionError("HTTPSConnection(host='api.amazon.com', port=4
+
+[77/95] 2026-04-10 ...
+  ✗ tions.ConnectionError: HTTPSConnectionPool(host='api.amazon.com', port=443): Max retries exceeded with url: /auth/o2/token (Caused by NameResolutionError("HTTPSConnection(host='api.amazon.com', port=4
+
+[78/95] 2026-04-11 ...
+  ✗ tions.ConnectionError: HTTPSConnectionPool(host='api.amazon.com', port=443): Max retries exceeded with url: /auth/o2/token (Caused by NameResolutionError("HTTPSConnection(host='api.amazon.com', port=4
+
+[79/95] 2026-04-12 ...
+  ✗ tions.ConnectionError: HTTPSConnectionPool(host='api.amazon.com', port=443): Max retries exceeded with url: /auth/o2/token (Caused by NameResolutionError("HTTPSConnection(host='api.amazon.com', port=4
+
+[80/95] 2026-04-13 ...
+  ✗ tions.ConnectionError: HTTPSConnectionPool(host='api.amazon.com', port=443): Max retries exceeded with url: /auth/o2/token (Caused by NameResolutionError("HTTPSConnection(host='api.amazon.com', port=4
+
+[81/95] 2026-04-14 ...
+  ✗ tions.ConnectionError: HTTPSConnectionPool(host='api.amazon.com', port=443): Max retries exceeded with url: /auth/o2/token (Caused by NameResolutionError("HTTPSConnection(host='api.amazon.com', port=4
+
+[82/95] 2026-04-15 ...
+  ✗ tions.ConnectionError: HTTPSConnectionPool(host='api.amazon.com', port=443): Max retries exceeded with url: /auth/o2/token (Caused by NameResolutionError("HTTPSConnection(host='api.amazon.com', port=4
+
+[83/95] 2026-04-16 ...
+  ✗ tions.ConnectionError: HTTPSConnectionPool(host='api.amazon.com', port=443): Max retries exceeded with url: /auth/o2/token (Caused by NameResolutionError("HTTPSConnection(host='api.amazon.com', port=4
+
+[84/95] 2026-04-17 ...
+  ✗ ient.poll_report(report_id, max_wait_s=600)
+  File "/Users/tonytrieu/Downloads/AIOS/aws-kdp/scripts/amazon_ads_api.py", line 313, in poll_report
+    raise TimeoutError(f"report {report_id} not ready a
+
+[85/95] 2026-04-18 ...
+  ✗ ient.poll_report(report_id, max_wait_s=600)
+  File "/Users/tonytrieu/Downloads/AIOS/aws-kdp/scripts/amazon_ads_api.py", line 313, in poll_report
+    raise TimeoutError(f"report {report_id} not ready a
+
+[86/95] 2026-04-19 ...
+  ✗ ient.poll_report(report_id, max_wait_s=600)
+  File "/Users/tonytrieu/Downloads/AIOS/aws-kdp/scripts/amazon_ads_api.py", line 313, in poll_report
+    raise TimeoutError(f"report {report_id} not ready a
+
+[87/95] 2026-04-20 ...
+  ✗ ient.poll_report(report_id, max_wait_s=600)
+  File "/Users/tonytrieu/Downloads/AIOS/aws-kdp/scripts/amazon_ads_api.py", line 313, in poll_report
+    raise TimeoutError(f"report {report_id} not ready a
+
+[88/95] 2026-04-21 ...
+  ✗ ient.poll_report(report_id, max_wait_s=600)
+  File "/Users/tonytrieu/Downloads/AIOS/aws-kdp/scripts/amazon_ads_api.py", line 313, in poll_report
+    raise TimeoutError(f"report {report_id} not ready a
+
+[89/95] 2026-04-22 ...
+  ✗ ient.poll_report(report_id, max_wait_s=600)
+  File "/Users/tonytrieu/Downloads/AIOS/aws-kdp/scripts/amazon_ads_api.py", line 313, in poll_report
+    raise TimeoutError(f"report {report_id} not ready a
+
+[90/95] 2026-04-23 ...
+  ✗ rror(e, request=request)
+requests.exceptions.SSLError: HTTPSConnectionPool(host='advertising-api.amazon.com', port=443): Max retries exceeded with url: /reporting/reports/2c05f698-3d77-492c-8937-5bd8b
+
+[91/95] 2026-04-24 ...
+  ✗ ient.poll_report(report_id, max_wait_s=600)
+  File "/Users/tonytrieu/Downloads/AIOS/aws-kdp/scripts/amazon_ads_api.py", line 313, in poll_report
+    raise TimeoutError(f"report {report_id} not ready a
+
+[92/95] 2026-04-25 ...
+  ✗ ient.poll_report(report_id, max_wait_s=600)
+  File "/Users/tonytrieu/Downloads/AIOS/aws-kdp/scripts/amazon_ads_api.py", line 313, in poll_report
+    raise TimeoutError(f"report {report_id} not ready a
+
+[93/95] 2026-04-26 ...
+  ✗ ient.poll_report(report_id, max_wait_s=600)
+  File "/Users/tonytrieu/Downloads/AIOS/aws-kdp/scripts/amazon_ads_api.py", line 313, in poll_report
+    raise TimeoutError(f"report {report_id} not ready a
+
+[94/95] 2026-04-27 ...
+  ✗ ient.poll_report(report_id, max_wait_s=600)
+  File "/Users/tonytrieu/Downloads/AIOS/aws-kdp/scripts/amazon_ads_api.py", line 313, in poll_report
+    raise TimeoutError(f"report {report_id} not ready a
+
+[95/95] 2026-04-28 ...
+  ✗ ient.poll_report(report_id, max_wait_s=600)
+  File "/Users/tonytrieu/Downloads/AIOS/aws-kdp/scripts/amazon_ads_api.py", line 313, in poll_report
+    raise TimeoutError(f"report {report_id} not ready a
+
+==== summary ====
+  ok:     30
+  failed: 65
+  failed days: 2026-02-12, 2026-02-13, 2026-02-14, 2026-02-15, 2026-02-16, 2026-02-17, 2026-02-18, 2026-02-21, 2026-02-22, 2026-02-23, 2026-02-24, 2026-02-25, 2026-02-26, 2026-02-27, 2026-02-28, 2026-03-01, 2026-03-02, 2026-03-03, 2026-03-04, 2026-03-05 ...

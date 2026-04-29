@@ -1,0 +1,173 @@
+{
+  "niche_name": "Sudoku for Dementia Patients",
+  "book_type": "activity",
+  "primary_keyword": "sudoku for dementia patients",
+  "secondary_keywords": [],
+  "long_tail_keywords": [],
+  "audience": "dementia_caregivers",
+  "page_size": "8.5x11",
+  "target_page_count": 100,
+  "recommended_list_price_usd": 9.99,
+  "top10_bsr": [
+    3368715,
+    51429,
+    796620,
+    2072788,
+    907385,
+    1941757,
+    14816,
+    118552
+  ],
+  "top10_reviews": [
+    0,
+    91,
+    0,
+    1,
+    1,
+    0,
+    0,
+    0,
+    211,
+    22
+  ],
+  "top10_prices": [
+    9.99,
+    6.99,
+    9.99,
+    9.99,
+    9.99,
+    9.99,
+    9.99,
+    6.99,
+    9.99,
+    9.99
+  ],
+  "top10_pages": [
+    128,
+    121,
+    151,
+    103,
+    127,
+    106,
+    128,
+    110,
+    108,
+    96
+  ],
+  "top10_publishers": [
+    "Independently published",
+    "Independently published",
+    "Independently published",
+    "Independently published",
+    "Independently published",
+    "Independently published",
+    "Independently published",
+    "Independently published",
+    "Independently published",
+    "Independently published"
+  ],
+  "top10_age_days": [
+    742,
+    598,
+    8,
+    742,
+    312,
+    329,
+    742,
+    9,
+    644,
+    226
+  ],
+  "top10_rating": [
+    0,
+    4.5,
+    0,
+    5.0,
+    5.0,
+    0,
+    0,
+    0,
+    4.6,
+    4.9
+  ],
+  "top10_asins": [
+    "B0D25TNJTN",
+    "B0DGPZMK7Z",
+    "B0GYCHRTT2",
+    "B0D25V3FHN",
+    "B0FF9CJ15D",
+    "B0FCBTZQ9M",
+    "B0D25TPS1M",
+    "B0GY8T2KWW",
+    "B0DBGG95FP",
+    "B0FRMDVV21"
+  ],
+  "top10_titles": [
+    "Fun and Relaxing Sudoku for Adults Vol. 2: Easy and Pretty Puzzles for Dementia Patients (Large Print) (Easy Activities)",
+    "Easy Sudoku For Seniors: Large Print Easy Sudoku Puzzles with Solutions for Adults and Seniors to Sharpen the Mind and Enjoy",
+    "Easy Sudoku to Stimulate Brain: 100 Sudoku Puzzles for Seniors with Dementia. Extra Large Print Sudoku for Dementia Patients (Easy book for your Brain)",
+    "Fun and Relaxing Sudoku 4x4: Easy Puzzles for Dementia Patients (Jumbo Print) (Easy Activities)",
+    "SUDOKU Extra Large Print: For Seniors & Low Vision | Easy - Hard | 100 Puzzles | Solutions Included | Ideal for Poor Eyesight | Suitable for Dementia | Senior Series Book 2 (Sudoku Senior Series)",
+    "Sudoku for Seniors with Dementia: 80 Very Easy Large-Print Puzzles to Support Focus, Memory & Relaxation - Volume 2",
+    "Fun and Relaxing Sudoku for Adults: Easy Puzzles for Dementia Patients (Large Print) (Easy Activities)",
+    "Dementia Support Sudoku Puzzle: Easy Puzzles to Support Focus, Calm & Cognitive Health - Designed for Dementia, Puzzle Per Page, Dementia Products for ... Dementia Activities, Solutions Included",
+    "Easy Sudoku for Seniors: Large Print Brain Games to Boost Mental Memory and Keep an Active Mind - Perfect Puzzle Book for Beginners with Solutions",
+    "Brain Games for Seniors: Large Print Puzzle Book with Sudoku, Word Search, Crosswords and Mazes: Memory and Focus Activities for Adults with Dementia ... to Boost Mental Health and Relaxation"
+  ],
+  "content_concepts_count": 80,
+  "content_concepts_sample": [],
+  "is_seasonal": false,
+  "is_evergreen": true,
+  "is_seasonal_recurring": false,
+  "is_trend": false,
+  "is_fad": false,
+  "days_to_peak": 999,
+  "has_trademark_risk": false,
+  "ip_risk_notes": "Sudoku is a generic puzzle format. Avoid 'Will Shortz', 'Penny Press', 'KAPPA', 'New York Times' style branding.",
+  "trademark_check": {
+    "verdict": "CLEAR",
+    "class_016_live_hits": 0,
+    "adjacent_class_live_hits": 0,
+    "source": "scripts/trademark_check.py"
+  },
+  "qualitative_edge": {
+    "unique_hook": {
+      "pass": true,
+      "angle": "Therapy-grade sudoku: 4x4 + 6x6 only with extra-large 30pt numerals, one puzzle per page, no clutter — most top-10 dump 9x9 (too hard for cognitive decline)"
+    },
+    "evergreen_baseline": {
+      "pass": true,
+      "evidence": "Aging US population + memory-care market is structurally growing"
+    },
+    "repeat_buyer": {
+      "pass": true,
+      "audience": "Caregivers + senior-living facilities (B2B + gift)"
+    },
+    "content_scale": {
+      "pass": true,
+      "sequel_count": 5
+    },
+    "score_0_10": 10
+  },
+  "leading_indicators": {
+    "google_trends": "Sudoku evergreen (5y stable baseline, no major decline)",
+    "etsy": "Printable sudoku market exists but small relative to Amazon",
+    "tags": [
+      "dementia",
+      "memory_care",
+      "therapy",
+      "caregivers"
+    ]
+  },
+  "low_confidence": false,
+  "tech_blocker": null,
+  "sources": [
+    "https://www.amazon.com/dp/B0D25TNJTN",
+    "https://www.amazon.com/dp/B0DGPZMK7Z",
+    "https://www.amazon.com/dp/B0GYCHRTT2",
+    "https://www.amazon.com/dp/B0D25V3FHN",
+    "https://www.amazon.com/dp/B0FF9CJ15D"
+  ],
+  "criteria_version": "2026.04.27",
+  "slug": "sudoku_for_dementia_patients"
+}

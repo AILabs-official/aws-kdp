@@ -1,0 +1,147 @@
+{
+  "niche_name": "Sudoku Puzzle Book for Nurses Gift",
+  "book_type": "activity",
+  "primary_keyword": "sudoku puzzle book for nurses gift",
+  "secondary_keywords": [
+    "nurse appreciation sudoku",
+    "sudoku for nurses stress relief",
+    "nurse gift activity book"
+  ],
+  "long_tail_keywords": [
+    "sudoku for nurses graduation gift",
+    "nurse week sudoku puzzle book"
+  ],
+  "audience": "nurse_gifts",
+  "page_size": "8.5x11",
+  "target_page_count": 100,
+  "recommended_list_price_usd": 8.99,
+  "top10_bsr": [],
+  "top10_reviews": [],
+  "top10_prices": [
+    8.99,
+    7.99,
+    9.99,
+    8.99,
+    7.99
+  ],
+  "top10_pages": [
+    150,
+    90,
+    110,
+    110,
+    80
+  ],
+  "top10_publishers": [
+    "Independently published",
+    "Independently published",
+    "Independently published",
+    "Independently published",
+    "Independently published"
+  ],
+  "top10_age_days": [
+    240,
+    365,
+    730,
+    540,
+    1095
+  ],
+  "top10_rating": [],
+  "top10_asins": [
+    "B0F7HXDPL8",
+    "B0CW3G91FH",
+    "B0BKXKB6S4",
+    "B0GVS8XVPD",
+    "1088646530"
+  ],
+  "top10_titles": [
+    "Sudoku for Nurses: 150 Puzzle Book for Appreciation Gifts",
+    "Stress Relief For Nurses: Word Searches Mazes Sudoku",
+    "Nurse Life Sudoku Puzzles for Adults Funny Gag Gift",
+    "Sudoku for Nurses Puzzle Book with Relatable Quotes",
+    "301 Easy Sudoku Puzzles for Nurses"
+  ],
+  "content_concepts_count": 100,
+  "content_concepts_sample": [],
+  "is_seasonal": false,
+  "is_evergreen": true,
+  "is_seasonal_recurring": false,
+  "is_trend": false,
+  "is_fad": false,
+  "days_to_peak": 999,
+  "has_trademark_risk": false,
+  "ip_risk_notes": "CLEAR. Generic occupation gift category.",
+  "trademark_check": {
+    "verdict": "CLEAR",
+    "class_016_live_hits": 0,
+    "adjacent_class_live_hits": 0,
+    "source": "scripts/trademark_check.py"
+  },
+  "qualitative_edge": {
+    "unique_hook": {
+      "pass": true,
+      "angle": "12-hour shift bingo — sudoku puzzles paced for 5-min night-shift breaks with relatable nurse jokes/quotes between sections; top-10 are pure puzzle dumps without break-time framing"
+    },
+    "evergreen_baseline": {
+      "pass": true,
+      "evidence": "Spike around Nurse Appreciation Week (May 6-12) and grad season May/June, but baseline gift demand year-round"
+    },
+    "repeat_buyer": {
+      "pass": true,
+      "audience": "Coworker gifts, manager appreciation gifts, grad gifts, retirement gifts — repeat occasions"
+    },
+    "content_scale": {
+      "pass": true,
+      "sequel_count": 3
+    },
+    "score_0_10": 10
+  },
+  "leading_indicators": {
+    "google_trends": "Spikes early May (Nurse Week) + late May (graduations); baseline modest",
+    "amazon_search": "10+ existing books, mostly low-quality; clear sub-niche gap for premium 'shift-paced' design",
+    "tags": [
+      "nurses",
+      "occupation_gift",
+      "appreciation"
+    ]
+  },
+  "low_confidence": true,
+  "data_source": "WebSearch fallback (Apify monthly limit exhausted)",
+  "sources": [
+    "https://www.amazon.com/Sudoku-Nurses-Appreciation-Relaxation-Solutions/dp/B0F7HXDPL8",
+    "https://us.amazon.com/Stress-Relief-Nurses-Containing-Relaxation/dp/B0CW3G91FH",
+    "https://www.amazon.com/Nurse-Life-Sudoku-Puzzles-Adults/dp/B0BKXKB6S4",
+    "https://www.amazon.com/Sudoku-Nurses-Relatable-Solutions-Included/dp/B0GVS8XVPD",
+    "https://www.amazon.com/301-Easy-Sudoku-Puzzles-Nurses/dp/1088646530"
+  ],
+  "score": {
+    "overall": 7.61,
+    "rating": "HOT"
+  },
+  "dimension_scores": {
+    "demand": 2,
+    "opportunity": 10,
+    "competition": 6.73,
+    "margin": 8,
+    "content": 10,
+    "longevity": 10
+  },
+  "flags": [
+    "BLUE_OCEAN_OPPORTUNITY",
+    "LOW_REVIEW_BARRIER"
+  ],
+  "eliminations": [],
+  "our_estimated_monthly_royalty": {
+    "bsr": 150000,
+    "daily_sales_low": 0.7,
+    "daily_sales_mid": 1.2,
+    "daily_sales_high": 2,
+    "royalty_per_sale_usd": 3.47,
+    "monthly_low_usd": 72.87,
+    "monthly_mid_usd": 124.92,
+    "monthly_high_usd": 208.2
+  },
+  "demand_avg_top10_monthly_royalty_usd": 0,
+  "opportunity_score": 999,
+  "criteria_version": "2026.04.27",
+  "slug": "sudoku_puzzle_book_for_nurses_gift"
+}

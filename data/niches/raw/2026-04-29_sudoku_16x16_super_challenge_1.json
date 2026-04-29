@@ -1,0 +1,201 @@
+{
+  "niche_name": "Sudoku 16x16 Super Challenge",
+  "book_type": "activity",
+  "primary_keyword": "sudoku 16x16 super challenge",
+  "secondary_keywords": [],
+  "long_tail_keywords": [],
+  "audience": "adults_advanced",
+  "page_size": "8.5x11",
+  "target_page_count": 100,
+  "recommended_list_price_usd": 9.99,
+  "top10_bsr": [
+    3612724,
+    121522,
+    249209,
+    3654752,
+    305368,
+    1092988,
+    3367890,
+    4033443,
+    312295
+  ],
+  "top10_reviews": [
+    1,
+    21,
+    0,
+    12,
+    7,
+    27,
+    13,
+    0,
+    4,
+    0
+  ],
+  "top10_prices": [
+    10.99,
+    9.99,
+    9.49,
+    9.99,
+    10.0,
+    9.99,
+    9.99,
+    10.99,
+    8.95,
+    9.99
+  ],
+  "top10_pages": [
+    200,
+    127,
+    174,
+    160,
+    132,
+    140,
+    155,
+    200,
+    127,
+    177
+  ],
+  "top10_publishers": [
+    "Independently published",
+    "Independently published",
+    "Independently published",
+    "Independently published",
+    "CreateSpace Independent Publishing Platform",
+    "Independently published",
+    "Independently published",
+    "Independently published",
+    "Independently published",
+    "Independently published"
+  ],
+  "top10_age_days": [
+    210,
+    883,
+    511,
+    1281,
+    4035,
+    1621,
+    814,
+    210,
+    1297,
+    137
+  ],
+  "top10_rating": [
+    3.0,
+    4.1,
+    0,
+    4.1,
+    4.7,
+    4.6,
+    3.4,
+    0,
+    3.8,
+    0
+  ],
+  "top10_asins": [
+    "B0FTVFPCWM",
+    "B0CP9DHGB7",
+    "B0DPSZGBSB",
+    "B0BKSCTX1K",
+    "1511633484",
+    "B09M59K8NZ",
+    "B0CV5LKCWW",
+    "B0FTVDMFWS",
+    "B0BHMP6JLN",
+    "B0G6WKFYYR"
+  ],
+  "top10_titles": [
+    "Super Sudoku 16x16 Volume 2: Ultimate 16×16 Challenge: Fresh, Fiendish, and Fun",
+    "16 x 16 Sudoku Puzzle Book Large Print: 100 Sudoku Puzzles Medium to Hard, Large Print with Solutions (Only 1 per Pages)",
+    "Super Sudoku: 16x16 Medium Puzzles: \"250 Balanced Challenges to Test Your Skills and Boost Your Brainpower\"",
+    "Large Print 16x16 Mega Sudoku Puzzles for Adults: 100 Medium to Hard 16-Number Variation Grids",
+    "Super Sudoku Challenge 1: 16X16 (Super Sudoku 16x16 Challenge)",
+    "Hard Core 16x16 Sudoku 200 Tough Puzzles for Adults: Hard to Very Hard Mega Sudoku Volume 1, Fun Brain Games to Keep Your Mind Active (Sudoku Size Variations, Puzzles for Adults)",
+    "16x16 Sudoku: Vol. 2: 200 Easy & Medium Puzzles, Numbers 1-16 Grid Size, Solutions Included, Book 2 of 5",
+    "Super Sudoku 16x16 Volume 1: Mega-Grid Mastery: Expert 16×16 Sudoku with Answers",
+    "ABC Sudoku Extreme 16 x 16 Puzzle Book: Super Challenging, Alphabet Sudoku Puzzles on Massive, 16 x 16 Grids for Adults",
+    "16x16 Sudoku Letters and Numbers Hard Puzzle Book: Challenging Sudoku 16x16 Number and Letter — Large Print Puzzles for Adults with Solutions"
+  ],
+  "content_concepts_count": 50,
+  "content_concepts_sample": [],
+  "is_seasonal": false,
+  "is_evergreen": true,
+  "is_seasonal_recurring": false,
+  "is_trend": false,
+  "is_fad": false,
+  "days_to_peak": 999,
+  "has_trademark_risk": false,
+  "ip_risk_notes": "Sudoku is a generic puzzle format. Avoid 'Will Shortz', 'Penny Press', 'KAPPA', 'New York Times' style branding.",
+  "trademark_check": {
+    "verdict": "CLEAR",
+    "class_016_live_hits": 0,
+    "adjacent_class_live_hits": 0,
+    "source": "scripts/trademark_check.py"
+  },
+  "qualitative_edge": {
+    "unique_hook": {
+      "pass": true,
+      "angle": "16x16 hexadecimal sudoku is a niche sub-segment with very few quality books; Note: Our generator currently only does 9x9 — would need extension before launching"
+    },
+    "evergreen_baseline": {
+      "pass": true,
+      "evidence": "Hardcore puzzler segment, small but loyal"
+    },
+    "repeat_buyer": {
+      "pass": true,
+      "audience": "Niche enthusiasts who collect formats"
+    },
+    "content_scale": {
+      "pass": false,
+      "sequel_count": 2
+    },
+    "score_0_10": 7
+  },
+  "leading_indicators": {
+    "google_trends": "Sudoku evergreen (5y stable baseline, no major decline)",
+    "etsy": "Printable sudoku market exists but small relative to Amazon",
+    "tags": [
+      "16x16",
+      "hexadoku",
+      "expert"
+    ]
+  },
+  "low_confidence": false,
+  "tech_blocker": "scripts/generate_sudoku.py only supports 9x9",
+  "sources": [
+    "https://www.amazon.com/dp/B0FTVFPCWM",
+    "https://www.amazon.com/dp/B0CP9DHGB7",
+    "https://www.amazon.com/dp/B0DPSZGBSB",
+    "https://www.amazon.com/dp/B0BKSCTX1K",
+    "https://www.amazon.com/dp/1511633484"
+  ],
+  "score": {
+    "overall": 6.29,
+    "rating": "WARM"
+  },
+  "dimension_scores": {
+    "demand": 2,
+    "opportunity": 1.0,
+    "competition": 7.91,
+    "margin": 8,
+    "content": 10,
+    "longevity": 10
+  },
+  "flags": [
+    "LOW_REVIEW_BARRIER"
+  ],
+  "eliminations": [],
+  "our_estimated_monthly_royalty": {
+    "bsr": 312295,
+    "daily_sales_low": 0.2,
+    "daily_sales_mid": 0.4,
+    "daily_sales_high": 0.8,
+    "royalty_per_sale_usd": 4.764,
+    "monthly_low_usd": 28.58,
+    "monthly_mid_usd": 57.17,
+    "monthly_high_usd": 114.34
+  },
+  "demand_avg_top10_monthly_royalty_usd": 40.5,
+  "opportunity_score": 1.0,
+  "criteria_version": "2026.04.27",
+  "slug": "sudoku_16x16_super_challenge"
+}
