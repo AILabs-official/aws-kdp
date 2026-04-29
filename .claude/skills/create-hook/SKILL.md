@@ -10,6 +10,17 @@ Teaches Claude how to create automation hooks that trigger on specific events.
 
 ---
 
+## Execution Protocol — READ FIRST
+
+- Run **ALL** steps in sequence **WITHOUT stopping** between them.
+- Do **NOT** ask "ready to continue?" / "proceed?" / "shall I move on?" between steps. The skill was invoked — that's the green light.
+- After a tool call returns (Bash/Read/Write/Agent), **immediately proceed** to the next step in the same turn.
+- Between steps, emit at most ONE short progress sentence, then continue.
+- Delegate heavy work to sub-agents (general-purpose Task) — let them run autonomously in their own 200K context.
+- Stop ONLY when: (a) all steps complete, (b) blocking error makes next step impossible, (c) a step explicitly marked **(pause for user)** is reached.
+
+---
+
 ## What is a Hook?
 
 A hook is automation that runs when something happens. Hooks live in `.claude/settings.json`.
@@ -39,6 +50,8 @@ Ask the user:
 ### Phase 3: CONFIGURE
 - Add the hook to settings.json
 - Test it works
+
+**→ END of skill execution. Report results to user.**
 
 ---
 

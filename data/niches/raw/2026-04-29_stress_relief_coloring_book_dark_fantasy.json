@@ -1,0 +1,170 @@
+{
+  "niche_name": "stress relief coloring book dark fantasy",
+  "primary_keyword": "stress relief coloring book dark fantasy",
+  "book_type": "coloring",
+  "audience": "adults_dark_fantasy",
+  "page_size": "8.5x11",
+  "target_page_count": 80,
+  "recommended_list_price_usd": 8.99,
+  "secondary_keywords": [],
+  "long_tail_keywords": [],
+  "top10_asins": [
+    "B0GV486LQ1",
+    "B0C9SG1YW5",
+    "B0GHYZKTXN",
+    "B0CY7V67VW",
+    "B0CCZV71T3",
+    "B0C92F8B9X",
+    "B0D1ND7VCQ",
+    "1961737086",
+    "B0CCXKYVLN",
+    "B0D2CTSRST"
+  ],
+  "top10_bsr": [
+    720495,
+    2088227,
+    4832721,
+    570353,
+    1704397,
+    1912559,
+    1848739,
+    2958,
+    457200,
+    907905
+  ],
+  "top10_reviews": [
+    0,
+    3,
+    0,
+    9,
+    0,
+    2,
+    0,
+    888,
+    122,
+    3
+  ],
+  "top10_prices": [
+    7.99,
+    9.99,
+    9.99,
+    19.99,
+    7.99,
+    6.99,
+    9.99,
+    9.99,
+    8.99,
+    9.99
+  ],
+  "top10_pages": [
+    80,
+    104,
+    102,
+    155,
+    102,
+    104,
+    105,
+    110,
+    104,
+    105
+  ],
+  "top10_publishers": [
+    "Independently published",
+    "Independently published",
+    "Independently published",
+    "Independently published",
+    "Independently published",
+    "Independently published",
+    "Independently published",
+    "Fritzen Publishing LLC",
+    "Independently published",
+    "Independently published"
+  ],
+  "top10_age_days": [
+    36,
+    1029,
+    99,
+    775,
+    1014,
+    1039,
+    747,
+    897,
+    1008,
+    743
+  ],
+  "top10_rating": [
+    0.0,
+    3.7,
+    0.0,
+    5.0,
+    0.0,
+    3.5,
+    0.0,
+    4.7,
+    4.4,
+    4.2
+  ],
+  "content_concepts_count": 60,
+  "content_concepts_sample": [
+    "mandala",
+    "flowers",
+    "animals",
+    "landscapes",
+    "patterns",
+    "geometric",
+    "nature",
+    "abstract"
+  ],
+  "is_seasonal": false,
+  "is_evergreen": true,
+  "is_seasonal_recurring": false,
+  "is_trend": false,
+  "is_fad": false,
+  "days_to_peak": 999,
+  "has_trademark_risk": false,
+  "ip_risk_notes": "CLEAR — heuristic check passed",
+  "trademark_check": {
+    "verdict": "CLEAR",
+    "class_016_live_hits": 0,
+    "adjacent_class_live_hits": 0,
+    "source": "scripts/trademark_check.py"
+  },
+  "qualitative_edge": {
+    "unique_hook": {
+      "pass": true,
+      "angle": "Dark fantasy = strong aesthetic differentiation from generic 'stress relief' — appeals to gothic/witchy demo who already buy coloring books."
+    },
+    "evergreen_baseline": {
+      "pass": true,
+      "evidence": "wellness market +12-15%/yr through 2026"
+    },
+    "repeat_buyer": {
+      "pass": true,
+      "audience": "adults_dark_fantasy"
+    },
+    "content_scale": {
+      "pass": true,
+      "sequel_count": 4
+    },
+    "score_0_10": 7
+  },
+  "leading_indicators": {
+    "etsy": "stress relief coloring printables widely sold",
+    "google_trends": "evergreen, +12-15%/yr (DrAxe wellness 2026)"
+  },
+  "sources": [
+    "https://www.amazon.com/dp/B0GV486LQ1",
+    "https://www.amazon.com/dp/B0C9SG1YW5",
+    "https://www.amazon.com/dp/B0GHYZKTXN",
+    "https://www.amazon.com/dp/B0CY7V67VW",
+    "https://www.amazon.com/dp/B0CCZV71T3",
+    "https://www.amazon.com/dp/B0C92F8B9X",
+    "https://www.amazon.com/dp/B0D1ND7VCQ",
+    "https://www.amazon.com/dp/1961737086",
+    "https://www.amazon.com/dp/B0CCXKYVLN",
+    "https://www.amazon.com/dp/B0D2CTSRST"
+  ],
+  "operator_note": "WARM — solid mid-tier subniche; smaller market but distinct audience.",
+  "criteria_version": "2026.04.27",
+  "slug": "stress_relief_coloring_book_dark_fantasy"
+}

@@ -9,6 +9,17 @@ Teaches Claude how to add existing MCP servers OR build custom ones from scratch
 
 ---
 
+## Execution Protocol — READ FIRST
+
+- Run **ALL** steps in sequence **WITHOUT stopping** between them.
+- Do **NOT** ask "ready to continue?" / "proceed?" / "shall I move on?" between steps. The skill was invoked — that's the green light.
+- After a tool call returns (Bash/Read/Write/Agent), **immediately proceed** to the next step in the same turn.
+- Between steps, emit at most ONE short progress sentence, then continue.
+- Delegate heavy work to sub-agents (general-purpose Task) — let them run autonomously in their own 200K context.
+- Stop ONLY when: (a) all steps complete, (b) blocking error makes next step impossible, (c) a step explicitly marked **(pause for user)** is reached.
+
+---
+
 ## Two Paths
 
 | Path | When to Use | Complexity |
@@ -44,6 +55,8 @@ The mcp-finder agent will:
 
 Present the mcp-finder's recommendations to the user.
 
+**→ proceed directly to next step without pausing.**
+
 ---
 
 ### Phase 2: VERIFY TOOLS
@@ -64,6 +77,8 @@ Does this cover what you need?
 
 Get user confirmation before proceeding.
 
+**→ proceed directly to next step without pausing.**
+
 ---
 
 ### Phase 3: GET API KEY
@@ -79,6 +94,8 @@ Provide step-by-step instructions for getting the API key.
 | GitHub | [GitHub Settings](https://github.com/settings/tokens) → Personal access tokens → Generate new token |
 
 Walk the user through the specific steps for their service.
+
+**→ proceed directly to next step without pausing.**
 
 ---
 
@@ -118,6 +135,8 @@ Create or update `.mcp.json` in the project root:
 ```
 
 **Tell user:** "Reload VS Code (Ctrl+Shift+P → 'Reload Window') to connect the MCP."
+
+**→ proceed directly to next step without pausing.**
 
 ---
 
@@ -321,6 +340,8 @@ claude mcp add --transport stdio files -- npx -y @modelcontextprotocol/server-fi
 
 ## The 4-Phase Process
 
+**→ proceed directly to next step without pausing.**
+
 ### Phase 1: DEFINE
 Ask the user:
 - "What API or service do you want to connect?"
@@ -329,11 +350,17 @@ Ask the user:
 ### Phase 2: SETUP
 Choose language and create project structure
 
+**→ proceed directly to next step without pausing.**
+
 ### Phase 3: BUILD
 Implement the MCP server with tools
 
+**→ proceed directly to next step without pausing.**
+
 ### Phase 4: CONNECT
 Add to .mcp.json and test
+
+**→ END of skill execution. Report results to user.**
 
 ---
 

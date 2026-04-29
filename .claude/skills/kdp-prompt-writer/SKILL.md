@@ -9,6 +9,17 @@ Claude analyzes the book concept and writes everything: SEO metadata, cover prom
 
 ---
 
+## Execution Protocol — READ FIRST
+
+- Run **ALL** steps in sequence **WITHOUT stopping** between them.
+- Do **NOT** ask "ready to continue?" / "proceed?" / "shall I move on?" between steps. The skill was invoked — that's the green light.
+- After a tool call returns (Bash/Read/Write/Agent), **immediately proceed** to the next step in the same turn.
+- Between steps, emit at most ONE short progress sentence, then continue.
+- Delegate heavy work to sub-agents (general-purpose Task) — let them run autonomously in their own 200K context.
+- Stop ONLY when: (a) all steps complete, (b) blocking error makes next step impossible, (c) a step explicitly marked **(pause for user)** is reached.
+
+---
+
 ## When to Use
 
 - User wants to plan a new coloring book
@@ -29,6 +40,8 @@ Read the appropriate reference guide:
 - **Adults**: Read `references/adult-prompt-guide.md` in this skill directory
 - **Kids**: Read `references/kids-prompt-guide.md` in this skill directory
 
+**→ proceed directly to next step without pausing.**
+
 ### Step 2: Write SEO Metadata
 
 Generate based on the concept:
@@ -47,6 +60,8 @@ Generate based on the concept:
 
 **Keywords** — 7 SEO-relevant keywords for Amazon search
 
+**→ proceed directly to next step without pausing.**
+
 ### Step 3: Write Cover Prompt
 
 **Adults cover prompt must include:**
@@ -62,6 +77,8 @@ Generate based on the concept:
 - DO NOT include any text/letters/words in the generated image
 - Bright colors, cheerful composition
 - Mention "Coloring Book for Kids Ages 6-12"
+
+**→ proceed directly to next step without pausing.**
 
 ### Step 4: Write Page Prompts (20-30)
 
@@ -91,6 +108,8 @@ Each prompt describes a single-subject coloring page with:
 - **If page_size is 8.5x8.5**: Add "SQUARE format (1:1 aspect ratio)" to every prompt. Subject should fill the square frame evenly.
 - **If page_size is 8.5x11**: Add "PORTRAIT orientation (taller than wide)" to every prompt.
 
+**→ proceed directly to next step without pausing.**
+
 ### Step 5: Ensure Variety
 
 Page prompts must cover diverse scenes/activities:
@@ -106,6 +125,8 @@ Page prompts must cover diverse scenes/activities:
 - Avoid prompts with physically close interactions (hugging, holding hands, dancing together) — these cause body-part fusion errors
 - Add "IMPORTANT: Each character must have clearly defined, complete body with no overlapping or merged body parts" to every prompt that includes more than one character
 - Background characters (e.g., vendors at a market) are acceptable only if they are small, distant, and clearly separated from the main character
+
+**→ proceed directly to next step without pausing.**
 
 ### Step 6: Save Plan
 
@@ -128,6 +149,8 @@ Create the plan JSON file at `output/{theme_key}/plan.json`:
 
 Also save `output/{theme_key}/prompts.txt` (one prompt per line).
 
+**→ proceed directly to next step without pausing.**
+
 ### Step 7: Register Theme
 
 Add to `config.py` THEMES dict:
@@ -138,6 +161,8 @@ Add to `config.py` THEMES dict:
     "prompt_file": "output/{theme_key}/prompts.txt",
 },
 ```
+
+**→ END of skill execution. Report results to user.**
 
 ---
 

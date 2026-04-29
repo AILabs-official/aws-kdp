@@ -8,6 +8,17 @@ version: 5.0.0
 
 Tạo hình ảnh bổ trợ thông tin cho bài Facebook chia sẻ kiến thức. Hình ảnh là dạng typography-based (text-heavy), KHÔNG phải ảnh chụp hay minh họa.
 
+## Execution Protocol — READ FIRST
+
+- Run **ALL** steps in sequence **WITHOUT stopping** between them.
+- Do **NOT** ask "ready to continue?" / "proceed?" / "shall I move on?" between steps. The skill was invoked — that's the green light.
+- After a tool call returns (Bash/Read/Write/Agent), **immediately proceed** to the next step in the same turn.
+- Between steps, emit at most ONE short progress sentence, then continue.
+- Delegate heavy work to sub-agents (general-purpose Task) — let them run autonomously in their own 200K context.
+- Stop ONLY when: (a) all steps complete, (b) blocking error makes next step impossible, (c) a step explicitly marked **(pause for user)** is reached.
+
+---
+
 ## Workflow
 
 **QUAN TRỌNG:** Luôn tuân theo `references/workflow.md` khi skill được kích hoạt.
@@ -332,6 +343,8 @@ Khi nhận bài viết, phân loại tự động theo bảng sau:
 | 1 câu nói mạnh, insight, quote, mindset | **Quote / Statement** |
 | So sánh trước/sau, sai/đúng, cũ/mới | **Before/After** |
 
+**→ proceed directly to next step without pausing.**
+
 ## Process
 
 1. **Phân tích nội dung** — Đọc bài viết, xác định chủ đề + thông điệp chính
@@ -340,6 +353,8 @@ Khi nhận bài viết, phân loại tự động theo bảng sau:
 4. **Build prompt** — Dùng prompt mẫu tương ứng, điền nội dung Vietnamese chính xác
 5. **Xác nhận** — Trình bày phân tích + prompt, hỏi user confirm
 6. **Generate** — Tạo ảnh
+
+**→ proceed directly to next step without pausing.**
 
 ## Generate
 
@@ -356,6 +371,8 @@ cd .claude/skills/image-post-creator && python3 scripts/generate.py "<prompt>" -
 | `--size` | 1K, 2K, 4K (default: 2K) |
 | `-v, --verbose` | Show details |
 | `--dry-run` | Show prompt without generating |
+
+**→ proceed directly to next step without pausing.**
 
 ## Confirm Step
 
@@ -387,6 +404,8 @@ Trước khi generate, trình bày:
 Prompt đã dùng:
 [full prompt]
 ```
+
+**→ END of skill execution. Report results to user.**
 
 ## Error Handling
 

@@ -15,6 +15,17 @@ Generate a full KDP-compliant book cover (front + spine + back) as both PNG and 
 
 ---
 
+## Execution Protocol — READ FIRST
+
+- Run **ALL** steps in sequence **WITHOUT stopping** between them.
+- Do **NOT** ask "ready to continue?" / "proceed?" / "shall I move on?" between steps. The skill was invoked — that's the green light.
+- After a tool call returns (Bash/Read/Write/Agent), **immediately proceed** to the next step in the same turn.
+- Between steps, emit at most ONE short progress sentence, then continue.
+- Delegate heavy work to sub-agents (general-purpose Task) — let them run autonomously in their own 200K context.
+- Stop ONLY when: (a) all steps complete, (b) blocking error makes next step impossible, (c) a step explicitly marked **(pause for user)** is reached.
+
+---
+
 ## Input
 
 Accept any of these:
@@ -42,6 +53,8 @@ Read `output/{theme_key}/plan.json` to get:
 
 Also check `config.py` THEMES dict for theme registration.
 
+**→ proceed directly to next step without pausing.**
+
 ### Step 2: Determine Aspect Ratios
 
 **This is critical for correct cover generation.**
@@ -55,6 +68,8 @@ The aspect ratio affects:
 - Front artwork generation (AI33 `aspect_ratio` parameter)
 - Back cover sample page thumbnails (must match page shape)
 - Overall cover height calculation
+
+**→ proceed directly to next step without pausing.**
 
 ### Step 3: Generate Front Cover Artwork
 
@@ -87,6 +102,8 @@ ar = config.PAGE_SIZES[page_size]["ai33_aspect_ratio"]
 return _generate_image_ai33(prompt, aspect_ratio=ar)
 ```
 
+**→ proceed directly to next step without pausing.**
+
 ### Step 4: Fix Back Cover for Square Books
 
 For 8.5x8.5 books, the back cover sample page thumbnails must use 1:1 aspect ratio:
@@ -103,6 +120,8 @@ page_ratio = page_dims["height_px"] / page_dims["width_px"]  # 1.294 for portrai
 ```
 
 This ensures square books show square thumbnails on the back cover.
+
+**→ proceed directly to next step without pausing.**
 
 ### Step 5: Cover Dimensions
 
@@ -121,6 +140,8 @@ Full height = trim_height + (2 × 0.125" bleed)
 
 KDP can also provide exact dimensions — use `--kdp-width` and `--kdp-height` to override.
 
+**→ proceed directly to next step without pausing.**
+
 ### Step 6: Verify Output (KDP Pre-flight)
 
 Check:
@@ -134,6 +155,8 @@ Check:
 - **Spine text clearance**: if spine has text, verify 0.0625" clearance on each side
 - **Spine text only if 79+ pages** — fewer pages = no spine text allowed
 - **Metadata consistency**: title on cover must match title on interior title page
+
+**→ END of skill execution. Report results to user.**
 
 ---
 

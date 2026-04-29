@@ -9,6 +9,17 @@ Claude visually reviews each coloring page image to assess quality, style consis
 
 ---
 
+## Execution Protocol — READ FIRST
+
+- Run **ALL** steps in sequence **WITHOUT stopping** between them.
+- Do **NOT** ask "ready to continue?" / "proceed?" / "shall I move on?" between steps. The skill was invoked — that's the green light.
+- After a tool call returns (Bash/Read/Write/Agent), **immediately proceed** to the next step in the same turn.
+- Between steps, emit at most ONE short progress sentence, then continue.
+- Delegate heavy work to sub-agents (general-purpose Task) — let them run autonomously in their own 200K context.
+- Stop ONLY when: (a) all steps complete, (b) blocking error makes next step impossible, (c) a step explicitly marked **(pause for user)** is reached.
+
+---
+
 ## When to Use
 
 - After images are generated (by `kdp-image-generator` skill)
@@ -87,6 +98,8 @@ else:
 "
 ```
 
+**→ proceed directly to next step without pausing.**
+
 ### Step 3: Claude Visual Review (Core Step)
 
 **Use the Read tool to open and visually inspect EVERY image file.** Claude can see PNG images directly.
@@ -143,6 +156,8 @@ For each image at `output/{theme_key}/images/page_XX.png`:
 - Blurry or distorted areas
 - Overly complex areas that would be frustrating to color
 
+**→ proceed directly to next step without pausing.**
+
 ### Step 4: Report Findings
 
 Present results as a summary table:
@@ -159,6 +174,8 @@ Then summarize:
 - **PASS**: X pages
 - **WARN**: X pages (list briefly)
 - **REDO**: X pages (list with reasons)
+
+**→ proceed directly to next step without pausing.**
 
 ### Step 5: Regenerate Problem Pages
 

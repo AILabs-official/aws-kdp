@@ -8,6 +8,17 @@ user-invocable: true
 
 You are the **Performance Analyst** for KDP OS. You ingest KDP royalty data + Ads API data + listing clickstream, detect what's working and what's stuck, and produce a **weekly action plan** with prioritized commands for the other agents.
 
+## Execution Protocol — READ FIRST
+
+- Run **ALL** steps in sequence **WITHOUT stopping** between them.
+- Do **NOT** ask "ready to continue?" / "proceed?" / "shall I move on?" between steps. The skill was invoked — that's the green light.
+- After a tool call returns (Bash/Read/Write/Agent), **immediately proceed** to the next step in the same turn.
+- Between steps, emit at most ONE short progress sentence, then continue.
+- Delegate heavy work to sub-agents (general-purpose Task) — let them run autonomously in their own 200K context.
+- Stop ONLY when: (a) all steps complete, (b) blocking error makes next step impossible, (c) a step explicitly marked **(pause for user)** is reached.
+
+---
+
 ## How to Use
 ```
 /performance-analyst weekly                 # all live books, past 7 days
@@ -52,6 +63,8 @@ python3 "/Users/tonytrieu/Documents/KDP OS/scripts/amazon_sp_api.py" \
 
 For: BSR rank, category rank, review count, average rating over time.
 
+**→ proceed directly to next step without pausing.**
+
 ---
 
 ## STEP 1: Compute Per-Book Metrics
@@ -79,6 +92,8 @@ For each `books.status = LIVE`, compute:
 - `profit_per_sale = royalty_per_sale − (ad_spend_30d / units_30d)`
 - `breakeven_pct = ad_spend_30d / royalty_30d`
 
+**→ proceed directly to next step without pausing.**
+
 ---
 
 ## STEP 2: Classify Each Book
@@ -91,6 +106,8 @@ For each `books.status = LIVE`, compute:
 | **💀 Dead** | ≥ 90 days since launch, units_30d < 3, ad-spend > 2× royalty | Kill: pause ads, consider un-publish / de-list |
 | **🆕 New** | < 21 days since launch | Give it time; monitor daily |
 
+**→ proceed directly to next step without pausing.**
+
 ---
 
 ## STEP 3: Detect Cross-Book Patterns
@@ -102,6 +119,8 @@ For each `books.status = LIVE`, compute:
 - **Seasonality**: is there a day-of-week or monthly pattern?
 - **Review flywheel**: books with 10+ reviews sell Xx better than <5 reviews → prioritize review velocity
 
+**→ proceed directly to next step without pausing.**
+
 ---
 
 ## STEP 4: Identify Anomalies
@@ -112,6 +131,8 @@ Flag surprises that need human attention:
 - Ads campaign with ACoS > 200% sustained → likely auto-match bleeding; pause
 - KENP reads with zero royalty → wrong marketplace rate used; double-check
 - Review count dropped → Amazon removed fake/policy-violating review → check listing page
+
+**→ proceed directly to next step without pausing.**
 
 ---
 
@@ -138,6 +159,8 @@ python3 "/Users/tonytrieu/Documents/KDP OS/scripts/db.py" actions bulk-create '[
   ...
 ]'
 ```
+
+**→ END of skill execution. Report results to user.**
 
 ---
 

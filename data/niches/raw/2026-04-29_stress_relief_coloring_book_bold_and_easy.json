@@ -1,0 +1,170 @@
+{
+  "niche_name": "stress relief coloring book bold and easy",
+  "primary_keyword": "stress relief coloring book bold and easy",
+  "book_type": "coloring",
+  "audience": "adults_general",
+  "page_size": "8.5x11",
+  "target_page_count": 80,
+  "recommended_list_price_usd": 8.99,
+  "secondary_keywords": [],
+  "long_tail_keywords": [],
+  "top10_asins": [
+    "B0DF33B1YG",
+    "B0DCJLG662",
+    "B0D3CSPMZG",
+    "B0DM1NXM5S",
+    "B0FT2M4P6H",
+    "B0DG8ZWNPB",
+    "B0FCFJ6JXP",
+    "B0DY1W9H4Y",
+    "B0GMHSB4Z8",
+    "B0DNNGRM1R"
+  ],
+  "top10_bsr": [
+    2191,
+    47406,
+    79,
+    292684,
+    715283,
+    5168,
+    145907,
+    61466,
+    684520,
+    85728
+  ],
+  "top10_reviews": [
+    1674,
+    588,
+    7671,
+    159,
+    9,
+    1857,
+    30,
+    6,
+    0,
+    177
+  ],
+  "top10_prices": [
+    9.99,
+    9.99,
+    9.99,
+    6.99,
+    7.99,
+    5.99,
+    4.99,
+    4.99,
+    9.99,
+    7.99
+  ],
+  "top10_pages": [
+    110,
+    94,
+    110,
+    102,
+    86,
+    108,
+    94,
+    102,
+    104,
+    84
+  ],
+  "top10_publishers": [
+    "Independently published",
+    "Independently published",
+    "Independently published",
+    "Independently published",
+    "Independently published",
+    "Independently published",
+    "Independently published",
+    "Independently published",
+    "Independently published",
+    "Independently published"
+  ],
+  "top10_age_days": [
+    616,
+    629,
+    725,
+    542,
+    215,
+    603,
+    327,
+    435,
+    86,
+    527
+  ],
+  "top10_rating": [
+    4.8,
+    4.8,
+    4.8,
+    4.6,
+    5.0,
+    4.8,
+    4.3,
+    4.5,
+    0.0,
+    4.7
+  ],
+  "content_concepts_count": 60,
+  "content_concepts_sample": [
+    "mandala",
+    "flowers",
+    "animals",
+    "landscapes",
+    "patterns",
+    "geometric",
+    "nature",
+    "abstract"
+  ],
+  "is_seasonal": false,
+  "is_evergreen": true,
+  "is_seasonal_recurring": false,
+  "is_trend": false,
+  "is_fad": false,
+  "days_to_peak": 999,
+  "has_trademark_risk": false,
+  "ip_risk_notes": "CLEAR — heuristic check passed",
+  "trademark_check": {
+    "verdict": "CLEAR",
+    "class_016_live_hits": 0,
+    "adjacent_class_live_hits": 0,
+    "source": "scripts/trademark_check.py"
+  },
+  "qualitative_edge": {
+    "unique_hook": {
+      "pass": true,
+      "angle": "Bold and easy is a clear stylistic differentiator from generic stress relief — but #1 incumbent (Coco Wyo, BSR 79, 7671 reviews) is a beast. Target the #4-#7 BSR slot (47K-715K BSR with 159/9 reviews — clear gaps)."
+    },
+    "evergreen_baseline": {
+      "pass": true,
+      "evidence": "wellness market +12-15%/yr through 2026"
+    },
+    "repeat_buyer": {
+      "pass": true,
+      "audience": "adults_general"
+    },
+    "content_scale": {
+      "pass": true,
+      "sequel_count": 4
+    },
+    "score_0_10": 7
+  },
+  "leading_indicators": {
+    "etsy": "stress relief coloring printables widely sold",
+    "google_trends": "evergreen, +12-15%/yr (DrAxe wellness 2026)"
+  },
+  "sources": [
+    "https://www.amazon.com/dp/B0DF33B1YG",
+    "https://www.amazon.com/dp/B0DCJLG662",
+    "https://www.amazon.com/dp/B0D3CSPMZG",
+    "https://www.amazon.com/dp/B0DM1NXM5S",
+    "https://www.amazon.com/dp/B0FT2M4P6H",
+    "https://www.amazon.com/dp/B0DG8ZWNPB",
+    "https://www.amazon.com/dp/B0FCFJ6JXP",
+    "https://www.amazon.com/dp/B0DY1W9H4Y",
+    "https://www.amazon.com/dp/B0GMHSB4Z8",
+    "https://www.amazon.com/dp/B0DNNGRM1R"
+  ],
+  "operator_note": "HIGH DEMAND, HIGH CEILING — but requires distinctive cover/title to dethrone weaker mid-pack incumbents (BSR 47K with 588 reviews has headroom).",
+  "criteria_version": "2026.04.27",
+  "slug": "stress_relief_coloring_book_bold_and_easy"
+}
