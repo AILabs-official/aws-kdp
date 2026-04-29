@@ -1,0 +1,91 @@
+{
+  "book_id": 7,
+  "asin": "B0DPMZ2JN6",
+  "theme_key": "ai_publishing_profits",
+  "title": "AI Publishing Profits: Passive Income Mastering KDP",
+  "author": "Tony Trieu",
+  "format": "kindle_ebook",
+  "kdp_select": true,
+  "list_price_usd": 6.99,
+
+  "economics": {
+    "delivery_cost_usd": 0.06,
+    "royalty_per_sale_usd": 4.85,
+    "royalty_formula": "(6.99 - 0.06) * 0.70",
+    "break_even_acos_pct": 69.4,
+    "kenp_buffer_note": "True ACoS effectively lower than reported because KENP page-reads add hidden revenue not attributed to ads. Treat reported break-even as ceiling.",
+    "conv_rate_assumed_pct": 10.0,
+    "target_acos_launch_pct": 50,
+    "target_acos_mature_pct": 35,
+    "max_cpc_launch_usd": 0.24,
+    "max_cpc_mature_usd": 0.17
+  },
+
+  "campaign_strategy": {
+    "approach": "Add 2 new campaigns (Auto + Exact) on top of existing manual campaign 330597817286443 to complete 3-campaign structure. Existing 'Launching AI Publishing profit book' campaign ($20/day, ENABLED) acts as the Phrase/Manual leg but currently shows 0 spend in last 28 days — needs separate audit.",
+    "total_new_daily_budget_usd": 12.0,
+    "total_combined_with_existing_usd": 32.0
+  },
+
+  "campaigns": [
+    {
+      "name": "Launch Auto — AI Publishing Profits",
+      "type": "auto",
+      "match_type": "auto",
+      "daily_budget_usd": 5.00,
+      "default_bid_usd": 0.20,
+      "bid_strategy": "dynamic_down_only",
+      "purpose": "Discovery — let Amazon find converting search terms we didn't predict. Harvest winners → Exact after 7 days.",
+      "auto_targeting_groups": ["close_match", "loose_match", "substitutes", "complements"],
+      "negative_keywords": ["free", "pdf", "printable", "audiobook", "udemy", "course", "youtube tutorial", "reddit"]
+    },
+    {
+      "name": "Launch Exact — AI Publishing Profits",
+      "type": "manual",
+      "match_type": "exact",
+      "daily_budget_usd": 7.00,
+      "default_bid_usd": 0.24,
+      "bid_strategy": "dynamic_down_only",
+      "purpose": "Own high-intent searches at controlled cost.",
+      "keywords_exact": [
+        {"text": "ai publishing", "bid": 0.30},
+        {"text": "ai kdp", "bid": 0.30},
+        {"text": "chatgpt kdp", "bid": 0.28},
+        {"text": "self publishing with ai", "bid": 0.26},
+        {"text": "ai book writing", "bid": 0.24},
+        {"text": "kdp passive income", "bid": 0.26},
+        {"text": "make money kdp", "bid": 0.24},
+        {"text": "self publishing ai", "bid": 0.26},
+        {"text": "ai authors", "bid": 0.22},
+        {"text": "amazon kdp guide", "bid": 0.22},
+        {"text": "low content book ai", "bid": 0.20},
+        {"text": "kindle direct publishing", "bid": 0.20}
+      ],
+      "negative_keywords": ["free", "pdf", "printable", "audiobook", "udemy", "course", "for kids", "review", "complaints"]
+    }
+  ],
+
+  "existing_campaign_kept": {
+    "amazon_campaign_id": "330597817286443",
+    "name": "Launching AI Publishing profit book",
+    "budget_daily_usd": 20.0,
+    "status": "ENABLED",
+    "note": "0 rows in last 28-day report → effectively dead air. Audit needed: probably default bid too low to win impressions, or keywords weak. Recommend separate /ads-manager iterate pass after new launch is live for 7 days."
+  },
+
+  "negative_keywords_global": [
+    "free", "pdf", "printable", "audiobook",
+    "udemy", "course", "youtube tutorial",
+    "for kids", "for children",
+    "reddit", "complaints", "review"
+  ],
+
+  "review_schedule": {
+    "day_3": "Quick check — confirm impressions flowing on both new campaigns",
+    "day_8": "First iteration — pause keywords with 15+ clicks 0 orders, harvest auto winners",
+    "day_15": "Second iteration — bid scale on ACoS<35%, audit existing $20 campaign"
+  },
+
+  "created_at": "2026-04-29T10:08:00Z",
+  "created_by": "ads-manager skill"
+}

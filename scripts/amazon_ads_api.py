@@ -322,9 +322,9 @@ def build_launch_plan(asin: str, title: str, keywords_tier1: list[str], keywords
                       daily_budget_exact: float = 10.0, daily_budget_phrase: float = 5.0) -> list[dict]:
     plan: list[dict] = []
     campaigns = [
-        ("Launch Auto — " + title[:40], "auto", daily_budget_auto, default_bid * 0.9),
-        ("Launch Exact — " + title[:40], "manual", daily_budget_exact, default_bid),
-        ("Launch Phrase — " + title[:40], "manual", daily_budget_phrase, default_bid * 0.9),
+        ("Launch Auto - " + title[:40], "auto", daily_budget_auto, default_bid * 0.9),
+        ("Launch Exact - " + title[:40], "manual", daily_budget_exact, default_bid),
+        ("Launch Phrase - " + title[:40], "manual", daily_budget_phrase, default_bid * 0.9),
     ]
     for camp_name, camp_type, budget, bid in campaigns:
         plan.append({"Product": "Sponsored Products", "Entity": "Campaign", "Operation": "Create",
@@ -399,12 +399,12 @@ def launch_book(client: AdsClient, asin: str, title: str,
     out: dict[str, Any] = {"campaigns": []}
 
     plan = [
-        {"label": "auto", "name": f"Launch Auto — {short}", "type": "AUTO",
+        {"label": "auto", "name": f"Launch Auto - {short}", "type": "AUTO",
          "budget": budget_auto, "bid": round(default_bid * 0.9, 2)},
-        {"label": "exact", "name": f"Launch Exact — {short}", "type": "MANUAL",
+        {"label": "exact", "name": f"Launch Exact - {short}", "type": "MANUAL",
          "budget": budget_exact, "bid": round(default_bid, 2),
          "keywords": keywords_exact, "match": "EXACT"},
-        {"label": "phrase", "name": f"Launch Phrase — {short}", "type": "MANUAL",
+        {"label": "phrase", "name": f"Launch Phrase - {short}", "type": "MANUAL",
          "budget": budget_phrase, "bid": round(default_bid * 0.9, 2),
          "keywords": keywords_phrase, "match": "PHRASE"},
     ]
