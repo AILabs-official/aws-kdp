@@ -1,0 +1,200 @@
+{
+  "niche_name": "Sudoku for Adults Hard",
+  "book_type": "activity",
+  "primary_keyword": "sudoku for adults hard",
+  "secondary_keywords": [],
+  "long_tail_keywords": [],
+  "audience": "adults_advanced",
+  "page_size": "8.5x11",
+  "target_page_count": 120,
+  "recommended_list_price_usd": 8.99,
+  "top10_bsr": [
+    111062,
+    108593,
+    40750,
+    105599,
+    105209,
+    6684,
+    39252,
+    41035,
+    255088,
+    71959
+  ],
+  "top10_reviews": [
+    193,
+    64,
+    147,
+    26,
+    45,
+    1198,
+    1120,
+    99,
+    158,
+    73
+  ],
+  "top10_prices": [
+    20.95,
+    6.98,
+    6.99,
+    11.99,
+    11.99,
+    8.95,
+    9.91,
+    6.98,
+    6.99,
+    9.99
+  ],
+  "top10_pages": [
+    504,
+    114,
+    106,
+    171,
+    171,
+    188,
+    368,
+    112,
+    88,
+    142
+  ],
+  "top10_publishers": [
+    "Independently published",
+    "Independently published",
+    "Independently published",
+    "Independently published",
+    "Independently published",
+    "Independently published",
+    "St. Martin's Griffin",
+    "Independently published",
+    "Independently published",
+    "Independently published"
+  ],
+  "top10_age_days": [
+    2169,
+    350,
+    866,
+    440,
+    1145,
+    1101,
+    4803,
+    442,
+    1346,
+    2118
+  ],
+  "top10_rating": [
+    4.5,
+    4.5,
+    4.1,
+    4.0,
+    4.3,
+    4.4,
+    4.7,
+    4.5,
+    4.1,
+    4.0
+  ],
+  "top10_asins": [
+    "B0892DFXQN",
+    "B0F929S2LM",
+    "B0CQJ9719J",
+    "B0DXCRR165",
+    "B0BXNPBVYW",
+    "B0C2S6Q9MJ",
+    "1250025303",
+    "B0DX71SV99",
+    "B0BBJS4ZVL",
+    "B08CPDL7KT"
+  ],
+  "top10_titles": [
+    "Sudoku Puzzle Book for Adults: 3000 Very Hard to Extreme Hard Sudoku Puzzles with Solutions - Vol. 1",
+    "Sudoku Medium to Hard: Big Print, Two Puzzles Per Page With Full Solutions (Fun Sudoku Collection)",
+    "Hard to Extreme Sudoku Puzzle Book: 400+ Challenging Puzzles with 3 Difficulty Levels: Hard, Extreme to Insane | Solutions Included",
+    "Sudoku Puzzle Book for Adults: 1000 Hard Level Puzzles with Solutions - Vol 2",
+    "Sudoku Puzzle Book for Adults: 1000 Hard Level Puzzles with Solutions - Vol 1",
+    "1000+ Sudoku Puzzles for Adults: Medium to Hard Sudoku Puzzles with Detailed Step-by-step Solutions and Hints When You Get Stuck (SUDOKU LADDER)",
+    "Will Shortz Presents The Huge Book of Hard Sudoku: 300 Challenging Puzzles",
+    "Hard Sudoku Puzzles For Adults: Large Print Two Puzzles Per Page (Vol 1) (Fun Sudoku Collection)",
+    "sudoku hard to expert: Huge Bargain Collection of 1000 Puzzles and Solutions, Hard to Expert Level, Tons of Challenge for your Brain!",
+    "Sudoku Hard: Sudoku Puzzle Book With 320 Hard Sudoku Puzzles For Adults"
+  ],
+  "content_concepts_count": 400,
+  "content_concepts_sample": [],
+  "is_seasonal": false,
+  "is_evergreen": true,
+  "is_seasonal_recurring": false,
+  "is_trend": false,
+  "is_fad": false,
+  "days_to_peak": 999,
+  "has_trademark_risk": false,
+  "ip_risk_notes": "Sudoku is a generic puzzle format. Avoid 'Will Shortz', 'Penny Press', 'KAPPA', 'New York Times' style branding.",
+  "trademark_check": {
+    "verdict": "CLEAR",
+    "class_016_live_hits": 0,
+    "adjacent_class_live_hits": 0,
+    "source": "scripts/trademark_check.py"
+  },
+  "qualitative_edge": {
+    "unique_hook": {
+      "pass": false,
+      "angle": "Generic 'hard sudoku' is well-served — commodity risk. Differentiator only if pivoted to e.g. evil/diabolical or master-class tier with technique callouts"
+    },
+    "evergreen_baseline": {
+      "pass": true,
+      "evidence": "Hardcore solvers buy steadily"
+    },
+    "repeat_buyer": {
+      "pass": true,
+      "audience": "Hobbyists who finish a book per month"
+    },
+    "content_scale": {
+      "pass": true,
+      "sequel_count": 6
+    },
+    "score_0_10": 7
+  },
+  "leading_indicators": {
+    "google_trends": "Sudoku evergreen (5y stable baseline, no major decline)",
+    "etsy": "Printable sudoku market exists but small relative to Amazon",
+    "tags": [
+      "hard",
+      "advanced",
+      "expert"
+    ]
+  },
+  "low_confidence": false,
+  "tech_blocker": null,
+  "sources": [
+    "https://www.amazon.com/dp/B0892DFXQN",
+    "https://www.amazon.com/dp/B0F929S2LM",
+    "https://www.amazon.com/dp/B0CQJ9719J",
+    "https://www.amazon.com/dp/B0DXCRR165",
+    "https://www.amazon.com/dp/B0BXNPBVYW"
+  ],
+  "score": {
+    "overall": 5.45,
+    "rating": "COLD"
+  },
+  "dimension_scores": {
+    "demand": 4,
+    "opportunity": 0.38,
+    "competition": 3.0,
+    "margin": 8,
+    "content": 10,
+    "longevity": 10
+  },
+  "flags": [],
+  "eliminations": [],
+  "our_estimated_monthly_royalty": {
+    "bsr": 71959,
+    "daily_sales_low": 1.5,
+    "daily_sales_mid": 2.5,
+    "daily_sales_high": 4,
+    "royalty_per_sale_usd": 3.35,
+    "monthly_low_usd": 150.75,
+    "monthly_mid_usd": 251.25,
+    "monthly_high_usd": 402.0
+  },
+  "demand_avg_top10_monthly_royalty_usd": 398.99,
+  "opportunity_score": 0.381,
+  "criteria_version": "2026.04.27",
+  "slug": "sudoku_for_adults_hard"
+}

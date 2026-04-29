@@ -1,0 +1,201 @@
+{
+  "niche_name": "Sudoku Puzzle Book for Seniors Large Print",
+  "book_type": "activity",
+  "primary_keyword": "sudoku puzzle book for seniors large print",
+  "secondary_keywords": [],
+  "long_tail_keywords": [],
+  "audience": "seniors_60_plus",
+  "page_size": "8.5x11",
+  "target_page_count": 110,
+  "recommended_list_price_usd": 9.99,
+  "top10_bsr": [
+    1685127,
+    1482595,
+    2100450,
+    3329582,
+    624337,
+    1733125,
+    112784,
+    1612520,
+    6660021
+  ],
+  "top10_reviews": [
+    0,
+    0,
+    0,
+    4,
+    1,
+    2,
+    65,
+    201,
+    0,
+    0
+  ],
+  "top10_prices": [
+    9.99,
+    9.99,
+    7.99,
+    6.95,
+    10.99,
+    12.99,
+    6.95,
+    6.99,
+    12.99,
+    8.99
+  ],
+  "top10_pages": [
+    107,
+    200,
+    128,
+    125,
+    238,
+    107,
+    125,
+    120,
+    199,
+    142
+  ],
+  "top10_publishers": [
+    "Independently published",
+    "Independently published",
+    "Independently published",
+    "Independently published",
+    "Independently published",
+    "Independently published",
+    "Independently published",
+    "Independently published",
+    "Independently published",
+    "Independently published"
+  ],
+  "top10_age_days": [
+    194,
+    6,
+    45,
+    2027,
+    1317,
+    34,
+    2027,
+    2349,
+    11,
+    54
+  ],
+  "top10_rating": [
+    0,
+    0,
+    0,
+    3.8,
+    5.0,
+    5.0,
+    4.8,
+    4.7,
+    0,
+    0
+  ],
+  "top10_asins": [
+    "B0FWY9GTK8",
+    "B0GYJ4C2DD",
+    "B0GSW5TGSW",
+    "B08KV1P851",
+    "B0BGKS7CD5",
+    "B0GW8HSG9C",
+    "B08KV8RXD3",
+    "1710219726",
+    "B0GXZQZP72",
+    "B0GRTXFF7F"
+  ],
+  "top10_titles": [
+    "Medium Level Sudoku Puzzle Book for Seniors Large Print: 250+ Relaxing Sudoku Puzzles for Adults and Seniors | Brain Training Made Fun: Large Print ... to Elderly: Medium Level, 8.5 x 11 inches",
+    "Large Print Sudoku for Seniors: Easy Sudoku Puzzle Book for Relaxation, Focus and Brain Health: 100 Easy Sudoku Puzzles with Big Numbers, Clear Grids and Simple Layout for Stress-Free Fun",
+    "Sudoku Puzzle Book For Adults & Seniors: 300 Normal Sudoku Puzzles | Large Print Brain Games for Adults (Large Print Sudoku Puzzle Book Series for Adults)",
+    "Sudoku Large Print Hard - Sudoku Puzzle Book: Large Print Sudoku for Seniors and Adults with 100 Hard puzzles - volume 1 (SUDOKU Large Print for Seniors)",
+    "200 Hard Sudoku For Seniors Large Print: Puzzle Book With Solutions : one puzzle per page",
+    "Large Print Sudoku for Seniors: 150 Easy & Medium 9x9 Puzzles. Big Grids, Clear Numbers, and Full Solutions for Relaxing Brain Exercise (MindGrid Sudoku Series)",
+    "Sudoku Large Print Easy - Sudoku Puzzle Book: Large Print Sudoku for Seniors and Adults with 100 easy puzzles - volume 1 (SUDOKU Large Print for Seniors)",
+    "200 Sudoku Puzzles Books Easy To Medium Levels: Brain Games For Adults And Seniors 9x9 Large Print",
+    "Large Print Sudoku for Seniors: Medium Puzzles: Volume 3 — 150 Large Print Puzzles with Solutions",
+    "Large Print Sudoku Puzzle Book for Seniors: 180 Easy & Medium Puzzles with Solutions | 8.5 × 11 Easy-to-Read Grids | 2026 Edition"
+  ],
+  "content_concepts_count": 100,
+  "content_concepts_sample": [],
+  "is_seasonal": false,
+  "is_evergreen": true,
+  "is_seasonal_recurring": false,
+  "is_trend": false,
+  "is_fad": false,
+  "days_to_peak": 999,
+  "has_trademark_risk": false,
+  "ip_risk_notes": "Sudoku is a generic puzzle format. Avoid 'Will Shortz', 'Penny Press', 'KAPPA', 'New York Times' style branding.",
+  "trademark_check": {
+    "verdict": "CLEAR",
+    "class_016_live_hits": 0,
+    "adjacent_class_live_hits": 0,
+    "source": "scripts/trademark_check.py"
+  },
+  "qualitative_edge": {
+    "unique_hook": {
+      "pass": true,
+      "angle": "Tier-graded EXTRA-large numbers (24pt+) with one puzzle per page + completion stickers; top-10 mostly cluster 4 puzzles per page or use 18pt only"
+    },
+    "evergreen_baseline": {
+      "pass": true,
+      "evidence": "Sudoku for seniors is a perennial gift category — Google Trends shows stable 5y baseline with mild Q4 lift"
+    },
+    "repeat_buyer": {
+      "pass": true,
+      "audience": "Seniors + adult-children buying gifts (Christmas, birthdays, Mother's/Father's Day)"
+    },
+    "content_scale": {
+      "pass": true,
+      "sequel_count": 6
+    },
+    "score_0_10": 10
+  },
+  "leading_indicators": {
+    "google_trends": "Sudoku evergreen (5y stable baseline, no major decline)",
+    "etsy": "Printable sudoku market exists but small relative to Amazon",
+    "tags": [
+      "large_print",
+      "gift",
+      "seniors"
+    ]
+  },
+  "low_confidence": false,
+  "tech_blocker": null,
+  "sources": [
+    "https://www.amazon.com/dp/B0FWY9GTK8",
+    "https://www.amazon.com/dp/B0GYJ4C2DD",
+    "https://www.amazon.com/dp/B0GSW5TGSW",
+    "https://www.amazon.com/dp/B08KV1P851",
+    "https://www.amazon.com/dp/B0BGKS7CD5"
+  ],
+  "score": {
+    "overall": 5.85,
+    "rating": "COLD"
+  },
+  "dimension_scores": {
+    "demand": 2,
+    "opportunity": 0.19,
+    "competition": 8.32,
+    "margin": 8,
+    "content": 10,
+    "longevity": 10
+  },
+  "flags": [
+    "LOW_REVIEW_BARRIER"
+  ],
+  "eliminations": [],
+  "our_estimated_monthly_royalty": {
+    "bsr": 6660021,
+    "daily_sales_low": 0.01,
+    "daily_sales_mid": 0.03,
+    "daily_sales_high": 0.07,
+    "royalty_per_sale_usd": 4.692,
+    "monthly_low_usd": 1.41,
+    "monthly_mid_usd": 4.22,
+    "monthly_high_usd": 9.85
+  },
+  "demand_avg_top10_monthly_royalty_usd": 23.93,
+  "opportunity_score": 0.187,
+  "criteria_version": "2026.04.27",
+  "slug": "sudoku_puzzle_book_for_seniors_large_print"
+}

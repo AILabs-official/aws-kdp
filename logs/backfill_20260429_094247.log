@@ -315,3 +315,45 @@ requests.exceptions.ReadTimeout:
     raise TimeoutError(f"report {report_id} not ready a
 
 [88/95] 2026-04-21 ...
+  ✗ ient.poll_report(report_id, max_wait_s=600)
+  File "/Users/tonytrieu/Downloads/AIOS/aws-kdp/scripts/amazon_ads_api.py", line 313, in poll_report
+    raise TimeoutError(f"report {report_id} not ready a
+
+[89/95] 2026-04-22 ...
+  ✗ ient.poll_report(report_id, max_wait_s=600)
+  File "/Users/tonytrieu/Downloads/AIOS/aws-kdp/scripts/amazon_ads_api.py", line 313, in poll_report
+    raise TimeoutError(f"report {report_id} not ready a
+
+[90/95] 2026-04-23 ...
+  ✗ rror(e, request=request)
+requests.exceptions.SSLError: HTTPSConnectionPool(host='advertising-api.amazon.com', port=443): Max retries exceeded with url: /reporting/reports/2c05f698-3d77-492c-8937-5bd8b
+
+[91/95] 2026-04-24 ...
+  ✗ ient.poll_report(report_id, max_wait_s=600)
+  File "/Users/tonytrieu/Downloads/AIOS/aws-kdp/scripts/amazon_ads_api.py", line 313, in poll_report
+    raise TimeoutError(f"report {report_id} not ready a
+
+[92/95] 2026-04-25 ...
+  ✗ ient.poll_report(report_id, max_wait_s=600)
+  File "/Users/tonytrieu/Downloads/AIOS/aws-kdp/scripts/amazon_ads_api.py", line 313, in poll_report
+    raise TimeoutError(f"report {report_id} not ready a
+
+[93/95] 2026-04-26 ...
+  ✗ ient.poll_report(report_id, max_wait_s=600)
+  File "/Users/tonytrieu/Downloads/AIOS/aws-kdp/scripts/amazon_ads_api.py", line 313, in poll_report
+    raise TimeoutError(f"report {report_id} not ready a
+
+[94/95] 2026-04-27 ...
+  ✗ ient.poll_report(report_id, max_wait_s=600)
+  File "/Users/tonytrieu/Downloads/AIOS/aws-kdp/scripts/amazon_ads_api.py", line 313, in poll_report
+    raise TimeoutError(f"report {report_id} not ready a
+
+[95/95] 2026-04-28 ...
+  ✗ ient.poll_report(report_id, max_wait_s=600)
+  File "/Users/tonytrieu/Downloads/AIOS/aws-kdp/scripts/amazon_ads_api.py", line 313, in poll_report
+    raise TimeoutError(f"report {report_id} not ready a
+
+==== summary ====
+  ok:     30
+  failed: 65
+  failed days: 2026-02-12, 2026-02-13, 2026-02-14, 2026-02-15, 2026-02-16, 2026-02-17, 2026-02-18, 2026-02-21, 2026-02-22, 2026-02-23, 2026-02-24, 2026-02-25, 2026-02-26, 2026-02-27, 2026-02-28, 2026-03-01, 2026-03-02, 2026-03-03, 2026-03-04, 2026-03-05 ...

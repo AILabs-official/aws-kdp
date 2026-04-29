@@ -1,0 +1,149 @@
+{
+  "niche_name": "Brain Training Sudoku for Memory Adults 60+",
+  "book_type": "activity",
+  "primary_keyword": "brain training sudoku for memory adults 60+",
+  "secondary_keywords": [
+    "brain games sudoku seniors",
+    "memory sudoku for adults",
+    "sudoku cognitive health"
+  ],
+  "long_tail_keywords": [
+    "sudoku memory exercise seniors large print",
+    "brain fitness sudoku 60 plus"
+  ],
+  "audience": "seniors_60_plus_memory",
+  "page_size": "8.5x11",
+  "target_page_count": 120,
+  "recommended_list_price_usd": 9.99,
+  "top10_bsr": [],
+  "top10_reviews": [],
+  "top10_prices": [
+    9.99,
+    9.99,
+    9.99,
+    8.99,
+    11.99
+  ],
+  "top10_pages": [
+    150,
+    200,
+    180,
+    160,
+    200
+  ],
+  "top10_publishers": [
+    "Independently published",
+    "Independently published",
+    "Independently published",
+    "Independently published",
+    "Independently published"
+  ],
+  "top10_age_days": [
+    180,
+    240,
+    365,
+    540,
+    365
+  ],
+  "top10_rating": [],
+  "top10_asins": [
+    "B0GW8RVDTG",
+    "B0G2G1ZSBV",
+    "B0GQQ8XKZS",
+    "B0D9JN16YD",
+    "B0DSLSY8XB"
+  ],
+  "top10_titles": [
+    "100 Challenging Memory Games for Adults: Large Print Brain Training",
+    "Memory Games for Adults and Seniors: Large Print 6-in-1 Brain Training",
+    "Sudoku Brain Games: 500 Easy Puzzles Large Print Adults and Seniors",
+    "100 Sudoku Training Brain Games for Adults, Teens and Seniors",
+    "Sudoku for Brain Training: Boost Your Mind with 1000+ Puzzles"
+  ],
+  "content_concepts_count": 100,
+  "content_concepts_sample": [],
+  "is_seasonal": false,
+  "is_evergreen": true,
+  "is_seasonal_recurring": false,
+  "is_trend": false,
+  "is_fad": false,
+  "days_to_peak": 999,
+  "has_trademark_risk": false,
+  "ip_risk_notes": "CLEAR. Generic brain-training framing.",
+  "trademark_check": {
+    "verdict": "CLEAR",
+    "class_016_live_hits": 0,
+    "adjacent_class_live_hits": 0,
+    "source": "scripts/trademark_check.py"
+  },
+  "qualitative_edge": {
+    "unique_hook": {
+      "pass": false,
+      "angle": "Heavily commoditized — top-10 all share '500-1000+ puzzles brain training large print' framing. Commodity trap risk unless pivoted to e.g. 30-day cognitive challenge program with progress tracker"
+    },
+    "evergreen_baseline": {
+      "pass": true,
+      "evidence": "Aging-population brain-health demand evergreen and growing"
+    },
+    "repeat_buyer": {
+      "pass": true,
+      "audience": "Seniors solving daily; gift purchases for parents/grandparents"
+    },
+    "content_scale": {
+      "pass": true,
+      "sequel_count": 5
+    },
+    "score_0_10": 7
+  },
+  "leading_indicators": {
+    "google_trends": "Slowly rising (aging population)",
+    "amazon_search": "Saturated — 'brain training sudoku' is a known volume keyword but pure variants are commodity",
+    "tags": [
+      "brain_training",
+      "memory",
+      "seniors",
+      "cognitive_health"
+    ]
+  },
+  "low_confidence": true,
+  "data_source": "WebSearch fallback (Apify monthly limit exhausted)",
+  "sources": [
+    "https://us.amazon.com/100-Challenging-Memory-Games-Adults/dp/B0GW8RVDTG",
+    "https://us.amazon.com/Memory-Games-Adults-Seniors-including/dp/B0G2G1ZSBV",
+    "https://www.amazon.com/Sudoku-Brain-Games-Solutions-Training/dp/B0GQQ8XKZS",
+    "https://us.amazon.com/Sudoku-Training-Brain-Adults-Seniors/dp/B0D9JN16YD",
+    "https://www.amazon.com/Sudoku-Brain-Training-Puzzles-Ranging/dp/B0DSLSY8XB"
+  ],
+  "score": {
+    "overall": 7.68,
+    "rating": "HOT"
+  },
+  "dimension_scores": {
+    "demand": 2,
+    "opportunity": 10,
+    "competition": 7.21,
+    "margin": 8,
+    "content": 10,
+    "longevity": 10
+  },
+  "flags": [
+    "BLUE_OCEAN_OPPORTUNITY",
+    "LOW_REVIEW_BARRIER",
+    "EMERGING_MARKET"
+  ],
+  "eliminations": [],
+  "our_estimated_monthly_royalty": {
+    "bsr": 150000,
+    "daily_sales_low": 0.7,
+    "daily_sales_mid": 1.2,
+    "daily_sales_high": 2,
+    "royalty_per_sale_usd": 4.62,
+    "monthly_low_usd": 97.02,
+    "monthly_mid_usd": 166.32,
+    "monthly_high_usd": 277.2
+  },
+  "demand_avg_top10_monthly_royalty_usd": 0,
+  "opportunity_score": 999,
+  "criteria_version": "2026.04.27",
+  "slug": "brain_training_sudoku_for_memory_adults_60"
+}

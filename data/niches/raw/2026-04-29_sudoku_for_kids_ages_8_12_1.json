@@ -1,0 +1,200 @@
+{
+  "niche_name": "Sudoku for Kids Ages 8-12",
+  "book_type": "activity",
+  "primary_keyword": "sudoku for kids ages 8-12",
+  "secondary_keywords": [],
+  "long_tail_keywords": [],
+  "audience": "kids_8_12",
+  "page_size": "8.5x11",
+  "target_page_count": 100,
+  "recommended_list_price_usd": 7.99,
+  "top10_bsr": [
+    569228,
+    989737,
+    53527,
+    1282727,
+    2498922,
+    147364,
+    638,
+    42954,
+    20330,
+    44329
+  ],
+  "top10_reviews": [
+    8,
+    2,
+    787,
+    19,
+    1,
+    6,
+    988,
+    33,
+    798,
+    69
+  ],
+  "top10_prices": [
+    3.99,
+    9.99,
+    4.99,
+    4.98,
+    8.99,
+    12.99,
+    7.49,
+    9.99,
+    9.99,
+    9.99
+  ],
+  "top10_pages": [
+    41,
+    91,
+    64,
+    109,
+    142,
+    109,
+    144,
+    176,
+    135,
+    108
+  ],
+  "top10_publishers": [
+    "Independently published",
+    "Thirteen20 Publishing",
+    "Dover Publications",
+    "Independently published",
+    "Independently published",
+    "Independently published",
+    "Highlights Press",
+    "Independently published",
+    "Wild Guess Books",
+    "Independently published"
+  ],
+  "top10_age_days": [
+    1581,
+    1394,
+    7334,
+    961,
+    227,
+    39,
+    841,
+    588,
+    2344,
+    1771
+  ],
+  "top10_rating": [
+    4.8,
+    5.0,
+    4.7,
+    4.4,
+    5.0,
+    5.0,
+    4.8,
+    4.9,
+    4.8,
+    4.6
+  ],
+  "top10_asins": [
+    "B09P5XKSNV",
+    "1958867020",
+    "0486450740",
+    "B0CHL1CFK2",
+    "B0FRN4BXK3",
+    "B0GTQ184K7",
+    "1639621520",
+    "B0DHNFBYND",
+    "195060103X",
+    "B097XGSQG6"
+  ],
+  "top10_titles": [
+    "Sudoku Puzzle Book For Bright Kids Ages 8-12: Large Print Travel Sized Sudoku Activity Puzzle Book For Smart Kids, Solve And Fill In 120 Logic Number ... Games 6x6 Grids 6\"x9\" With CoolMatte Cover",
+    "Sudoku for Kids Ages 8-12 - Vol.5 By Round Duck NOW WITH 20% MORE PUZZLES!!!: 250 EASY SUDOKU PUZZLES WITH SOLUTIONS 9x9 Challenging and Educational! ... Early Learning For Smart and Logical Kids",
+    "A First Sudoku Book (Dover Kids Activity Books)",
+    "Sudoku Book for Kids: Over 315 Sudoku Puzzles with Increasing Difficulty and Solutions / 4x4, 6x6,9x9 (Easy- Intermediate - Hard) Grids / Made for Children/ AGES 6-12",
+    "Sudoku For Kids Ages 8–12: 200 Logic Puzzles from Beginner to Expert – Easy, Medium and Hard Levels – 6x6 & 9x9 with Full Solutions",
+    "Sudoku Puzzle Book for Kids Ages 8-12: 400+ Easy, Medium & Hard Sudoku Puzzles - Fun Brain Games with 4x4, 6x6 & 9x9 Grids and Solutions (MindGrid Kids Sudoku Series)",
+    "Silliest Hidden Pictures Puzzles Ever: Search-and-Find Book for Kids 6 and Up with Over 1,000 Hidden Objects, Road Trip Games, Silly Jokes and Wacky ... for Hours of Fun (Highlights Hidden Pictures)",
+    "The Excellent Sudoku Book for Smart Kids Ages 8 to 12: A Variety of 300 Sudoku Problems with Increasing Difficulty and Complete Answers, including 4x4, 6x6, and 9x9 Grids with Ten Bonus Coloring Pages",
+    "The Super Sudoku Book For Smart Kids: A Collection Of Over 200 Sudoku Puzzles Including 4x4's, 6x6's, 8x8's, and 9x9's That Range In Difficulty From Easy To Hard!",
+    "Sudoku for Kids Ages 10-12: Over 200 Puzzles | Easy Medium & Hard"
+  ],
+  "content_concepts_count": 200,
+  "content_concepts_sample": [],
+  "is_seasonal": false,
+  "is_evergreen": true,
+  "is_seasonal_recurring": false,
+  "is_trend": false,
+  "is_fad": false,
+  "days_to_peak": 999,
+  "has_trademark_risk": false,
+  "ip_risk_notes": "Sudoku is a generic puzzle format. Avoid 'Will Shortz', 'Penny Press', 'KAPPA', 'New York Times' style branding.",
+  "trademark_check": {
+    "verdict": "CLEAR",
+    "class_016_live_hits": 0,
+    "adjacent_class_live_hits": 0,
+    "source": "scripts/trademark_check.py"
+  },
+  "qualitative_edge": {
+    "unique_hook": {
+      "pass": true,
+      "angle": "Difficulty ladder 4x4 → 6x6 → 9x9 with achievement stickers + cartoon mascots; most top-10 jump straight to 9x9"
+    },
+    "evergreen_baseline": {
+      "pass": true,
+      "evidence": "Kids' brain games + back-to-school evergreen demand"
+    },
+    "repeat_buyer": {
+      "pass": true,
+      "audience": "Parents + grandparents buying for gifts and homeschool"
+    },
+    "content_scale": {
+      "pass": true,
+      "sequel_count": 5
+    },
+    "score_0_10": 10
+  },
+  "leading_indicators": {
+    "google_trends": "Sudoku evergreen (5y stable baseline, no major decline)",
+    "etsy": "Printable sudoku market exists but small relative to Amazon",
+    "tags": [
+      "kids",
+      "homeschool",
+      "back_to_school"
+    ]
+  },
+  "low_confidence": false,
+  "tech_blocker": null,
+  "sources": [
+    "https://www.amazon.com/dp/B09P5XKSNV",
+    "https://www.amazon.com/dp/1958867020",
+    "https://www.amazon.com/dp/0486450740",
+    "https://www.amazon.com/dp/B0CHL1CFK2",
+    "https://www.amazon.com/dp/B0FRN4BXK3"
+  ],
+  "score": {
+    "overall": 7.05,
+    "rating": "WARM"
+  },
+  "dimension_scores": {
+    "demand": 8,
+    "opportunity": 2.02,
+    "competition": 2.03,
+    "margin": 6,
+    "content": 10,
+    "longevity": 10
+  },
+  "flags": [],
+  "eliminations": [],
+  "our_estimated_monthly_royalty": {
+    "bsr": 44329,
+    "daily_sales_low": 3,
+    "daily_sales_mid": 5,
+    "daily_sales_high": 8,
+    "royalty_per_sale_usd": 2.97,
+    "monthly_low_usd": 267.3,
+    "monthly_mid_usd": 445.5,
+    "monthly_high_usd": 712.8
+  },
+  "demand_avg_top10_monthly_royalty_usd": 1630.53,
+  "opportunity_score": 2.025,
+  "criteria_version": "2026.04.27",
+  "slug": "sudoku_for_kids_ages_8_12"
+}

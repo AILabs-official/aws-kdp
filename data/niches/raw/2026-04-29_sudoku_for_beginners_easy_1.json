@@ -1,0 +1,199 @@
+{
+  "niche_name": "Sudoku for Beginners Easy",
+  "book_type": "activity",
+  "primary_keyword": "sudoku for beginners easy",
+  "secondary_keywords": [],
+  "long_tail_keywords": [],
+  "audience": "adults_beginners",
+  "page_size": "8.5x11",
+  "target_page_count": 100,
+  "recommended_list_price_usd": 7.99,
+  "top10_bsr": [
+    15777,
+    72410,
+    948833,
+    20330,
+    107086,
+    298517,
+    17888,
+    130983,
+    19240
+  ],
+  "top10_reviews": [
+    33,
+    170,
+    8,
+    798,
+    17,
+    2,
+    159,
+    69,
+    165,
+    0
+  ],
+  "top10_prices": [
+    6.95,
+    9.99,
+    10.99,
+    9.99,
+    7.99,
+    7.99,
+    11.95,
+    9.99,
+    6.95,
+    6.99
+  ],
+  "top10_pages": [
+    117,
+    177,
+    262,
+    135,
+    113,
+    129,
+    155,
+    107,
+    117,
+    92
+  ],
+  "top10_publishers": [
+    "Smart Puzzles",
+    "Independently published",
+    "Independently published",
+    "Wild Guess Books",
+    "Independently published",
+    "Independently published",
+    "Independently published",
+    "Independently published",
+    "Smart Puzzles",
+    "Independently published"
+  ],
+  "top10_age_days": [
+    865,
+    2395,
+    257,
+    2344,
+    94,
+    97,
+    2138,
+    669,
+    865,
+    5
+  ],
+  "top10_rating": [
+    5.0,
+    4.6,
+    4.8,
+    4.8,
+    4.9,
+    5.0,
+    4.8,
+    4.4,
+    4.5,
+    0
+  ],
+  "top10_asins": [
+    "1956816275",
+    "1698570732",
+    "B0FMRHHTLY",
+    "195060103X",
+    "B0GKPXYJ5F",
+    "B0GJLF4H8V",
+    "B08BDSDY4M",
+    "B0D8GT5LR5",
+    "1956816291",
+    "B0GYW6C65P"
+  ],
+  "top10_titles": [
+    "Easy Sudoku Book for Adults: 500+ Puzzles with Solutions - Vol. 1",
+    "Very Easy Sudoku Puzzle Book For Beginners: 250 beginner level Sudoku puzzles. If you are new to Sudoku, you will also learn basics and simple Sudoku strategy in this book. (Beginner Sudoku)",
+    "Easy Sudoku Puzzles for Beginners Second Edition: Large Print Brain Games for Beginners | 6 x 9 inch, 262 Pages | 200+ Puzzles ... Gift for Vacations, Holiday & Leisure Time",
+    "The Super Sudoku Book For Smart Kids: A Collection Of Over 200 Sudoku Puzzles Including 4x4's, 6x6's, 8x8's, and 9x9's That Range In Difficulty From Easy To Hard!",
+    "Sudoku for Beginners Puzzle Book: Sudoku Puzzles for Beginners | Simple Puzzles to Sharpen Your Mind | 6x9 Inches, 113 Pages | 50+ Puzzles | Solutions Included",
+    "Very Easy Sudoku for Beginners: Simple, Confidence-Building Puzzles with Full Answer Key | Pantheon Sudoku by Pantheon Press (The Beginner Sudoku Series)",
+    "Sudoku Large Print Easy: Large Print Sudoku Puzzle Book For Adults & Seniors With 120 Easy Sudoku Puzzles",
+    "Easy Sudoku for Seniors Large Print: 180 Very Easy 4x4 Games with Solutions – Large Print – Ideal for Beginners, Adults, and Seniors – Activate Your ... Logic Puzzle Book (Keep Your Mind Active!)",
+    "Easy Sudoku Book for Adults: 500+ Puzzles with Solutions - Vol. 3",
+    "Easy Sudoku for Beginners: 144 Easy Sudoku Puzzles for Adults and Kids. (Hours of Fun)"
+  ],
+  "content_concepts_count": 300,
+  "content_concepts_sample": [],
+  "is_seasonal": false,
+  "is_evergreen": true,
+  "is_seasonal_recurring": false,
+  "is_trend": false,
+  "is_fad": false,
+  "days_to_peak": 999,
+  "has_trademark_risk": false,
+  "ip_risk_notes": "Sudoku is a generic puzzle format. Avoid 'Will Shortz', 'Penny Press', 'KAPPA', 'New York Times' style branding.",
+  "trademark_check": {
+    "verdict": "CLEAR",
+    "class_016_live_hits": 0,
+    "adjacent_class_live_hits": 0,
+    "source": "scripts/trademark_check.py"
+  },
+  "qualitative_edge": {
+    "unique_hook": {
+      "pass": false,
+      "angle": "Top-10 are saturated with generic 'easy sudoku for beginners' — high commodity-trap risk; would need a strong angle (e.g. teach-as-you-go tutorials, large-print fusion)"
+    },
+    "evergreen_baseline": {
+      "pass": true,
+      "evidence": "Search demand stable; entry-level puzzlers buy regularly"
+    },
+    "repeat_buyer": {
+      "pass": true,
+      "audience": "Beginners → graduate to medium/hard (built-in upsell ladder)"
+    },
+    "content_scale": {
+      "pass": true,
+      "sequel_count": 4
+    },
+    "score_0_10": 7
+  },
+  "leading_indicators": {
+    "google_trends": "Sudoku evergreen (5y stable baseline, no major decline)",
+    "etsy": "Printable sudoku market exists but small relative to Amazon",
+    "tags": [
+      "beginner",
+      "tutorial",
+      "easy"
+    ]
+  },
+  "low_confidence": false,
+  "tech_blocker": null,
+  "sources": [
+    "https://www.amazon.com/dp/1956816275",
+    "https://www.amazon.com/dp/1698570732",
+    "https://www.amazon.com/dp/B0FMRHHTLY",
+    "https://www.amazon.com/dp/195060103X",
+    "https://www.amazon.com/dp/B0GKPXYJ5F"
+  ],
+  "score": {
+    "overall": 5.97,
+    "rating": "COLD"
+  },
+  "dimension_scores": {
+    "demand": 4,
+    "opportunity": 0.97,
+    "competition": 5.12,
+    "margin": 6,
+    "content": 10,
+    "longevity": 10
+  },
+  "flags": [],
+  "eliminations": [],
+  "our_estimated_monthly_royalty": {
+    "bsr": 19240,
+    "daily_sales_low": 6,
+    "daily_sales_mid": 9,
+    "daily_sales_high": 13,
+    "royalty_per_sale_usd": 2.97,
+    "monthly_low_usd": 534.6,
+    "monthly_mid_usd": 801.9,
+    "monthly_high_usd": 1158.3
+  },
+  "demand_avg_top10_monthly_royalty_usd": 410.06,
+  "opportunity_score": 0.972,
+  "criteria_version": "2026.04.27",
+  "slug": "sudoku_for_beginners_easy"
+}

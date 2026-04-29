@@ -1,0 +1,202 @@
+{
+  "niche_name": "Sudoku Puzzle Book for Teens",
+  "book_type": "activity",
+  "primary_keyword": "sudoku puzzle book teens",
+  "secondary_keywords": [],
+  "long_tail_keywords": [],
+  "audience": "teens_13_17",
+  "page_size": "8.5x11",
+  "target_page_count": 100,
+  "recommended_list_price_usd": 7.99,
+  "top10_bsr": [
+    1218689,
+    5608163,
+    2382513,
+    957352,
+    557344,
+    273655,
+    49175,
+    745077,
+    2707691,
+    2241792
+  ],
+  "top10_reviews": [
+    0,
+    1,
+    3,
+    37,
+    10,
+    9,
+    64,
+    0,
+    0,
+    0
+  ],
+  "top10_prices": [
+    9.99,
+    6.99,
+    9.99,
+    5.99,
+    9.99,
+    7.95,
+    6.98,
+    9.99,
+    4.85,
+    5.19
+  ],
+  "top10_pages": [
+    164,
+    111,
+    43,
+    108,
+    102,
+    136,
+    115,
+    159,
+    121,
+    120
+  ],
+  "top10_publishers": [
+    "Independently published",
+    "Independently published",
+    "Independently published",
+    "Independently published",
+    "Independently published",
+    "Independently published",
+    "Independently published",
+    "Independently published",
+    "Independently published",
+    "Independently published"
+  ],
+  "top10_age_days": [
+    14,
+    2464,
+    2227,
+    912,
+    1500,
+    1608,
+    311,
+    273,
+    669,
+    404
+  ],
+  "top10_rating": [
+    0,
+    2.0,
+    3.3,
+    4.3,
+    4.3,
+    4.4,
+    4.8,
+    0,
+    0,
+    0
+  ],
+  "top10_asins": [
+    "B0GXP4X8WM",
+    "1086618211",
+    "B086B7TZ81",
+    "B0CMDF1HK6",
+    "B09WCH8CVM",
+    "B09MYWW33V",
+    "B0FFGJ84NM",
+    "B0FKYX2L1B",
+    "B0D8GZQHJ7",
+    "B0F29C2Y6B"
+  ],
+  "top10_titles": [
+    "Easy Killer Sudoku Puzzle Book for Adults, Teens & Seniors: 500+ Beginner-Friendly Puzzles with Starter Section, Clear Cages, Variants and Full Solutions (Killer Sudoku Collection)",
+    "Sudoku Puzzle Book For Teens: Easy to Medium Sudoku Puzzles Including 330 Sudoku Puzzles with Solutions, Great Gift for Teens or Tweens (Teen Edition Volume)",
+    "Sudoku Puzzle Books For Teens Medium: Progressive difficulty Mid - hard suduko game book | Learn and master playing sudoku as an adult | Brain exercise for teenagers",
+    "Sudoku Book for Adults, Seniors, and Teens: 1000+ Puzzles, Medium to Hard Levels for fun, Relaxation, and, Mental Fitness.",
+    "Sudoku for Teenagers: Sudoku Book For Teens,200 Easy, Medium and Hard Sudoku,200 Sudoku Puzzles for teenagers",
+    "Sudoku Puzzle for Teenagers age 13-17:: A Fun Sudoku Book for Travel with Over 200 Easy to Hard Math Game Puzzles and Solutions. A Gift Idea for Smart Teens",
+    "Easy to Medium Sudoku Large Print: Two Puzzles Per Page Sudoku Book For Adults, Seniors and Teens, With Full Solutions (Fun Sudoku Collection)",
+    "Pocket Jigsaw Sudoku Puzzle Book for Adults & Teens: Easy to Extreme Region-Based Puzzles in a Compact 4x6 Travel Format with Extra Variants and Solutions (Pocket Sudoku Collection)",
+    "200 Pocket Sudoku Puzzle Book for Teens, Adults & Seniors: Portable Travel Sudoku Fun and Easy Puzzles for On-the-Go Brain Teasers - Four levels Easy to Hard",
+    "1000+ Sudoku Puzzle Book for Adults: Easy to Hard Sudoku Puzzles for Adults, Teens & Seniors"
+  ],
+  "content_concepts_count": 150,
+  "content_concepts_sample": [],
+  "is_seasonal": false,
+  "is_evergreen": true,
+  "is_seasonal_recurring": false,
+  "is_trend": false,
+  "is_fad": false,
+  "days_to_peak": 999,
+  "has_trademark_risk": false,
+  "ip_risk_notes": "Sudoku is a generic puzzle format. Avoid 'Will Shortz', 'Penny Press', 'KAPPA', 'New York Times' style branding.",
+  "trademark_check": {
+    "verdict": "CLEAR",
+    "class_016_live_hits": 0,
+    "adjacent_class_live_hits": 0,
+    "source": "scripts/trademark_check.py"
+  },
+  "qualitative_edge": {
+    "unique_hook": {
+      "pass": true,
+      "angle": "Teens segment is thin — top-10 mostly mislabeled adult/kids books; clean teen-themed grids + study-skills framing has open white space"
+    },
+    "evergreen_baseline": {
+      "pass": true,
+      "evidence": "Brain training + STEM gifting evergreen"
+    },
+    "repeat_buyer": {
+      "pass": false,
+      "audience": "Teens are flighty buyers; mostly gift-driven"
+    },
+    "content_scale": {
+      "pass": true,
+      "sequel_count": 3
+    },
+    "score_0_10": 7
+  },
+  "leading_indicators": {
+    "google_trends": "Sudoku evergreen (5y stable baseline, no major decline)",
+    "etsy": "Printable sudoku market exists but small relative to Amazon",
+    "tags": [
+      "teens",
+      "study_skills",
+      "STEM"
+    ]
+  },
+  "low_confidence": false,
+  "tech_blocker": null,
+  "sources": [
+    "https://www.amazon.com/dp/B0GXP4X8WM",
+    "https://www.amazon.com/dp/1086618211",
+    "https://www.amazon.com/dp/B086B7TZ81",
+    "https://www.amazon.com/dp/B0CMDF1HK6",
+    "https://www.amazon.com/dp/B09WCH8CVM"
+  ],
+  "score": {
+    "overall": 6.0,
+    "rating": "WARM"
+  },
+  "dimension_scores": {
+    "demand": 2,
+    "opportunity": 1.43,
+    "competition": 7.99,
+    "margin": 6,
+    "content": 10,
+    "longevity": 10
+  },
+  "flags": [
+    "LOW_REVIEW_BARRIER"
+  ],
+  "eliminations": [],
+  "our_estimated_monthly_royalty": {
+    "bsr": 2241792,
+    "daily_sales_low": 0.01,
+    "daily_sales_mid": 0.03,
+    "daily_sales_high": 0.07,
+    "royalty_per_sale_usd": 2.97,
+    "monthly_low_usd": 0.89,
+    "monthly_mid_usd": 2.67,
+    "monthly_high_usd": 6.24
+  },
+  "demand_avg_top10_monthly_royalty_usd": 52.66,
+  "opportunity_score": 1.43,
+  "criteria_version": "2026.04.27",
+  "slug": "sudoku_puzzle_book_for_teens"
+}
