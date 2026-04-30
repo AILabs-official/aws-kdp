@@ -6,6 +6,7 @@ from __future__ import annotations
 
 import json
 import os
+import re
 from pathlib import Path
 
 from dotenv import load_dotenv
@@ -177,9 +178,232 @@ def get_images_dir(theme_key: str) -> str:
     return os.path.join(OUTPUT_DIR, theme_key, "images")
 
 
+def get_bookinfo_path(theme_key: str) -> str:
+    """Return the canonical book metadata path: output/{theme_key}/bookinfo.md
+
+    bookinfo.md is the SINGLE source of truth per book. It carries:
+      - A JSON code fence at the top with structured pipeline data (page_size,
+        prompts, difficulty, recommended_categories_2026, kdp_listing, etc.)
+      - A human-readable markdown body underneath, optimized for copy/paste
+        directly into kdp.amazon.com → Paperback → Add Title.
+
+    Pipeline reads via load_bookinfo(); humans open the file in an IDE / editor
+    and copy fields straight into Amazon. Replaces the older split between
+    plan.json + bookinfo.json + bookinfo.md + listing.md.
+    """
+    return os.path.join(OUTPUT_DIR, theme_key, "bookinfo.md")
+
+
 def get_plan_path(theme_key: str) -> str:
-    """Return the plan JSON path: output/{theme_key}/plan.json"""
+    """Return path to the canonical metadata file (legacy alias).
+
+    Resolution order:
+      1. output/{theme_key}/bookinfo.md  (canonical)
+      2. output/{theme_key}/bookinfo.json (intermediate format, kept for fallback)
+      3. output/{theme_key}/plan.json     (legacy)
+
+    NOTE: Direct json.load() on the result will FAIL for bookinfo.md. Callers
+    that need the parsed dict should use load_bookinfo(theme_key) instead;
+    this function exists only for code paths that still need a path string
+    (e.g. existence checks, copy operations).
+    """
+    md = get_bookinfo_path(theme_key)
+    if os.path.exists(md):
+        return md
+    json_path = os.path.join(OUTPUT_DIR, theme_key, "bookinfo.json")
+    if os.path.exists(json_path):
+        return json_path
     return os.path.join(OUTPUT_DIR, theme_key, "plan.json")
+
+
+_JSON_FENCE_RE = re.compile(
+    r"<!--\s*BOOKINFO_DATA[^>]*-->\s*```json\s*\n(.*?)\n```",
+    re.DOTALL | re.IGNORECASE,
+)
+
+
+def load_bookinfo_from_path(path: str | os.PathLike) -> dict:
+    """Parse a metadata file (bookinfo.md / bookinfo.json / plan.json) into a dict.
+
+    Drop-in replacement for `with open(p) as f: data = json.load(f)` patterns —
+    handles both the new bookinfo.md (JSON code fence) and legacy JSON files
+    transparently. Raises FileNotFoundError if missing, ValueError if bookinfo.md
+    has no recoverable JSON fence.
+    """
+    p = str(path)
+    if not os.path.exists(p):
+        raise FileNotFoundError(p)
+    text = Path(p).read_text(encoding="utf-8")
+    if p.endswith(".md"):
+        m = _JSON_FENCE_RE.search(text)
+        if not m:
+            # Tolerant fallback: any ```json fence (in case BOOKINFO_DATA marker was edited away)
+            m = re.search(r"```json\s*\n(.*?)\n```", text, re.DOTALL)
+        if not m:
+            raise ValueError(f"bookinfo.md missing JSON fence: {p}")
+        return json.loads(m.group(1))
+    return json.loads(text)
+
+
+def load_bookinfo(theme_key: str) -> dict | None:
+    """Load book metadata for a theme as a dict.
+
+    Tries (in order):
+      1. bookinfo.md  (canonical, JSON fence under BOOKINFO_DATA markers)
+      2. bookinfo.json (intermediate format)
+      3. plan.json    (legacy)
+
+    Returns None if no metadata file exists.
+    """
+    book_dir = os.path.join(OUTPUT_DIR, theme_key)
+    for name in ("bookinfo.md", "bookinfo.json", "plan.json"):
+        p = os.path.join(book_dir, name)
+        if os.path.exists(p):
+            return load_bookinfo_from_path(p)
+    return None
+
+
+def _render_bookinfo_md(data: dict) -> str:
+    """Render a dict as the canonical bookinfo.md (data fence + readable body)."""
+    theme_key = data.get("theme_key", "unknown")
+    kdp = data.get("kdp_listing") or {}
+    rec = data.get("recommended_categories_2026") or {}
+
+    title = kdp.get("title") or data.get("title") or theme_key
+    subtitle = kdp.get("subtitle") or data.get("subtitle") or ""
+    author = kdp.get("author") or {}
+    if isinstance(author, str):
+        parts = author.split(maxsplit=1)
+        author = {"first_name": parts[0] if parts else "", "last_name": parts[1] if len(parts) > 1 else ""}
+    desc_html = kdp.get("description_html") or ""
+    keywords = kdp.get("keywords_7") or []
+    cats_block = kdp.get("categories_paperback_2026") or {}
+    audience = kdp.get("primary_audience") or {}
+    print_opts = kdp.get("print_options") or {}
+    pricing = kdp.get("pricing") or {}
+    files = kdp.get("files") or {}
+    imprint = kdp.get("imprint") or data.get("imprint", "")
+
+    cat_rows = []
+    for tier, label in (("primary", "🥇 Primary"), ("secondary", "🥈 Secondary"), ("tertiary", "🥉 Tertiary")):
+        tier_data = rec.get(tier) or {}
+        path = (cats_block.get(tier) if cats_block else None) or tier_data.get("kdp_path", "—")
+        node = tier_data.get("amazon_node_id", "—")
+        bsr = tier_data.get("top_bsr", "—")
+        roy = tier_data.get("top_monthly_royalty_usd", "—")
+        cat_rows.append(f"| {label} | `{path}` | `{node}` | {bsr} | {roy} |")
+
+    kw_lines = "\n".join(f"{i+1}. {kw}" for i, kw in enumerate(keywords))
+    age_min = audience.get("reading_age_min")
+    age_max = audience.get("reading_age_max")
+    age_str = f"{age_min}–{age_max}" if age_min and age_max else "Leave blank (adult audience)"
+
+    json_block = json.dumps(data, indent=2, ensure_ascii=False)
+
+    return f"""<!-- BOOKINFO_DATA — pipeline reads the JSON below. Regenerate via:
+     python3 scripts/migrate_to_bookinfo.py --apply --force --book {theme_key}
+     Edits to the markdown body further down do NOT propagate back to this fence. -->
+```json
+{json_block}
+```
+
+<!-- END_BOOKINFO_DATA -->
+
+---
+
+# {title}
+
+> Single-file source of truth for **{theme_key}**. Copy fields below directly into kdp.amazon.com → Paperback → Add Title.
+
+---
+
+## 📌 Title (≤ 200 chars)
+
+```
+{title}
+```
+
+## 📌 Subtitle (≤ 200 chars)
+
+```
+{subtitle}
+```
+
+## ✍️ Author / Imprint
+
+- **First name:** `{author.get("first_name", "")}`
+- **Last name:** `{author.get("last_name", "")}`
+- **Imprint:** `{imprint}`
+
+## 📝 Description (HTML — paste into KDP description box)
+
+```html
+{desc_html}
+```
+
+## 🔑 Keywords (7 backend, ≤ 50 chars each)
+
+{kw_lines if kw_lines else "_(none)_"}
+
+## 🗂️ Categories — Paperback Browse Paths (3 picks)
+
+| Tier | KDP Browse Path | Node ID | Top BSR | Top $/mo |
+|---|---|---|---|---|
+{chr(10).join(cat_rows)}
+
+> Selection rule: topic match (sudoku/puzzle/logic) > paperback format > Blue Ocean weakness > audience overlap. See `recommended_categories_2026.rejected_options` in the JSON above for what was deliberately excluded.
+
+## 👤 Primary Audience
+
+- **Sexually Explicit:** `{"Yes" if audience.get("sexually_explicit") else "No"}`
+- **Low-content book:** `{"Yes" if audience.get("low_content_book") else "No"}`
+- **Large-print book:** `{"Yes" if audience.get("large_print_book") else "No"}`
+- **Reading age:** {age_str}
+- **Audience label (internal):** `{audience.get("audience_label", "")}`
+
+## 🖨️ Print Options
+
+- **Ink & paper:** {print_opts.get("ink_paper", "Black & white interior with white paper")}
+- **Trim size:** {print_opts.get("trim_size", "8.5 x 11 in")}
+- **Bleed:** {print_opts.get("bleed", "No Bleed")}
+- **Cover finish:** {print_opts.get("cover_finish", "Matte")}
+
+## 💰 Pricing
+
+| Market | Price |
+|---|---|
+| 🇺🇸 USD | ${pricing.get("list_price_usd", 9.99)} |
+| 🇬🇧 GBP | £{pricing.get("list_price_gbp", "—")} |
+| 🇪🇺 EUR | €{pricing.get("list_price_eur", "—")} |
+| 🇨🇦 CAD | CA${pricing.get("list_price_cad", "—")} |
+| 🇦🇺 AUD | AU${pricing.get("list_price_aud", "—")} |
+
+## 📁 Files to Upload
+
+- **Interior PDF:** `output/{theme_key}/{files.get("interior_pdf", "interior.pdf")}`
+- **Cover PDF:** `output/{theme_key}/{files.get("cover_pdf", "cover.pdf")}`
+
+## ✅ Launch Checklist
+
+- [ ] Enroll in **KDP Select** ({"Yes" if kdp.get("kdp_select_enrollment") else "No"})
+- [ ] Enable **Expanded Distribution** ({"Yes" if kdp.get("expanded_distribution") else "No"})
+- [ ] Cover includes barcode? **{"Yes" if kdp.get("barcode_on_cover") else "No (KDP adds one)"}**
+- [ ] After live: request 4th–5th categories via KDP support (see `recommended_categories_2026.post_publish_category_requests` in JSON)
+"""
+
+
+def save_bookinfo(theme_key: str, data: dict) -> str:
+    """Write book metadata to output/{theme_key}/bookinfo.md.
+
+    The file contains a JSON code fence (pipeline-readable, in <!-- BOOKINFO_DATA -->
+    markers) plus a human-readable markdown body rendered from data['kdp_listing']
+    for paste-ready KDP upload. Returns the path written.
+    """
+    book_dir = os.path.join(OUTPUT_DIR, theme_key)
+    os.makedirs(book_dir, exist_ok=True)
+    md_path = os.path.join(book_dir, "bookinfo.md")
+    Path(md_path).write_text(_render_bookinfo_md(data), encoding="utf-8")
+    return md_path
 
 
 def get_prompts_path(theme_key: str) -> str:
@@ -270,13 +494,14 @@ def get_theme(theme_key: str) -> dict | None:
 
 
 def list_themes() -> list[str]:
-    """List all available theme keys: legacy themes + output dirs with plan.json or prompts.txt."""
+    """List all available theme keys: legacy themes + output dirs with bookinfo.json / plan.json / prompts.txt."""
     themes = set(_LEGACY_THEMES.keys())
     if os.path.isdir(OUTPUT_DIR):
         for d in os.listdir(OUTPUT_DIR):
             theme_dir = os.path.join(OUTPUT_DIR, d)
             if os.path.isdir(theme_dir):
-                if os.path.exists(os.path.join(theme_dir, "plan.json")) or \
+                if os.path.exists(os.path.join(theme_dir, "bookinfo.json")) or \
+                   os.path.exists(os.path.join(theme_dir, "plan.json")) or \
                    os.path.exists(os.path.join(theme_dir, "prompts.txt")):
                     themes.add(d)
     return sorted(themes)

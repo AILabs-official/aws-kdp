@@ -43,15 +43,12 @@ def get_sorted_images(theme: str) -> list[str]:
 
 
 def _load_plan_meta(theme: str) -> dict:
-    """Load audience and page_size from plan file."""
-    import json
-    plan_path = config.get_plan_path(theme)
+    """Load audience and page_size from book metadata file (bookinfo.md / plan.json)."""
     meta = {"audience": "kids", "page_size": None}
-    if os.path.exists(plan_path):
-        with open(plan_path) as f:
-            plan = json.load(f)
-            meta["audience"] = plan.get("audience", "kids")
-            meta["page_size"] = plan.get("page_size")
+    plan = config.load_bookinfo(theme)
+    if plan:
+        meta["audience"] = plan.get("audience", "kids")
+        meta["page_size"] = plan.get("page_size")
     return meta
 
 
@@ -80,20 +77,16 @@ def build_pdf(theme: str, title: str | None = None, subtitle: str | None = None,
         else:
             subtitle = f"Coloring Book for Kids Ages {config.TARGET_AGE}"
 
-    # Load author: CLI > plan.json > .env default
+    # Load author: CLI > bookinfo > .env default
     if not author:
-        import json
-        plan_path = config.get_plan_path(theme)
-        if os.path.exists(plan_path):
-            with open(plan_path) as f:
-                plan_data = json.load(f)
-                author_obj = plan_data.get("author", {})
-                if isinstance(author_obj, dict):
-                    first = author_obj.get("first_name", "")
-                    last = author_obj.get("last_name", "")
-                    author = f"{first} {last}".strip()
-                elif isinstance(author_obj, str):
-                    author = author_obj
+        plan_data = config.load_bookinfo(theme) or {}
+        author_obj = plan_data.get("author") or (plan_data.get("kdp_listing", {}) or {}).get("author") or {}
+        if isinstance(author_obj, dict):
+            first = author_obj.get("first_name", "")
+            last = author_obj.get("last_name", "")
+            author = f"{first} {last}".strip()
+        elif isinstance(author_obj, str):
+            author = author_obj
     if not author:
         author = config.DEFAULT_AUTHOR
 
@@ -285,22 +278,16 @@ def build_pdf(theme: str, title: str | None = None, subtitle: str | None = None,
 
     c.save()
 
-    # Sync actual_page_count back into plan.json so cover spine math + DB rows
+    # Sync actual_page_count back into bookinfo so cover spine math + DB rows
     # stay accurate. Skip when value already matches to avoid noisy git diffs.
     try:
-        import json
-        plan_path = config.get_plan_path(theme)
-        if os.path.exists(plan_path):
-            with open(plan_path) as f:
-                plan_to_sync = json.load(f)
-            if plan_to_sync.get("actual_page_count") != page_num:
-                plan_to_sync["actual_page_count"] = page_num
-                with open(plan_path, "w") as f:
-                    json.dump(plan_to_sync, f, indent=2, ensure_ascii=False)
-                    f.write("\n")
-                print(f"Synced plan.json: actual_page_count={page_num}")
+        plan_to_sync = config.load_bookinfo(theme)
+        if plan_to_sync and plan_to_sync.get("actual_page_count") != page_num:
+            plan_to_sync["actual_page_count"] = page_num
+            config.save_bookinfo(theme, plan_to_sync)
+            print(f"Synced bookinfo: actual_page_count={page_num}")
     except Exception as e:
-        print(f"Warning: could not sync actual_page_count to plan.json: {e}")
+        print(f"Warning: could not sync actual_page_count: {e}")
 
     print(f"PDF created: {output_path}")
     print(f"Total pages: {page_num}")

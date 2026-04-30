@@ -186,13 +186,11 @@ def main():
         "page_prompts": plan_data["page_prompts"],
     }
 
-    # Save JSON plan
+    # Save canonical bookinfo.md (replaces split plan.json + bookinfo.md + listing.md)
     book_dir = config.get_book_dir(args.theme_key)
     os.makedirs(book_dir, exist_ok=True)
-    json_path = config.get_plan_path(args.theme_key)
-    with open(json_path, "w", encoding="utf-8") as f:
-        json.dump(ordered, f, indent=2, ensure_ascii=False)
-    print(f"Saved plan JSON: {json_path}")
+    json_path = config.save_bookinfo(args.theme_key, ordered)
+    print(f"Saved bookinfo: {json_path}")
 
     # Save prompts text file (compatible with generate_images.py)
     prompts_path = config.get_prompts_path(args.theme_key)

@@ -6,7 +6,6 @@ Each image is a black-and-white line art suitable for coloring.
 from __future__ import annotations
 
 import argparse
-import json
 import os
 import sys
 
@@ -38,13 +37,12 @@ def load_subjects(theme: str) -> list[str]:
 
 
 def load_plan_prompts(plan_path: str) -> tuple[str, list[str], str | None]:
-    """Load theme key, full prompts, and page_size from a plan JSON file."""
+    """Load theme key, full prompts, and page_size from a metadata file (bookinfo.md / .json)."""
     if not os.path.exists(plan_path):
-        print(f"Error: Plan file not found: {plan_path}")
+        print(f"Error: Metadata file not found: {plan_path}")
         sys.exit(1)
 
-    with open(plan_path, "r") as f:
-        plan = json.load(f)
+    plan = config.load_bookinfo_from_path(plan_path)
 
     theme_key = plan.get("theme_key")
     if not theme_key:

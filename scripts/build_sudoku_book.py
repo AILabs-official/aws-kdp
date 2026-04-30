@@ -1017,19 +1017,19 @@ def _draw_wrapped(
 def assemble(theme: str) -> Path:
     theme_dir = Path(config.get_book_dir(theme))
     puzzles_path = theme_dir / "sudoku_puzzles.json"
-    plan_path = Path(config.get_plan_path(theme))
 
     if not puzzles_path.exists():
         raise SystemExit(
             f"Missing {puzzles_path}. Run generate_sudoku.py first."
         )
-    if not plan_path.exists():
+
+    plan = config.load_bookinfo(theme)
+    if plan is None:
         raise SystemExit(
-            f"Missing {plan_path}. Create it with title/subtitle/author."
+            f"Missing bookinfo.md for theme '{theme}'. Create it with title/subtitle/author."
         )
 
     puzzles = json.loads(puzzles_path.read_text())
-    plan = json.loads(plan_path.read_text())
 
     meta = {
         "title": plan["title"],
@@ -1209,15 +1209,15 @@ def assemble(theme: str) -> Path:
 
     c.save()
 
-    # Sync actual_page_count back into plan.json so cover spine math + DB rows
+    # Sync actual_page_count back into bookinfo so cover spine math + DB rows
     # stay accurate. Skip if value already matches to avoid noisy git diffs.
     try:
         if plan.get("actual_page_count") != total_pages:
             plan["actual_page_count"] = total_pages
-            plan_path.write_text(json.dumps(plan, indent=2, ensure_ascii=False) + "\n")
-            print(f"   Synced {plan_path.name}: actual_page_count={total_pages}")
+            config.save_bookinfo(theme, plan)
+            print(f"   Synced bookinfo: actual_page_count={total_pages}")
     except Exception as e:
-        print(f"   Warning: could not sync actual_page_count to plan.json: {e}")
+        print(f"   Warning: could not sync actual_page_count: {e}")
 
     print(f"✅ Wrote {total_pages} pages to {out_path}")
     print(

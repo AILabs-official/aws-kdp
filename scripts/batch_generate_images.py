@@ -84,18 +84,16 @@ def post_process(image: Image.Image, size_key: str = config.DEFAULT_PAGE_SIZE) -
 # ── Scanning ─────────────────────────────────────────────────────────
 def scan_book(book_dir: str) -> BookScanResult | None:
     """Scan a single book directory for missing pages."""
-    plan_path = os.path.join(book_dir, "plan.json")
-    if not os.path.isfile(plan_path):
-        return None
-
+    theme_key = os.path.basename(book_dir)
     try:
-        with open(plan_path, "r") as f:
-            plan = json.load(f)
-    except (json.JSONDecodeError, IOError) as e:
-        log.warning("Skipping %s: cannot read plan.json (%s)", book_dir, e)
+        plan = config.load_bookinfo(theme_key)
+    except (json.JSONDecodeError, ValueError, IOError) as e:
+        log.warning("Skipping %s: cannot read book metadata (%s)", book_dir, e)
+        return None
+    if plan is None:
         return None
 
-    theme_key = plan.get("theme_key", os.path.basename(book_dir))
+    theme_key = plan.get("theme_key", theme_key)
     page_prompts = plan.get("page_prompts", [])
     if not page_prompts:
         return None

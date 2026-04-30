@@ -108,13 +108,9 @@ def generate_front_artwork(theme: str, title: str = "", author: str = "", render
     if author:
         author_instruction = f' Above the title, include the author name "{author}" in a smaller, elegant font as part of the design.'
 
-    # Try to load cover_prompt from plan file
-    plan_path = config.get_plan_path(theme)
-    cover_prompt_from_plan = None
-    if os.path.exists(plan_path):
-        with open(plan_path) as f:
-            plan = json.load(f)
-            cover_prompt_from_plan = plan.get("cover_prompt")
+    # Try to load cover_prompt from book metadata
+    plan = config.load_bookinfo(theme) or {}
+    cover_prompt_from_plan = plan.get("cover_prompt")
 
     if cover_prompt_from_plan:
         prompt = cover_prompt_from_plan
@@ -1549,14 +1545,12 @@ def build_cover(
         print(f"Error: Unknown theme '{theme}'")
         sys.exit(1)
 
-    # Auto-detect page size from plan if not explicitly set
-    plan_path = config.get_plan_path(theme)
-    if size == config.DEFAULT_PAGE_SIZE and os.path.exists(plan_path):
-        with open(plan_path) as f:
-            plan_data_for_size = json.load(f)
-            plan_size = plan_data_for_size.get("page_size")
-            if plan_size and plan_size in config.PAGE_SIZES:
-                size = plan_size
+    # Auto-detect page size from book metadata if not explicitly set
+    _plan_for_size = config.load_bookinfo(theme) or {}
+    if size == config.DEFAULT_PAGE_SIZE:
+        plan_size = _plan_for_size.get("page_size")
+        if plan_size and plan_size in config.PAGE_SIZES:
+            size = plan_size
     # Also check theme config
     if size == config.DEFAULT_PAGE_SIZE and "page_size" in theme_config and theme_config["page_size"] in config.PAGE_SIZES:
         size = theme_config["page_size"]
@@ -1566,17 +1560,15 @@ def build_cover(
     trim_w = page_dims["width_inches"]
     trim_h = page_dims["height_inches"]
 
-    # Load author: CLI > plan.json > .env default
+    # Load author: CLI > bookinfo > .env default
     if not author:
-        plan_author_path = config.get_plan_path(theme)
-        if os.path.exists(plan_author_path):
-            with open(plan_author_path) as f:
-                pa = json.load(f)
-                author_obj = pa.get("author", {})
-                if isinstance(author_obj, dict):
-                    author = f"{author_obj.get('first_name', '')} {author_obj.get('last_name', '')}".strip()
-                elif isinstance(author_obj, str):
-                    author = author_obj
+        author_obj = (_plan_for_size.get("author")
+                      or (_plan_for_size.get("kdp_listing", {}) or {}).get("author")
+                      or {})
+        if isinstance(author_obj, dict):
+            author = f"{author_obj.get('first_name', '')} {author_obj.get('last_name', '')}".strip()
+        elif isinstance(author_obj, str):
+            author = author_obj
     if not author:
         author = config.DEFAULT_AUTHOR
 
@@ -1631,13 +1623,10 @@ def build_cover(
     draw = ImageDraw.Draw(cover)
 
     # --- Detect sudoku books early so we skip AI artwork (programmatic front instead) ---
-    plan_data_early = {}
-    if os.path.exists(plan_path):
-        try:
-            with open(plan_path) as _f:
-                plan_data_early = json.load(_f)
-        except Exception:
-            plan_data_early = {}
+    try:
+        plan_data_early = config.load_bookinfo(theme) or {}
+    except Exception:
+        plan_data_early = {}
     early_book_type = (
         plan_data_early.get("book_type")
         or plan_data_early.get("style")
@@ -1745,14 +1734,9 @@ def build_cover(
     num_images = len([f for f in os.listdir(image_dir) if f.endswith(".png")]) if os.path.exists(image_dir) else 0
 
     # Load plan for description
-    plan_path = config.get_plan_path(theme)
-    plan_desc = ""
-    plan_audience = "adults"
-    if os.path.exists(plan_path):
-        with open(plan_path) as f:
-            plan_data = json.load(f)
-            plan_desc = plan_data.get("description", "")
-            plan_audience = plan_data.get("audience", "adults")
+    plan_data = config.load_bookinfo(theme) or {}
+    plan_desc = plan_data.get("description", "")
+    plan_audience = plan_data.get("audience", "adults")
 
     back_desc_lines = [
         f"{num_images} unique coloring pages",
@@ -1783,15 +1767,12 @@ def build_cover(
     # colorizing for the back cover. Sudoku / puzzle / journal samples are already
     # their final visual form — colorizing them would produce garbage and waste
     # renderer credits.
-    plan_path_bt = config.get_plan_path(theme)
     book_type = "coloring"
-    if os.path.exists(plan_path_bt):
-        try:
-            with open(plan_path_bt) as _f:
-                _p = json.load(_f)
-                book_type = (_p.get("book_type") or _p.get("style") or _p.get("content_method") or "coloring").lower()
-        except Exception:
-            pass
+    try:
+        _p = config.load_bookinfo(theme) or {}
+        book_type = (_p.get("book_type") or _p.get("style") or _p.get("content_method") or "coloring").lower()
+    except Exception:
+        pass
     should_colorize = book_type in {"coloring"}
 
     if sample_paths:
@@ -1872,14 +1853,10 @@ def build_cover(
         print(f"  Placed {len(sample_images)} sample pages on back cover.")
 
     # --- Book-type-aware back cover overlay (runs AFTER generic back to overwrite) ---
-    plan_for_back: dict = {}
-    plan_path_back = config.get_plan_path(theme)
-    if os.path.exists(plan_path_back):
-        try:
-            with open(plan_path_back) as _f:
-                plan_for_back = json.load(_f)
-        except Exception:
-            plan_for_back = {}
+    try:
+        plan_for_back: dict = config.load_bookinfo(theme) or {}
+    except Exception:
+        plan_for_back = {}
     back_book_type = (
         plan_for_back.get("book_type")
         or plan_for_back.get("style")

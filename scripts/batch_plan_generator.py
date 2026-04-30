@@ -5,10 +5,13 @@ All prompts written by Claude (no AI generation).
 Author: BoBo Art | Page size: 8.5x8.5 (square) | Pages: 50 per book
 """
 
-import json
 import os
 import shutil
 import re
+import sys
+
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import config  # noqa: E402
 
 BASE_DIR = "/Users/hoangtran/Documents/Github/aws kdp"
 IDEAS_DIR = os.path.join(BASE_DIR, "ideas")
@@ -1060,10 +1063,8 @@ def save_book(theme_key, data):
         "reading_age": data["reading_age"],
     }
 
-    # Save plan.json
-    plan_path = os.path.join(out_dir, "plan.json")
-    with open(plan_path, "w") as f:
-        json.dump(plan, f, indent=2, ensure_ascii=False)
+    # Save canonical bookinfo.md (single source of truth)
+    plan_path = config.save_bookinfo(plan["theme_key"], plan)
 
     # Save prompts.txt
     prompts_path = os.path.join(out_dir, "prompts.txt")

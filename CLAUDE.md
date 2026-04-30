@@ -41,24 +41,30 @@ There are **no `/kdp-batch-planner` or `/kdp-batch-assembler` commands** — onl
 ## Architecture
 
 ### Data layout
-Everything about a single book lives under `output/{theme_key}/`:
+Everything about a single book lives under `output/{theme_key}/`. **`bookinfo.md` is the single source of truth** — one markdown file per book that carries:
+- A JSON code fence at the top (wrapped in `<!-- BOOKINFO_DATA -->` markers) with structured pipeline data: page_size, page prompts, difficulty distribution, recommended_categories_2026, and the full kdp_listing block.
+- A human-readable markdown body underneath, optimized to copy/paste straight into kdp.amazon.com → Paperback → Add Title (Title, Subtitle, Author, Description HTML, Keywords list, Categories table with node IDs, Audience checkboxes, Print options, Pricing matrix, Files-to-upload).
+
 ```
 output/{theme_key}/
-  plan.json          — SEO metadata (title/subtitle/description/keywords/categories) + cover_prompt + page_prompts[] + page_size + audience
-  prompts.txt        — page prompts, one per line (compat with legacy theme-based flow)
+  bookinfo.md        — canonical metadata (single source of truth)
+  prompts.txt        — page prompts, one per line (legacy / coloring flow)
   images/page_NN.png — grayscale line art at 300 DPI
   front_artwork.png  — saved cover front art (reused on rebuild unless --regenerate)
   interior.pdf       — KDP interior upload
   cover.png / cover.pdf — full wrap cover (front + spine + back)
+  sudoku_puzzles.json — sudoku-only: generated puzzles + solutions
 ```
+
+Pipeline scripts read via `config.load_bookinfo(theme_key)` (parses the JSON fence) and write via `config.save_bookinfo(theme_key, data)` (re-renders the whole .md). Direct `json.load(open(plan_path))` is **wrong** — it will fail on bookinfo.md. Legacy books with `plan.json` / `bookinfo.json` are still readable as a fallback. Run `python3 scripts/migrate_to_bookinfo.py --apply --delete-old` to convert any leftover legacy book (idempotent; pulls description from `data/kdp.db.listings` if no sidecar md remains). Never create `bookinfo.md` + `listing.md` + `plan.json` separately again.
 
 Briefs to turn into plans live in [ideas/](ideas/) as markdown with YAML frontmatter (`topic`, `audience`, `style`, `season`, `score`, `status`). Processed ideas move to `ideas/done/`.
 
 ### Config modules (two of them — different concerns)
 
-- [scripts/config.py](scripts/config.py) — **runtime** config for the image pipeline: page dimensions, DPI, safe area, per-renderer aspect ratios, renderer URLs/poll timeouts, Gemini model, path helpers (`get_book_dir` / `get_plan_path` / `get_images_dir` / `get_interior_pdf_path` / `get_cover_png_path` / `get_cover_pdf_path`), and `BASE_PROMPT` template. Supports two trim sizes: `8.5x11` (portrait, 3:4) and `8.5x8.5` (square, 1:1). `get_gutter_margin(page_count)` returns the KDP-required inside margin — it grows with page count (0.375" at 24p, 0.5" at 151p, up to 0.875" at 701p+).
+- [scripts/config.py](scripts/config.py) — **runtime** config for the image pipeline: page dimensions, DPI, safe area, per-renderer aspect ratios, renderer URLs/poll timeouts, Gemini model, path helpers (`get_book_dir` / `get_bookinfo_path` / `get_plan_path` (legacy alias) / `get_images_dir` / `get_interior_pdf_path` / `get_cover_png_path` / `get_cover_pdf_path`), book-metadata IO (`load_bookinfo` / `load_bookinfo_from_path` / `save_bookinfo`), and `BASE_PROMPT` template. Supports two trim sizes: `8.5x11` (portrait, 3:4) and `8.5x8.5` (square, 1:1). `get_gutter_margin(page_count)` returns the KDP-required inside margin — it grows with page count (0.375" at 24p, 0.5" at 151p, up to 0.875" at 701p+).
 
-  **Important**: `config.THEMES` is a `_ThemesProxy`, not a static dict. It auto-discovers any `output/{theme_key}/plan.json` (or legacy `prompts.txt`) at access time. You do **not** need to register new themes anywhere — `plan_book.py` writing to `output/{theme_key}/` is sufficient for `build_pdf.py` / `generate_cover.py` / `generate_images.py --theme` to see it. (The old CLAUDE.md said otherwise; that hasn't been true since `THEMES` was proxified.)
+  **Important**: `config.THEMES` is a `_ThemesProxy`, not a static dict. It auto-discovers any `output/{theme_key}/bookinfo.json` (or legacy `plan.json`, or `prompts.txt`) at access time. You do **not** need to register new themes anywhere — writing the metadata file to `output/{theme_key}/` is sufficient for `build_pdf.py` / `generate_cover.py` / `generate_images.py --theme` to see it. `get_plan_path()` is now a backward-compat wrapper around `get_bookinfo_path()`; new code should call the latter.
 
 - [scripts/kdp_config.py](scripts/kdp_config.py) — **domain math**, used by agents and the DB layer. No I/O, no config loading. Contains: `spine_width_inches()` / `full_cover_dims()` with KDP bleed + live area, `printing_cost_usd()` / `royalty_per_sale_usd()` / `break_even_acos_pct()` / `max_cpc_usd()`, `bsr_to_daily_sales()` + `estimate_monthly_royalty()`, `opportunity_score()` / `competition_strength()` / `niche_score()` / `apply_hard_elimination()` (Blue Ocean niche framework), `LIMITS` (title/keyword/DPI caps), `SEASONS` ramp calendar. Keep cover math and royalty rates here; never duplicate into scripts.
 
@@ -151,8 +157,9 @@ Prompt style — adults: cute-cozy medium-detail, layered foreground/midground/b
 ## Conventions
 
 - Theme keys: `^[a-z][a-z0-9_]*$` (snake_case) — validated in `plan_book.py`. The theme_key is the folder under `output/` and the single ID for a book.
+- **One book = one metadata file**: `bookinfo.md` (markdown with JSON code fence). Don't split into `bookinfo.md` + `listing.md` + `plan.json` + `bookinfo.json`. The migration script collapsed them and the pipeline reads via `config.load_bookinfo()`.
 - `generate_images.py --start N` resumes from page N+1 (skips existing files) — safe to re-run after partial failures.
-- `build_pdf.py` / `generate_cover.py` reuse the page size from `plan.json` when available; `--size` is an explicit override.
+- `build_pdf.py` / `generate_cover.py` reuse the page size from `bookinfo.md` when available; `--size` is an explicit override.
 - Cover builds reuse `front_artwork.png` by default; pass `--regenerate` to pay the renderer call again.
 - `batch_rebuild_cover.py` runs 6 books in parallel; first positional arg is renderer, second can be `--regenerate`.
 - [AGENTS.md](AGENTS.md) is the operator-facing brief (Vietnamese + English) — update it only if the user-visible `/create-book` flow changes.

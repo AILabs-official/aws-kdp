@@ -1443,10 +1443,9 @@ def render_module_6_scenarios(theme: str, plan: dict, mod: dict, out_path: Path,
 
 def render_aplus_assets(theme: str) -> None:
     print(f"\n=== A+ rendering: {theme} ===")
-    plan_path = Path(config.get_plan_path(theme))
-    if not plan_path.exists():
-        raise SystemExit(f"Missing {plan_path}")
-    plan = json.loads(plan_path.read_text())
+    plan = config.load_bookinfo(theme)
+    if plan is None:
+        raise SystemExit(f"Missing bookinfo.md for theme '{theme}'")
 
     book_id = _get_book_id_from_theme(theme)
     modules = _get_listing_aplus(book_id)
@@ -1538,12 +1537,11 @@ def main():
             tk = r.get("theme_key")
             if not tk:
                 continue
-            plan_path = Path(config.get_plan_path(tk))
-            if not plan_path.exists():
-                continue
             try:
-                p = json.loads(plan_path.read_text())
+                p = config.load_bookinfo(tk)
             except Exception:
+                continue
+            if p is None:
                 continue
             if p.get("book_type") == "sudoku":
                 try:
