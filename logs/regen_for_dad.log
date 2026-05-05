@@ -1,0 +1,21 @@
+/Users/tonytrieu/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+Theme: Sudoku for Dad — Father's Day Gift Edition. 300 mixed-difficulty puzzles (easy/medium/hard/expert) with large readable print, one puzzle per page, full solutions, gift-positioned for Father's Day 2026. Audience: adult men 35-75, gift buyers (wives, kids, grandkids). Hook: 'The perfect Father's Day gift — relax, sharpen the mind, one puzzle at a time.'
+Title: Sudoku for Dad: 300 Large Print Puzzles — The Perfect Father's Day Gift Book for Men, Easy to Expert, Solutions Included
+Pages: 256
+Spine: 0.577"
+Trim:  8.5" x 11.0"  |  Bleed: 0.125" each side
+Cover: 17.827" x 11.250" (with bleed)
+Pixels: 5349 x 3376 @ 300 DPI
+
+Sudoku book + force_ai_cover_front=true — generating AI front artwork (will skip programmatic sudoku front render later).
+Generating front cover artwork (renderer: openai)...
+Front artwork saved: output/sudoku_for_dad_fathers_day/front_artwork.png
+Front artwork placed.
+Rendering sudoku-specific UNIFIED back cover + spine (matches front theme)...
+Skipping programmatic sudoku front render (force_ai_cover_front=true — AI artwork already placed).
+
+Cover saved:
+  PNG: output/sudoku_for_dad_fathers_day/cover.png
+  PDF: output/sudoku_for_dad_fathers_day/cover.pdf (upload this to KDP)
+Size: 5349 x 3376 px

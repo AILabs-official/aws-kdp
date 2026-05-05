@@ -6,7 +6,7 @@
   "theme_key": "large_print_sudoku_seniors",
   "title": "Large Print Sudoku for Seniors",
   "subtitle": "125 Easy to Hard Puzzles with Big Numbers, One Per Page, Solutions Included — Relaxing Brain Games for Elderly Adults",
-  "author": "BoBo Art",
+  "author": "BrainCraft Publishing",
   "book_type": "sudoku",
   "style": "sudoku",
   "page_size": "8.5x11",
@@ -31,7 +31,7 @@
     "sudoku puzzle book seniors",
     "sudoku gift for elderly"
   ],
-  "actual_page_count": 158,
+  "actual_page_count": 138,
   "recommended_categories_2026": {
     "_book_format": "PAPERBACK (8.5x11, 158p) — Books tree (zgbs/books). Not Kindle.",
     "_selection_criteria": "Topic match (sudoku/logic/puzzle) + paperback format + Blue Ocean weakness. Audience signals (seniors, large print) belong in subtitle/keywords, NOT category.",
@@ -73,8 +73,8 @@
     "title": "Large Print Sudoku for Seniors",
     "subtitle": "125 Easy to Hard Puzzles with Big Numbers, One Per Page, Solutions Included — Relaxing Brain Games for Elderly Adults",
     "author": {
-      "first_name": "BoBo",
-      "last_name": "Art"
+      "first_name": "BrainCraft",
+      "last_name": "Publishing"
     },
     "imprint": "",
     "description_html": "<h4>Keep your mind sharp with sudoku you can actually see.</h4><br>A calm, easy-to-read sudoku book made for seniors and anyone who loves big, clear numbers. Every puzzle sits alone on its own page with extra-large digits, thick grid lines, and generous white space — no squinting, no crowding, just a relaxing daily challenge.<br><br><b>What is Inside:</b><br>&#x2022; 125 unique sudoku puzzles, easy to expert<br>&#x2022; One puzzle per page with big numbers and a thick, low-glare grid<br>&#x2022; Smooth difficulty progression: 40 easy, 40 medium, 30 hard, 15 expert<br>&#x2022; Complete solution key in the back, sorted by puzzle number<br>&#x2022; Single-sided pages so pencil and pen marks never bleed through<br>&#x2022; Roomy 8.5 x 11 inch pages built for comfortable solving<br><br><b>Perfect For:</b><br>&#x2022; Seniors and adults who want gentle, daily brain training<br>&#x2022; Low-vision solvers who need extra-large print and clear contrast<br>&#x2022; A thoughtful gift for grandparents, parents, retirees, or care home residents<br>&#x2022; Quiet afternoons, travel days, waiting rooms, and bedtime wind-down<br>&#x2022; Beginners building skill and seasoned puzzlers wanting a clean, readable book<br><br><b>Settle in with a warm drink and start your first puzzle.</b><br>Sharpen your focus, ease your mind, and enjoy a quiet moment of you-time — one big, beautiful number at a time.",
@@ -151,8 +151,8 @@ Large Print Sudoku for Seniors
 
 ## ✍️ Author / Imprint
 
-- **First name:** `BoBo`
-- **Last name:** `Art`
+- **First name:** `BrainCraft`
+- **Last name:** `Publishing`
 - **Imprint:** ``
 
 ## 📝 Description (HTML — paste into KDP description box)

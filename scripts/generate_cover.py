@@ -724,6 +724,20 @@ SUDOKU_FRONT_COLOR_SCHEMES = {
         "label_color": "#FACC15",
         "stars": ["#C0C0C0", "#F5C842", "#DC2828"],
     },
+    "black": {  # Premium gift edition — deep matte black + elegant gold (Father's Day, luxury)
+        "bg": "#0E0E10",            # near-black with a hint of warmth, matte feel
+        "watermark": "#15151A",     # very subtle delta — visible only as texture
+        "title_color": "#E9C76A",   # warm classic gold for hero typography
+        "year_pill_bg": "#C9A24A",  # antique gold pill
+        "year_pill_ink": "#0E0E10",
+        "puzzle_pill_bg": "#C9A24A",
+        "puzzle_pill_ink": "#0E0E10",
+        "tagline_band_bg": "#C9A24A",
+        "tagline_band_ink": "#0E0E10",
+        "imprint_color": "#E9C76A",
+        "label_color": "#E9C76A",
+        "stars": ["#8C6E2A", "#C9A24A", "#E9C76A"],  # tonal gold trio (no red)
+    },
 }
 
 
@@ -1634,11 +1648,14 @@ def build_cover(
     ).lower()
     puzzles_path_early = os.path.join(book_dir, "sudoku_puzzles.json")
     is_sudoku_book_early = early_book_type == "sudoku" or os.path.exists(puzzles_path_early)
+    force_ai_cover_front = bool(plan_data_early.get("force_ai_cover_front")) or os.getenv("FORCE_AI_COVER_FRONT", "").lower() in ("1", "true", "yes")
 
-    # --- Generate and place front cover artwork (coloring books only) ---
-    if is_sudoku_book_early:
+    # --- Generate and place front cover artwork (coloring books only, OR sudoku with force_ai_cover_front) ---
+    if is_sudoku_book_early and not force_ai_cover_front:
         print("Sudoku book detected — skipping AI front artwork (programmatic template will paint front later).")
     else:
+        if is_sudoku_book_early and force_ai_cover_front:
+            print("Sudoku book + force_ai_cover_front=true — generating AI front artwork (will skip programmatic sudoku front render later).")
         front_artwork_path = os.path.join(book_dir, "front_artwork.png")
         artwork = None
 
@@ -1870,8 +1887,11 @@ def build_cover(
     if is_sudoku_book:
         print("Rendering sudoku-specific UNIFIED back cover + spine (matches front theme)...")
         _render_sudoku_unified_back_spine(cover, dims, plan_for_back, author, puzzles_path)
-        print("Rendering sudoku-specific front cover (programmatic bestseller template)...")
-        _render_sudoku_front_cover(cover, dims, plan_for_back, puzzles_path)
+        if force_ai_cover_front:
+            print("Skipping programmatic sudoku front render (force_ai_cover_front=true — AI artwork already placed).")
+        else:
+            print("Rendering sudoku-specific front cover (programmatic bestseller template)...")
+            _render_sudoku_front_cover(cover, dims, plan_for_back, puzzles_path)
         draw = ImageDraw.Draw(cover)
 
     # Barcode placeholder (KDP adds barcode here)

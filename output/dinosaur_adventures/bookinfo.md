@@ -8,8 +8,8 @@
   "audience": "kids_6_12",
   "page_size": "8.5x11",
   "author": {
-    "first_name": "BoBo",
-    "last_name": "Art"
+    "first_name": "BrainCraft",
+    "last_name": "Publishing"
   },
   "title": "Dinosaur Coloring Book for Kids Ages 6-12: Bold and Easy Big Designs",
   "subtitle": "Fun and Simple Cartoon Dinosaur Illustrations with Thick Lines for Boys and Girls",
@@ -41,8 +41,8 @@
     "title": "Dinosaur Coloring Book for Kids Ages 6-12: Bold and Easy Big Designs",
     "subtitle": "Fun and Simple Cartoon Dinosaur Illustrations with Thick Lines for Boys and Girls",
     "author": {
-      "first_name": "BoBo",
-      "last_name": "Art"
+      "first_name": "BrainCraft",
+      "last_name": "Publishing"
     },
     "imprint": "",
     "description_html": "<p><b>Roar into a prehistoric adventure with friendly cartoon dinosaurs!</b></p><p>Step back in time with a cheerful group of smiling T-Rex, Triceratops, Stegosaurus, Brachiosaurus, Pterodactyl and more. Every page features a single cute character in a playful scene, drawn with bold thick outlines that are perfect for little hands just learning to color inside the lines.</p><p><b>What's Inside:</b></p><ul><li>Large single-sided pages to prevent bleed-through</li><li>Big, bold, easy-to-color outlines ideal for crayons, markers and colored pencils</li><li>A happy variety of cartoon dinosaurs in fun everyday scenes</li><li>Simple shapes with no tiny details, no shading, no frames</li><li>Thick clean lines that build focus, patience and fine motor skills</li></ul><p><b>Perfect For:</b></p><ul><li>Boys and girls ages 6 to 12 who love dinosaurs</li><li>Screen-free quiet time, road trips, rainy days and classroom activities</li><li>Birthday gifts, party favors, stocking stuffers and reward treats</li><li>Beginner colorists and young dinosaur fans of every skill level</li></ul><p><b>Grab your crayons, pick a dinosaur and let the adventure begin!</b></p>",
@@ -91,7 +91,8 @@
     "kdp_select_enrollment": true,
     "expanded_distribution": true,
     "barcode_on_cover": false
-  }
+  },
+  "actual_page_count": 14
 }
 ```
 
@@ -119,8 +120,8 @@ Fun and Simple Cartoon Dinosaur Illustrations with Thick Lines for Boys and Girl
 
 ## ✍️ Author / Imprint
 
-- **First name:** `BoBo`
-- **Last name:** `Art`
+- **First name:** `BrainCraft`
+- **Last name:** `Publishing`
 - **Imprint:** ``
 
 ## 📝 Description (HTML — paste into KDP description box)

@@ -1,0 +1,253 @@
+{
+  "_meta": {
+    "book_id": 8,
+    "theme_key": "extra_large_print_sudoku",
+    "asin": "B0GZFHS31P",
+    "generated_at": "2026-05-04",
+    "mode": "launch_proposal_user_approved",
+    "status": "APPROVED_FOR_LAUNCH",
+    "user_decision_2026_05_04": "Keep list_price=$7.99 during W1 testing. Will raise price after ads prove velocity. Budget tweaked to $15/day ($105/week) with reduced bids to cap bleed at ~$80-120 for W1."
+  },
+  "_bid_math": {
+    "list_price_usd": 7.99,
+    "page_count": 128,
+    "interior": "BW",
+    "royalty_rate_pct": 50,
+    "printing_cost_usd": 2.386,
+    "royalty_per_sale_usd": 2.802,
+    "break_even_acos_pct": 35.07,
+    "target_acos_pct": 24.5,
+    "assumed_cvr_pct": 8,
+    "theoretical_max_cpc_usd": 0.055,
+    "theoretical_max_cpc_note": "Formula max_cpc = royalty * (target_acos/100) * (cvr/100) yields $0.055 at 8% cvr. This is FAR below Amazon market rates for sudoku keywords ($0.40-$0.90). Pure formula bid would never win impressions.",
+    "competitive_floor_usd": 0.40,
+    "competitive_ceiling_usd": 0.90,
+    "actual_strategy_bid_usd": 0.45,
+    "actual_strategy_rationale": "We override the formula floor because Amazon Ads is a 2nd-price auction; bidding $0.05 = zero impressions = zero data. Launch week 1 we accept losing money per click to GATHER DATA, then prune by week 2-3. Real CPC paid will be ~60-70% of bid ($0.27-$0.32 avg). Acceptable launch loss = 1-2 weeks of $15-20/day = $100-280 total invested in keyword discovery + ranking signals."
+  },
+  "campaigns": [
+    {
+      "name": "SP_ExactMatch_LargePrintSudoku_Launch_W1",
+      "campaign_type": "sponsoredProducts",
+      "targeting_type": "manual",
+      "match_type": "exact",
+      "daily_budget_usd": 6.00,
+      "default_bid_usd": 0.42,
+      "bidding_strategy": "fixed",
+      "placement_modifiers": {
+        "top_of_search_pct": 0,
+        "product_pages_pct": 0
+      },
+      "start_date": "2026-05-04",
+      "end_date": null,
+      "rationale": "High-intent buyer keywords. Tight match = high CVR, low ACoS. Fixed bid (no Amazon up-bid) for week 1 to control spend. No placement modifier — we want raw baseline data first.",
+      "keywords_exact": [
+        "extra large print sudoku",
+        "extra large print sudoku puzzle book",
+        "large print sudoku for seniors",
+        "large print sudoku book",
+        "low vision sudoku",
+        "low vision sudoku book",
+        "giant print sudoku",
+        "giant print sudoku puzzle book",
+        "sudoku large print easy",
+        "sudoku for seniors large print",
+        "sudoku book for elderly",
+        "big number sudoku",
+        "big print sudoku book",
+        "sudoku one puzzle per page",
+        "sudoku for low vision adults",
+        "easy sudoku large print",
+        "sudoku large print 100 puzzles",
+        "large print sudoku for elderly"
+      ],
+      "negative_keywords_phrase": [
+        "kindle",
+        "ebook",
+        "free",
+        "kids",
+        "children",
+        "spanish",
+        "expert",
+        "samurai",
+        "16x16"
+      ],
+      "expected_metrics_w1": {
+        "impressions_per_day": "300-700",
+        "clicks_per_day": "5-12",
+        "spend_per_day_usd": "2-5",
+        "expected_acos_pct": "35-55",
+        "expected_orders_per_week": "1-3"
+      }
+    },
+    {
+      "name": "SP_BroadDiscovery_SudokuSeniors_Launch_W1",
+      "campaign_type": "sponsoredProducts",
+      "targeting_type": "manual",
+      "match_type": "broad",
+      "daily_budget_usd": 5.00,
+      "default_bid_usd": 0.32,
+      "bidding_strategy": "down_only",
+      "placement_modifiers": {
+        "top_of_search_pct": 0,
+        "product_pages_pct": 0
+      },
+      "rationale": "Mining campaign — broad match captures long-tail variants we haven't predicted (gift, holiday, vision condition modifiers). Lower bid (0.7x exact) because broader = lower CVR. 'down_only' bidding lets Amazon cut bid on low-converting clicks. Search term report at day 7 → harvest converters to Exact, add losers to negatives.",
+      "keywords_broad": [
+        "large print sudoku",
+        "sudoku puzzle book seniors",
+        "sudoku gift for grandma",
+        "sudoku gift for grandpa",
+        "sudoku gift for elderly parent",
+        "easy sudoku adults",
+        "easy to hard sudoku",
+        "sudoku activity book seniors",
+        "sudoku brain games adults",
+        "sudoku for memory seniors",
+        "macular degeneration puzzle book",
+        "low vision activity book",
+        "puzzle book for nursing home",
+        "sudoku book gift",
+        "sudoku 100 puzzles",
+        "sudoku puzzle book medium",
+        "sudoku for retired",
+        "brain teasers seniors",
+        "logic puzzles large print",
+        "puzzle book big numbers",
+        "sudoku coffee table book",
+        "mothers day puzzle gift",
+        "fathers day puzzle gift seniors",
+        "sudoku get well gift",
+        "sudoku retirement gift"
+      ],
+      "negative_keywords_phrase": [
+        "kindle",
+        "ebook",
+        "app",
+        "free download",
+        "kids",
+        "children",
+        "child",
+        "toddler",
+        "teen",
+        "spanish",
+        "espanol",
+        "samurai",
+        "16x16",
+        "killer sudoku",
+        "expert only",
+        "crossword",
+        "word search"
+      ],
+      "expected_metrics_w1": {
+        "impressions_per_day": "800-2000",
+        "clicks_per_day": "8-20",
+        "spend_per_day_usd": "3-7",
+        "expected_acos_pct": "60-100",
+        "expected_orders_per_week": "1-2",
+        "primary_value": "search_term_harvest_for_w2"
+      }
+    },
+    {
+      "name": "SP_Auto_Discovery_Launch_W1",
+      "campaign_type": "sponsoredProducts",
+      "targeting_type": "auto",
+      "daily_budget_usd": 4.00,
+      "default_bid_usd": 0.28,
+      "bidding_strategy": "down_only",
+      "ad_groups": [
+        {
+          "name": "auto_all_targets",
+          "targeting_groups": {
+            "close_match": {"bid_usd": 0.30},
+            "loose_match": {"bid_usd": 0.22},
+            "complements": {"bid_usd": 0.25},
+            "substitutes": {"bid_usd": 0.30}
+          }
+        }
+      ],
+      "rationale": "Lowest-effort discovery. Amazon's algorithm finds ASIN + keyword targets we'd miss. Lowest bid (0.5x exact) because zero relevance signal. Primary purpose: feed search-term report. Substitutes (competitor ASINs) get same bid as close_match — high-intent shoppers comparing similar books.",
+      "negative_keywords_phrase": [
+        "kindle",
+        "ebook",
+        "free",
+        "kids",
+        "children",
+        "spanish",
+        "samurai",
+        "16x16",
+        "expert"
+      ],
+      "negative_asins": [],
+      "expected_metrics_w1": {
+        "impressions_per_day": "500-1500",
+        "clicks_per_day": "3-10",
+        "spend_per_day_usd": "1-3",
+        "expected_acos_pct": "40-80",
+        "expected_orders_per_week": "1-2",
+        "primary_value": "asin_target_discovery_for_w3_PT_campaign"
+      }
+    }
+  ],
+  "_totals": {
+    "total_daily_budget_usd": 15.00,
+    "weekly_budget_usd": 105.00,
+    "expected_blended_acos_pct_w1": "70-90",
+    "expected_blended_acos_pct_w4_after_optimization": "40-55",
+    "breakeven_orders_per_day_at_15_budget": 5.4,
+    "breakeven_orders_per_week": 38,
+    "stretch_goal_orders_per_week": "4-8",
+    "expected_w1_loss_usd": "80-120",
+    "loss_classification": "expected_launch_investment_for_data_and_ranking",
+    "note_royalty_at_799": "royalty $2.80/sale → break-even ACoS 35% — high ACoS W1 expected because price kept low for testing"
+  },
+  "_strategy_week1": {
+    "primary_goal": "data_collection",
+    "secondary_goal": "indexation_signal_to_amazon_a9",
+    "tertiary_goal": "minimum_viable_velocity_for_organic_rank",
+    "kpis_to_track": [
+      "impressions_per_keyword (need >100/day for statistical significance)",
+      "ctr_per_keyword (target >0.3% for sudoku category)",
+      "cvr_per_keyword (target >5%)",
+      "search_term_report_unique_terms (target 40+ new terms/week)",
+      "organic_rank_for_top_3_keywords (track via manual SERP check d1/d4/d7)"
+    ],
+    "do_not_panic_about": [
+      "ACoS >100% in days 1-3 (data still building)",
+      "Zero conversions on some keywords (expected — need 100+ clicks before judging)",
+      "Auto campaign spending all budget (it should — that's the discovery engine)"
+    ],
+    "iterate_d7_actions": [
+      "Pause exact keywords with >40 clicks and 0 orders",
+      "Harvest search-term-report converters from Broad → add to Exact",
+      "Add high-impression / zero-click search terms to negatives",
+      "If any keyword has ACoS < 25% and >3 orders → raise bid 20%",
+      "Run /ads-manager mode=iterate (auto-scheduled for 2026-05-11)"
+    ]
+  },
+  "_critical_warnings": [
+    {
+      "severity": "HIGH",
+      "issue": "list_price_DB_vs_bookinfo_mismatch",
+      "details": "DB says $7.99 → 50% royalty tier → $2.80/sale. bookinfo.md JSON says $9.99 → 60% royalty → ~$4.55/sale. Recommend RAISE to $9.99 on KDP before ads launch — instantly +62% royalty, makes ads viable.",
+      "action_required": "User confirms list_price before launch"
+    },
+    {
+      "severity": "MEDIUM",
+      "issue": "competitive_bid_above_formula_max",
+      "details": "Formula max_cpc = $0.055 but real-world bids needed = $0.28-$0.55. Week 1 will run negative-margin to gather data. Acceptable IF user understands launch is investment, not profit phase.",
+      "action_required": "User confirms $100-150 launch loss tolerance"
+    },
+    {
+      "severity": "LOW",
+      "issue": "no_review_yet",
+      "details": "Book published today (2026-05-04) — likely 0 reviews. CTR will be 30-50% lower than fully-reviewed listing. Expected. Will improve as reviews accumulate.",
+      "action_required": "Optional — enroll in Amazon Vine if ASIN is eligible"
+    }
+  ],
+  "_next_action_after_user_approval": {
+    "command": "python3 scripts/amazon_ads_api.py launch --book-id 8 --proposal output/extra_large_print_sudoku/ads/launch_proposal.json",
+    "schedule_followup": "/ads-manager book_id=8 mode=iterate (auto, 2026-05-11)",
+    "db_writes_pending": "3 rows to ad_campaigns table after Amazon API confirms campaign IDs"
+  }
+}

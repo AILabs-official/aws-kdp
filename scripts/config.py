@@ -29,6 +29,7 @@ PAGE_SIZES = {
         "ai33_aspect_ratio": "3:4",  # For AI33 API
         "bimai_aspect_ratio": "9:16",  # For Bimai API
         "kie_aspect_ratio": "3:4",    # For Kie.ai API
+        "openai_aspect_ratio": "3:4",  # For OpenAI GPT Image API
         "label": "8.5\" x 11\" (Portrait)",
     },
     "8.5x8.5": {
@@ -38,6 +39,7 @@ PAGE_SIZES = {
         "ai33_aspect_ratio": "1:1",  # For AI33 API
         "bimai_aspect_ratio": "1:1",  # For Bimai API
         "kie_aspect_ratio": "1:1",    # For Kie.ai API
+        "openai_aspect_ratio": "1:1",  # For OpenAI GPT Image API
         "label": "8.5\" x 8.5\" (Square)",
     },
 }
@@ -112,6 +114,7 @@ def get_page_dims(size_key: str = DEFAULT_PAGE_SIZE, page_count: int = 0) -> dic
         "aspect_ratio": ps["aspect_ratio"],
         "ai33_aspect_ratio": ps["ai33_aspect_ratio"],
         "bimai_aspect_ratio": ps["bimai_aspect_ratio"],
+        "openai_aspect_ratio": ps["openai_aspect_ratio"],
     }
 
 # --- Gemini API ---
@@ -128,6 +131,19 @@ AI33_RESOLUTION = "2K"
 AI33_ASPECT_RATIO = "3:4"  # Portrait for coloring books
 AI33_POLL_INTERVAL = 5  # Seconds between status polls
 AI33_POLL_TIMEOUT = 300  # Max seconds to wait for image generation
+
+# --- OpenAI GPT Image API ---
+OPENAI_IMAGE_API_URL = "https://api.openai.com/v1/images/generations"
+OPENAI_IMAGE_MODEL = os.getenv("OPENAI_IMAGE_MODEL", "gpt-image-1.5")
+OPENAI_IMAGE_QUALITY = os.getenv("OPENAI_IMAGE_QUALITY", "high")
+OPENAI_IMAGE_BACKGROUND = os.getenv("OPENAI_IMAGE_BACKGROUND", "opaque")
+OPENAI_IMAGE_SIZES = {
+    "1:1": "1024x1024",
+    "3:4": "1024x1536",
+    "9:16": "1024x1536",
+    "4:3": "1536x1024",
+    "16:9": "1536x1024",
+}
 
 # --- Bimai API (app.bimai.vn) ---
 BIMAI_API_URL = "https://api.bimai.vn/api/v1/generate"
@@ -458,19 +474,19 @@ _LEGACY_THEMES = {
 
 
 def get_theme(theme_key: str) -> dict | None:
-    """Get theme config by key. Reads from plan.json first, falls back to _LEGACY_THEMES.
+    """Get theme config by key. Reads from bookinfo/plan metadata first, falls back to _LEGACY_THEMES.
 
     Returns dict with keys: name, book_title, prompt_file, and optionally page_size.
     Returns None if theme not found.
     """
-    # Try plan.json first
+    # Try bookinfo.md / bookinfo.json / plan.json first.
     plan_path = get_plan_path(theme_key)
     if os.path.exists(plan_path):
-        with open(plan_path) as f:
-            plan = json.load(f)
+        plan = load_bookinfo_from_path(plan_path)
+        listing = plan.get("kdp_listing") or {}
         result = {
-            "name": plan.get("concept", theme_key),
-            "book_title": plan.get("title", theme_key),
+            "name": plan.get("concept") or plan.get("title") or listing.get("title") or theme_key,
+            "book_title": plan.get("title") or listing.get("title") or theme_key,
             "prompt_file": get_prompts_path(theme_key),
         }
         if plan.get("page_size"):
@@ -494,13 +510,14 @@ def get_theme(theme_key: str) -> dict | None:
 
 
 def list_themes() -> list[str]:
-    """List all available theme keys: legacy themes + output dirs with bookinfo.json / plan.json / prompts.txt."""
+    """List all available theme keys: legacy themes + output dirs with bookinfo / plan / prompts."""
     themes = set(_LEGACY_THEMES.keys())
     if os.path.isdir(OUTPUT_DIR):
         for d in os.listdir(OUTPUT_DIR):
             theme_dir = os.path.join(OUTPUT_DIR, d)
             if os.path.isdir(theme_dir):
-                if os.path.exists(os.path.join(theme_dir, "bookinfo.json")) or \
+                if os.path.exists(os.path.join(theme_dir, "bookinfo.md")) or \
+                   os.path.exists(os.path.join(theme_dir, "bookinfo.json")) or \
                    os.path.exists(os.path.join(theme_dir, "plan.json")) or \
                    os.path.exists(os.path.join(theme_dir, "prompts.txt")):
                     themes.add(d)

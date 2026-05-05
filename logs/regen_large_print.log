@@ -1,0 +1,18 @@
+/Users/tonytrieu/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+Theme: Large Print Sudoku for Seniors
+Title: Large Print Sudoku for Seniors
+Pages: 116
+Spine: 0.261"
+Trim:  8.5" x 11.0"  |  Bleed: 0.125" each side
+Cover: 17.511" x 11.250" (with bleed)
+Pixels: 5254 x 3376 @ 300 DPI
+
+Sudoku book detected — skipping AI front artwork (programmatic template will paint front later).
+Rendering sudoku-specific UNIFIED back cover + spine (matches front theme)...
+Rendering sudoku-specific front cover (programmatic bestseller template)...
+
+Cover saved:
+  PNG: output/large_print_sudoku_seniors/cover.png
+  PDF: output/large_print_sudoku_seniors/cover.pdf (upload this to KDP)
+Size: 5254 x 3376 px

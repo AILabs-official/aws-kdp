@@ -10,7 +10,7 @@
   "seed": 42,
   "title": "Large Print Sudoku Puzzle Book for Adults & Seniors",
   "subtitle": "200 Hand-Verified Puzzles in 5 Levels — From Gentle Warm-Up to Diabolic Expert · Logic-Only Guarantee · 3-Tier Hint System · Brain Training Journal Built-In",
-  "author": "Brain Craft Publishing",
+  "author": "BrainCraft Publishing",
   "difficulty_distribution": {
     "warmup": 20,
     "easy": 60,
@@ -33,7 +33,7 @@
     "tier3": "full_solution"
   },
   "target_page_count": 174,
-  "actual_page_count": 172,
+  "actual_page_count": 206,
   "puzzle_count": 200,
   "cover_palette": {
     "back_bg": "#F4ECDA",
@@ -71,7 +71,7 @@
     "expert"
   ],
   "spine_title": "LARGE PRINT SUDOKU · 5 LEVELS · 200 PUZZLES",
-  "imprint": "Brain Craft Publishing",
+  "imprint": "BrainCraft Publishing",
   "cover_prompt": "Premium minimalist book cover artwork for a senior-friendly large-print Sudoku puzzle book. Centered focal point: an elegant partial Sudoku grid (about 50 percent filled) rendered in crisp deep-navy serif numbers on warm cream paper, with strong thick lines defining the 3x3 boxes. Background: a soft hand-drawn watercolor wash gradient — dusty sage green at the top, warm cream in the middle, gentle terracotta rose at the bottom. Subtle botanical line illustrations at the four corners — delicate eucalyptus leaves and small wildflowers in muted gold. Decorative thin gold geometric border framing the grid. Editorial stationery aesthetic, like a high-end notebook cover. Calm, focused, intelligent atmosphere — feels like a quiet morning with coffee. Clean studio lighting, soft shadows, professional book cover quality. NO text, NO numbers other than the sudoku grid digits, NO author name on artwork. Generous negative space at top and bottom for separate title overlay. Sophisticated, warm, inviting — appeals to adults and seniors who value craft over flashy design. Aspect ratio 3:4 portrait.",
   "usps": [
     "Logic-Only Guarantee — every puzzle solvable by pure deduction, no guessing required",
@@ -139,11 +139,11 @@
     "title": "Large Print Sudoku Puzzle Book for Adults & Seniors",
     "subtitle": "200 Hand-Verified Puzzles in 5 Levels — From Gentle Warm-Up to Diabolic Expert · Logic-Only Guarantee · 3-Tier Hint System · Brain Training Journal Built-In",
     "author": {
-      "first_name": "Brain",
-      "last_name": "Craft Publishing"
+      "first_name": "BrainCraft",
+      "last_name": "Publishing"
     },
-    "imprint": "Brain Craft Publishing",
-    "description_html": "<h2>The Sudoku Book Designed for Solvers Who Care About Quality.</h2>\n\n<p>Tired of sudoku books with broken grids, duplicate puzzles, or puzzles that need guessing to solve? <b>This book is different.</b> Every one of the 200 puzzles inside has been hand-verified to have exactly one logical solution — no errors, no duplicates, no ambiguity. Just clean, satisfying logic.</p>\n\n<h3>What Makes This Book Stand Out</h3>\n\n<p><b>★ Logic-Only Guarantee.</b> Every puzzle solvable by pure deduction. Never guess again.</p>\n\n<p><b>★ 5 Carefully Calibrated Levels (most books offer 3):</b></p>\n<ul>\n  <li><b>20 Warm-Up puzzles</b> — gentle 6×6 mini-grids to build confidence</li>\n  <li><b>60 Easy puzzles</b> — printed <i>one per page in extra-large numbers</i> (perfect for senior eyes)</li>\n  <li><b>60 Medium puzzles</b> — a pleasant midday challenge, two per page</li>\n  <li><b>40 Hard puzzles</b> — careful, patient solving</li>\n  <li><b>20 Diabolic Expert puzzles</b> — for serious enthusiasts only</li>\n</ul>\n\n<p><b>★ Senior-Friendly Hybrid Layout.</b> Easy puzzles use our signature one-per-page extra-large format with cells comfortably big for tired eyes — bigger than most \"Large Print\" books on the market.</p>\n\n<p><b>★ Progressive 3-Tier Hint System.</b> Stuck on a puzzle but don't want the whole answer? We've got you covered:</p>\n<ul>\n  <li>Tier 1 — five extra clues per puzzle (just enough to break a logjam)</li>\n  <li>Tier 2 — ten extra clues (when Tier 1 still leaves you stuck)</li>\n  <li>Tier 3 — full solutions (for verification)</li>\n</ul>\n\n<p><b>★ Built-in Brain Training Journal.</b> Every Easy and Medium puzzle includes a small footer with cells for time, date, and a 1-to-5 self-rating. Track your cognitive growth over the months — see your speed and confidence build.</p>\n\n<h3>Perfect Gift For</h3>\n<ul>\n  <li>Adults and seniors who value quality logic puzzles</li>\n  <li>Grandparents, parents, retired teachers, anyone who loves a quiet morning challenge</li>\n  <li>Brain-training enthusiasts who want to track progress</li>\n  <li>Sudoku newcomers — the warm-up tier eases beginners in gently</li>\n  <li>Birthday, holiday, get-well, or \"just because\" gifting</li>\n</ul>\n\n<h3>Inside You'll Also Find</h3>\n<ul>\n  <li>A personalized \"This Book Belongs To\" page</li>\n  <li>Clear 2-page how-to-play guide with a worked example</li>\n  <li>Table of contents for easy navigation</li>\n  <li>Solutions printed at the back, organized by puzzle number</li>\n</ul>\n\n<p><b>Crafted, not mass-produced.</b> At Brain Craft Publishing, we don't pad books with random algorithm output. Every puzzle in this book was generated, verified, and reviewed for logical consistency before printing — because your time deserves better.</p>\n\n<p><i>Click \"Add to Cart\" now and treat your mind to 200 puzzles built the way Sudoku was meant to be enjoyed — by logic alone.</i>",
+    "imprint": "BrainCraft Publishing",
+    "description_html": "<h2>The Sudoku Book Designed for Solvers Who Care About Quality.</h2>\n\n<p>Tired of sudoku books with broken grids, duplicate puzzles, or puzzles that need guessing to solve? <b>This book is different.</b> Every one of the 200 puzzles inside has been hand-verified to have exactly one logical solution — no errors, no duplicates, no ambiguity. Just clean, satisfying logic.</p>\n\n<h3>What Makes This Book Stand Out</h3>\n\n<p><b>★ Logic-Only Guarantee.</b> Every puzzle solvable by pure deduction. Never guess again.</p>\n\n<p><b>★ 5 Carefully Calibrated Levels (most books offer 3):</b></p>\n<ul>\n  <li><b>20 Warm-Up puzzles</b> — gentle 6×6 mini-grids to build confidence</li>\n  <li><b>60 Easy puzzles</b> — printed <i>one per page in extra-large numbers</i> (perfect for senior eyes)</li>\n  <li><b>60 Medium puzzles</b> — a pleasant midday challenge, two per page</li>\n  <li><b>40 Hard puzzles</b> — careful, patient solving</li>\n  <li><b>20 Diabolic Expert puzzles</b> — for serious enthusiasts only</li>\n</ul>\n\n<p><b>★ Senior-Friendly Hybrid Layout.</b> Easy puzzles use our signature one-per-page extra-large format with cells comfortably big for tired eyes — bigger than most \"Large Print\" books on the market.</p>\n\n<p><b>★ Progressive 3-Tier Hint System.</b> Stuck on a puzzle but don't want the whole answer? We've got you covered:</p>\n<ul>\n  <li>Tier 1 — five extra clues per puzzle (just enough to break a logjam)</li>\n  <li>Tier 2 — ten extra clues (when Tier 1 still leaves you stuck)</li>\n  <li>Tier 3 — full solutions (for verification)</li>\n</ul>\n\n<p><b>★ Built-in Brain Training Journal.</b> Every Easy and Medium puzzle includes a small footer with cells for time, date, and a 1-to-5 self-rating. Track your cognitive growth over the months — see your speed and confidence build.</p>\n\n<h3>Perfect Gift For</h3>\n<ul>\n  <li>Adults and seniors who value quality logic puzzles</li>\n  <li>Grandparents, parents, retired teachers, anyone who loves a quiet morning challenge</li>\n  <li>Brain-training enthusiasts who want to track progress</li>\n  <li>Sudoku newcomers — the warm-up tier eases beginners in gently</li>\n  <li>Birthday, holiday, get-well, or \"just because\" gifting</li>\n</ul>\n\n<h3>Inside You'll Also Find</h3>\n<ul>\n  <li>A personalized \"This Book Belongs To\" page</li>\n  <li>Clear 2-page how-to-play guide with a worked example</li>\n  <li>Table of contents for easy navigation</li>\n  <li>Solutions printed at the back, organized by puzzle number</li>\n</ul>\n\n<p><b>Crafted, not mass-produced.</b> At BrainCraft Publishing, we don't pad books with random algorithm output. Every puzzle in this book was generated, verified, and reviewed for logical consistency before printing — because your time deserves better.</p>\n\n<p><i>Click \"Add to Cart\" now and treat your mind to 200 puzzles built the way Sudoku was meant to be enjoyed — by logic alone.</i>",
     "keywords_7": [
       "sudoku puzzle book for adults large print",
       "sudoku books for seniors with solutions",
@@ -217,9 +217,9 @@ Large Print Sudoku Puzzle Book for Adults & Seniors
 
 ## ✍️ Author / Imprint
 
-- **First name:** `Brain`
-- **Last name:** `Craft Publishing`
-- **Imprint:** `Brain Craft Publishing`
+- **First name:** `BrainCraft`
+- **Last name:** `Publishing`
+- **Imprint:** `BrainCraft Publishing`
 
 ## 📝 Description (HTML — paste into KDP description box)
 
@@ -269,7 +269,7 @@ Large Print Sudoku Puzzle Book for Adults & Seniors
   <li>Solutions printed at the back, organized by puzzle number</li>
 </ul>
 
-<p><b>Crafted, not mass-produced.</b> At Brain Craft Publishing, we don't pad books with random algorithm output. Every puzzle in this book was generated, verified, and reviewed for logical consistency before printing — because your time deserves better.</p>
+<p><b>Crafted, not mass-produced.</b> At BrainCraft Publishing, we don't pad books with random algorithm output. Every puzzle in this book was generated, verified, and reviewed for logical consistency before printing — because your time deserves better.</p>
 
 <p><i>Click "Add to Cart" now and treat your mind to 200 puzzles built the way Sudoku was meant to be enjoyed — by logic alone.</i>
 ```

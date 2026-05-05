@@ -163,7 +163,12 @@ def main():
         else:
             full_prompt = config.BASE_PROMPT.format(age=config.TARGET_AGE, subject=prompt_text)
 
-        ar = dims["bimai_aspect_ratio"] if args.renderer == "bimai" else dims["ai33_aspect_ratio"]
+        if args.renderer == "bimai":
+            ar = dims["bimai_aspect_ratio"]
+        elif args.renderer == "openai":
+            ar = dims["openai_aspect_ratio"]
+        else:
+            ar = dims["ai33_aspect_ratio"]
         image = generate_image(full_prompt, renderer=args.renderer, aspect_ratio=ar)
 
         if image:

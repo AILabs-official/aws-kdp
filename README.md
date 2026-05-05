@@ -112,8 +112,8 @@ python3 -c "import os; from apify_client import ApifyClient; ApifyClient(os.gete
 ```bash
 python scripts/plan_book.py       --concept "cozy cats in a cafe" --audience adults --pages 30 --theme-key cozy_cat_cafe
 python scripts/generate_images.py --plan output/cozy_cat_cafe/plan.json --count 30
-python scripts/build_pdf.py       --theme cozy_cat_cafe --author "BoBo Art"
-python scripts/generate_cover.py  --theme cozy_cat_cafe --author "BoBo Art"
+python scripts/build_pdf.py       --theme cozy_cat_cafe --author "BrainCraft Publishing"
+python scripts/generate_cover.py  --theme cozy_cat_cafe --author "BrainCraft Publishing"
 python scripts/pdf_qc.py          --pdf output/cozy_cat_cafe/interior.pdf --trim 8.5x11 --require-even-pages
 ```
 

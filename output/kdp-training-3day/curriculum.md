@@ -586,7 +586,7 @@ python scripts/generate_sudoku.py \
 ```bash
 python scripts/build_pdf.py \
   --theme cozy_cat_cafe \
-  --author "BoBo Art" \
+  --author "BrainCraft Publishing" \
   --size 8.5x11
 ```
 Auto:
@@ -601,7 +601,7 @@ Auto:
 ```bash
 python scripts/generate_cover.py \
   --theme cozy_cat_cafe \
-  --author "BoBo Art" \
+  --author "BrainCraft Publishing" \
   --kdp-width 17.4752 \
   --kdp-height 11.25
 ```

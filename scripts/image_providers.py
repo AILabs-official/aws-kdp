@@ -6,6 +6,7 @@ Supports: AI33, Bimai, NanoPic, Kie.ai.
 from __future__ import annotations
 
 import io
+import base64
 import json
 import os
 import sys
@@ -212,6 +213,61 @@ def generate_image_bimai(prompt: str, aspect_ratio: str = "9:16", resolution: st
     return None
 
 
+def generate_image_openai(prompt: str, aspect_ratio: str = "1:1") -> Image.Image | None:
+    """Generate an image using the OpenAI GPT Image API."""
+    api_key = os.getenv("OPENAI_API_KEY")
+    if not api_key:
+        print("Error: OPENAI_API_KEY not found in .env")
+        sys.exit(1)
+
+    size = config.OPENAI_IMAGE_SIZES.get(aspect_ratio, "1024x1024")
+    headers = {
+        "Authorization": f"Bearer {api_key}",
+        "Content-Type": "application/json",
+    }
+    payload = {
+        "model": config.OPENAI_IMAGE_MODEL,
+        "prompt": prompt,
+        "size": size,
+        "quality": config.OPENAI_IMAGE_QUALITY,
+        "background": config.OPENAI_IMAGE_BACKGROUND,
+        "output_format": "png",
+    }
+
+    for attempt in range(config.MAX_RETRIES):
+        try:
+            resp = requests.post(
+                config.OPENAI_IMAGE_API_URL,
+                headers=headers,
+                json=payload,
+                timeout=300,
+            )
+            resp.raise_for_status()
+            result = resp.json()
+            data = result.get("data") or []
+            if not data:
+                print(f"  OpenAI image response had no data: {result}")
+                return None
+
+            item = data[0]
+            if item.get("b64_json"):
+                return Image.open(io.BytesIO(base64.b64decode(item["b64_json"])))
+            if item.get("url"):
+                img_resp = requests.get(item["url"], timeout=300)
+                img_resp.raise_for_status()
+                return Image.open(io.BytesIO(img_resp.content))
+
+            print(f"  OpenAI image response had no image payload: {item}")
+            return None
+
+        except Exception as e:
+            print(f"  Error (attempt {attempt + 1}/{config.MAX_RETRIES}): {e}")
+            if attempt < config.MAX_RETRIES - 1:
+                time.sleep(config.REQUEST_DELAY_SECONDS)
+
+    return None
+
+
 def generate_image_nanopic(prompt: str, aspect_ratio: str = "1:1") -> Image.Image | None:
     """Generate an image using NanoPic API (nanoai.pics)."""
     api_key = os.getenv("NANOPIC_API_KEY")
@@ -393,6 +449,7 @@ def generate_image_kie(prompt: str, aspect_ratio: str = "3:4") -> Image.Image | 
 RENDERERS = {
     "ai33": generate_image_ai33,
     "bimai": generate_image_bimai,
+    "openai": generate_image_openai,
     "nanopic": generate_image_nanopic,
     "kie": generate_image_kie,
 }

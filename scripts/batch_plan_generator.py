@@ -2,7 +2,7 @@
 """
 Batch Plan Generator - Creates plan.json for all 81 pending ideas.
 All prompts written by Claude (no AI generation).
-Author: BoBo Art | Page size: 8.5x8.5 (square) | Pages: 50 per book
+Author: BrainCraft Publishing | Page size: 8.5x8.5 (square) | Pages: 50 per book
 """
 
 import os

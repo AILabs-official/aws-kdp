@@ -90,6 +90,72 @@ def draw_sudoku_grid(
             c.drawCentredString(cx, text_y, str(n))
 
 
+def draw_sudoku_grid_with_hints(
+    c: canvas.Canvas,
+    x: float, y: float, size: float,
+    clues: list[list[int]],
+    hint_cells: list[tuple[int, int, int]],
+    grid_size: int = 9,
+    box_rows: int = 3,
+    box_cols: int = 3,
+    clue_font: str = "Helvetica",
+    hint_font: str = "Helvetica-Bold",
+    clue_font_size: float | None = None,
+    thick_w: float = 1.6,
+    thin_w: float = 0.45,
+    hint_fill_gray: float = 0.82,
+) -> None:
+    """Draw a sudoku grid + a set of hint cells filled with gray + bold digit.
+
+    `clues[r][col]` are the original puzzle clues (0 = empty). `hint_cells` is
+    a list of (row, col, value) tuples — those cells get a gray background and
+    the value rendered in bold to mark them as the extra hint cells revealed
+    for the current tier (Tier 1 / Tier 2). Originally-clued cells are
+    rendered identically to `draw_sudoku_grid` for visual continuity.
+    """
+    cell = size / grid_size
+    if clue_font_size is None:
+        clue_font_size = cell * 0.55
+
+    hint_lookup = {(r, col): v for (r, col, v) in hint_cells}
+
+    # Gray fills for hint cells (drawn first so the grid lines sit on top)
+    if hint_lookup:
+        c.saveState()
+        c.setFillGray(hint_fill_gray)
+        c.setStrokeGray(hint_fill_gray)
+        for (r, col) in hint_lookup:
+            cx = x + col * cell
+            cy = y + size - (r + 1) * cell
+            c.rect(cx, cy, cell, cell, stroke=0, fill=1)
+        c.restoreState()
+
+    # Grid lines
+    for i in range(grid_size + 1):
+        w = thick_w if i % box_rows == 0 else thin_w
+        c.setLineWidth(w)
+        c.line(x, y + i * cell, x + size, y + i * cell)
+    for i in range(grid_size + 1):
+        w = thick_w if i % box_cols == 0 else thin_w
+        c.setLineWidth(w)
+        c.line(x + i * cell, y, x + i * cell, y + size)
+
+    # Digits — original clues in regular font, hint cells in bold
+    for r in range(grid_size):
+        for col in range(grid_size):
+            n = clues[r][col]
+            hint_val = hint_lookup.get((r, col))
+            cx = x + col * cell + cell / 2
+            cy_top = y + size - r * cell
+            text_y = cy_top - cell / 2 - clue_font_size / 3
+            if hint_val is not None:
+                c.setFont(hint_font, clue_font_size)
+                c.drawCentredString(cx, text_y, str(hint_val))
+            elif n != 0:
+                c.setFont(clue_font, clue_font_size)
+                c.drawCentredString(cx, text_y, str(n))
+
+
 # Helper: pick box dims from puzzle dict (puzzles created with grid_size from generate_sudoku.py)
 def _grid_dims(puzzle: dict) -> tuple[int, int, int]:
     """Return (grid_size, box_rows, box_cols) for a puzzle dict."""
@@ -684,10 +750,10 @@ def compute_tier_hints(
     return tier1, tier2
 
 
-def _format_hint_line(puzzle_id: int, hints: list[tuple[int, int, int]]) -> str:
-    """Compact format: '#001:  R3C4=7   R5C2=3   R7C8=9   R1C5=2   R8C1=6'"""
-    cells = "   ".join(f"R{r+1}C{c+1}={v}" for r, c, v in hints)
-    return f"#{puzzle_id:03d}:   {cells}"
+# NOTE: Compact text hint formatting was removed by an explicit kaizen rule.
+# Hint pages MUST render as mini sudoku grids with gray-highlighted hint cells.
+# Do NOT reintroduce a `R1C2=3 R3C7=9 …` text layout — see
+# .claude memory `feedback_sudoku_hint_format.md`.
 
 
 def build_hints_master_divider(c: canvas.Canvas) -> None:
@@ -740,7 +806,7 @@ def build_hints_master_divider(c: canvas.Canvas) -> None:
     c.setFont("Times-Italic", 11)
     c.drawCentredString(
         PAGE_W / 2, 0.7 * inch,
-        "Each hint references a cell as RxCy  (Row x, Column y).",
+        "Hint pages show the puzzle with extra cells highlighted — fill them in to continue.",
     )
     c.showPage()
 
@@ -775,7 +841,11 @@ def build_hint_tier_divider(
     c.showPage()
 
 
-HINT_SLOTS_PER_PAGE = 38  # constant — both rendering & TOC math use this
+# 9-up layout: 3 columns × 3 rows of mini sudoku grids per page.
+# Section headers (e.g. "── Easy Puzzles ──") consume one full grid slot.
+HINT_GRIDS_PER_PAGE = 9
+HINT_GRID_COLS = 3
+HINT_GRID_ROWS = 3
 
 
 def _hint_items(puzzles: list[dict]) -> list[dict]:
@@ -823,28 +893,34 @@ def count_hint_pages(puzzles: list[dict]) -> int:
     accurate. A section header must always be followed by at least one
     puzzle line on the same page (no orphaned headers).
     """
-    items = _hint_items(puzzles)
-    n_pages = 0
+    return len(_paginate_hint_items(_hint_items(puzzles)))
+
+
+def _paginate_hint_items(items: list[dict]) -> list[list[dict]]:
+    """Split the hint item stream into pages of HINT_GRIDS_PER_PAGE slots.
+
+    Both section headers and puzzles consume one slot each. A section header
+    is never left orphaned as the last slot on a page — if it would land on
+    the final slot, push it (and everything after) to the next page.
+    """
+    pages: list[list[dict]] = []
+    current: list[dict] = []
     i = 0
     while i < len(items):
-        n_pages += 1
-        slots = 0
-        while i < len(items):
-            cost = _slot_cost(items[i])
-            if slots + cost > HINT_SLOTS_PER_PAGE:
-                break
-            # Don't leave a section header as the last thing on a page
-            if (items[i]["type"] == "section"
-                    and slots + cost + 1 > HINT_SLOTS_PER_PAGE):
-                break
-            slots += cost
-            i += 1
-    return n_pages
-
-
-def _format_hint_cells(hints: list[tuple[int, int, int]]) -> str:
-    """Compact monospace formatting: 'R1C2=3  R3C7=9  R5C5=4'."""
-    return "  ".join(f"R{r+1}C{c+1}={v}" for r, c, v in hints)
+        it = items[i]
+        if (it["type"] == "section"
+                and len(current) == HINT_GRIDS_PER_PAGE - 1):
+            pages.append(current)
+            current = []
+            continue
+        current.append(it)
+        if len(current) == HINT_GRIDS_PER_PAGE:
+            pages.append(current)
+            current = []
+        i += 1
+    if current:
+        pages.append(current)
+    return pages
 
 
 def build_hint_pages(
@@ -855,66 +931,79 @@ def build_hint_pages(
     tier_subtext: str,
     starting_page_num: int,
 ) -> int:
-    """Render hint pages with section sub-headers and per-puzzle compact lines.
+    """Render Tier 1 / Tier 2 hint pages as 3×3 grids of mini sudoku boards.
+
+    Each puzzle is shown as the original clue grid with the tier's hint cells
+    highlighted (gray fill + bold digit). Section dividers ("── Easy ──")
+    occupy one full slot so the visual grouping stays clear.
 
     `hints_by_id` is pre-computed by `compute_tier_hints` so Tier 2 can be
-    cumulative on top of Tier 1 (same cells reappear in Tier 2 + extras).
-
-    Mirrors `count_hint_pages` slot accounting exactly so TOC math is precise.
+    cumulative on top of Tier 1.
     """
-    items = _hint_items(puzzles)
-    line_h = 13.0      # 9pt Courier with 1.4× leading
-    section_h = 26.0   # section header takes 2 slots' worth of vertical space
+    pages = _paginate_hint_items(_hint_items(puzzles))
+
+    # Layout — 3 cols × 3 rows on the body region below the header
+    grid_w = 2.05 * inch
+    gap_x = 0.30 * inch
+    gap_y = 0.45 * inch         # extra room for label above each grid
+    label_h = 0.20 * inch
+    cell_block_h = grid_w + label_h
+    total_w = HINT_GRID_COLS * grid_w + (HINT_GRID_COLS - 1) * gap_x
     body_top = PAGE_H - 1.0 * inch
-    body_left = 0.55 * inch
+    body_y_top = body_top - 0.10 * inch
+    start_x = (PAGE_W - total_w) / 2
+    start_y_top = body_y_top  # top edge of the first row
 
     page_num = starting_page_num
-    i = 0
-    while i < len(items):
+    for page_items in pages:
         # ---- Page header ----
         c.setFont("Helvetica-Bold", 14)
         c.drawCentredString(PAGE_W / 2, PAGE_H - 0.50 * inch, tier_label)
         c.setFont("Helvetica-Oblique", 10)
         c.drawCentredString(PAGE_W / 2, PAGE_H - 0.72 * inch, tier_subtext)
-        # Decorative thin rule under header
         c.setLineWidth(0.4)
-        c.line(2.0 * inch, PAGE_H - 0.82 * inch, PAGE_W - 2.0 * inch, PAGE_H - 0.82 * inch)
+        c.line(2.0 * inch, PAGE_H - 0.82 * inch,
+               PAGE_W - 2.0 * inch, PAGE_H - 0.82 * inch)
 
-        # ---- Body ----
-        y = body_top - 0.20 * inch
-        slots = 0
-        while i < len(items):
-            cost = _slot_cost(items[i])
-            if slots + cost > HINT_SLOTS_PER_PAGE:
-                break
-            if (items[i]["type"] == "section"
-                    and slots + cost + 1 > HINT_SLOTS_PER_PAGE):
-                break
+        # ---- Body: walk slots row-major (left→right, top→bottom) ----
+        for slot_idx, item in enumerate(page_items):
+            row = slot_idx // HINT_GRID_COLS
+            col = slot_idx % HINT_GRID_COLS
+            gx = start_x + col * (grid_w + gap_x)
+            # reportlab y is bottom-up → top row should be visually highest
+            block_top = start_y_top - row * (cell_block_h + gap_y)
+            label_y = block_top - label_h * 0.55
+            gy = block_top - label_h - grid_w  # bottom-left of the grid
 
-            it = items[i]
-            if it["type"] == "section":
-                # Section sub-header  "──  Easy Puzzles  ──    (60 puzzles)"
+            if item["type"] == "section":
+                # Centered section header occupying one slot — visually break
+                # the wall of grids without burning a full row.
                 c.setFont("Helvetica-Bold", 11)
-                label = f"──  {it['label']}  ──"
-                c.drawString(body_left, y, label)
-                w = c.stringWidth(label, "Helvetica-Bold", 11)
+                label = f"──  {item['label']}  ──"
+                c.drawCentredString(gx + grid_w / 2,
+                                    block_top - cell_block_h / 2 + 4,
+                                    label)
                 c.setFont("Helvetica-Oblique", 9)
-                c.drawString(body_left + w + 6, y, f"({it['count']} puzzles)")
-                y -= section_h
-                slots += 2
-            else:
-                puz = it["puzzle"]
-                gs = puz.get("grid_size", 9)
-                hints = hints_by_id.get(puz["id"], [])
-                marker = "" if gs == 9 else " (6×6)"
-                cells_str = _format_hint_cells(hints)
-                line = f"#{puz['id']:03d}{marker}:   {cells_str}"
-                c.setFont("Courier", 9)
-                c.drawString(body_left, y, line)
-                y -= line_h
-                slots += 1
+                c.drawCentredString(gx + grid_w / 2,
+                                    block_top - cell_block_h / 2 - 11,
+                                    f"({item['count']} puzzles)")
+                continue
 
-            i += 1
+            puz = item["puzzle"]
+            gs, br, bc = _grid_dims(puz)
+            marker = "" if gs == 9 else "  (6×6)"
+            label = f"#{puz['id']:03d}{marker}"
+            c.setFont("Helvetica-Bold", 9)
+            c.drawCentredString(gx + grid_w / 2, label_y, label)
+            clue_pt = (grid_w / gs) * 0.50
+            draw_sudoku_grid_with_hints(
+                c, gx, gy, grid_w,
+                clues=puz["puzzle"],
+                hint_cells=hints_by_id.get(puz["id"], []),
+                grid_size=gs, box_rows=br, box_cols=bc,
+                clue_font_size=clue_pt,
+                thick_w=1.4, thin_w=0.40,
+            )
 
         # ---- Page number ----
         c.setFont("Helvetica", 9)
